@@ -1,0 +1,4 @@
+folder_name: centos_folder
+user_name: student
+group_name: student
+folder_to_delete: testing

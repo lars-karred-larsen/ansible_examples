@@ -1,0 +1,28 @@
+---
+- name: Create folders in centos servers
+  hosts: centos
+  tasks:
+    - name: Create a folders
+      ansible.builtin.file:
+        path: /home/student/{{ folder_name }}
+        owner: "{{ user_name }}"
+        group: "{{ group_name }}"
+        state: directory
+
+- name: Create file in centos servers
+  hosts: centos
+  tasks:
+    - name: Create a file
+      ansible.builtin.file:
+        path: /home/student/{{ folder_name }}/{{ file_name }}
+        owner: "{{ user_name }}"
+        group: "{{ group_name }}"
+        state: touch
+
+- name: Delete folder with content
+  hosts: centos
+  tasks:
+    - name: Delete file
+      ansible.builtin.file:
+        path: /home/student/{{ folder_to_delete }}
+        state: absent

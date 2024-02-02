@@ -1,0 +1,19 @@
+---
+- name: First ansible playbook
+  hosts: centos
+  tasks:
+    - name: Check if servers in "centos" group are available for ansible
+      ansible.builtin.ping:
+    - name: Reboot all servers in "centos" group
+      ansible.builtin.reboot:
+- name: Install packages
+  hosts: centos
+  vars:
+    git_package:
+      - git
+      - java-17-openjdk
+  tasks:
+    - name: Install java and git
+      ansible.builtin.dnf:
+        name: "{{ git_package }}"
+        state: absent
