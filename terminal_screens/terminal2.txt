@@ -1,0 +1,230 @@
+[student@master ~]$ python3.11 -m pip install ansible ansible-lint pywinrm
+Defaulting to user installation because normal site-packages is not writeable
+Collecting ansible
+  Downloading ansible-9.2.0-py3-none-any.whl (48.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.5/48.5 MB 10.3 MB/s eta 0:00:00
+Collecting ansible-lint
+  Using cached ansible_lint-6.22.2-py3-none-any.whl (297 kB)
+Collecting pywinrm
+  Downloading pywinrm-0.4.3-py2.py3-none-any.whl (44 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.1/44.1 kB 4.8 MB/s eta 0:00:00
+Collecting ansible-core~=2.16.3
+  Downloading ansible_core-2.16.3-py3-none-any.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 11.6 MB/s eta 0:00:00
+Collecting ansible-compat>=4.1.11
+  Using cached ansible_compat-4.1.11-py3-none-any.whl (23 kB)
+Collecting black>=22.8.0
+  Downloading black-24.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 11.6 MB/s eta 0:00:00
+Collecting filelock>=3.3.0
+  Using cached filelock-3.13.1-py3-none-any.whl (11 kB)
+Collecting jsonschema>=4.10.0
+  Using cached jsonschema-4.21.1-py3-none-any.whl (85 kB)
+Collecting packaging>=21.3
+  Using cached packaging-23.2-py3-none-any.whl (53 kB)
+Collecting pathspec>=0.10.3
+  Using cached pathspec-0.12.1-py3-none-any.whl (31 kB)
+Collecting pyyaml>=5.4.1
+  Downloading PyYAML-6.0.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (757 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 757.7/757.7 kB 12.1 MB/s eta 0:00:00
+Collecting rich>=12.0.0
+  Using cached rich-13.7.0-py3-none-any.whl (240 kB)
+Collecting ruamel.yaml>=0.18.5
+  Using cached ruamel.yaml-0.18.5-py3-none-any.whl (116 kB)
+Collecting subprocess-tee>=0.4.1
+  Using cached subprocess_tee-0.4.1-py3-none-any.whl (5.1 kB)
+Collecting yamllint>=1.30.0
+  Using cached yamllint-1.33.0-py3-none-any.whl (65 kB)
+Collecting wcmatch>=8.1.2
+  Using cached wcmatch-8.5-py3-none-any.whl (39 kB)
+Collecting xmltodict
+  Downloading xmltodict-0.13.0-py2.py3-none-any.whl (10.0 kB)
+Collecting requests>=2.9.1
+  Downloading requests-2.31.0-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 28.7 MB/s eta 0:00:00
+Collecting requests-ntlm>=1.1.0
+  Downloading requests_ntlm-1.2.0-py3-none-any.whl (6.0 kB)
+Collecting six
+  Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting jinja2>=3.0.0
+  Using cached Jinja2-3.1.3-py3-none-any.whl (133 kB)
+Collecting cryptography
+  Using cached cryptography-42.0.2-cp39-abi3-manylinux_2_28_x86_64.whl (4.7 MB)
+Collecting resolvelib<1.1.0,>=0.5.3
+  Using cached resolvelib-1.0.1-py2.py3-none-any.whl (17 kB)
+Collecting click>=8.0.0
+  Using cached click-8.1.7-py3-none-any.whl (97 kB)
+Collecting mypy-extensions>=0.4.3
+  Using cached mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Collecting platformdirs>=2
+  Using cached platformdirs-4.2.0-py3-none-any.whl (17 kB)
+Collecting attrs>=22.2.0
+  Using cached attrs-23.2.0-py3-none-any.whl (60 kB)
+Collecting jsonschema-specifications>=2023.03.6
+  Using cached jsonschema_specifications-2023.12.1-py3-none-any.whl (18 kB)
+Collecting referencing>=0.28.4
+  Using cached referencing-0.33.0-py3-none-any.whl (26 kB)
+Collecting rpds-py>=0.7.1
+  Downloading rpds_py-0.17.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 11.7 MB/s eta 0:00:00
+Collecting charset-normalizer<4,>=2
+  Downloading charset_normalizer-3.3.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (140 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.3/140.3 kB 25.9 MB/s eta 0:00:00
+Collecting idna<4,>=2.5
+  Downloading idna-3.6-py3-none-any.whl (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.6/61.6 kB 7.3 MB/s eta 0:00:00
+Collecting urllib3<3,>=1.21.1
+  Downloading urllib3-2.2.0-py3-none-any.whl (120 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 120.9/120.9 kB 13.6 MB/s eta 0:00:00
+Collecting certifi>=2017.4.17
+  Downloading certifi-2023.11.17-py3-none-any.whl (162 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162.5/162.5 kB 14.3 MB/s eta 0:00:00
+Collecting pyspnego>=0.1.6
+  Downloading pyspnego-0.10.2-py3-none-any.whl (129 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.9/129.9 kB 14.2 MB/s eta 0:00:00
+Collecting markdown-it-py>=2.2.0
+  Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Collecting pygments<3.0.0,>=2.13.0
+  Using cached pygments-2.17.2-py3-none-any.whl (1.2 MB)
+Collecting ruamel.yaml.clib>=0.2.7
+  Downloading ruamel.yaml.clib-0.2.8-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (544 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 544.0/544.0 kB 12.1 MB/s eta 0:00:00
+Collecting bracex>=2.1.1
+  Using cached bracex-2.4-py3-none-any.whl (11 kB)
+Collecting cffi>=1.12
+  Downloading cffi-1.16.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (464 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 464.8/464.8 kB 11.5 MB/s eta 0:00:00
+Collecting MarkupSafe>=2.0
+  Downloading MarkupSafe-2.1.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (28 kB)
+Collecting mdurl~=0.1
+  Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Collecting pycparser
+  Using cached pycparser-2.21-py2.py3-none-any.whl (118 kB)
+Installing collected packages: resolvelib, xmltodict, urllib3, subprocess-tee, six, ruamel.yaml.clib, rpds-py, pyyaml, pygments, pycparser, platformdirs, pathspec, packaging, mypy-extensions, mdurl, MarkupSafe, idna, filelock, click, charset-normalizer, certifi, bracex, attrs, yamllint, wcmatch, ruamel.yaml, requests, referencing, markdown-it-py, jinja2, cffi, black, rich, jsonschema-specifications, cryptography, pyspnego, jsonschema, ansible-core, requests-ntlm, ansible-compat, ansible, pywinrm, ansible-lint
+Successfully installed MarkupSafe-2.1.4 ansible-9.2.0 ansible-compat-4.1.11 ansible-core-2.16.3 ansible-lint-6.22.2 attrs-23.2.0 black-24.1.1 bracex-2.4 certifi-2023.11.17 cffi-1.16.0 charset-normalizer-3.3.2 click-8.1.7 cryptography-42.0.2 filelock-3.13.1 idna-3.6 jinja2-3.1.3 jsonschema-4.21.1 jsonschema-specifications-2023.12.1 markdown-it-py-3.0.0 mdurl-0.1.2 mypy-extensions-1.0.0 packaging-23.2 pathspec-0.12.1 platformdirs-4.2.0 pycparser-2.21 pygments-2.17.2 pyspnego-0.10.2 pywinrm-0.4.3 pyyaml-6.0.1 referencing-0.33.0 requests-2.31.0 requests-ntlm-1.2.0 resolvelib-1.0.1 rich-13.7.0 rpds-py-0.17.1 ruamel.yaml-0.18.5 ruamel.yaml.clib-0.2.8 six-1.16.0 subprocess-tee-0.4.1 urllib3-2.2.0 wcmatch-8.5 xmltodict-0.13.0 yamllint-1.33.0
+[student@master ~]$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 83127  100 83127    0     0   143k      0 --:--:-- --:--:-- --:--:--  143k
+[student@master ~]$ vi .vimrc
+[student@master ~]$ vi .vimrc
+
+ansible version 2.16.3 supports using FQCN
+Generated snippets will use FQCN e.g. 'ansible.builtin.yum' instead of 'yum'
+Still, you only need to type 'yum' to trigger the snippet
+[WARNING]: Building documentation, failed to assign id for <ast.Tuple object at
+0x7f23b9a65300> on /home/student/.local/lib/python3.11/site-
+packages/ansible/modules/async_wrapper.py, skipping
+
+sh: line 1: yarn: command not found
+
+shell returned 127
+[student@master ~]$ vim
+[student@master ~]$ vi .vim/coc-settings.json
+[student@master ~]$ vi playbook.yaml
+[student@master ~]$ vi playbook.yaml
+[student@master ~]$ vi playbook.yaml
+[student@master ~]$ ansible --version
+ansible [core 2.16.3]
+  config file = None
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/student/.local/lib/python3.11/site-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/student/.local/bin/ansible
+  python version = 3.11.5 (main, Jan  9 2024, 00:00:00) [GCC 11.4.1 20231218 (Red Hat 11.4.1-3)] (/usr/bin/python3.11)
+  jinja version = 3.1.3
+  libyaml = True
+[student@master ~]$ cd ansible_examples/
+[student@master ansible_examples]$ ansible-navigator config view -m stdout
+---------------------------------------------------------------------
+Execution environment image and pull policy overview
+---------------------------------------------------------------------
+Execution environment image name:     ghcr.io/ansible/creator-ee:v0.21.0
+Execution environment image tag:      v0.21.0
+Execution environment pull arguments: None
+Execution environment pull policy:    tag
+Execution environment pull needed:    True
+---------------------------------------------------------------------
+Updating the execution environment
+---------------------------------------------------------------------
+Running the command: podman pull ghcr.io/ansible/creator-ee:v0.21.0
+Trying to pull ghcr.io/ansible/creator-ee:v0.21.0...
+Getting image source signatures
+Copying blob d887d5a05f73 done   | 
+Copying blob 4d41e34b6863 done   | 
+Copying blob da4089451813 done   | 
+Copying blob 8ace16ba6681 done   | 
+Copying blob 7adb41b6059d done   | 
+Copying blob bc535405a042 done   | 
+Copying blob ab248fe5664e done   | 
+Copying blob 9934bfda2271 done   | 
+Copying blob c01ac44a389a done   | 
+Copying blob 17dde5ac3f4e done   | 
+Copying blob 95eeeb12f681 done   | 
+Copying blob 2adbf65d56fe done   | 
+Copying blob 55afe44c9b27 done   | 
+Copying config 5763a5ad4a done   | 
+Writing manifest to image destination
+5763a5ad4a70550f4f12d5db6782eb4592a7d460b10c5b26eddee366881b80af
+[defaults]
+# (boolean) By default Ansible will issue a warning when received from a task >
+# These warnings can be silenced by adjusting this setting to False.
+;action_warnings=True
+
+# (list) Accept list of cowsay templates that are 'safe' to use, set to empty >
+;cowsay_enabled_stencils=bud-frogs, bunny, cheese, daemon, default, dragon, el>
+
+# (string) Specify a custom cowsay path or swap in your cowsay implementation >
+;cowpath=
+
+# (string) This allows you to chose a specific cowsay stencil for the banners >
+;cow_selection=default
+
+# (boolean) This option forces color mode even when running without a TTY or t>
+;force_color=False
+
+# (path) The default root path for Ansible config files on the controller.
+;home=~/.ansible
+
+# (boolean) This setting allows suppressing colorizing output, which is used t>
+;nocolor=False
+
+# (boolean) If you have cowsay installed but want to avoid the 'cows' (why????>
+;nocows=False
+
+# (boolean) Sets the default value for the any_errors_fatal keyword, if True, >
+;any_errors_fatal=False
+
+# (path) The password file to use for the become plugin. --become-password-fil>
+# If executable, it will be run and the resulting stdout will be used as the p>
+;become_password_file=
+
+# (pathspec) Colon separated paths in which Ansible will search for Become Plu>
+;become_plugins={{ ANSIBLE_HOME ~ "/plugins/become:/usr/share/ansible/plugins/>
+
+# (string) Chooses which cache plugin to use, the default 'memory' is ephemera>
+;fact_caching=memory
+
+# (string) Defines connection or path information for the cache plugin
+;fact_caching_connection=
+
+# (string) Prefix to use for cache plugin files/tables
+;fact_caching_prefix=ansible_facts
+[student@master ansible_examples]$ more .vimrc
+more: cannot open .vimrc: No such file or directory
+[student@master ansible_examples]$ more ~/.vimrc
+call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
+Plug 'sheerun/vim-polyglot'
+Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}
+call plug#end()
+set cursorline cuc
+set filetype=yaml.ansible
+let g:coc_filetype_map = {
+  \ 'yaml.ansible': 'ansible',
+  \ }
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+inoremap <expr> <CR> pumvisible() ? "\<C-y>": "\<CR>"
+[student@master ansible_examples]$ 
+

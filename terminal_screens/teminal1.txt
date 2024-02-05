@@ -1,0 +1,151 @@
+[student@master ~]$ sud su -
+bash: sud: command not found...
+[student@master ~]$ sudo su -
+[root@master ~]# dnf install epel-release git python3.11 python3.11-pip -y
+Last metadata expiration check: 3:07:17 ago on Wed 31 Jan 2024 01:26:44 PM IST.
+Package epel-release-9-7.el9.noarch is already installed.
+Package git-2.39.3-1.el9.x86_64 is already installed.
+Dependencies resolved.
+================================================================================
+ Package                        Arch      Version            Repository    Size
+================================================================================
+Installing:
+ python3.11                     x86_64    3.11.5-2.el9       appstream     27 k
+ python3.11-pip                 noarch    22.3.1-4.el9       appstream    3.2 M
+Upgrading:
+ git                            x86_64    2.43.0-1.el9       appstream     51 k
+ git-core                       x86_64    2.43.0-1.el9       appstream    4.4 M
+ git-core-doc                   noarch    2.43.0-1.el9       appstream    2.9 M
+ perl-Git                       noarch    2.43.0-1.el9       appstream     38 k
+Installing dependencies:
+ libnsl2                        x86_64    2.0.0-1.el9        appstream     31 k
+ mpdecimal                      x86_64    2.5.1-3.el9        appstream     86 k
+ python3.11-libs                x86_64    3.11.5-2.el9       appstream    9.9 M
+ python3.11-pip-wheel           noarch    22.3.1-4.el9       appstream    1.4 M
+ python3.11-setuptools-wheel    noarch    65.5.1-2.el9       appstream    713 k
+Installing weak dependencies:
+ python3.11-setuptools          noarch    65.5.1-2.el9       appstream    1.7 M
+
+Transaction Summary
+================================================================================
+Install  8 Packages
+Upgrade  4 Packages
+
+Total download size: 24 M
+Downloading Packages:
+(1/12): python3.11-3.11.5-2.el9.x86_64.rpm       23 kB/s |  27 kB     00:01    
+(2/12): libnsl2-2.0.0-1.el9.x86_64.rpm           25 kB/s |  31 kB     00:01    
+(3/12): mpdecimal-2.5.1-3.el9.x86_64.rpm         68 kB/s |  86 kB     00:01    
+(4/12): python3.11-pip-wheel-22.3.1-4.el9.noarc 1.7 MB/s | 1.4 MB     00:00    
+(5/12): python3.11-pip-22.3.1-4.el9.noarch.rpm  2.1 MB/s | 3.2 MB     00:01    
+(6/12): python3.11-setuptools-65.5.1-2.el9.noar 2.0 MB/s | 1.7 MB     00:00    
+(7/12): git-2.43.0-1.el9.x86_64.rpm             318 kB/s |  51 kB     00:00    
+(8/12): python3.11-setuptools-wheel-65.5.1-2.el 1.4 MB/s | 713 kB     00:00    
+(9/12): git-core-doc-2.43.0-1.el9.noarch.rpm    2.2 MB/s | 2.9 MB     00:01    
+(10/12): perl-Git-2.43.0-1.el9.noarch.rpm       211 kB/s |  38 kB     00:00    
+(11/12): git-core-2.43.0-1.el9.x86_64.rpm       1.8 MB/s | 4.4 MB     00:02    
+(12/12): python3.11-libs-3.11.5-2.el9.x86_64.rp 1.4 MB/s | 9.9 MB     00:06    
+--------------------------------------------------------------------------------
+Total                                           2.8 MB/s |  24 MB     00:08     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Upgrading        : git-core-2.43.0-1.el9.x86_64                          1/16 
+  Upgrading        : git-core-doc-2.43.0-1.el9.noarch                      2/16 
+  Upgrading        : perl-Git-2.43.0-1.el9.noarch                          3/16 
+  Upgrading        : git-2.43.0-1.el9.x86_64                               4/16 
+  Installing       : python3.11-setuptools-wheel-65.5.1-2.el9.noarch       5/16 
+  Installing       : python3.11-pip-wheel-22.3.1-4.el9.noarch              6/16 
+  Installing       : mpdecimal-2.5.1-3.el9.x86_64                          7/16 
+  Installing       : libnsl2-2.0.0-1.el9.x86_64                            8/16 
+  Installing       : python3.11-3.11.5-2.el9.x86_64                        9/16 
+  Installing       : python3.11-libs-3.11.5-2.el9.x86_64                  10/16 
+  Installing       : python3.11-setuptools-65.5.1-2.el9.noarch            11/16 
+  Installing       : python3.11-pip-22.3.1-4.el9.noarch                   12/16 
+  Cleanup          : git-2.39.3-1.el9.x86_64                              13/16 
+  Cleanup          : git-core-doc-2.39.3-1.el9.noarch                     14/16 
+  Cleanup          : perl-Git-2.39.3-1.el9.noarch                         15/16 
+  Cleanup          : git-core-2.39.3-1.el9.x86_64                         16/16 
+  Running scriptlet: git-core-2.39.3-1.el9.x86_64                         16/16 
+  Verifying        : libnsl2-2.0.0-1.el9.x86_64                            1/16 
+  Verifying        : mpdecimal-2.5.1-3.el9.x86_64                          2/16 
+  Verifying        : python3.11-3.11.5-2.el9.x86_64                        3/16 
+  Verifying        : python3.11-libs-3.11.5-2.el9.x86_64                   4/16 
+  Verifying        : python3.11-pip-22.3.1-4.el9.noarch                    5/16 
+  Verifying        : python3.11-pip-wheel-22.3.1-4.el9.noarch              6/16 
+  Verifying        : python3.11-setuptools-65.5.1-2.el9.noarch             7/16 
+  Verifying        : python3.11-setuptools-wheel-65.5.1-2.el9.noarch       8/16 
+  Verifying        : git-2.43.0-1.el9.x86_64                               9/16 
+  Verifying        : git-2.39.3-1.el9.x86_64                              10/16 
+  Verifying        : git-core-2.43.0-1.el9.x86_64                         11/16 
+  Verifying        : git-core-2.39.3-1.el9.x86_64                         12/16 
+  Verifying        : git-core-doc-2.43.0-1.el9.noarch                     13/16 
+  Verifying        : git-core-doc-2.39.3-1.el9.noarch                     14/16 
+  Verifying        : perl-Git-2.43.0-1.el9.noarch                         15/16 
+  Verifying        : perl-Git-2.39.3-1.el9.noarch                         16/16 
+
+Upgraded:
+  git-2.43.0-1.el9.x86_64                  git-core-2.43.0-1.el9.x86_64        
+  git-core-doc-2.43.0-1.el9.noarch         perl-Git-2.43.0-1.el9.noarch        
+Installed:
+  libnsl2-2.0.0-1.el9.x86_64                                                    
+  mpdecimal-2.5.1-3.el9.x86_64                                                  
+  python3.11-3.11.5-2.el9.x86_64                                                
+  python3.11-libs-3.11.5-2.el9.x86_64                                           
+  python3.11-pip-22.3.1-4.el9.noarch                                            
+  python3.11-pip-wheel-22.3.1-4.el9.noarch                                      
+  python3.11-setuptools-65.5.1-2.el9.noarch                                     
+  python3.11-setuptools-wheel-65.5.1-2.el9.noarch                               
+
+Complete!
+[root@master ~]# npm i @ansible/ansible-language-server
+bash: npm: command not found...
+Install package 'npm' to provide command 'npm'? [N/y] y
+
+
+ * Waiting in queue... 
+The following packages have to be installed:
+ nodejs-1:16.20.2-3.el9.x86_64	JavaScript runtime
+ nodejs-docs-1:16.20.2-3.el9.noarch	Node.js API documentation
+ nodejs-full-i18n-1:16.20.2-3.el9.x86_64	Non-English locale data for Node.js
+ nodejs-libs-1:16.20.2-3.el9.x86_64	Node.js and v8 libraries
+ npm-1:8.19.4-1.16.20.2.3.el9.x86_64	Node.js Package Manager
+Proceed with changes? [N/y] y
+
+
+ * Waiting in queue... 
+ * Waiting for authentication... 
+ * Waiting in queue... 
+ * Downloading packages... 
+ * Requesting data... 
+ * Testing changes... 
+ * Installing packages... 
+
+added 22 packages, and audited 23 packages in 8s
+
+4 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice 
+npm notice New major version of npm available! 8.19.4 -> 10.4.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.4.0
+npm notice Run npm install -g npm@10.4.0 to update!
+npm notice 
+
+[root@master ~]# curl -sL install-node.vercel.app/lts | bash
+  Configuration
+> Version:  v20.11.0 (resolved from lts)
+> Prefix:   /usr/local
+> Platform: linux
+> Arch:     x64
+
+> Tarball URL: https://nodejs.org/dist/v20.11.0/node-v20.11.0-linux-x64.tar.gz
+? Install Node.js v20.11.0 to /usr/local? [yN] y
+> Installing Node.js, please wait…
+✓ Done
+[root@master ~]# 
+

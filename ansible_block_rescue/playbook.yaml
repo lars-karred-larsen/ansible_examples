@@ -1,0 +1,31 @@
+---
+- name: Demonstrate block and rescue
+  hosts: node1
+  tasks:
+    - name: Attempt aand graceful rollback
+      block:
+        - name: Print message
+          ansible.builtin.debug:
+            msg: "I print normally"
+        - name: Force a failure
+          ansible.builtin.command: /bin/false
+          register: my_output
+          changed_when: my_output.rc != 0
+        - name: Never print this
+          ansible.builtin.debug:
+            msg: "This never executes due to above error"
+      rescue:
+        - name: Catch the error
+          ansible.builtin.debug:
+            msg: "I caught the error"
+        - name: Force a failure in rescue
+          ansible.builtin.command: /bin/false
+          register: my_output
+          changed_when: my_output.rc != 0
+        - name: This will also be skipped
+          ansible.builtin.debug:
+            msg: "This never executes as well"
+      always:
+        - name: Always execute this
+          ansible.builtin.debug:
+            msg: "This will always execute"

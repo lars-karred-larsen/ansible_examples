@@ -1,0 +1,4397 @@
+[student@master ~]$ you install -y code
+bash: you: command not found...
+[student@master ~]$ yum install -y code
+Error: This command has to be run with superuser privileges (under the root user on most systems).
+[student@master ~]$ sudo yum install -y code
+CentOS Stream 9 - BaseOS                        3.2 kB/s | 2.8 kB     00:00    
+CentOS Stream 9 - BaseOS                        1.2 MB/s | 8.0 MB     00:06    
+CentOS Stream 9 - AppStream                     3.1 kB/s | 2.8 kB     00:00    
+CentOS Stream 9 - AppStream                     2.5 MB/s |  19 MB     00:07    
+CentOS Stream 9 - Extras packages               7.9 kB/s | 6.9 kB     00:00    
+devel:kubic:libcontainers:stable:cri-o:1.28 (Ce 2.9 kB/s | 1.7 kB     00:00    
+devel:kubic:libcontainers:stable:cri-o:1.28 (Ce  53 kB/s | 215 kB     00:04    
+Docker CE Stable - x86_64                        38 kB/s | 3.5 kB     00:00    
+Docker CE Stable - x86_64                       109 kB/s |  36 kB     00:00    
+Extra Packages for Enterprise Linux 9 - x86_64  7.7 kB/s | 9.3 kB     00:01    
+Extra Packages for Enterprise Linux 9 - x86_64  478 kB/s |  20 MB     00:43    
+Extra Packages for Enterprise Linux 9 openh264  1.1 kB/s | 993  B     00:00    
+Extra Packages for Enterprise Linux 9 - Next -  7.7 kB/s | 8.6 kB     00:01    
+Extra Packages for Enterprise Linux 9 - Next -  313 kB/s | 1.4 MB     00:04    
+Hashicorp Stable - x86_64                        19 kB/s | 1.4 kB     00:00    
+Hashicorp Stable - x86_64                       3.4 MB/s | 1.3 MB     00:00    
+Jenkins-stable                                   34 kB/s | 2.9 kB     00:00    
+Jenkins-stable                                  107 kB/s |  28 kB     00:00    
+Kubernetes                                      3.8 kB/s | 1.7 kB     00:00    
+Kubernetes                                      8.1 kB/s | 7.8 kB     00:00    
+Stable Releases of Upstream github.com/containe 2.9 kB/s | 1.7 kB     00:00    
+Stable Releases of Upstream github.com/containe  52 kB/s | 187 kB     00:03    
+Visual Studio Code                              4.0 kB/s | 1.5 kB     00:00    
+Visual Studio Code                              1.0 MB/s | 3.1 MB     00:02    
+Package code-1.85.1-1702462241.el7.x86_64 is already installed.
+Dependencies resolved.
+================================================================================
+ Package      Architecture   Version                         Repository    Size
+================================================================================
+Upgrading:
+ code         x86_64         1.85.2-1705561377.el7           code         129 M
+
+Transaction Summary
+================================================================================
+Upgrade  1 Package
+
+Total download size: 129 M
+Downloading Packages:
+code-1.85.2-1705561377.el7.x86_64.rpm           1.2 MB/s | 129 MB     01:51    
+--------------------------------------------------------------------------------
+Total                                           1.2 MB/s | 129 MB     01:51     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Upgrading        : code-1.85.2-1705561377.el7.x86_64                      1/2 
+  Running scriptlet: code-1.85.2-1705561377.el7.x86_64                      1/2 
+  Cleanup          : code-1.85.1-1702462241.el7.x86_64                      2/2 
+  Running scriptlet: code-1.85.1-1702462241.el7.x86_64                      2/2 
+  Verifying        : code-1.85.2-1705561377.el7.x86_64                      1/2 
+  Verifying        : code-1.85.1-1702462241.el7.x86_64                      2/2 
+
+Upgraded:
+  code-1.85.2-1705561377.el7.x86_64                                             
+
+Complete!
+[student@master ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/student/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/student/.ssh/id_rsa
+Your public key has been saved in /home/student/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:0uOfatKDJLbdC4YzPC1kUuacu/N1mocrPYyaB/YxWto student@master
+The key's randomart image is:
++---[RSA 3072]----+
+|                 |
+|                 |
+|    o            |
+|   = . .         |
+|  . * . S        |
+|   ==+=o .       |
+|   oO%+Xo..      |
+|    =OEoX=..     |
+|    +=.+*Bo      |
++----[SHA256]-----+
+[student@master ~]$ sudo you update firefox -y
+sudo: you: command not found
+[student@master ~]$ sudo yum update firefox -y
+Last metadata expiration check: 0:18:45 ago on Wed 31 Jan 2024 01:06:50 PM IST.
+Dependencies resolved.
+================================================================================
+ Package         Architecture   Version                 Repository         Size
+================================================================================
+Upgrading:
+ firefox         x86_64         115.6.0-1.el9           appstream         110 M
+
+Transaction Summary
+================================================================================
+Upgrade  1 Package
+
+Total download size: 110 M
+Downloading Packages:
+firefox-115.6.0-1.el9.x86_64.rpm                2.0 MB/s | 110 MB     00:54    
+--------------------------------------------------------------------------------
+Total                                           2.0 MB/s | 110 MB     00:54     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Upgrading        : firefox-115.6.0-1.el9.x86_64                           1/2 
+  Running scriptlet: firefox-115.6.0-1.el9.x86_64                           1/2 
+  Running scriptlet: firefox-115.4.0-1.el9.x86_64                           2/2 
+  Cleanup          : firefox-115.4.0-1.el9.x86_64                           2/2 
+  Running scriptlet: firefox-115.4.0-1.el9.x86_64                           2/2 
+  Running scriptlet: firefox-115.6.0-1.el9.x86_64                           2/2 
+  Running scriptlet: firefox-115.4.0-1.el9.x86_64                           2/2 
+  Verifying        : firefox-115.6.0-1.el9.x86_64                           1/2 
+  Verifying        : firefox-115.4.0-1.el9.x86_64                           2/2 
+
+Upgraded:
+  firefox-115.6.0-1.el9.x86_64                                                  
+
+Complete!
+[student@master ~]$ sudo dnf install python3-pip -y
+Last metadata expiration check: 0:07:08 ago on Wed 31 Jan 2024 01:26:44 PM IST.
+Dependencies resolved.
+================================================================================
+ Package            Architecture  Version                Repository        Size
+================================================================================
+Installing:
+ python3-pip        noarch        21.2.3-7.el9           appstream        2.0 M
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 2.0 M
+Installed size: 8.7 M
+Downloading Packages:
+python3-pip-21.2.3-7.el9.noarch.rpm             875 kB/s | 2.0 MB     00:02    
+--------------------------------------------------------------------------------
+Total                                           780 kB/s | 2.0 MB     00:02     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : python3-pip-21.2.3-7.el9.noarch                        1/1 
+  Running scriptlet: python3-pip-21.2.3-7.el9.noarch                        1/1 
+  Verifying        : python3-pip-21.2.3-7.el9.noarch                        1/1 
+
+Installed:
+  python3-pip-21.2.3-7.el9.noarch                                                                                                                             
+
+Complete!
+[student@master ~]$ python3 -m pip install ansible-navigator --user
+Collecting ansible-navigator
+  Downloading ansible_navigator-3.6.0-py3-none-any.whl (297 kB)
+     |████████████████████████████████| 297 kB 4.1 MB/s 
+Collecting tzdata
+  Downloading tzdata-2023.4-py2.py3-none-any.whl (346 kB)
+     |████████████████████████████████| 346 kB 9.3 MB/s 
+Collecting ansible-runner<3,>=2.3.1
+  Downloading ansible_runner-2.3.4-py3-none-any.whl (81 kB)
+     |████████████████████████████████| 81 kB 10.7 MB/s 
+Collecting ansible-lint>=6.19.0
+  Downloading ansible_lint-6.22.2-py3-none-any.whl (297 kB)
+     |████████████████████████████████| 297 kB 6.2 MB/s 
+Collecting onigurumacffi<2,>=1.1.0
+  Downloading onigurumacffi-1.3.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (599 kB)
+     |████████████████████████████████| 599 kB 9.7 MB/s 
+Collecting ansible-builder>=3.0.0
+  Downloading ansible_builder-3.0.0-py3-none-any.whl (41 kB)
+     |████████████████████████████████| 41 kB 1.1 MB/s 
+Collecting jsonschema
+  Downloading jsonschema-4.21.1-py3-none-any.whl (85 kB)
+     |████████████████████████████████| 85 kB 10.2 MB/s 
+Collecting importlib-metadata
+  Downloading importlib_metadata-7.0.1-py3-none-any.whl (23 kB)
+Collecting jinja2
+  Downloading Jinja2-3.1.3-py3-none-any.whl (133 kB)
+     |████████████████████████████████| 133 kB 1.1 MB/s 
+Requirement already satisfied: pyyaml in /usr/lib64/python3.9/site-packages (from ansible-navigator) (5.4.1)
+Collecting bindep
+  Downloading bindep-2.11.0-py2.py3-none-any.whl (34 kB)
+Collecting requirements-parser
+  Downloading requirements_parser-0.5.0-py3-none-any.whl (18 kB)
+Collecting ansible-core>=2.12.0
+  Downloading ansible_core-2.15.9-py3-none-any.whl (2.2 MB)
+     |████████████████████████████████| 2.2 MB 6.0 MB/s 
+Collecting ruamel.yaml>=0.18.5
+  Downloading ruamel.yaml-0.18.5-py3-none-any.whl (116 kB)
+     |████████████████████████████████| 116 kB 12.1 MB/s 
+Collecting black>=22.8.0
+  Downloading black-24.1.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.7 MB)
+     |████████████████████████████████| 1.7 MB 6.4 MB/s 
+Collecting pathspec>=0.10.3
+  Downloading pathspec-0.12.1-py3-none-any.whl (31 kB)
+Collecting packaging>=21.3
+  Downloading packaging-23.2-py3-none-any.whl (53 kB)
+     |████████████████████████████████| 53 kB 1.2 MB/s 
+Collecting subprocess-tee>=0.4.1
+  Downloading subprocess_tee-0.4.1-py3-none-any.whl (5.1 kB)
+Collecting yamllint>=1.30.0
+  Downloading yamllint-1.33.0-py3-none-any.whl (65 kB)
+     |████████████████████████████████| 65 kB 8.2 MB/s 
+Collecting ansible-compat>=4.1.11
+  Downloading ansible_compat-4.1.11-py3-none-any.whl (23 kB)
+Collecting filelock>=3.3.0
+  Downloading filelock-3.13.1-py3-none-any.whl (11 kB)
+Collecting wcmatch>=8.1.2
+  Downloading wcmatch-8.5-py3-none-any.whl (39 kB)
+Collecting rich>=12.0.0
+  Downloading rich-13.7.0-py3-none-any.whl (240 kB)
+     |████████████████████████████████| 240 kB 9.5 MB/s 
+Collecting typing-extensions>=4.5.0
+  Downloading typing_extensions-4.9.0-py3-none-any.whl (32 kB)
+Collecting cryptography
+  Downloading cryptography-42.0.2-cp39-abi3-manylinux_2_28_x86_64.whl (4.7 MB)
+     |████████████████████████████████| 4.7 MB 13.2 MB/s 
+Collecting importlib-resources<5.1,>=5.0
+  Downloading importlib_resources-5.0.7-py3-none-any.whl (24 kB)
+Collecting resolvelib<1.1.0,>=0.5.3
+  Downloading resolvelib-1.0.1-py2.py3-none-any.whl (17 kB)
+Requirement already satisfied: pexpect>=4.5 in /usr/lib/python3.9/site-packages (from ansible-runner<3,>=2.3.1->ansible-navigator) (4.8.0)
+Collecting importlib-metadata
+  Downloading importlib_metadata-6.2.1-py3-none-any.whl (21 kB)
+Collecting python-daemon
+  Downloading python_daemon-3.0.1-py3-none-any.whl (31 kB)
+Requirement already satisfied: six in /usr/lib/python3.9/site-packages (from ansible-runner<3,>=2.3.1->ansible-navigator) (1.15.0)
+Collecting tomli>=1.1.0
+  Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+Collecting platformdirs>=2
+  Downloading platformdirs-4.2.0-py3-none-any.whl (17 kB)
+Collecting click>=8.0.0
+  Downloading click-8.1.7-py3-none-any.whl (97 kB)
+     |████████████████████████████████| 97 kB 5.3 MB/s 
+Collecting mypy-extensions>=0.4.3
+  Downloading mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Collecting zipp>=0.5
+  Downloading zipp-3.17.0-py3-none-any.whl (7.4 kB)
+Collecting MarkupSafe>=2.0
+  Downloading MarkupSafe-2.1.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+Collecting rpds-py>=0.7.1
+  Downloading rpds_py-0.17.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+     |████████████████████████████████| 1.2 MB 7.5 MB/s 
+Collecting jsonschema-specifications>=2023.03.6
+  Downloading jsonschema_specifications-2023.12.1-py3-none-any.whl (18 kB)
+Collecting attrs>=22.2.0
+  Downloading attrs-23.2.0-py3-none-any.whl (60 kB)
+     |████████████████████████████████| 60 kB 9.8 MB/s 
+Collecting referencing>=0.28.4
+  Downloading referencing-0.33.0-py3-none-any.whl (26 kB)
+Collecting cffi>=1
+  Downloading cffi-1.16.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (443 kB)
+     |████████████████████████████████| 443 kB 11.5 MB/s 
+Collecting pycparser
+  Downloading pycparser-2.21-py2.py3-none-any.whl (118 kB)
+     |████████████████████████████████| 118 kB 8.9 MB/s 
+Collecting markdown-it-py>=2.2.0
+  Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+     |████████████████████████████████| 87 kB 4.3 MB/s 
+Collecting pygments<3.0.0,>=2.13.0
+  Downloading pygments-2.17.2-py3-none-any.whl (1.2 MB)
+     |████████████████████████████████| 1.2 MB 10.2 MB/s 
+Collecting mdurl~=0.1
+  Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Collecting ruamel.yaml.clib>=0.2.7
+  Downloading ruamel.yaml.clib-0.2.8-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl (562 kB)
+     |████████████████████████████████| 562 kB 11.6 MB/s 
+Collecting bracex>=2.1.1
+  Downloading bracex-2.4-py3-none-any.whl (11 kB)
+Collecting Parsley
+  Downloading Parsley-1.3-py2.py3-none-any.whl (88 kB)
+     |████████████████████████████████| 88 kB 4.3 MB/s 
+Collecting distro>=1.7.0
+  Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Collecting pbr>=2.0.0
+  Downloading pbr-6.0.0-py2.py3-none-any.whl (107 kB)
+     |████████████████████████████████| 107 kB 10.7 MB/s 
+Collecting docutils
+  Downloading docutils-0.20.1-py3-none-any.whl (572 kB)
+     |████████████████████████████████| 572 kB 7.3 MB/s 
+Collecting lockfile>=0.10
+  Downloading lockfile-0.12.2-py2.py3-none-any.whl (13 kB)
+Collecting setuptools>=62.4.0
+  Downloading setuptools-69.0.3-py3-none-any.whl (819 kB)
+     |████████████████████████████████| 819 kB 7.3 MB/s 
+Collecting types-setuptools>=57.0.0
+  Downloading types_setuptools-69.0.0.20240125-py3-none-any.whl (51 kB)
+     |████████████████████████████████| 51 kB 244 kB/s 
+Installing collected packages: rpds-py, pycparser, attrs, referencing, MarkupSafe, cffi, resolvelib, packaging, mdurl, jsonschema-specifications, jinja2, importlib-resources, cryptography, zipp, typing-extensions, types-setuptools, tomli, subprocess-tee, setuptools, ruamel.yaml.clib, pygments, platformdirs, pbr, pathspec, Parsley, mypy-extensions, markdown-it-py, lockfile, jsonschema, docutils, distro, click, bracex, ansible-core, yamllint, wcmatch, ruamel.yaml, rich, requirements-parser, python-daemon, importlib-metadata, filelock, black, bindep, ansible-compat, tzdata, onigurumacffi, ansible-runner, ansible-lint, ansible-builder, ansible-navigator
+  WARNING: Value for scheme.platlib does not match. Please report this to <https://github.com/pypa/pip/issues/10151>
+  distutils: /home/student/.local/lib/python3.9/site-packages
+  sysconfig: /home/student/.local/lib64/python3.9/site-packages
+  WARNING: Additional context:
+  user = True
+  home = None
+  root = None
+  prefix = None
+Successfully installed MarkupSafe-2.1.4 Parsley-1.3 ansible-builder-3.0.0 ansible-compat-4.1.11 ansible-core-2.15.9 ansible-lint-6.22.2 ansible-navigator-3.6.0 ansible-runner-2.3.4 attrs-23.2.0 bindep-2.11.0 black-24.1.1 bracex-2.4 cffi-1.16.0 click-8.1.7 cryptography-42.0.2 distro-1.9.0 docutils-0.20.1 filelock-3.13.1 importlib-metadata-6.2.1 importlib-resources-5.0.7 jinja2-3.1.3 jsonschema-4.21.1 jsonschema-specifications-2023.12.1 lockfile-0.12.2 markdown-it-py-3.0.0 mdurl-0.1.2 mypy-extensions-1.0.0 onigurumacffi-1.3.0 packaging-23.2 pathspec-0.12.1 pbr-6.0.0 platformdirs-4.2.0 pycparser-2.21 pygments-2.17.2 python-daemon-3.0.1 referencing-0.33.0 requirements-parser-0.5.0 resolvelib-1.0.1 rich-13.7.0 rpds-py-0.17.1 ruamel.yaml-0.18.5 ruamel.yaml.clib-0.2.8 setuptools-69.0.3 subprocess-tee-0.4.1 tomli-2.0.1 types-setuptools-69.0.0.20240125 typing-extensions-4.9.0 tzdata-2023.4 wcmatch-8.5 yamllint-1.33.0 zipp-3.17.0
+[student@master ~]$ echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile
+[student@master ~]$ cat .profile
+export PATH=$HOME/.local/bin:$PATH
+[student@master ~]$ source ~/.profile
+[student@master ~]$ which source
+/usr/bin/which: no source in (/home/student/.local/bin:/home/student/.local/bin:/home/student/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin)
+[student@master ~]$ echo $PATH
+/home/student/.local/bin:/home/student/.local/bin:/home/student/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin
+[student@master ~]$ ansible --version
+ansible [core 2.15.9]
+  config file = None
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/student/.local/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/student/.local/bin/ansible
+  python version = 3.9.17 (main, Jun 26 2023, 00:00:00) [GCC 11.4.1 20230605 (Red Hat 11.4.1-2)] (/usr/bin/python3)
+  jinja version = 3.1.3
+  libyaml = True
+[student@master ~]$ history
+    1  su -
+    2  sudo -i
+    3  history
+    4  su -
+    5  sudp -i
+    6  sudo -i
+    7  you install -y code
+    8  yum install -y code
+    9  sudo yum install -y code
+   10  ssh-keygen
+   11  sudo you update firefox -y
+   12  sudo yum update firefox -y
+   13  sudo dnf install python3-pip -y
+   14  python3 -m pip install ansible-navigator --user
+   15  echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile
+   16  cat .profile
+   17  source ~/.profile
+   18  which source
+   19  echo $PATH
+   20  ansible --version
+   21  history
+[student@master ~]$ ^C-version
+[student@master ~]$ find /home/student/.local -name cron.py
+/home/student/.local/lib/python3.9/site-packages/ansible/modules/cron.py
+[student@master ~]$ mkdir ansible_examples
+[student@master ~]$ code
+[student@master ~]$ code
+[student@master ~]$ code
+[student@master ~]$ code
+[student@master ~]$ ansible-inventory -i inventory --graph
+[WARNING]: Unable to parse /home/student/inventory as an inventory source
+[WARNING]: No inventory was parsed, only implicit localhost is available
+@all:
+  |--@ungrouped:
+[student@master ~]$ cd ansible_examples
+[student@master ansible_examples]$ ansible-inventory -i inventory --graph
+@all:
+  |--@ungrouped:
+[student@master ansible_examples]$ ansible-inventory -i inventory --graph
+@all:
+  |--@ungrouped:
+  |  |--node3
+  |--@centos:
+  |  |--@europe:
+  |  |  |--node1
+  |  |--@asia:
+  |  |  |--node2
+[student@master ansible_examples]$ ansible-inventory -i inventory --graph
+[WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+@all:
+  |--@ungrouped:
+  |  |--node3
+  |--@super-group:
+  |  |--@centos:
+  |  |  |--@europe:
+  |  |  |  |--node1
+  |  |  |--@asia:
+  |  |  |  |--node2
+[student@master ansible_examples]$ cat inventory
+node3
+
+[europe]
+node1
+
+[asia]
+node2
+
+[centos:children] #Implementing group of groups
+europe
+asia
+
+[super-group:children]
+centos[student@master ansible_examples]$ cat inventory
+node3
+
+[europe]
+node1
+
+[asia]
+node2
+
+[centos:children] #Implementing group of groups
+europe
+asia
+
+[super-group:children]
+[student@master ansible_examples]$ cat inventory
+node3
+
+[europe]
+node1
+
+[asia]
+node2
+
+[centos:children] #Implementing group of groups
+europe
+asia
+[student@master ansible_examples]$ vi ansible.cfg
+[student@master ansible_examples]$ ansible-inventory --graph
+ERROR: Error reading config file (/home/student/ansible_examples/ansible.cfg): File contains no section headers.
+file: '<string>', line: 1
+'inventory = inventory\n'
+[student@master ansible_examples]$ vi ansible.cfg
+[student@master ansible_examples]$ ansible-inventory --graph
+ERROR: Error reading config file (/home/student/ansible_examples/ansible.cfg): File contains no section headers.
+file: '<string>', line: 1
+'inventory = inventory\n'
+[student@master ansible_examples]$ ansible-config init --disabled > temp.cfg
+ERROR: Error reading config file (/home/student/ansible_examples/ansible.cfg): File contains no section headers.
+file: '<string>', line: 1
+'inventory = inventory\n'
+[student@master ansible_examples]$ mv ansible.cfg hide_ansible.cg
+[student@master ansible_examples]$ ansible-config init --disabled > temp.cfg
+[student@master ansible_examples]$ cat temp.cfg
+[defaults]
+# (boolean) By default Ansible will issue a warning when received from a task action (module or action plugin)
+# These warnings can be silenced by adjusting this setting to False.
+;action_warnings=True
+
+# (list) Accept list of cowsay templates that are 'safe' to use, set to empty list if you want to enable all installed templates.
+;cowsay_enabled_stencils=bud-frogs, bunny, cheese, daemon, default, dragon, elephant-in-snake, elephant, eyes, hellokitty, kitty, luke-koala, meow, milk, moofasa, moose, ren, sheep, small, stegosaurus, stimpy, supermilker, three-eyes, turkey, turtle, tux, udder, vader-koala, vader, www
+
+# (string) Specify a custom cowsay path or swap in your cowsay implementation of choice
+;cowpath=
+
+# (string) This allows you to chose a specific cowsay stencil for the banners or use 'random' to cycle through them.
+;cow_selection=default
+
+# (boolean) This option forces color mode even when running without a TTY or the "nocolor" setting is True.
+;force_color=False
+
+# (path) The default root path for Ansible config files on the controller.
+;home=~/.ansible
+
+# (boolean) This setting allows suppressing colorizing output, which is used to give a better indication of failure and status information.
+;nocolor=False
+
+# (boolean) If you have cowsay installed but want to avoid the 'cows' (why????), use this.
+;nocows=False
+
+# (boolean) Sets the default value for the any_errors_fatal keyword, if True, Task failures will be considered fatal errors.
+;any_errors_fatal=False
+
+# (path) The password file to use for the become plugin. --become-password-file.
+# If executable, it will be run and the resulting stdout will be used as the password.
+;become_password_file=
+
+# (pathspec) Colon separated paths in which Ansible will search for Become Plugins.
+;become_plugins={{ ANSIBLE_HOME ~ "/plugins/become:/usr/share/ansible/plugins/become" }}
+
+# (string) Chooses which cache plugin to use, the default 'memory' is ephemeral.
+;fact_caching=memory
+
+# (string) Defines connection or path information for the cache plugin
+;fact_caching_connection=
+
+# (string) Prefix to use for cache plugin files/tables
+;fact_caching_prefix=ansible_facts
+
+# (integer) Expiration timeout for the cache plugin data
+;fact_caching_timeout=86400
+
+# (list) List of enabled callbacks, not all callbacks need enabling, but many of those shipped with Ansible do as we don't want them activated by default.
+;callbacks_enabled=
+
+# (string) When a collection is loaded that does not support the running Ansible version (with the collection metadata key `requires_ansible`).
+;collections_on_ansible_version_mismatch=warning
+
+# (pathspec) Colon separated paths in which Ansible will search for collections content. Collections must be in nested *subdirectories*, not directly in these directories. For example, if ``COLLECTIONS_PATHS`` includes ``'{{ ANSIBLE_HOME ~ "/collections" }}'``, and you want to add ``my.collection`` to that directory, it must be saved as ``'{{ ANSIBLE_HOME} ~ "/collections/ansible_collections/my/collection" }}'``.
+
+;collections_path={{ ANSIBLE_HOME ~ "/collections:/usr/share/ansible/collections" }}
+
+# (boolean) A boolean to enable or disable scanning the sys.path for installed collections
+;collections_scan_sys_path=True
+
+# (path) The password file to use for the connection plugin. --connection-password-file.
+;connection_password_file=
+
+# (pathspec) Colon separated paths in which Ansible will search for Action Plugins.
+;action_plugins={{ ANSIBLE_HOME ~ "/plugins/action:/usr/share/ansible/plugins/action" }}
+
+# (boolean) When enabled, this option allows lookup plugins (whether used in variables as ``{{lookup('foo')}}`` or as a loop as with_foo) to return data that is not marked 'unsafe'.
+# By default, such data is marked as unsafe to prevent the templating engine from evaluating any jinja2 templating language, as this could represent a security risk. This option is provided to allow for backward compatibility, however users should first consider adding allow_unsafe=True to any lookups which may be expected to contain data which may be run through the templating engine late
+;allow_unsafe_lookups=False
+
+# (boolean) This controls whether an Ansible playbook should prompt for a login password. If using SSH keys for authentication, you probably do not need to change this setting.
+;ask_pass=False
+
+# (boolean) This controls whether an Ansible playbook should prompt for a vault password.
+;ask_vault_pass=False
+
+# (pathspec) Colon separated paths in which Ansible will search for Cache Plugins.
+;cache_plugins={{ ANSIBLE_HOME ~ "/plugins/cache:/usr/share/ansible/plugins/cache" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Callback Plugins.
+;callback_plugins={{ ANSIBLE_HOME ~ "/plugins/callback:/usr/share/ansible/plugins/callback" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Cliconf Plugins.
+;cliconf_plugins={{ ANSIBLE_HOME ~ "/plugins/cliconf:/usr/share/ansible/plugins/cliconf" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Connection Plugins.
+;connection_plugins={{ ANSIBLE_HOME ~ "/plugins/connection:/usr/share/ansible/plugins/connection" }}
+
+# (boolean) Toggles debug output in Ansible. This is *very* verbose and can hinder multiprocessing.  Debug output can also include secret information despite no_log settings being enabled, which means debug mode should not be used in production.
+;debug=False
+
+# (string) This indicates the command to use to spawn a shell under for Ansible's execution needs on a target. Users may need to change this in rare instances when shell usage is constrained, but in most cases it may be left as is.
+;executable=/bin/sh
+
+# (string) This option allows you to globally configure a custom path for 'local_facts' for the implied :ref:`ansible_collections.ansible.builtin.setup_module` task when using fact gathering.
+# If not set, it will fallback to the default from the ``ansible.builtin.setup`` module: ``/etc/ansible/facts.d``.
+# This does **not** affect  user defined tasks that use the ``ansible.builtin.setup`` module.
+# The real action being created by the implicit task is currently    ``ansible.legacy.gather_facts`` module, which then calls the configured fact modules, by default this will be ``ansible.builtin.setup`` for POSIX systems but other platforms might have different defaults.
+;fact_path=
+
+# (pathspec) Colon separated paths in which Ansible will search for Jinja2 Filter Plugins.
+;filter_plugins={{ ANSIBLE_HOME ~ "/plugins/filter:/usr/share/ansible/plugins/filter" }}
+
+# (boolean) This option controls if notified handlers run on a host even if a failure occurs on that host.
+# When false, the handlers will not run if a failure has occurred on a host.
+# This can also be set per play or on the command line. See Handlers and Failure for more details.
+;force_handlers=False
+
+# (integer) Maximum number of forks Ansible will use to execute tasks on target hosts.
+;forks=5
+
+# (string) This setting controls the default policy of fact gathering (facts discovered about remote systems).
+# This option can be useful for those wishing to save fact gathering time. Both 'smart' and 'explicit' will use the cache plugin.
+;gathering=implicit
+
+# (list) Set the `gather_subset` option for the :ref:`ansible_collections.ansible.builtin.setup_module` task in the implicit fact gathering. See the module documentation for specifics.
+# It does **not** apply to user defined ``ansible.builtin.setup`` tasks.
+;gather_subset=
+
+# (integer) Set the timeout in seconds for the implicit fact gathering, see the module documentation for specifics.
+# It does **not** apply to user defined :ref:`ansible_collections.ansible.builtin.setup_module` tasks.
+;gather_timeout=
+
+# (string) This setting controls how duplicate definitions of dictionary variables (aka hash, map, associative array) are handled in Ansible.
+# This does not affect variables whose values are scalars (integers, strings) or arrays.
+# **WARNING**, changing this setting is not recommended as this is fragile and makes your content (plays, roles, collections) non portable, leading to continual confusion and misuse. Don't change this setting unless you think you have an absolute need for it.
+# We recommend avoiding reusing variable names and relying on the ``combine`` filter and ``vars`` and ``varnames`` lookups to create merged versions of the individual variables. In our experience this is rarely really needed and a sign that too much complexity has been introduced into the data structures and plays.
+# For some uses you can also look into custom vars_plugins to merge on input, even substituting the default ``host_group_vars`` that is in charge of parsing the ``host_vars/`` and ``group_vars/`` directories. Most users of this setting are only interested in inventory scope, but the setting itself affects all sources and makes debugging even harder.
+# All playbooks and roles in the official examples repos assume the default for this setting.
+# Changing the setting to ``merge`` applies across variable sources, but many sources will internally still overwrite the variables. For example ``include_vars`` will dedupe variables internally before updating Ansible, with 'last defined' overwriting previous definitions in same file.
+# The Ansible project recommends you **avoid ``merge`` for new projects.**
+# It is the intention of the Ansible developers to eventually deprecate and remove this setting, but it is being kept as some users do heavily rely on it. New projects should **avoid 'merge'**.
+;hash_behaviour=replace
+
+# (pathlist) Comma separated list of Ansible inventory sources
+;inventory=/etc/ansible/hosts
+
+# (pathspec) Colon separated paths in which Ansible will search for HttpApi Plugins.
+;httpapi_plugins={{ ANSIBLE_HOME ~ "/plugins/httpapi:/usr/share/ansible/plugins/httpapi" }}
+
+# (float) This sets the interval (in seconds) of Ansible internal processes polling each other. Lower values improve performance with large playbooks at the expense of extra CPU load. Higher values are more suitable for Ansible usage in automation scenarios, when UI responsiveness is not required but CPU usage might be a concern.
+# The default corresponds to the value hardcoded in Ansible <= 2.1
+;internal_poll_interval=0.001
+
+# (pathspec) Colon separated paths in which Ansible will search for Inventory Plugins.
+;inventory_plugins={{ ANSIBLE_HOME ~ "/plugins/inventory:/usr/share/ansible/plugins/inventory" }}
+
+# (string) This is a developer-specific feature that allows enabling additional Jinja2 extensions.
+# See the Jinja2 documentation for details. If you do not know what these do, you probably don't need to change this setting :)
+;jinja2_extensions=[]
+
+# (boolean) This option preserves variable types during template operations.
+;jinja2_native=False
+
+# (boolean) Enables/disables the cleaning up of the temporary files Ansible used to execute the tasks on the remote.
+# If this option is enabled it will disable ``ANSIBLE_PIPELINING``.
+;keep_remote_files=False
+
+# (boolean) Controls whether callback plugins are loaded when running /usr/bin/ansible. This may be used to log activity from the command line, send notifications, and so on. Callback plugins are always loaded for ``ansible-playbook``.
+;bin_ansible_callbacks=False
+
+# (tmppath) Temporary directory for Ansible to use on the controller.
+;local_tmp={{ ANSIBLE_HOME ~ "/tmp" }}
+
+# (list) List of logger names to filter out of the log file
+;log_filter=
+
+# (path) File to which Ansible will log on the controller. When empty logging is disabled.
+;log_path=
+
+# (pathspec) Colon separated paths in which Ansible will search for Lookup Plugins.
+;lookup_plugins={{ ANSIBLE_HOME ~ "/plugins/lookup:/usr/share/ansible/plugins/lookup" }}
+
+# (string) Sets the macro for the 'ansible_managed' variable available for :ref:`ansible_collections.ansible.builtin.template_module` and :ref:`ansible_collections.ansible.windows.win_template_module`.  This is only relevant for those two modules.
+;ansible_managed=Ansible managed
+
+# (string) This sets the default arguments to pass to the ``ansible`` adhoc binary if no ``-a`` is specified.
+;module_args=
+
+# (string) Compression scheme to use when transferring Python modules to the target.
+;module_compression=ZIP_DEFLATED
+
+# (string) Module to use with the ``ansible`` AdHoc command, if none is specified via ``-m``.
+;module_name=command
+
+# (pathspec) Colon separated paths in which Ansible will search for Modules.
+;library={{ ANSIBLE_HOME ~ "/plugins/modules:/usr/share/ansible/plugins/modules" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Module utils files, which are shared by modules.
+;module_utils={{ ANSIBLE_HOME ~ "/plugins/module_utils:/usr/share/ansible/plugins/module_utils" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Netconf Plugins.
+;netconf_plugins={{ ANSIBLE_HOME ~ "/plugins/netconf:/usr/share/ansible/plugins/netconf" }}
+
+# (boolean) Toggle Ansible's display and logging of task details, mainly used to avoid security disclosures.
+;no_log=False
+
+# (boolean) Toggle Ansible logging to syslog on the target when it executes tasks. On Windows hosts this will disable a newer style PowerShell modules from writing to the event log.
+;no_target_syslog=False
+
+# (raw) What templating should return as a 'null' value. When not set it will let Jinja2 decide.
+;null_representation=
+
+# (integer) For asynchronous tasks in Ansible (covered in Asynchronous Actions and Polling), this is how often to check back on the status of those tasks when an explicit poll interval is not supplied. The default is a reasonably moderate 15 seconds which is a tradeoff between checking in frequently and providing a quick turnaround when something may have completed.
+;poll_interval=15
+
+# (path) Option for connections using a certificate or key file to authenticate, rather than an agent or passwords, you can set the default value here to avoid re-specifying --private-key with every invocation.
+;private_key_file=
+
+# (boolean) Makes role variables inaccessible from other roles.
+# This was introduced as a way to reset role variables to default values if a role is used more than once in a playbook.
+;private_role_vars=False
+
+# (integer) Port to use in remote connections, when blank it will use the connection plugin default.
+;remote_port=
+
+# (string) Sets the login user for the target machines
+# When blank it uses the connection plugin's default, normally the user currently executing Ansible.
+;remote_user=
+
+# (pathspec) Colon separated paths in which Ansible will search for Roles.
+;roles_path={{ ANSIBLE_HOME ~ "/roles:/usr/share/ansible/roles:/etc/ansible/roles" }}
+
+# (string) Set the main callback used to display Ansible output. You can only have one at a time.
+# You can have many other callbacks, but just one can be in charge of stdout.
+# See :ref:`callback_plugins` for a list of available options.
+;stdout_callback=default
+
+# (string) Set the default strategy used for plays.
+;strategy=linear
+
+# (pathspec) Colon separated paths in which Ansible will search for Strategy Plugins.
+;strategy_plugins={{ ANSIBLE_HOME ~ "/plugins/strategy:/usr/share/ansible/plugins/strategy" }}
+
+# (boolean) Toggle the use of "su" for tasks.
+;su=False
+
+# (string) Syslog facility to use when Ansible logs to the remote target
+;syslog_facility=LOG_USER
+
+# (pathspec) Colon separated paths in which Ansible will search for Terminal Plugins.
+;terminal_plugins={{ ANSIBLE_HOME ~ "/plugins/terminal:/usr/share/ansible/plugins/terminal" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Jinja2 Test Plugins.
+;test_plugins={{ ANSIBLE_HOME ~ "/plugins/test:/usr/share/ansible/plugins/test" }}
+
+# (integer) This is the default timeout for connection plugins to use.
+;timeout=10
+
+# (string) Default connection plugin to use, the 'smart' option will toggle between 'ssh' and 'paramiko' depending on controller OS and ssh versions
+;transport=smart
+
+# (boolean) When True, this causes ansible templating to fail steps that reference variable names that are likely typoed.
+# Otherwise, any '{{ template_expression }}' that contains undefined variables will be rendered in a template or ansible action line exactly as written.
+;error_on_undefined_vars=True
+
+# (pathspec) Colon separated paths in which Ansible will search for Vars Plugins.
+;vars_plugins={{ ANSIBLE_HOME ~ "/plugins/vars:/usr/share/ansible/plugins/vars" }}
+
+# (string) The vault_id to use for encrypting by default. If multiple vault_ids are provided, this specifies which to use for encryption. The --encrypt-vault-id cli option overrides the configured value.
+;vault_encrypt_identity=
+
+# (string) The label to use for the default vault id label in cases where a vault id label is not provided
+;vault_identity=default
+
+# (list) A list of vault-ids to use by default. Equivalent to multiple --vault-id args. Vault-ids are tried in order.
+;vault_identity_list=
+
+# (string) If true, decrypting vaults with a vault id will only try the password from the matching vault-id
+;vault_id_match=False
+
+# (path) The vault password file to use. Equivalent to --vault-password-file or --vault-id
+# If executable, it will be run and the resulting stdout will be used as the password.
+;vault_password_file=
+
+# (integer) Sets the default verbosity, equivalent to the number of ``-v`` passed in the command line.
+;verbosity=0
+
+# (boolean) Toggle to control the showing of deprecation warnings
+;deprecation_warnings=True
+
+# (boolean) Toggle to control showing warnings related to running devel
+;devel_warning=True
+
+# (boolean) Normally ``ansible-playbook`` will print a header for each task that is run. These headers will contain the name: field from the task if you specified one. If you didn't then ``ansible-playbook`` uses the task's action to help you tell which task is presently running. Sometimes you run many of the same action and so you want more information about the task to differentiate it from others of the same action. If you set this variable to True in the config then ``ansible-playbook`` will also include the task's arguments in the header.
+# This setting defaults to False because there is a chance that you have sensitive values in your parameters and you do not want those to be printed.
+# If you set this to True you should be sure that you have secured your environment's stdout (no one can shoulder surf your screen and you aren't saving stdout to an insecure file) or made sure that all of your playbooks explicitly added the ``no_log: True`` parameter to tasks which have sensitive values See How do I keep secret data in my playbook? for more information.
+;display_args_to_stdout=False
+
+# (boolean) Toggle to control displaying skipped task/host entries in a task in the default callback
+;display_skipped_hosts=True
+
+# (string) Root docsite URL used to generate docs URLs in warning/error text; must be an absolute URL with valid scheme and trailing slash.
+;docsite_root_url=https://docs.ansible.com/ansible-core/
+
+# (pathspec) Colon separated paths in which Ansible will search for Documentation Fragments Plugins.
+;doc_fragment_plugins={{ ANSIBLE_HOME ~ "/plugins/doc_fragments:/usr/share/ansible/plugins/doc_fragments" }}
+
+# (string) By default Ansible will issue a warning when a duplicate dict key is encountered in YAML.
+# These warnings can be silenced by adjusting this setting to False.
+;duplicate_dict_key=warn
+
+# (boolean) Whether or not to enable the task debugger, this previously was done as a strategy plugin.
+# Now all strategy plugins can inherit this behavior. The debugger defaults to activating when
+# a task is failed on unreachable. Use the debugger keyword for more flexibility.
+;enable_task_debugger=False
+
+# (boolean) Toggle to allow missing handlers to become a warning instead of an error when notifying.
+;error_on_missing_handler=True
+
+# (list) Which modules to run during a play's fact gathering stage, using the default of 'smart' will try to figure it out based on connection type.
+# If adding your own modules but you still want to use the default Ansible facts, you will want to include 'setup' or corresponding network module to the list (if you add 'smart', Ansible will also figure it out).
+# This does not affect explicit calls to the 'setup' module, but does always affect the 'gather_facts' action (implicit or explicit).
+;facts_modules=smart
+
+# (boolean) Set this to "False" if you want to avoid host key checking by the underlying tools Ansible uses to connect to the host
+;host_key_checking=True
+
+# (boolean) Facts are available inside the `ansible_facts` variable, this setting also pushes them as their own vars in the main namespace.
+# Unlike inside the `ansible_facts` dictionary, these will have an `ansible_` prefix.
+;inject_facts_as_vars=True
+
+# (string) Path to the Python interpreter to be used for module execution on remote targets, or an automatic discovery mode. Supported discovery modes are ``auto`` (the default), ``auto_silent``, ``auto_legacy``, and ``auto_legacy_silent``. All discovery modes employ a lookup table to use the included system Python (on distributions known to include one), falling back to a fixed ordered list of well-known Python interpreter locations if a platform-specific default is not available. The fallback behavior will issue a warning that the interpreter should be set explicitly (since interpreters installed later may change which one is used). This warning behavior can be disabled by setting ``auto_silent`` or ``auto_legacy_silent``. The value of ``auto_legacy`` provides all the same behavior, but for backwards-compatibility with older Ansible releases that always defaulted to ``/usr/bin/python``, will use that interpreter if present.
+;interpreter_python=auto
+
+# (boolean) If 'false', invalid attributes for a task will result in warnings instead of errors
+;invalid_task_attribute_failed=True
+
+# (boolean) Toggle to control showing warnings related to running a Jinja version older than required for jinja2_native
+;jinja2_native_warning=True
+
+# (boolean) By default Ansible will issue a warning when there are no hosts in the inventory.
+# These warnings can be silenced by adjusting this setting to False.
+;localhost_warning=True
+
+# (int) Maximum size of files to be considered for diff display
+;max_diff_size=104448
+
+# (list) List of extensions to ignore when looking for modules to load
+# This is for rejecting script and binary module fallback extensions
+;module_ignore_exts={{(REJECT_EXTS + ('.yaml', '.yml', '.ini'))}}
+
+# (bool) Enables whether module responses are evaluated for containing non UTF-8 data
+# Disabling this may result in unexpected behavior
+# Only ansible-core should evaluate this configuration
+;module_strict_utf8_response=True
+
+# (list) TODO: write it
+;network_group_modules=eos, nxos, ios, iosxr, junos, enos, ce, vyos, sros, dellos9, dellos10, dellos6, asa, aruba, aireos, bigip, ironware, onyx, netconf, exos, voss, slxos
+
+# (boolean) Previously Ansible would only clear some of the plugin loading caches when loading new roles, this led to some behaviours in which a plugin loaded in previous plays would be unexpectedly 'sticky'. This setting allows to return to that behaviour.
+;old_plugin_cache_clear=False
+
+# (path) A number of non-playbook CLIs have a ``--playbook-dir`` argument; this sets the default value for it.
+;playbook_dir=
+
+# (string) This sets which playbook dirs will be used as a root to process vars plugins, which includes finding host_vars/group_vars
+;playbook_vars_root=top
+
+# (path) A path to configuration for filtering which plugins installed on the system are allowed to be used.
+# See :ref:`plugin_filtering_config` for details of the filter file's format.
+#  The default is /etc/ansible/plugin_filters.yml
+;plugin_filters_cfg=
+
+# (string) Attempts to set RLIMIT_NOFILE soft limit to the specified value when executing Python modules (can speed up subprocess usage on Python 2.x. See https://bugs.python.org/issue11284). The value will be limited by the existing hard limit. Default value of 0 does not attempt to adjust existing system-defined limits.
+;python_module_rlimit_nofile=0
+
+# (bool) This controls whether a failed Ansible playbook should create a .retry file.
+;retry_files_enabled=False
+
+# (path) This sets the path in which Ansible will save .retry files when a playbook fails and retry files are enabled.
+# This file will be overwritten after each run with the list of failed hosts from all plays.
+;retry_files_save_path=
+
+# (str) This setting can be used to optimize vars_plugin usage depending on user's inventory size and play selection.
+;run_vars_plugins=demand
+
+# (bool) This adds the custom stats set via the set_stats plugin to the default output
+;show_custom_stats=False
+
+# (string) Action to take when a module parameter value is converted to a string (this does not affect variables). For string parameters, values such as '1.00', "['a', 'b',]", and 'yes', 'y', etc. will be converted by the YAML parser unless fully quoted.
+# Valid options are 'error', 'warn', and 'ignore'.
+# Since 2.8, this option defaults to 'warn' but will change to 'error' in 2.12.
+;string_conversion_action=warn
+
+# (boolean) Allows disabling of warnings related to potential issues on the system running ansible itself (not on the managed hosts)
+# These may include warnings about 3rd party packages or other conditions that should be resolved if possible.
+;system_warnings=True
+
+# (boolean) This option defines whether the task debugger will be invoked on a failed task when ignore_errors=True is specified.
+# True specifies that the debugger will honor ignore_errors, False will not honor ignore_errors.
+;task_debugger_ignore_errors=True
+
+# (integer) Set the maximum time (in seconds) that a task can run for.
+# If set to 0 (the default) there is no timeout.
+;task_timeout=0
+
+# (string) Make ansible transform invalid characters in group names supplied by inventory sources.
+;force_valid_group_names=never
+
+# (boolean) Toggles the use of persistence for connections.
+;use_persistent_connections=False
+
+# (bool) A toggle to disable validating a collection's 'metadata' entry for a module_defaults action group. Metadata containing unexpected fields or value types will produce a warning when this is True.
+;validate_action_group_metadata=True
+
+# (list) Accept list for variable plugins that require it.
+;vars_plugins_enabled=host_group_vars
+
+# (list) Allows to change the group variable precedence merge order.
+;precedence=all_inventory, groups_inventory, all_plugins_inventory, all_plugins_play, groups_plugins_inventory, groups_plugins_play
+
+# (string) The salt to use for the vault encryption. If it is not provided, a random salt will be used.
+;vault_encrypt_salt=
+
+# (bool) Force 'verbose' option to use stderr instead of stdout
+;verbose_to_stderr=False
+
+# (integer) For asynchronous tasks in Ansible (covered in Asynchronous Actions and Polling), this is how long, in seconds, to wait for the task spawned by Ansible to connect back to the named pipe used on Windows systems. The default is 5 seconds. This can be too low on slower systems, or systems under heavy load.
+# This is not the total time an async command can run for, but is a separate timeout to wait for an async command to start. The task will only start to be timed against its async_timeout once it has connected to the pipe, so the overall maximum duration the task can take will be extended by the amount specified here.
+;win_async_startup_timeout=5
+
+# (list) Check all of these extensions when looking for 'variable' files which should be YAML or JSON or vaulted versions of these.
+# This affects vars_files, include_vars, inventory and vars plugins among others.
+;yaml_valid_extensions=.yml, .yaml, .json
+
+
+[privilege_escalation]
+# (boolean) Display an agnostic become prompt instead of displaying a prompt containing the command line supplied become method
+;agnostic_become_prompt=True
+
+# (boolean) This setting controls if become is skipped when remote user and become user are the same. I.E root sudo to root.
+# If executable, it will be run and the resulting stdout will be used as the password.
+;become_allow_same_user=False
+
+# (boolean) Toggles the use of privilege escalation, allowing you to 'become' another user after login.
+;become=False
+
+# (boolean) Toggle to prompt for privilege escalation password.
+;become_ask_pass=False
+
+# (string) executable to use for privilege escalation, otherwise Ansible will depend on PATH
+;become_exe=
+
+# (string) Flags to pass to the privilege escalation executable.
+;become_flags=
+
+# (string) Privilege escalation method to use when `become` is enabled.
+;become_method=sudo
+
+# (string) The user your login/remote user 'becomes' when using privilege escalation, most systems will use 'root' when no user is specified.
+;become_user=root
+
+
+[persistent_connection]
+# (path) Specify where to look for the ansible-connection script. This location will be checked before searching $PATH.
+# If null, ansible will start with the same directory as the ansible script.
+;ansible_connection_path=
+
+# (int) This controls the amount of time to wait for response from remote device before timing out persistent connection.
+;command_timeout=30
+
+# (integer) This controls the retry timeout for persistent connection to connect to the local domain socket.
+;connect_retry_timeout=15
+
+# (integer) This controls how long the persistent connection will remain idle before it is destroyed.
+;connect_timeout=30
+
+# (path) Path to socket to be used by the connection persistence system.
+;control_path_dir={{ ANSIBLE_HOME ~ "/pc" }}
+
+
+[connection]
+# (boolean) This is a global option, each connection plugin can override either by having more specific options or not supporting pipelining at all.
+# Pipelining, if supported by the connection plugin, reduces the number of network operations required to execute a module on the remote server, by executing many Ansible modules without actual file transfer.
+# It can result in a very significant performance improvement when enabled.
+# However this conflicts with privilege escalation (become). For example, when using 'sudo:' operations you must first disable 'requiretty' in /etc/sudoers on all managed hosts, which is why it is disabled by default.
+# This setting will be disabled if ``ANSIBLE_KEEP_REMOTE_FILES`` is enabled.
+;pipelining=False
+
+
+[colors]
+# (string) Defines the color to use on 'Changed' task status
+;changed=yellow
+
+# (string) Defines the default color to use for ansible-console
+;console_prompt=white
+
+# (string) Defines the color to use when emitting debug messages
+;debug=dark gray
+
+# (string) Defines the color to use when emitting deprecation messages
+;deprecate=purple
+
+# (string) Defines the color to use when showing added lines in diffs
+;diff_add=green
+
+# (string) Defines the color to use when showing diffs
+;diff_lines=cyan
+
+# (string) Defines the color to use when showing removed lines in diffs
+;diff_remove=red
+
+# (string) Defines the color to use when emitting error messages
+;error=red
+
+# (string) Defines the color to use for highlighting
+;highlight=white
+
+# (string) Defines the color to use when showing 'OK' task status
+;ok=green
+
+# (string) Defines the color to use when showing 'Skipped' task status
+;skip=cyan
+
+# (string) Defines the color to use on 'Unreachable' status
+;unreachable=bright red
+
+# (string) Defines the color to use when emitting verbose messages. i.e those that show with '-v's.
+;verbose=blue
+
+# (string) Defines the color to use when emitting warning messages
+;warn=bright purple
+
+
+[selinux]
+# (boolean) This setting causes libvirt to connect to lxc containers by passing --noseclabel to virsh. This is necessary when running on systems which do not have SELinux.
+;libvirt_lxc_noseclabel=False
+
+# (list) Some filesystems do not support safe operations and/or return inconsistent errors, this setting makes Ansible 'tolerate' those in the list w/o causing fatal errors.
+# Data corruption may occur and writes are not always verified when a filesystem is in the list.
+;special_context_filesystems=fuse, nfs, vboxsf, ramfs, 9p, vfat
+
+
+[diff]
+# (bool) Configuration toggle to tell modules to show differences when in 'changed' status, equivalent to ``--diff``.
+;always=False
+
+# (integer) How many lines of context to show when displaying the differences between files.
+;context=3
+
+
+[galaxy]
+# (path) The directory that stores cached responses from a Galaxy server.
+# This is only used by the ``ansible-galaxy collection install`` and ``download`` commands.
+# Cache files inside this dir will be ignored if they are world writable.
+;cache_dir={{ ANSIBLE_HOME ~ "/galaxy_cache" }}
+
+# (path) Collection skeleton directory to use as a template for the ``init`` action in ``ansible-galaxy collection``, same as ``--collection-skeleton``.
+;collection_skeleton=
+
+# (list) patterns of files to ignore inside a Galaxy collection skeleton directory
+;collection_skeleton_ignore=^.git$, ^.*/.git_keep$
+
+# (bool) Disable GPG signature verification during collection installation.
+;disable_gpg_verify=False
+
+# (bool) Some steps in ``ansible-galaxy`` display a progress wheel which can cause issues on certain displays or when outputting the stdout to a file.
+# This config option controls whether the display wheel is shown or not.
+# The default is to show the display wheel if stdout has a tty.
+;display_progress=
+
+# (path) Configure the keyring used for GPG signature verification during collection installation and verification.
+;gpg_keyring=
+
+# (boolean) If set to yes, ansible-galaxy will not validate TLS certificates. This can be useful for testing against a server with a self-signed certificate.
+;ignore_certs=
+
+# (list) A list of GPG status codes to ignore during GPG signature verification. See L(https://github.com/gpg/gnupg/blob/master/doc/DETAILS#general-status-codes) for status code descriptions.
+# If fewer signatures successfully verify the collection than `GALAXY_REQUIRED_VALID_SIGNATURE_COUNT`, signature verification will fail even if all error codes are ignored.
+;ignore_signature_status_codes=
+
+# (str) The number of signatures that must be successful during GPG signature verification while installing or verifying collections.
+# This should be a positive integer or all to indicate all signatures must successfully validate the collection.
+# Prepend + to the value to fail if no valid signatures are found for the collection.
+;required_valid_signature_count=1
+
+# (path) Role skeleton directory to use as a template for the ``init`` action in ``ansible-galaxy``/``ansible-galaxy role``, same as ``--role-skeleton``.
+;role_skeleton=
+
+# (list) patterns of files to ignore inside a Galaxy role or collection skeleton directory
+;role_skeleton_ignore=^.git$, ^.*/.git_keep$
+
+# (string) URL to prepend when roles don't specify the full URI, assume they are referencing this server as the source.
+;server=https://galaxy.ansible.com
+
+# (list) A list of Galaxy servers to use when installing a collection.
+# The value corresponds to the config ini header ``[galaxy_server.{{item}}]`` which defines the server details.
+# See :ref:`galaxy_server_config` for more details on how to define a Galaxy server.
+# The order of servers in this list is used to as the order in which a collection is resolved.
+# Setting this config option will ignore the :ref:`galaxy_server` config option.
+;server_list=
+
+# (path) Local path to galaxy access token file
+;token_path={{ ANSIBLE_HOME ~ "/galaxy_token" }}
+
+
+[inventory]
+# (string) This setting changes the behaviour of mismatched host patterns, it allows you to force a fatal error, a warning or just ignore it
+;host_pattern_mismatch=warning
+
+# (boolean) If 'true', it is a fatal error when any given inventory source cannot be successfully parsed by any available inventory plugin; otherwise, this situation only attracts a warning.
+
+;any_unparsed_is_failed=False
+
+# (bool) Toggle to turn on inventory caching.
+# This setting has been moved to the individual inventory plugins as a plugin option :ref:`inventory_plugins`.
+# The existing configuration settings are still accepted with the inventory plugin adding additional options from inventory configuration.
+# This message will be removed in 2.16.
+;cache=False
+
+# (string) The plugin for caching inventory.
+# This setting has been moved to the individual inventory plugins as a plugin option :ref:`inventory_plugins`.
+# The existing configuration settings are still accepted with the inventory plugin adding additional options from inventory and fact cache configuration.
+# This message will be removed in 2.16.
+;cache_plugin=
+
+# (string) The inventory cache connection.
+# This setting has been moved to the individual inventory plugins as a plugin option :ref:`inventory_plugins`.
+# The existing configuration settings are still accepted with the inventory plugin adding additional options from inventory and fact cache configuration.
+# This message will be removed in 2.16.
+;cache_connection=
+
+# (string) The table prefix for the cache plugin.
+# This setting has been moved to the individual inventory plugins as a plugin option :ref:`inventory_plugins`.
+# The existing configuration settings are still accepted with the inventory plugin adding additional options from inventory and fact cache configuration.
+# This message will be removed in 2.16.
+;cache_prefix=ansible_inventory_
+
+# (string) Expiration timeout for the inventory cache plugin data.
+# This setting has been moved to the individual inventory plugins as a plugin option :ref:`inventory_plugins`.
+# The existing configuration settings are still accepted with the inventory plugin adding additional options from inventory and fact cache configuration.
+# This message will be removed in 2.16.
+;cache_timeout=3600
+
+# (list) List of enabled inventory plugins, it also determines the order in which they are used.
+;enable_plugins=host_list, script, auto, yaml, ini, toml
+
+# (bool) Controls if ansible-inventory will accurately reflect Ansible's view into inventory or its optimized for exporting.
+;export=False
+
+# (list) List of extensions to ignore when using a directory as an inventory source
+;ignore_extensions={{(REJECT_EXTS + ('.orig', '.ini', '.cfg', '.retry'))}}
+
+# (list) List of patterns to ignore when using a directory as an inventory source
+;ignore_patterns=
+
+# (bool) If 'true' it is a fatal error if every single potential inventory source fails to parse, otherwise this situation will only attract a warning.
+
+;unparsed_is_failed=False
+
+# (boolean) By default Ansible will issue a warning when no inventory was loaded and notes that it will use an implicit localhost-only inventory.
+# These warnings can be silenced by adjusting this setting to False.
+;inventory_unparsed_warning=True
+
+
+[netconf_connection]
+# (string) This variable is used to enable bastion/jump host with netconf connection. If set to True the bastion/jump host ssh settings should be present in ~/.ssh/config file, alternatively it can be set to custom ssh configuration file path to read the bastion/jump host settings.
+;ssh_config=
+
+
+[paramiko_connection]
+# (boolean) TODO: write it
+;host_key_auto_add=False
+
+# (boolean) TODO: write it
+;look_for_keys=True
+
+
+[jinja2]
+# (list) This list of filters avoids 'type conversion' when templating variables
+# Useful when you want to avoid conversion into lists or dictionaries for JSON strings, for example.
+;dont_type_filters=string, to_json, to_nice_json, to_yaml, to_nice_yaml, ppretty, json
+
+
+[tags]
+# (list) default list of tags to run in your plays, Skip Tags has precedence.
+;run=
+
+# (list) default list of tags to skip in your plays, has precedence over Run Tags
+;skip=
+
+[student@master ansible_examples]$ more temp.cfg
+[defaults]
+# (boolean) By default Ansible will issue a warning when received from a task action (module or action plugin)
+# These warnings can be silenced by adjusting this setting to False.
+;action_warnings=True
+
+# (list) Accept list of cowsay templates that are 'safe' to use, set to empty list if you want to enable all installed templates.
+;cowsay_enabled_stencils=bud-frogs, bunny, cheese, daemon, default, dragon, elephant-in-snake, elephant, eyes, hellokitty, kitty, luke-koala, meow, milk, moofasa, moose, ren, sheep, small, stegosaurus, stimpy, supermilker, three-eyes, tur
+key, turtle, tux, udder, vader-koala, vader, www
+
+# (string) Specify a custom cowsay path or swap in your cowsay implementation of choice
+;cowpath=
+
+# (string) This allows you to chose a specific cowsay stencil for the banners or use 'random' to cycle through them.
+;cow_selection=default
+
+# (boolean) This option forces color mode even when running without a TTY or the "nocolor" setting is True.
+;force_color=False
+
+# (path) The default root path for Ansible config files on the controller.
+;home=~/.ansible
+
+# (boolean) This setting allows suppressing colorizing output, which is used to give a better indication of failure and status information.
+;nocolor=False
+
+# (boolean) If you have cowsay installed but want to avoid the 'cows' (why????), use this.
+;nocows=False
+
+# (boolean) Sets the default value for the any_errors_fatal keyword, if True, Task failures will be considered fatal errors.
+;any_errors_fatal=False
+
+# (path) The password file to use for the become plugin. --become-password-file.
+# If executable, it will be run and the resulting stdout will be used as the password.
+;become_password_file=
+
+# (pathspec) Colon separated paths in which Ansible will search for Become Plugins.
+;become_plugins={{ ANSIBLE_HOME ~ "/plugins/become:/usr/share/ansible/plugins/become" }}
+
+# (string) Chooses which cache plugin to use, the default 'memory' is ephemeral.
+;fact_caching=memory
+
+# (string) Defines connection or path information for the cache plugin
+;fact_caching_connection=
+
+/inventory
+...skipping
+# **WARNING**, changing this setting is not recommended as this is fragile and makes your content (plays, roles, collections) non portable, leading to continual confusion and misuse. Don't change this setting unless you think you have an 
+absolute need for it.
+# We recommend avoiding reusing variable names and relying on the ``combine`` filter and ``vars`` and ``varnames`` lookups to create merged versions of the individual variables. In our experience this is rarely really needed and a sign th
+at too much complexity has been introduced into the data structures and plays.
+# For some uses you can also look into custom vars_plugins to merge on input, even substituting the default ``host_group_vars`` that is in charge of parsing the ``host_vars/`` and ``group_vars/`` directories. Most users of this setting ar
+e only interested in inventory scope, but the setting itself affects all sources and makes debugging even harder.
+# All playbooks and roles in the official examples repos assume the default for this setting.
+# Changing the setting to ``merge`` applies across variable sources, but many sources will internally still overwrite the variables. For example ``include_vars`` will dedupe variables internally before updating Ansible, with 'last defined
+' overwriting previous definitions in same file.
+# The Ansible project recommends you **avoid ``merge`` for new projects.**
+# It is the intention of the Ansible developers to eventually deprecate and remove this setting, but it is being kept as some users do heavily rely on it. New projects should **avoid 'merge'**.
+;hash_behaviour=replace
+
+# (pathlist) Comma separated list of Ansible inventory sources
+;inventory=/etc/ansible/hosts
+
+# (pathspec) Colon separated paths in which Ansible will search for HttpApi Plugins.
+;httpapi_plugins={{ ANSIBLE_HOME ~ "/plugins/httpapi:/usr/share/ansible/plugins/httpapi" }}
+
+# (float) This sets the interval (in seconds) of Ansible internal processes polling each other. Lower values improve performance with large playbooks at the expense of extra CPU load. Higher values are more suitable for Ansible usage in a
+utomation scenarios, when UI responsiveness is not required but CPU usage might be a concern.
+# The default corresponds to the value hardcoded in Ansible <= 2.1
+;internal_poll_interval=0.001
+
+# (pathspec) Colon separated paths in which Ansible will search for Inventory Plugins.
+;inventory_plugins={{ ANSIBLE_HOME ~ "/plugins/inventory:/usr/share/ansible/plugins/inventory" }}
+
+# (string) This is a developer-specific feature that allows enabling additional Jinja2 extensions.
+# See the Jinja2 documentation for details. If you do not know what these do, you probably don't need to change this setting :)
+;jinja2_extensions=[]
+
+# (boolean) This option preserves variable types during template operations.
+;jinja2_native=False
+
+# (boolean) Enables/disables the cleaning up of the temporary files Ansible used to execute the tasks on the remote.
+# If this option is enabled it will disable ``ANSIBLE_PIPELINING``.
+;keep_remote_files=False
+
+# (boolean) Controls whether callback plugins are loaded when running /usr/bin/ansible. This may be used to log activity from the command line, send notifications, and so on. Callback plugins are always loaded for ``ansible-playbook``.
+;bin_ansible_callbacks=False
+
+# (tmppath) Temporary directory for Ansible to use on the controller.
+[student@master ansible_examples]$ cp temp.cfg ansible.cfg
+[student@master ansible_examples]$ ansible-config init --disabled > temp2.cfg
+[student@master ansible_examples]$ diff temp*
+[student@master ansible_examples]$ vi ansible.cfg
+[student@master ansible_examples]$ ansible-config init --disabled > temp.cfg
+[student@master ansible_examples]$ ansible-inventory --graph
+@all:
+  |--@ungrouped:
+  |  |--node3
+  |--@centos:
+  |  |--@europe:
+  |  |  |--node1
+  |  |--@asia:
+  |  |  |--node2
+[student@master ansible_examples]$ pwd
+/home/student/ansible_examples
+[student@master ansible_examples]$ vi ansible.cfg
+[student@master ansible_examples]$ vi ansible.cfg
+[student@master ansible_examples]$ grep training ansible.cfg
+inventory=/home/student/ansible_examples/inventory ;added for training 
+become_allow_same_user=True ;added for training 
+become_ask_pass=False ;added for training 
+become_method=sudo ;added for training 
+become_user=root ;added for training 
+[student@master ansible_examples]$ ansible --version
+ansible [core 2.15.9]
+  config file = /home/student/ansible_examples/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/student/.local/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/student/.local/bin/ansible
+  python version = 3.9.17 (main, Jun 26 2023, 00:00:00) [GCC 11.4.1 20230605 (Red Hat 11.4.1-2)] (/usr/bin/python3)
+  jinja version = 3.1.3
+  libyaml = True
+[student@master ansible_examples]$ ansible-config view
+[defaults]
+# (boolean) By default Ansible will issue a warning when received from a task action (module or action plugin)
+# These warnings can be silenced by adjusting this setting to False.
+;action_warnings=True
+
+# (list) Accept list of cowsay templates that are 'safe' to use, set to empty list if you want to enable all installed templates.
+;cowsay_enabled_stencils=bud-frogs, bunny, cheese, daemon, default, dragon, elephant-in-snake, elephant, eyes, hellokitty, kitty, luke-koala, meow, milk, moofasa, moose, ren, sheep, small, stegosaurus, stimpy, supermilker, three-eyes, tu>
+
+# (string) Specify a custom cowsay path or swap in your cowsay implementation of choice
+;cowpath=
+
+# (string) This allows you to chose a specific cowsay stencil for the banners or use 'random' to cycle through them.
+;cow_selection=default
+
+# (boolean) This option forces color mode even when running without a TTY or the "nocolor" setting is True.
+;force_color=False
+
+# (path) The default root path for Ansible config files on the controller.
+;home=~/.ansible
+
+# (boolean) This setting allows suppressing colorizing output, which is used to give a better indication of failure and status information.
+;nocolor=False
+
+# (boolean) If you have cowsay installed but want to avoid the 'cows' (why????), use this.
+;nocows=False
+
+# (boolean) Sets the default value for the any_errors_fatal keyword, if True, Task failures will be considered fatal errors.
+;any_errors_fatal=False
+
+# (path) The password file to use for the become plugin. --become-password-file.
+# If executable, it will be run and the resulting stdout will be used as the password.
+;become_password_file=
+
+# (pathspec) Colon separated paths in which Ansible will search for Become Plugins.
+;become_plugins={{ ANSIBLE_HOME ~ "/plugins/become:/usr/share/ansible/plugins/become" }}
+
+# (string) Chooses which cache plugin to use, the default 'memory' is ephemeral.
+;fact_caching=memory
+
+# (string) Defines connection or path information for the cache plugin
+;fact_caching_connection=
+
+# (string) Prefix to use for cache plugin files/tables
+;fact_caching_prefix=ansible_facts
+
+# (integer) Expiration timeout for the cache plugin data
+;fact_caching_timeout=86400
+
+# (list) List of enabled callbacks, not all callbacks need enabling, but many of those shipped with Ansible do as we don't want them activated by default.
+;callbacks_enabled=
+
+# (string) When a collection is loaded that does not support the running Ansible version (with the collection metadata key `requires_ansible`).
+;collections_on_ansible_version_mismatch=warning
+
+# (pathspec) Colon separated paths in which Ansible will search for collections content. Collections must be in nested *subdirectories*, not directly in these directories. For example, if ``COLLECTIONS_PATHS`` includes ``'{{ ANSIBLE_HOME>
+
+;collections_path={{ ANSIBLE_HOME ~ "/collections:/usr/share/ansible/collections" }}
+
+# (boolean) A boolean to enable or disable scanning the sys.path for installed collections
+;collections_scan_sys_path=True
+
+# (path) The password file to use for the connection plugin. --connection-password-file.
+;connection_password_file=
+
+# (pathspec) Colon separated paths in which Ansible will search for Action Plugins.
+;action_plugins={{ ANSIBLE_HOME ~ "/plugins/action:/usr/share/ansible/plugins/action" }}
+
+# (boolean) When enabled, this option allows lookup plugins (whether used in variables as ``{{lookup('foo')}}`` or as a loop as with_foo) to return data that is not marked 'unsafe'.
+# By default, such data is marked as unsafe to prevent the templating engine from evaluating any jinja2 templating language, as this could represent a security risk. This option is provided to allow for backward compatibility, however us>
+;allow_unsafe_lookups=False
+
+# (boolean) This controls whether an Ansible playbook should prompt for a login password. If using SSH keys for authentication, you probably do not need to change this setting.
+;ask_pass=False
+
+# (boolean) This controls whether an Ansible playbook should prompt for a vault password.
+;ask_vault_pass=False
+
+# (pathspec) Colon separated paths in which Ansible will search for Cache Plugins.
+;cache_plugins={{ ANSIBLE_HOME ~ "/plugins/cache:/usr/share/ansible/plugins/cache" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Callback Plugins.
+;callback_plugins={{ ANSIBLE_HOME ~ "/plugins/callback:/usr/share/ansible/plugins/callback" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Cliconf Plugins.
+;cliconf_plugins={{ ANSIBLE_HOME ~ "/plugins/cliconf:/usr/share/ansible/plugins/cliconf" }}
+
+[student@master ansible_examples]$ ls -l
+total 128
+-rw-r--r-- 1 student student 39826 Jan 31 15:22 ansible.cfg
+-rw-r--r-- 1 student student    23 Jan 31 15:06 hide_ansible.cg
+-rw-r--r-- 1 student student    97 Jan 31 15:00 inventory
+-rw-r--r-- 1 student student 39584 Jan 31 15:10 temp2.cfg
+-rw-r--r-- 1 student student 39584 Jan 31 15:11 temp.cfg
+[student@master ansible_examples]$ rm temp*
+[student@master ansible_examples]$ rm hide*
+[student@master ansible_examples]$ ls -l
+total 44
+-rw-r--r-- 1 student student 39826 Jan 31 15:22 ansible.cfg
+-rw-r--r-- 1 student student    97 Jan 31 15:00 inventory
+[student@master ansible_examples]$ grep -v ^# ansible.cfg|grep -v ^\;
+[defaults]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inventory=/home/student/ansible_examples/inventory ;added for training 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[privilege_escalation]
+
+become_allow_same_user=True ;added for training 
+
+
+become_ask_pass=False ;added for training 
+
+
+
+become_method=sudo ;added for training 
+
+become_user=root ;added for training 
+
+
+[persistent_connection]
+
+
+
+
+
+
+[connection]
+
+
+[colors]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[selinux]
+
+
+
+[diff]
+
+
+
+[galaxy]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[inventory]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[netconf_connection]
+
+
+[paramiko_connection]
+
+
+
+[jinja2]
+
+
+[tags]
+
+
+[student@master ansible_examples]$ grep ^. ansible.cfg| grep -v ^# |grep -v ^\;
+[defaults]
+inventory=/home/student/ansible_examples/inventory ;added for training 
+[privilege_escalation]
+become_allow_same_user=True ;added for training 
+become_ask_pass=False ;added for training 
+become_method=sudo ;added for training 
+become_user=root ;added for training 
+[persistent_connection]
+[connection]
+[colors]
+[selinux]
+[diff]
+[galaxy]
+[inventory]
+[netconf_connection]
+[paramiko_connection]
+[jinja2]
+[tags]
+[student@master ansible_examples]$ history
+    1  su -
+    2  sudo -i
+    3  history
+    4  su -
+    5  sudp -i
+    6  sudo -i
+    7  you install -y code
+    8  yum install -y code
+    9  sudo yum install -y code
+   10  ssh-keygen
+   11  sudo you update firefox -y
+   12  sudo yum update firefox -y
+   13  sudo dnf install python3-pip -y
+   14  python3 -m pip install ansible-navigator --user
+   15  echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile
+   16  cat .profile
+   17  source ~/.profile
+   18  which source
+   19  echo $PATH
+   20  ansible --version
+   21  history
+   22  find /home/student/.local -name cron.py
+   23  mkdir ansible_examples
+   24  code
+   25  ansible-inventory -i inventory --graph
+   26  cd ansible_examples
+   27  ansible-inventory -i inventory --graph
+   28  cat inventory
+   29  vi ansible.cfg
+   30  ansible-inventory --graph
+   31  vi ansible.cfg
+   32  ansible-inventory --graph
+   33  ansible-config init --disabled > temp.cfg
+   34  mv ansible.cfg hide_ansible.cg
+   35  ansible-config init --disabled > temp.cfg
+   36  cat temp.cfg
+   37  more temp.cfg
+   38  cp temp.cfg ansible.cfg
+   39  ansible-config init --disabled > temp2.cfg
+   40  diff temp*
+   41  vi ansible.cfg
+   42  ansible-config init --disabled > temp.cfg
+   43  ansible-inventory --graph
+   44  pwd
+   45  vi ansible.cfg
+   46  grep training ansible.cfg
+   47  ansible --version
+   48  ansible-config view
+   49  ls -l
+   50  rm temp*
+   51  rm hide*
+   52  ls -l
+   53  grep -v ^# ansible.cfg|grep -v ^\;
+   54  grep ^. ansible.cfg| grep -v ^# |grep -v ^\;
+   55  history
+[student@master ansible_examples]$ vi /etc/hotsts
+[student@master ansible_examples]$ sudo vi /etc/hotsts
+[student@master ansible_examples]$ cat /etc/hotsts
+node1 172.25.230.112
+node2 172.25.230.61
+[student@master ansible_examples]$ ssh node1
+ssh: Could not resolve hostname node1: Name or service not known
+[student@master ansible_examples]$ sudo vi /etc/hotsts
+[student@master ansible_examples]$ ssh node1
+ssh: Could not resolve hostname node1: Name or service not known
+[student@master ansible_examples]$ sudo vi /etc/hosts
+[student@master ansible_examples]$ ssh node1
+The authenticity of host 'node1 (172.25.230.112)' can't be established.
+ED25519 key fingerprint is SHA256:p3J7p59n4XZA8ToJndqt0YkkcoV7vaXyTxKTW6R/KPA.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:1: 172.25.230.112
+    ~/.ssh/known_hosts:4: 172.25.230.61
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'node1' (ED25519) to the list of known hosts.
+Last login: Wed Jan 31 14:29:40 2024 from 172.25.232.209
+[student@node1 ~]$ 
+logout
+Connection to node1 closed.
+[student@master ansible_examples]$ pwd^C
+[student@master ansible_examples]$ ssh-copy-id student@node2
+The authenticity of host 'node2 (172.25.230.61)' can't be established.
+ED25519 key fingerprint is SHA256:p3J7p59n4XZA8ToJndqt0YkkcoV7vaXyTxKTW6R/KPA.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:1: 172.25.230.112
+    ~/.ssh/known_hosts:4: 172.25.230.61
+    ~/.ssh/known_hosts:5: node1
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+student@node2's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'student@node2'"
+and check to make sure that only the key(s) you wanted were added.
+
+[student@master ansible_examples]$ ssh node2
+Last login: Wed Jan 31 12:57:26 2024
+[student@node2 ~]$ 
+logout
+Connection to node2 closed.
+[student@master ansible_examples]$ ansible europe,node2 -m ping
+node2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+node1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[student@master ansible_examples]$ ansible centos -m ping
+node1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+node2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[student@master ansible_examples]$ ansible all -m ping
+node3 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname node3: Name or service not known",
+    "unreachable": true
+}
+node2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+node1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[student@master ansible_examples]$ ansible centos -m hostname
+node1 | FAILED! => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "msg": "missing required arguments: name"
+}
+node2 | FAILED! => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "msg": "missing required arguments: name"
+}
+[student@master ansible_examples]$ ansible centos -m raw date
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER] [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET] [-P POLL_INTERVAL] [-B SECONDS] [-o]
+               [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER] [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS] [--scp-extra-args SCP_EXTRA_ARGS]
+               [--ssh-extra-args SSH_EXTRA_ARGS] [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS] [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS] [-m MODULE_NAME]
+               pattern
+ansible: error: unrecognized arguments: date
+ 
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER] [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET] [-P POLL_INTERVAL] [-B SECONDS] [-o]
+               [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER] [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS] [--scp-extra-args SCP_EXTRA_ARGS]
+               [--ssh-extra-args SSH_EXTRA_ARGS] [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS] [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS] [-m MODULE_NAME]
+               pattern
+
+Define and run a single task 'playbook' against a set of hosts
+
+positional arguments:
+  pattern               host pattern
+
+optional arguments:
+  --ask-vault-password, --ask-vault-pass
+                        ask for vault password
+  --become-password-file BECOME_PASSWORD_FILE, --become-pass-file BECOME_PASSWORD_FILE
+                        Become password file
+  --connection-password-file CONNECTION_PASSWORD_FILE, --conn-pass-file CONNECTION_PASSWORD_FILE
+                        Connection password file
+  --list-hosts          outputs a list of matching hosts; does not execute anything else
+  --playbook-dir BASEDIR
+                        Since this tool does not use playbooks, use this as a substitute playbook directory. This sets the relative path for many features including roles/ group_vars/ etc.
+  --task-timeout TASK_TIMEOUT
+                        set task timeout limit in seconds, must be positive integer.
+  --vault-id VAULT_IDS  the vault identity to use
+  --vault-password-file VAULT_PASSWORD_FILES, --vault-pass-file VAULT_PASSWORD_FILES
+                        vault password file
+  --version             show program's version number, config file location, configured module search path, module location, executable location and exit
+  -B SECONDS, --background SECONDS
+                        run asynchronously, failing after X seconds (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the differences in those files; works great with --check
+  -K, --ask-become-pass
+                        ask for privilege escalation password
+  -M MODULE_PATH, --module-path MODULE_PATH
+                        prepend colon-separated path(s) to module library (default={{ ANSIBLE_HOME ~ "/plugins/modules:/usr/share/ansible/plugins/modules" }})
+  -P POLL_INTERVAL, --poll POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  -a MODULE_ARGS, --args MODULE_ARGS
+                        The action's options in space separated k=v format: -a 'opt1=val1 opt2=val2' or a json string: -a '{"opt1": "val1", "opt2": "val2"}'
+  -e EXTRA_VARS, --extra-vars EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if filename prepend with @
+  -f FORKS, --forks FORKS
+                        specify number of parallel processes to use (default=5)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory INVENTORY, --inventory-file INVENTORY
+                        specify inventory host path or comma separated host list. --inventory-file is deprecated
+  -k, --ask-pass        ask for connection password
+  -l SUBSET, --limit SUBSET
+                        further limit selected hosts to an additional pattern
+  -m MODULE_NAME, --module-name MODULE_NAME
+                        Name of the action to execute (default=command)
+  -o, --one-line        condense output
+  -t TREE, --tree TREE  log output to this directory
+  -v, --verbose         Causes Ansible to print more debug messages. Adding multiple -v will increase the verbosity, the builtin plugins currently evaluate up to -vvvvvv. A reasonable level to start is -vvv, connection debugging might
+                        require -vvvv.
+
+Privilege Escalation Options:
+  control how and which user you become as on target hosts
+
+  --become-method BECOME_METHOD
+                        privilege escalation method to use (default=sudo), use `ansible-doc -t become -l` to list valid choices.
+  --become-user BECOME_USER
+                        run operations as this user (default=root)
+  -b, --become          run operations with become (does not imply password prompting)
+
+Connection Options:
+  control as whom and how to connect to hosts
+
+  --private-key PRIVATE_KEY_FILE, --key-file PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+  --scp-extra-args SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+  --sftp-extra-args SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f, -l)
+  --ssh-common-args SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+  --ssh-extra-args SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+  -T TIMEOUT, --timeout TIMEOUT
+                        override the connection timeout in seconds (default=10)
+  -c CONNECTION, --connection CONNECTION
+                        connection type to use (default=smart)
+  -u REMOTE_USER, --user REMOTE_USER
+                        connect as this user (default=None)
+
+Some actions do not make sense in Ad-Hoc (include, meta, etc)
+[student@master ansible_examples]$ history
+    1  su -
+    2  sudo -i
+    3  history
+    4  su -
+    5  sudp -i
+    6  sudo -i
+    7  you install -y code
+    8  yum install -y code
+    9  sudo yum install -y code
+   10  ssh-keygen
+   11  sudo you update firefox -y
+   12  sudo yum update firefox -y
+   13  sudo dnf install python3-pip -y
+   14  python3 -m pip install ansible-navigator --user
+   15  echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile
+   16  cat .profile
+   17  source ~/.profile
+   18  which source
+   19  echo $PATH
+   20  ansible --version
+   21  history
+   22  find /home/student/.local -name cron.py
+   23  mkdir ansible_examples
+   24  code
+   25  ansible-inventory -i inventory --graph
+   26  cd ansible_examples
+   27  ansible-inventory -i inventory --graph
+   28  cat inventory
+   29  vi ansible.cfg
+   30  ansible-inventory --graph
+   31  vi ansible.cfg
+   32  ansible-inventory --graph
+   33  ansible-config init --disabled > temp.cfg
+   34  mv ansible.cfg hide_ansible.cg
+   35  ansible-config init --disabled > temp.cfg
+   36  cat temp.cfg
+   37  more temp.cfg
+   38  cp temp.cfg ansible.cfg
+   39  ansible-config init --disabled > temp2.cfg
+   40  diff temp*
+   41  vi ansible.cfg
+   42  ansible-config init --disabled > temp.cfg
+   43  ansible-inventory --graph
+   44  pwd
+   45  vi ansible.cfg
+   46  grep training ansible.cfg
+   47  ansible --version
+   48  ansible-config view
+   49  ls -l
+   50  rm temp*
+   51  rm hide*
+   52  ls -l
+   53  grep -v ^# ansible.cfg|grep -v ^\;
+   54  grep ^. ansible.cfg| grep -v ^# |grep -v ^\;
+   55  history
+   56  vi /etc/hotsts
+   57  sudo vi /etc/hotsts
+   58  cat /etc/hotsts
+   59  ssh node1
+   60  sudo vi /etc/hotsts
+   61  ssh node1
+   62  sudo vi /etc/hosts
+   63  ssh node1
+   64  ssh-copy-id student@node2
+   65  ssh node2
+   66  ansible europe,node2 -m ping
+   67  ansible centos -m ping
+   68  ansible all -m ping
+   69  ansible centos -m hostname
+   70  ansible centos -m raw date
+   71  history
+[student@master ansible_examples]$ grep ^. ansible.cfg| grep -v ^# |grep -v ^\;
+^C
+[student@master ansible_examples]$ more ansible.cfg
+[defaults]
+# (boolean) By default Ansible will issue a warning when received from a task action (module or action plugin)
+# These warnings can be silenced by adjusting this setting to False.
+;action_warnings=True
+
+# (list) Accept list of cowsay templates that are 'safe' to use, set to empty list if you want to enable all installed templates.
+;cowsay_enabled_stencils=bud-frogs, bunny, cheese, daemon, default, dragon, elephant-in-snake, elephant, eyes, hellokitty, kitty, luke-koala, meow, milk, moofasa, moose, ren, sheep, small, stegosaurus, stimpy, supermilker, three-eyes, tur
+key, turtle, tux, udder, vader-koala, vader, www
+
+# (string) Specify a custom cowsay path or swap in your cowsay implementation of choice
+;cowpath=
+
+# (string) This allows you to chose a specific cowsay stencil for the banners or use 'random' to cycle through them.
+;cow_selection=default
+
+# (boolean) This option forces color mode even when running without a TTY or the "nocolor" setting is True.
+;force_color=False
+
+# (path) The default root path for Ansible config files on the controller.
+;home=~/.ansible
+
+# (boolean) This setting allows suppressing colorizing output, which is used to give a better indication of failure and status information.
+;nocolor=False
+
+# (boolean) If you have cowsay installed but want to avoid the 'cows' (why????), use this.
+;nocows=False
+
+# (boolean) Sets the default value for the any_errors_fatal keyword, if True, Task failures will be considered fatal errors.
+;any_errors_fatal=False
+
+# (path) The password file to use for the become plugin. --become-password-file.
+# If executable, it will be run and the resulting stdout will be used as the password.
+;become_password_file=
+
+# (pathspec) Colon separated paths in which Ansible will search for Become Plugins.
+;become_plugins={{ ANSIBLE_HOME ~ "/plugins/become:/usr/share/ansible/plugins/become" }}
+
+# (string) Chooses which cache plugin to use, the default 'memory' is ephemeral.
+;fact_caching=memory
+
+# (string) Defines connection or path information for the cache plugin
+;fact_caching_connection=
+
+[student@master ansible_examples]$ ansible centos -m ping
+node1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+node2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[student@master ansible_examples]$ ^C
+[student@master ansible_examples]$ ansible -m ping
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER] [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET] [-P POLL_INTERVAL] [-B SECONDS] [-o]
+               [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER] [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS] [--scp-extra-args SCP_EXTRA_ARGS]
+               [--ssh-extra-args SSH_EXTRA_ARGS] [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS] [--vault-id VAULT_IDS] [-J | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS] [-M MODULE_PATH]
+               [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS] [-m MODULE_NAME]
+               pattern
+ansible: error: the following arguments are required: pattern
+ 
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER] [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET] [-P POLL_INTERVAL] [-B SECONDS] [-o]
+               [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER] [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS] [--scp-extra-args SCP_EXTRA_ARGS]
+               [--ssh-extra-args SSH_EXTRA_ARGS] [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS] [--vault-id VAULT_IDS] [-J | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS] [-M MODULE_PATH]
+               [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS] [-m MODULE_NAME]
+               pattern
+
+Define and run a single task 'playbook' against a set of hosts
+
+positional arguments:
+  pattern               host pattern
+
+options:
+  --become-password-file BECOME_PASSWORD_FILE, --become-pass-file BECOME_PASSWORD_FILE
+                        Become password file
+  --connection-password-file CONNECTION_PASSWORD_FILE, --conn-pass-file CONNECTION_PASSWORD_FILE
+                        Connection password file
+  --list-hosts          outputs a list of matching hosts; does not execute anything else
+  --playbook-dir BASEDIR
+                        Since this tool does not use playbooks, use this as a substitute playbook directory. This sets the relative path for many features including roles/ group_vars/ etc.
+  --task-timeout TASK_TIMEOUT
+                        set task timeout limit in seconds, must be positive integer.
+  --vault-id VAULT_IDS  the vault identity to use. This argument may be specified multiple times.
+  --vault-password-file VAULT_PASSWORD_FILES, --vault-pass-file VAULT_PASSWORD_FILES
+                        vault password file
+  --version             show program's version number, config file location, configured module search path, module location, executable location and exit
+  -B SECONDS, --background SECONDS
+                        run asynchronously, failing after X seconds (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the differences in those files; works great with --check
+  -J, --ask-vault-password, --ask-vault-pass
+                        ask for vault password
+  -K, --ask-become-pass
+                        ask for privilege escalation password
+  -M MODULE_PATH, --module-path MODULE_PATH
+                        prepend colon-separated path(s) to module library (default={{ ANSIBLE_HOME ~ "/plugins/modules:/usr/share/ansible/plugins/modules" }}). This argument may be specified multiple times.
+  -P POLL_INTERVAL, --poll POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  -a MODULE_ARGS, --args MODULE_ARGS
+                        The action's options in space separated k=v format: -a 'opt1=val1 opt2=val2' or a json string: -a '{"opt1": "val1", "opt2": "val2"}'
+  -e EXTRA_VARS, --extra-vars EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if filename prepend with @. This argument may be specified multiple times.
+  -f FORKS, --forks FORKS
+                        specify number of parallel processes to use (default=5)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory INVENTORY, --inventory-file INVENTORY
+                        specify inventory host path or comma separated host list. --inventory-file is deprecated. This argument may be specified multiple times.
+  -k, --ask-pass        ask for connection password
+  -l SUBSET, --limit SUBSET
+                        further limit selected hosts to an additional pattern
+  -m MODULE_NAME, --module-name MODULE_NAME
+                        Name of the action to execute (default=command)
+  -o, --one-line        condense output
+  -t TREE, --tree TREE  log output to this directory
+  -v, --verbose         Causes Ansible to print more debug messages. Adding multiple -v will increase the verbosity, the builtin plugins currently evaluate up to -vvvvvv. A reasonable level to start is -vvv, connection debugging might
+                        require -vvvv. This argument may be specified multiple times.
+
+Privilege Escalation Options:
+  control how and which user you become as on target hosts
+
+  --become-method BECOME_METHOD
+                        privilege escalation method to use (default=sudo), use `ansible-doc -t become -l` to list valid choices.
+  --become-user BECOME_USER
+                        run operations as this user (default=root)
+  -b, --become          run operations with become (does not imply password prompting)
+
+Connection Options:
+  control as whom and how to connect to hosts
+
+  --private-key PRIVATE_KEY_FILE, --key-file PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+  --scp-extra-args SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+  --sftp-extra-args SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f, -l)
+  --ssh-common-args SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+  --ssh-extra-args SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+  -T TIMEOUT, --timeout TIMEOUT
+                        override the connection timeout in seconds (default depends on connection)
+  -c CONNECTION, --connection CONNECTION
+                        connection type to use (default=ssh)
+  -u REMOTE_USER, --user REMOTE_USER
+                        connect as this user (default=None)
+
+Some actions do not make sense in Ad-Hoc (include, meta, etc)
+[student@master ansible_examples]$ ls -l
+total 60
+-rw-r--r-- 1 student student 39826 Jan 31 15:22 ansible.cfg
+-rw-r--r-- 1 student student  3940 Feb  1 13:38 ansible-navigator.log
+-rw-r--r-- 1 student student    97 Jan 31 15:00 inventory
+-rw-r--r-- 1 student student  6656 Feb  1 13:38 playbook-artifact-2024-02-01T08:08:14.097950+00:00.json
+-rw-r--r-- 1 student student   240 Feb  1 13:33 playbook.yaml
+[student@master ansible_examples]$ cp ansible.cfg ansible.cfg^C
+[student@master ansible_examples]$ ansible centos -m reboot
+node2 | FAILED! => {
+    "changed": false,
+    "elapsed": 0,
+    "msg": "Reboot command failed. Error was: '\u001b[0;1;38;5;185mFailed to set wall message, ignoring: Interactive authentication required.\u001b[0m\r\n\u001b[0;1;38;5;185mFailed to schedule shutdown: Interactive authentication required.\u001b[0m, Shared connection to node2 closed.'",
+    "rebooted": false,
+    "start": "2024-02-01T09:16:37.466402+00:00"
+}
+node1 | FAILED! => {
+    "changed": false,
+    "elapsed": 0,
+    "msg": "Reboot command failed. Error was: '\u001b[0;1;38;5;185mFailed to set wall message, ignoring: Interactive authentication required.\u001b[0m\r\n\u001b[0;1;38;5;185mFailed to schedule shutdown: Interactive authentication required.\u001b[0m, Shared connection to node1 closed.'",
+    "rebooted": false,
+    "start": "2024-02-01T09:16:37.472829+00:00"
+}
+[student@master ansible_examples]$ ansible centos -m reboot
+node1 | FAILED! => {
+    "changed": false,
+    "elapsed": 0,
+    "msg": "Reboot command failed. Error was: '\u001b[0;1;38;5;185mFailed to set wall message, ignoring: Interactive authentication required.\u001b[0m\r\n\u001b[0;1;38;5;185mFailed to schedule shutdown: Interactive authentication required.\u001b[0m, Shared connection to node1 closed.'",
+    "rebooted": false,
+    "start": "2024-02-01T09:19:34.360953+00:00"
+}
+node2 | FAILED! => {
+    "changed": false,
+    "elapsed": 0,
+    "msg": "Reboot command failed. Error was: '\u001b[0;1;38;5;185mFailed to set wall message, ignoring: Interactive authentication required.\u001b[0m\r\n\u001b[0;1;38;5;185mFailed to schedule shutdown: Interactive authentication required.\u001b[0m, Shared connection to node2 closed.'",
+    "rebooted": false,
+    "start": "2024-02-01T09:19:34.413023+00:00"
+}
+[student@master ansible_examples]$ ansible centos -m reboot
+node1 | FAILED! => {
+    "changed": false,
+    "elapsed": 0,
+    "msg": "Reboot command failed. Error was: '\u001b[0;1;38;5;185mFailed to set wall message, ignoring: Interactive authentication required.\u001b[0m\r\n\u001b[0;1;38;5;185mFailed to schedule shutdown: Interactive authentication required.\u001b[0m, Shared connection to node1 closed.'",
+    "rebooted": false,
+    "start": "2024-02-01T09:22:40.686392+00:00"
+}
+node2 | FAILED! => {
+    "changed": false,
+    "elapsed": 0,
+    "msg": "Reboot command failed. Error was: '\u001b[0;1;38;5;185mFailed to set wall message, ignoring: Interactive authentication required.\u001b[0m\r\n\u001b[0;1;38;5;185mFailed to schedule shutdown: Interactive authentication required.\u001b[0m, Shared connection to node2 closed.'",
+    "rebooted": false,
+    "start": "2024-02-01T09:22:40.695811+00:00"
+}
+[student@master ansible_examples]$ ansible centos -m ping
+node2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+node1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[student@master ansible_examples]$ cd ..
+[student@master ~]$ ansible centos -m ping^C
+[student@master ~]$ cd ansible_examples/
+[student@master ansible_examples]$ mv ansible.cfg ansible.cfg_hide
+[student@master ansible_examples]$ vi ansible.cfg
+[student@master ansible_examples]$ ansible centos -m reboot
+node1 | CHANGED => {
+    "changed": true,
+    "elapsed": 20,
+    "rebooted": true
+}
+node2 | CHANGED => {
+    "changed": true,
+    "elapsed": 27,
+    "rebooted": true
+}
+[student@master ansible_examples]$ diff ansible.cfg ansible.cfg_hide
+3d2
+< 
+5c4,5
+< become=True
+---
+> become_allow_same_user=True
+> become_ask_pass=False
+8d7
+< become_ask_pass=False
+[student@master ansible_examples]$ ansible europe,node2 -m pingcansible-pla^C
+[student@master ansible_examples]$ ansible-playbook playbook
+playbook-artifact-2024-02-01T08:08:14.097950+00:00.json  playbook-artifact-2024-02-01T08:44:54.239652+00:00.json  playbook.yaml                                            
+playbook-artifact-2024-02-01T08:39:54.047222+00:00.json  playbook-artifact-2024-02-01T09:09:38.987805+00:00.json  
+[student@master ansible_examples]$ ansible-playbook playbook.yaml
+
+PLAY [First ansible playbook] ****************************************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************************************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Check if servers in "centos" group are available for ansible] **************************************************************************************************************************************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Reboot all servers in "centos" group] **************************************************************************************************************************************************************************************************
+changed: [node1]
+changed: [node2]
+
+PLAY [Install packages] **********************************************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************************************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Install java and git] ******************************************************************************************************************************************************************************************************************
+ok: [node2]
+ok: [node1]
+
+PLAY RECAP ***********************************************************************************************************************************************************************************************************************************
+node1                      : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[student@master ansible_examples]$ grep ^. ansible.cfg ansible.cfg_hide
+ansible.cfg:[defaults]
+ansible.cfg:inventory=/home/student/ansible_examples/inventory
+ansible.cfg:[privilege_escalation]
+ansible.cfg:become=True
+ansible.cfg:become_method=sudo
+ansible.cfg:become_user=root
+ansible.cfg:become_ask_pass=False
+ansible.cfg_hide:[defaults]
+ansible.cfg_hide:inventory=/home/student/ansible_examples/inventory
+ansible.cfg_hide:[privilege_escalation]
+ansible.cfg_hide:become_allow_same_user=True
+ansible.cfg_hide:become_ask_pass=False
+ansible.cfg_hide:become_method=sudo
+ansible.cfg_hide:become_user=root
+[student@master ansible_examples]$ vi ansible.cfg
+[student@master ansible_examples]$ grep remote_user ans*cfg
+remote_user=student
+[student@master ansible_examples]$ grep user ans*cfg
+remote_user=student
+become_user=root
+[student@master ansible_examples]$ grep remote ans*cfg
+remote_user=student
+[student@master ansible_examples]$ grep remote_user ans*cfg^C
+[student@master ansible_examples]$ history
+    1  su -
+    2  sudo -i
+    3  history
+    4  su -
+    5  sudp -i
+    6  sudo -i
+    7  you install -y code
+    8  yum install -y code
+    9  sudo yum install -y code
+   10  ssh-keygen
+   11  sudo you update firefox -y
+   12  sudo yum update firefox -y
+   13  sudo dnf install python3-pip -y
+   14  python3 -m pip install ansible-navigator --user
+   15  echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile
+   16  cat .profile
+   17  source ~/.profile
+   18  which source
+   19  echo $PATH
+   20  ansible --version
+   21  history
+   22  find /home/student/.local -name cron.py
+   23  mkdir ansible_examples
+   24  code
+   25  ansible-inventory -i inventory --graph
+   26  cd ansible_examples
+   27  ansible-inventory -i inventory --graph
+   28  cat inventory
+   29  vi ansible.cfg
+   30  ansible-inventory --graph
+   31  vi ansible.cfg
+   32  ansible-inventory --graph
+   33  ansible-config init --disabled > temp.cfg
+   34  mv ansible.cfg hide_ansible.cg
+   35  ansible-config init --disabled > temp.cfg
+   36  cat temp.cfg
+   37  more temp.cfg
+   38  cp temp.cfg ansible.cfg
+   39  ansible-config init --disabled > temp2.cfg
+   40  diff temp*
+   41  vi ansible.cfg
+   42  ansible-config init --disabled > temp.cfg
+   43  ansible-inventory --graph
+   44  pwd
+   45  vi ansible.cfg
+   46  grep training ansible.cfg
+   47  ansible --version
+   48  ansible-config view
+   49  ls -l
+   50  rm temp*
+   51  rm hide*
+   52  ls -l
+   53  grep -v ^# ansible.cfg|grep -v ^\;
+   54  grep ^. ansible.cfg| grep -v ^# |grep -v ^\;
+   55  history
+   56  vi /etc/hotsts
+   57  sudo vi /etc/hotsts
+   58  cat /etc/hotsts
+   59  ssh node1
+   60  sudo vi /etc/hotsts
+   61  ssh node1
+   62  sudo vi /etc/hosts
+   63  ssh node1
+   64  ssh-copy-id student@node2
+   65  ssh node2
+   66  ansible europe,node2 -m ping
+   67  ansible centos -m ping
+   68  ansible all -m ping
+   69  ansible centos -m hostname
+   70  ansible centos -m raw date
+   71  history
+   72  more ansible.cfg
+   73  ansible centos -m ping
+   74  ansible -m ping
+   75  ls -l
+   76  ansible centos -m reboot
+   77  ansible centos -m ping
+   78  cd ..
+   79  cd ansible_examples/
+   80  mv ansible.cfg ansible.cfg_hide
+   81  vi ansible.cfg
+   82  ansible centos -m reboot
+   83  diff ansible.cfg ansible.cfg_hide
+   84  ansible-playbook playbook.yaml
+   85  grep ^. ansible.cfg ansible.cfg_hide
+   86  vi ansible.cfg
+   87  grep remote_user ans*cfg
+   88  grep user ans*cfg
+   89  grep remote ans*cfg
+   90  history
+[student@master ansible_examples]$ ansible-config init --disabled > temp.cfg
+[student@master ansible_examples]$ ansible-navigator config init --disabled > temp_navigator.cfg
+[student@master ansible_examples]$ ansible-navigator config init --disabled -m stdout > temp_navigator.cfg
+[student@master ansible_examples]$ ansible-navigator config init --disabled -m stdout
+[defaults]
+# (boolean) By default Ansible will issue a warning when received from a task action (module or action plugin)
+# These warnings can be silenced by adjusting this setting to False.
+;action_warnings=True
+
+# (list) Accept list of cowsay templates that are 'safe' to use, set to empty list if you want to enable all installed templates.
+;cowsay_enabled_stencils=bud-frogs, bunny, cheese, daemon, default, dragon, elephant-in-snake, elephant, eyes, hellokitty, kitty, luke-koala, meow, milk, moofasa, moose, ren, sheep, small, stegosaurus, stimpy, supermilker, three-eyes, tu>
+
+# (string) Specify a custom cowsay path or swap in your cowsay implementation of choice
+;cowpath=
+
+# (string) This allows you to chose a specific cowsay stencil for the banners or use 'random' to cycle through them.
+;cow_selection=default
+
+# (boolean) This option forces color mode even when running without a TTY or the "nocolor" setting is True.
+;force_color=False
+
+# (path) The default root path for Ansible config files on the controller.
+;home=~/.ansible
+
+# (boolean) This setting allows suppressing colorizing output, which is used to give a better indication of failure and status information.
+;nocolor=False
+
+# (boolean) If you have cowsay installed but want to avoid the 'cows' (why????), use this.
+;nocows=False
+
+# (boolean) Sets the default value for the any_errors_fatal keyword, if True, Task failures will be considered fatal errors.
+;any_errors_fatal=False
+
+# (path) The password file to use for the become plugin. --become-password-file.
+# If executable, it will be run and the resulting stdout will be used as the password.
+;become_password_file=
+
+# (pathspec) Colon separated paths in which Ansible will search for Become Plugins.
+;become_plugins={{ ANSIBLE_HOME ~ "/plugins/become:/usr/share/ansible/plugins/become" }}
+
+# (string) Chooses which cache plugin to use, the default 'memory' is ephemeral.
+;fact_caching=memory
+
+# (string) Defines connection or path information for the cache plugin
+;fact_caching_connection=
+
+# (string) Prefix to use for cache plugin files/tables
+;fact_caching_prefix=ansible_facts
+
+# (integer) Expiration timeout for the cache plugin data
+;fact_caching_timeout=86400
+
+# (list) List of enabled callbacks, not all callbacks need enabling, but many of those shipped with Ansible do as we don't want them activated by default.
+;callbacks_enabled=
+
+# (string) When a collection is loaded that does not support the running Ansible version (with the collection metadata key `requires_ansible`).
+;collections_on_ansible_version_mismatch=warning
+
+# (pathspec) Colon separated paths in which Ansible will search for collections content. Collections must be in nested *subdirectories*, not directly in these directories. For example, if ``COLLECTIONS_PATHS`` includes ``'{{ ANSIBLE_HOME>
+
+;collections_path={{ ANSIBLE_HOME ~ "/collections:/usr/share/ansible/collections" }}
+
+# (boolean) A boolean to enable or disable scanning the sys.path for installed collections
+;collections_scan_sys_path=True
+
+# (path) The password file to use for the connection plugin. --connection-password-file.
+;connection_password_file=
+
+# (pathspec) Colon separated paths in which Ansible will search for Action Plugins.
+;action_plugins={{ ANSIBLE_HOME ~ "/plugins/action:/usr/share/ansible/plugins/action" }}
+
+# (boolean) When enabled, this option allows lookup plugins (whether used in variables as ``{{lookup('foo')}}`` or as a loop as with_foo) to return data that is not marked 'unsafe'.
+# By default, such data is marked as unsafe to prevent the templating engine from evaluating any jinja2 templating language, as this could represent a security risk. This option is provided to allow for backward compatibility, however us>
+;allow_unsafe_lookups=False
+
+# (boolean) This controls whether an Ansible playbook should prompt for a login password. If using SSH keys for authentication, you probably do not need to change this setting.
+;ask_pass=False
+
+# (boolean) This controls whether an Ansible playbook should prompt for a vault password.
+;ask_vault_pass=False
+
+# (pathspec) Colon separated paths in which Ansible will search for Cache Plugins.
+;cache_plugins={{ ANSIBLE_HOME ~ "/plugins/cache:/usr/share/ansible/plugins/cache" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Callback Plugins.
+;callback_plugins={{ ANSIBLE_HOME ~ "/plugins/callback:/usr/share/ansible/plugins/callback" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Cliconf Plugins.
+;cliconf_plugins={{ ANSIBLE_HOME ~ "/plugins/cliconf:/usr/share/ansible/plugins/cliconf" }}
+
+...skipping...
+# (string) This setting controls the default policy of fact gathering (facts discovered about remote systems).
+# This option can be useful for those wishing to save fact gathering time. Both 'smart' and 'explicit' will use the cache plugin.
+;gathering=implicit
+
+# (list) Set the `gather_subset` option for the :ref:`ansible_collections.ansible.builtin.setup_module` task in the implicit fact gathering. See the module documentation for specifics.
+# It does **not** apply to user defined ``ansible.builtin.setup`` tasks.
+;gather_subset=
+
+# (integer) Set the timeout in seconds for the implicit fact gathering, see the module documentation for specifics.
+# It does **not** apply to user defined :ref:`ansible_collections.ansible.builtin.setup_module` tasks.
+;gather_timeout=
+
+# (string) This setting controls how duplicate definitions of dictionary variables (aka hash, map, associative array) are handled in Ansible.
+# This does not affect variables whose values are scalars (integers, strings) or arrays.
+# **WARNING**, changing this setting is not recommended as this is fragile and makes your content (plays, roles, collections) non portable, leading to continual confusion and misuse. Don't change this setting unless you think you have an>
+# We recommend avoiding reusing variable names and relying on the ``combine`` filter and ``vars`` and ``varnames`` lookups to create merged versions of the individual variables. In our experience this is rarely really needed and a sign t>
+# For some uses you can also look into custom vars_plugins to merge on input, even substituting the default ``host_group_vars`` that is in charge of parsing the ``host_vars/`` and ``group_vars/`` directories. Most users of this setting a>
+# All playbooks and roles in the official examples repos assume the default for this setting.
+# Changing the setting to ``merge`` applies across variable sources, but many sources will internally still overwrite the variables. For example ``include_vars`` will dedupe variables internally before updating Ansible, with 'last define>
+# The Ansible project recommends you **avoid ``merge`` for new projects.**
+# It is the intention of the Ansible developers to eventually deprecate and remove this setting, but it is being kept as some users do heavily rely on it. New projects should **avoid 'merge'**.
+;hash_behaviour=replace
+
+# (pathlist) Comma separated list of Ansible inventory sources
+;inventory=/etc/ansible/hosts
+
+# (pathspec) Colon separated paths in which Ansible will search for HttpApi Plugins.
+;httpapi_plugins={{ ANSIBLE_HOME ~ "/plugins/httpapi:/usr/share/ansible/plugins/httpapi" }}
+
+# (float) This sets the interval (in seconds) of Ansible internal processes polling each other. Lower values improve performance with large playbooks at the expense of extra CPU load. Higher values are more suitable for Ansible usage in >
+# The default corresponds to the value hardcoded in Ansible <= 2.1
+;internal_poll_interval=0.001
+
+# (pathspec) Colon separated paths in which Ansible will search for Inventory Plugins.
+;inventory_plugins={{ ANSIBLE_HOME ~ "/plugins/inventory:/usr/share/ansible/plugins/inventory" }}
+
+# (string) This is a developer-specific feature that allows enabling additional Jinja2 extensions.
+# See the Jinja2 documentation for details. If you do not know what these do, you probably don't need to change this setting :)
+;jinja2_extensions=[]
+
+# (boolean) This option preserves variable types during template operations.
+;jinja2_native=False
+
+# (boolean) Enables/disables the cleaning up of the temporary files Ansible used to execute the tasks on the remote.
+# If this option is enabled it will disable ``ANSIBLE_PIPELINING``.
+;keep_remote_files=False
+
+# (boolean) Controls whether callback plugins are loaded when running /usr/bin/ansible. This may be used to log activity from the command line, send notifications, and so on. Callback plugins are always loaded for ``ansible-playbook``.
+;bin_ansible_callbacks=False
+
+# (tmppath) Temporary directory for Ansible to use on the controller.
+;local_tmp={{ ANSIBLE_HOME ~ "/tmp" }}
+
+# (list) List of logger names to filter out of the log file
+;log_filter=
+
+# (path) File to which Ansible will log on the controller. When empty logging is disabled.
+;log_path=
+
+# (pathspec) Colon separated paths in which Ansible will search for Lookup Plugins.
+;lookup_plugins={{ ANSIBLE_HOME ~ "/plugins/lookup:/usr/share/ansible/plugins/lookup" }}
+
+# (string) Sets the macro for the 'ansible_managed' variable available for :ref:`ansible_collections.ansible.builtin.template_module` and :ref:`ansible_collections.ansible.windows.win_template_module`.  This is only relevant for those tw>
+;ansible_managed=Ansible managed
+
+# (string) This sets the default arguments to pass to the ``ansible`` adhoc binary if no ``-a`` is specified.
+;module_args=
+
+# (string) Compression scheme to use when transferring Python modules to the target.
+;module_compression=ZIP_DEFLATED
+
+# (string) Module to use with the ``ansible`` AdHoc command, if none is specified via ``-m``.
+;module_name=command
+
+# (pathspec) Colon separated paths in which Ansible will search for Modules.
+;library={{ ANSIBLE_HOME ~ "/plugins/modules:/usr/share/ansible/plugins/modules" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Module utils files, which are shared by modules.
+;module_utils={{ ANSIBLE_HOME ~ "/plugins/module_utils:/usr/share/ansible/plugins/module_utils" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Netconf Plugins.
+;netconf_plugins={{ ANSIBLE_HOME ~ "/plugins/netconf:/usr/share/ansible/plugins/netconf" }}
+
+# (boolean) Toggle Ansible's display and logging of task details, mainly used to avoid security disclosures.
+;no_log=False
+
+# (boolean) Toggle Ansible logging to syslog on the target when it executes tasks. On Windows hosts this will disable a newer style PowerShell modules from writing to the event log.
+;no_target_syslog=False
+...skipping...
+# (integer) Port to use in remote connections, when blank it will use the connection plugin default.
+;remote_port=
+
+# (string) Sets the login user for the target machines
+# When blank it uses the connection plugin's default, normally the user currently executing Ansible.
+;remote_user=
+
+# (pathspec) Colon separated paths in which Ansible will search for Roles.
+;roles_path={{ ANSIBLE_HOME ~ "/roles:/usr/share/ansible/roles:/etc/ansible/roles" }}
+
+# (string) Set the main callback used to display Ansible output. You can only have one at a time.
+# You can have many other callbacks, but just one can be in charge of stdout.
+# See :ref:`callback_plugins` for a list of available options.
+;stdout_callback=default
+
+# (string) Set the default strategy used for plays.
+;strategy=linear
+
+# (pathspec) Colon separated paths in which Ansible will search for Strategy Plugins.
+;strategy_plugins={{ ANSIBLE_HOME ~ "/plugins/strategy:/usr/share/ansible/plugins/strategy" }}
+
+# (boolean) Toggle the use of "su" for tasks.
+;su=False
+
+# (string) Syslog facility to use when Ansible logs to the remote target
+;syslog_facility=LOG_USER
+
+# (pathspec) Colon separated paths in which Ansible will search for Terminal Plugins.
+;terminal_plugins={{ ANSIBLE_HOME ~ "/plugins/terminal:/usr/share/ansible/plugins/terminal" }}
+
+# (pathspec) Colon separated paths in which Ansible will search for Jinja2 Test Plugins.
+;test_plugins={{ ANSIBLE_HOME ~ "/plugins/test:/usr/share/ansible/plugins/test" }}
+
+# (integer) This is the default timeout for connection plugins to use.
+;timeout=10
+
+# (string) Default connection plugin to use, the 'smart' option will toggle between 'ssh' and 'paramiko' depending on controller OS and ssh versions
+;transport=smart
+
+# (boolean) When True, this causes ansible templating to fail steps that reference variable names that are likely typoed.
+# Otherwise, any '{{ template_expression }}' that contains undefined variables will be rendered in a template or ansible action line exactly as written.
+;error_on_undefined_vars=True
+
+[student@master ansible_examples]$ ansible-navigator collections
+[student@master ansible_examples]$ ansible-navigator --help
+Usage: ansible-navigator [options]
+
+Options (global):
+ -h     --help                                   Show this help message and exit
+ --version                                       Show the application version and exit
+ --rad  --ansible-runner-artifact-dir            The directory path to store artifacts generated by ansible-runner
+ --rac  --ansible-runner-rotate-artifacts-count  Keep ansible-runner artifact directories, for last n runs, if set to 0 artifact directories won't be deleted
+ --rt   --ansible-runner-timeout                 The timeout value after which ansible-runner will forcefully stop the execution
+ --rwje --ansible-runner-write-job-events        Write ansible-runner job_events in the artifact directory (true|false)
+ --cdcp --collection-doc-cache-path              The path to collection doc cache (default: /home/student/.cache/ansible-navigator/collection_doc_cache.db)
+ --ce   --container-engine                       Specify the container engine (auto=podman then docker) (auto|podman|docker) (default: auto)
+ --co   --container-options                      Extra parameters passed to the container engine command
+ --dc   --display-color                          Enable the use of color for mode interactive and stdout (true|false) (default: true)
+ --ecmd --editor-command                         Specify the editor command (default: vi +{line_number} {filename})
+ --econ --editor-console                         Specify if the editor is console based (true|false) (default: true)
+ --ee   --execution-environment                  Enable or disable the use of an execution environment (true|false) (default: true)
+ --eei  --execution-environment-image            Specify the name of the execution environment image (default: ghcr.io/ansible/creator-ee:v0.21.0)
+ --eev  --execution-environment-volume-mounts    Specify volume to be bind mounted within an execution environment (--eev /home/user/test:/home/user/test:Z)
+ --la   --log-append                             Specify if log messages should be appended to an existing log file, otherwise a new log file will be created per session (true|false) (default: true)
+ --lf   --log-file                               Specify the full path for the ansible-navigator log file (default: /home/student/ansible_examples/ansible-navigator.log)
+ --ll   --log-level                              Specify the ansible-navigator log level (debug|info|warning|error|critical) (default: warning)
+ -m     --mode                                   Specify the user-interface mode (stdout|interactive) (default: interactive)
+ --osc4 --osc4                                   Enable or disable terminal color changing support with OSC 4 (true|false) (default: true)
+ --penv --pass-environment-variable              Specify an existing environment variable to be passed through to and set within the execution environment (--penv MY_VAR)
+ --pa   --pull-arguments                         Specify any additional parameters that should be added to the pull command when pulling an execution environment from a container registry. e.g. --pa='--tls-verify=false'
+ --pp   --pull-policy                            Specify the image pull policy always:Always pull the image, missing:Pull if not locally available, never:Never pull the image, tag:if the image tag is 'latest', always pull the image,
+                                                 otherwise pull if not locally available (always|missing|never|tag) (default: tag)
+ --senv --set-environment-variable               Specify an environment variable and a value to be set within the execution environment (--senv MY_VAR=42)
+ --tz   --time-zone                              Specify the IANA time zone to use or 'local' to use the system time zone (default: utc)
+
+Subcommands:
+ {subcommand} --help
+  builder                                        Build [execution environment](https://ansible.readthedocs.io/en/latest/getting_started_ee/index.html) (container image)
+  collections                                    Explore available collections
+  config                                         Explore the current ansible configuration
+  doc                                            Review documentation for a module or plugin
+  exec                                           Run a command within an execution environment
+  images                                         Explore execution environment images
+  inventory                                      Explore an inventory
+  lint                                           Lint a file or directory for common errors and issues
+  replay                                         Explore a previous run using a playbook artifact
+  run                                            Run a playbook
+  settings                                       Review the current ansible-navigator settings
+  welcome                                        Start at the welcome page
+[student@master ansible_examples]$ ansible-navigator run playbook.yaml --check -m stdout
+
+PLAY [First ansible playbook] **************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Check if servers in "centos" group are available for ansible] ************
+ok: [node2]
+ok: [node1]
+
+TASK [Reboot all servers in "centos" group] ************************************
+changed: [node1]
+changed: [node2]
+
+PLAY [Install packages] ********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Install java and git] ****************************************************
+ok: [node2]
+ok: [node1]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_examples]$ ansible-navigator lint playbook.yaml -m stdout
+[student@master ansible_examples]$ ansible-navigator settings -m stdout
+---
+- choices: []
+  cli_parameters:
+    long: --ansible-runner-artifact-dir
+    short: --rad
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: The directory path to store artifacts generated by ansible-runner
+  env_var: ANSIBLE_NAVIGATOR_ANSIBLE_RUNNER_ARTIFACT_DIR
+  name: Ansible runner artifact dir
+  settings_file_sample:
+    ansible-navigator:
+      ansible-runner:
+        artifact-dir: <------
+  source: Not set
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --ansible-runner-rotate-artifacts-count
+    short: --rac
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Keep ansible-runner artifact directories, for last n runs, if set to
+    0 artifact directories won't be deleted
+  env_var: ANSIBLE_NAVIGATOR_ANSIBLE_RUNNER_ROTATE_ARTIFACTS_COUNT
+  name: Ansible runner rotate artifacts count
+  settings_file_sample:
+    ansible-navigator:
+      ansible-runner:
+        rotate-artifacts-count: <------
+  source: Not set
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --ansible-runner-timeout
+    short: --rt
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: The timeout value after which ansible-runner will forcefully stop the
+    execution
+  env_var: ANSIBLE_NAVIGATOR_ANSIBLE_RUNNER_TIMEOUT
+  name: Ansible runner timeout
+  settings_file_sample:
+    ansible-navigator:
+      ansible-runner:
+        timeout: <------
+  source: Not set
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --ansible-runner-write-job-events
+    short: --rwje
+  current_settings_file: None
+  current_value: false
+  default: true
+  default_value: false
+  description: Write ansible-runner job_events in the artifact directory
+  env_var: ANSIBLE_NAVIGATOR_ANSIBLE_RUNNER_WRITE_JOB_EVENTS
+  name: Ansible runner write job events
+  settings_file_sample:
+    ansible-navigator:
+      ansible-runner:
+        job-events: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v2.3
+- choices:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  cli_parameters:
+    long: No long CLI parameter
+    short: No short CLI parameter
+  current_settings_file: None
+  current_value: settings
+  default: false
+  default_value: welcome
+  description: Subcommands
+  env_var: ANSIBLE_NAVIGATOR_APP
+  name: App
+  settings_file_sample:
+    ansible-navigator:
+      app: <------
+  source: Command line
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: No long CLI parameter
+    short: No short CLI parameter
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Extra parameters passed to the corresponding command
+  env_var: ANSIBLE_NAVIGATOR_CMDLINE
+  name: Cmdline
+  settings_file_sample:
+    ansible-navigator:
+      ansible:
+        cmdline: <------
+  source: Not set
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --collection-doc-cache-path
+    short: --cdcp
+  current_settings_file: None
+  current_value: /home/student/.cache/ansible-navigator/collection_doc_cache.db
+  default: true
+  default_value: /home/student/.cache/ansible-navigator/collection_doc_cache.db
+  description: The path to collection doc cache
+  env_var: ANSIBLE_NAVIGATOR_COLLECTION_DOC_CACHE_PATH
+  name: Collection doc cache path
+  settings_file_sample:
+    ansible-navigator:
+      collection-doc-cache-path: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --config
+    short: -c
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Specify the path to the ansible configuration file
+  env_var: ANSIBLE_CONFIG
+  name: Config
+  settings_file_sample:
+    ansible-navigator:
+      ansible:
+        config:
+          path: <------
+  source: Not set
+  subcommands:
+  - config
+  version_added: v1.0
+- choices:
+  - auto
+  - podman
+  - docker
+  cli_parameters:
+    long: --container-engine
+    short: --ce
+  current_settings_file: None
+  current_value: podman
+  default: false
+  default_value: auto
+  description: Specify the container engine (auto=podman then docker)
+  env_var: ANSIBLE_NAVIGATOR_CONTAINER_ENGINE
+  name: Container engine
+  settings_file_sample:
+    ansible-navigator:
+      execution-environment:
+        container-engine: <------
+  source: Automatically determined
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --container-options
+    short: --co
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Extra parameters passed to the container engine command
+  env_var: ANSIBLE_NAVIGATOR_CONTAINER_OPTIONS
+  name: Container options
+  settings_file_sample:
+    ansible-navigator:
+      execution-environment:
+        container-options: <------
+  source: Not set
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v2.0
+- choices: []
+  cli_parameters:
+    long: No long CLI parameter
+    short: No short CLI parameter
+  current_settings_file: None
+  current_value: None
+  default: true
+  default_value: None
+  description: The path to the current settings file. Possible locations are {CWD}/ansible-navigator.{ext}
+    or {HOME}/.ansible-navigator.{ext} where ext is yml, yaml or json.
+  env_var: ANSIBLE-NAVIGATOR_CONFIG
+  name: Current settings file
+  settings_file_sample: Not applicable
+  source: None
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --display-color
+    short: --dc
+  current_settings_file: None
+  current_value: true
+  default: true
+  default_value: true
+  description: Enable the use of color for mode interactive and stdout
+  env_var: NO_COLOR
+  name: Display color
+  settings_file_sample:
+    ansible-navigator:
+      color:
+        enable: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --editor-command
+    short: --ecmd
+  current_settings_file: None
+  current_value: vi +{line_number} {filename}
+  default: true
+  default_value: vi +{line_number} {filename}
+  description: Specify the editor command
+  env_var: ANSIBLE_NAVIGATOR_EDITOR_COMMAND
+  name: Editor command
+  settings_file_sample:
+    ansible-navigator:
+      editor:
+        command: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --editor-console
+    short: --econ
+  current_settings_file: None
+  current_value: true
+  default: true
+  default_value: true
+  description: Specify if the editor is console based
+  env_var: ANSIBLE_NAVIGATOR_EDITOR_CONSOLE
+  name: Editor console
+  settings_file_sample:
+    ansible-navigator:
+      editor:
+        console: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --enable-prompts
+    short: --ep
+  current_settings_file: None
+  current_value: false
+  default: true
+  default_value: false
+  description: Enable prompts for password and in playbooks. This will set mode to
+    stdout and disable playbook artifact creation
+  env_var: ANSIBLE_NAVIGATOR_ENABLE_PROMPTS
+  name: Enable prompts
+  settings_file_sample:
+    ansible-navigator:
+      enable-prompts: <------
+  source: Defaults
+  subcommands:
+  - run
+  version_added: v2.3
+- choices: []
+  cli_parameters:
+    long: --exec-command
+    short: No short CLI parameter
+  current_settings_file: None
+  current_value: /bin/bash
+  default: true
+  default_value: /bin/bash
+  description: Specify the command to run within the execution environment
+  env_var: ANSIBLE_NAVIGATOR_EXEC_COMMAND
+  name: Exec command
+  settings_file_sample:
+    ansible-navigator:
+      exec:
+        command: <------
+  source: Defaults
+  subcommands:
+  - exec
+  version_added: v2.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --exec-shell
+    short: --exshell
+  current_settings_file: None
+  current_value: true
+  default: true
+  default_value: true
+  description: Specify the exec command should be run in a shell
+  env_var: ANSIBLE_NAVIGATOR_EXEC_SHELL
+  name: Exec shell
+  settings_file_sample:
+    ansible-navigator:
+      exec:
+        shell: <------
+  source: Defaults
+  subcommands:
+  - exec
+  version_added: v2.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --execution-environment
+    short: --ee
+  current_settings_file: None
+  current_value: true
+  default: true
+  default_value: true
+  description: Enable or disable the use of an execution environment
+  env_var: ANSIBLE_NAVIGATOR_EXECUTION_ENVIRONMENT
+  name: Execution environment
+  settings_file_sample:
+    ansible-navigator:
+      execution-environment:
+        enabled: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --execution-environment-image
+    short: --eei
+  current_settings_file: None
+  current_value: ghcr.io/ansible/creator-ee:v0.21.0
+  default: true
+  default_value: ghcr.io/ansible/creator-ee:v0.21.0
+  description: Specify the name of the execution environment image
+  env_var: ANSIBLE_NAVIGATOR_EXECUTION_ENVIRONMENT_IMAGE
+  name: Execution environment image
+  settings_file_sample:
+    ansible-navigator:
+      execution-environment:
+        image: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --execution-environment-volume-mounts
+    short: --eev
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Specify volume to be bind mounted within an execution environment (--eev
+    /home/user/test:/home/user/test:Z)
+  env_var: ANSIBLE_NAVIGATOR_EXECUTION_ENVIRONMENT_VOLUME_MOUNTS
+  name: Execution environment volume mounts
+  settings_file_sample:
+    ansible-navigator:
+      execution-environment:
+        volume-mounts: <------
+  source: Not set
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices:
+  - json
+  - yaml
+  cli_parameters:
+    long: --format
+    short: --fmt
+  current_settings_file: None
+  current_value: yaml
+  default: true
+  default_value: yaml
+  description: Specify the format for stdout output.
+  env_var: ANSIBLE_NAVIGATOR_FORMAT
+  name: Format
+  settings_file_sample:
+    ansible-navigator:
+      format: <------
+  source: Defaults
+  subcommands:
+  - collections
+  - images
+  version_added: v2.3
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --help-builder
+    short: --hb
+  current_settings_file: None
+  current_value: false
+  default: true
+  default_value: false
+  description: Help options for ansible-builder command in stdout mode
+  env_var: ANSIBLE_NAVIGATOR_HELP_BUILDER
+  name: Help builder
+  settings_file_sample:
+    ansible-navigator:
+      ansible-builder:
+        help: <------
+  source: Defaults
+  subcommands:
+  - builder
+  version_added: v2.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --help-config
+    short: --hc
+  current_settings_file: None
+  current_value: false
+  default: true
+  default_value: false
+  description: Help options for ansible-config command in stdout mode
+  env_var: ANSIBLE_NAVIGATOR_HELP_CONFIG
+  name: Help config
+  settings_file_sample:
+    ansible-navigator:
+      ansible:
+        config:
+          help: <------
+  source: Defaults
+  subcommands:
+  - config
+  version_added: v1.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --help-doc
+    short: --hd
+  current_settings_file: None
+  current_value: false
+  default: true
+  default_value: false
+  description: Help options for ansible-doc command in stdout mode
+  env_var: ANSIBLE_NAVIGATOR_HELP_DOC
+  name: Help doc
+  settings_file_sample:
+    ansible-navigator:
+      ansible:
+        doc:
+          help: <------
+  source: Defaults
+  subcommands:
+  - doc
+  version_added: v1.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --help-inventory
+    short: --hi
+  current_settings_file: None
+  current_value: false
+  default: true
+  default_value: false
+  description: Help options for ansible-inventory command in stdout mode
+  env_var: ANSIBLE_NAVIGATOR_HELP_INVENTORY
+  name: Help inventory
+  settings_file_sample:
+    ansible-navigator:
+      ansible:
+        inventory:
+          help: <------
+  source: Defaults
+  subcommands:
+  - inventory
+  version_added: v1.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --help-playbook
+    short: --hp
+  current_settings_file: None
+  current_value: false
+  default: true
+  default_value: false
+  description: Help options for ansible-playbook command in stdout mode
+  env_var: ANSIBLE_NAVIGATOR_HELP_PLAYBOOK
+  name: Help playbook
+  settings_file_sample:
+    ansible-navigator:
+      ansible:
+        playbook:
+          help: <------
+  source: Defaults
+  subcommands:
+  - run
+  version_added: v1.0
+- choices:
+  - ansible_collections
+  - ansible_version
+  - everything
+  - os_release
+  - python_packages
+  - python_version
+  - redhat_release
+  - system_packages
+  cli_parameters:
+    long: --details
+    short: -d
+  current_settings_file: None
+  current_value:
+  - everything
+  default: true
+  default_value:
+  - everything
+  description: Provide detailed information about the selected execution environment
+    image
+  env_var: ANSIBLE_NAVIGATOR_IMAGES_DETAILS
+  name: Images details
+  settings_file_sample:
+    ansible-navigator:
+      images:
+        details: <------
+  source: Defaults
+  subcommands:
+  - images
+  version_added: v2.0
+- choices: []
+  cli_parameters:
+    long: --inventory
+    short: -i
+  current_settings_file: None
+  current_value:
+  - /home/student/ansible_examples/inventory
+  default: false
+  default_value: Not set
+  description: Specify an inventory file path or comma separated host list
+  env_var: ANSIBLE_INVENTORY
+  name: Inventory
+  settings_file_sample:
+    ansible-navigator:
+      ansible:
+        inventory:
+          entries: <------
+  source: Ansible configuration file
+  subcommands:
+  - inventory
+  - run
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --inventory-column
+    short: --ic
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Specify a host attribute to show in the inventory view
+  env_var: ANSIBLE_NAVIGATOR_INVENTORY_COLUMNS
+  name: Inventory column
+  settings_file_sample:
+    ansible-navigator:
+      inventory-columns: <------
+  source: Not set
+  subcommands:
+  - inventory
+  - run
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --lint-config
+    short: --lic
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Specify the path to the ansible-lint configuration file
+  env_var: ANSIBLE_LINT_CONFIG
+  name: Lint config
+  settings_file_sample:
+    ansible-navigator:
+      ansible-lint:
+        config: <------
+  source: Not set
+  subcommands:
+  - lint
+  version_added: v2.0
+- choices: []
+  cli_parameters:
+    long: --lintables
+    short: No short CLI parameter
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Path to files on which to run ansible-lint
+  env_var: ANSIBLE_NAVIGATOR_LINTABLES
+  name: Lintables
+  settings_file_sample:
+    ansible-navigator:
+      ansible-lint:
+        lintables: <------
+  source: Not set
+  subcommands:
+  - lint
+  version_added: v2.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --log-append
+    short: --la
+  current_settings_file: None
+  current_value: true
+  default: true
+  default_value: true
+  description: Specify if log messages should be appended to an existing log file,
+    otherwise a new log file will be created per session
+  env_var: ANSIBLE_NAVIGATOR_LOG_APPEND
+  name: Log append
+  settings_file_sample:
+    ansible-navigator:
+      logging:
+        append: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --log-file
+    short: --lf
+  current_settings_file: None
+  current_value: /home/student/ansible_examples/ansible-navigator.log
+  default: true
+  default_value: /home/student/ansible_examples/ansible-navigator.log
+  description: Specify the full path for the ansible-navigator log file
+  env_var: ANSIBLE_NAVIGATOR_LOG_FILE
+  name: Log file
+  settings_file_sample:
+    ansible-navigator:
+      logging:
+        file: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices:
+  - debug
+  - info
+  - warning
+  - error
+  - critical
+  cli_parameters:
+    long: --log-level
+    short: --ll
+  current_settings_file: None
+  current_value: warning
+  default: true
+  default_value: warning
+  description: Specify the ansible-navigator log level
+  env_var: ANSIBLE_NAVIGATOR_LOG_LEVEL
+  name: Log level
+  settings_file_sample:
+    ansible-navigator:
+      logging:
+        level: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices:
+  - stdout
+  - interactive
+  cli_parameters:
+    long: --mode
+    short: -m
+  current_settings_file: None
+  current_value: stdout
+  default: false
+  default_value: interactive
+  description: Specify the user-interface mode
+  env_var: ANSIBLE_NAVIGATOR_MODE
+  name: Mode
+  settings_file_sample:
+    ansible-navigator:
+      mode: <------
+  source: Command line
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --osc4
+    short: --osc4
+  current_settings_file: None
+  current_value: true
+  default: true
+  default_value: true
+  description: Enable or disable terminal color changing support with OSC 4
+  env_var: ANSIBLE_NAVIGATOR_OSC4
+  name: Osc4
+  settings_file_sample:
+    ansible-navigator:
+      color:
+        osc4: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --pass-environment-variable
+    short: --penv
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Specify an existing environment variable to be passed through to and
+    set within the execution environment (--penv MY_VAR)
+  env_var: ANSIBLE_NAVIGATOR_PASS_ENVIRONMENT_VARIABLES
+  name: Pass environment variable
+  settings_file_sample:
+    ansible-navigator:
+      execution-environment:
+        environment-variables:
+          pass: <------
+  source: Not set
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --playbook
+    short: No short CLI parameter
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Specify the playbook name
+  env_var: ANSIBLE_NAVIGATOR_PLAYBOOK
+  name: Playbook
+  settings_file_sample:
+    ansible-navigator:
+      ansible:
+        playbook:
+          path: <------
+  source: Not set
+  subcommands:
+  - run
+  version_added: v1.0
+- choices:
+  - true
+  - false
+  cli_parameters:
+    long: --playbook-artifact-enable
+    short: --pae
+  current_settings_file: None
+  current_value: true
+  default: true
+  default_value: true
+  description: 'Enable or disable the creation of artifacts for completed playbooks.
+    Note: not compatible with ''--mode stdout'' when playbooks require user input'
+  env_var: ANSIBLE_NAVIGATOR_PLAYBOOK_ARTIFACT_ENABLE
+  name: Playbook artifact enable
+  settings_file_sample:
+    ansible-navigator:
+      playbook-artifact:
+        enable: <------
+  source: Defaults
+  subcommands:
+  - run
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --playbook-artifact-replay
+    short: No short CLI parameter
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Specify the path for the playbook artifact to replay
+  env_var: ANSIBLE_NAVIGATOR_PLAYBOOK_ARTIFACT_REPLAY
+  name: Playbook artifact replay
+  settings_file_sample:
+    ansible-navigator:
+      playbook-artifact:
+        replay: <------
+  source: Not set
+  subcommands:
+  - replay
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --playbook-artifact-save-as
+    short: --pas
+  current_settings_file: None
+  current_value: '{playbook_dir}/{playbook_name}-artifact-{time_stamp}.json'
+  default: true
+  default_value: '{playbook_dir}/{playbook_name}-artifact-{time_stamp}.json'
+  description: 'Specify the name for artifacts created from completed playbooks. The
+    following placeholders are available: {playbook_dir}, {playbook_name}, {playbook_status},
+    and {time_stamp}'
+  env_var: ANSIBLE_NAVIGATOR_PLAYBOOK_ARTIFACT_SAVE_AS
+  name: Playbook artifact save as
+  settings_file_sample:
+    ansible-navigator:
+      playbook-artifact:
+        save-as: <------
+  source: Defaults
+  subcommands:
+  - run
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --plugin-name
+    short: No short CLI parameter
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Specify the plugin name
+  env_var: ANSIBLE_NAVIGATOR_PLUGIN_NAME
+  name: Plugin name
+  settings_file_sample:
+    ansible-navigator:
+      ansible:
+        doc:
+          plugin:
+            name: <------
+  source: Not set
+  subcommands:
+  - doc
+  version_added: v1.0
+- choices:
+  - become
+  - cache
+  - callback
+  - cliconf
+  - connection
+  - filter
+  - httpapi
+  - inventory
+  - keyword
+  - lookup
+  - module
+  - netconf
+  - role
+  - shell
+  - strategy
+  - test
+  - vars
+  cli_parameters:
+    long: --type
+    short: -t
+  current_settings_file: None
+  current_value: module
+  default: true
+  default_value: module
+  description: Specify the plugin type, 'become', 'cache', 'callback', 'cliconf',
+    'connection', 'filter', 'httpapi', 'inventory', 'keyword', 'lookup', 'module',
+    'netconf', 'role', 'shell', 'strategy', 'test' or 'vars'
+  env_var: ANSIBLE_NAVIGATOR_PLUGIN_TYPE
+  name: Plugin type
+  settings_file_sample:
+    ansible-navigator:
+      ansible:
+        doc:
+          plugin:
+            type: <------
+  source: Defaults
+  subcommands:
+  - doc
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --pull-arguments
+    short: --pa
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Specify any additional parameters that should be added to the pull
+    command when pulling an execution environment from a container registry. e.g.
+    --pa='--tls-verify=false'
+  env_var: ANSIBLE_NAVIGATOR_PULL_ARGUMENTS
+  name: Pull arguments
+  settings_file_sample:
+    ansible-navigator:
+      execution-environment:
+        pull:
+          arguments: <------
+  source: Not set
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v2.0
+- choices:
+  - always
+  - missing
+  - never
+  - tag
+  cli_parameters:
+    long: --pull-policy
+    short: --pp
+  current_settings_file: None
+  current_value: tag
+  default: true
+  default_value: tag
+  description: Specify the image pull policy always:Always pull the image, missing:Pull
+    if not locally available, never:Never pull the image, tag:if the image tag is
+    'latest', always pull the image, otherwise pull if not locally available
+  env_var: ANSIBLE_NAVIGATOR_PULL_POLICY
+  name: Pull policy
+  settings_file_sample:
+    ansible-navigator:
+      execution-environment:
+        pull:
+          policy: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --set-environment-variable
+    short: --senv
+  current_settings_file: None
+  current_value: Not set
+  default: true
+  default_value: Not set
+  description: Specify an environment variable and a value to be set within the execution
+    environment (--senv MY_VAR=42)
+  env_var: ANSIBLE_NAVIGATOR_SET_ENVIRONMENT_VARIABLES
+  name: Set environment variable
+  settings_file_sample:
+    ansible-navigator:
+      execution-environment:
+        environment-variables:
+          set: <------
+  source: Not set
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v1.0
+- choices: []
+  cli_parameters:
+    long: --effective
+    short: --se
+  current_settings_file: None
+  current_value: false
+  default: true
+  default_value: false
+  description: Show the effective settings. Defaults, CLI parameters, environment
+    variables, and the settings file will be combined
+  env_var: ANSIBLE_NAVIGATOR_SETTINGS_EFFECTIVE
+  name: Settings effective
+  settings_file_sample:
+    ansible-navigator:
+      settings:
+        effective: <------
+  source: Defaults
+  subcommands:
+  - settings
+  version_added: v2.0
+- choices: []
+  cli_parameters:
+    long: --sample
+    short: --gs
+  current_settings_file: None
+  current_value: false
+  default: true
+  default_value: false
+  description: Generate a sample settings file
+  env_var: ANSIBLE_NAVIGATOR_SETTINGS_SAMPLE
+  name: Settings sample
+  settings_file_sample:
+    ansible-navigator:
+      settings:
+        sample: <------
+  source: Defaults
+  subcommands:
+  - settings
+  version_added: v2.0
+- choices:
+  - json
+  cli_parameters:
+    long: --schema
+    short: --ss
+  current_settings_file: None
+  current_value: json
+  default: true
+  default_value: json
+  description: Generate a schema for the settings file ('json'= draft-07 JSON Schema)
+  env_var: ANSIBLE_NAVIGATOR_SETTINGS_SCHEMA
+  name: Settings schema
+  settings_file_sample:
+    ansible-navigator:
+      settings:
+        schema: <------
+  source: Defaults
+  subcommands:
+  - settings
+  version_added: v2.0
+- choices: []
+  cli_parameters:
+    long: --sources
+    short: --so
+  current_settings_file: None
+  current_value: false
+  default: true
+  default_value: false
+  description: Show the source of each current settings entry
+  env_var: ANSIBLE_NAVIGATOR_SETTINGS_SOURCES
+  name: Settings sources
+  settings_file_sample:
+    ansible-navigator:
+      settings:
+        sources: <------
+  source: Defaults
+  subcommands:
+  - settings
+  version_added: v2.0
+- choices: []
+  cli_parameters:
+    long: --time-zone
+    short: --tz
+  current_settings_file: None
+  current_value: UTC
+  default: true
+  default_value: UTC
+  description: Specify the IANA time zone to use or 'local' to use the system time
+    zone
+  env_var: TZ
+  name: Time zone
+  settings_file_sample:
+    ansible-navigator:
+      time-zone: <------
+  source: Defaults
+  subcommands:
+  - builder
+  - collections
+  - config
+  - doc
+  - exec
+  - images
+  - inventory
+  - lint
+  - replay
+  - run
+  - settings
+  - welcome
+  version_added: v2.0
+- choices: []
+  cli_parameters:
+    long: --workdir
+    short: --bwd
+  current_settings_file: None
+  current_value: /home/student/ansible_examples
+  default: true
+  default_value: /home/student/ansible_examples
+  description: Specify the path that contains ansible-builder manifest files
+  env_var: ANSIBLE_NAVIGATOR_WORKDIR
+  name: Workdir
+  settings_file_sample:
+    ansible-navigator:
+      ansible-builder:
+        workdir: <------
+  source: Defaults
+  subcommands:
+  - builder
+  version_added: v2.0
+
+[student@master ansible_examples]$ ansible-navigatorimages -m stdout
+bash: ansible-navigatorimages: command not found...
+[student@master ansible_examples]$ ansible-navigator images -m stdout
+---
+- created: 3 months ago
+  execution_environment: true
+  full_name: ghcr.io/ansible/creator-ee:v0.21.0
+  image_id: 5763a5ad4a70
+  inspect:
+    details:
+      annotations: {}
+      architecture: amd64
+      author: ''
+      comment: Created by Image Factory
+      config:
+        entrypoint:
+        - entrypoint
+        env:
+        - DISTTAG=f38container
+        - FGC=f38
+        - container=oci
+        - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+        - CONTAINER_NAME=creator-ee:v0.21.0
+        labels:
+          ansible-execution-environment: 'true'
+          io.buildah.version: 1.23.1
+          license: MIT
+          name: fedora
+          org.opencontainers.image.authors: Ansible DevTools
+          org.opencontainers.image.licenses: GPL-3.0
+          org.opencontainers.image.source: https://github.com/ansible/creator-ee
+          org.opencontainers.image.vendor: Red Hat
+          vendor: Fedora Project
+          version: '38'
+        user: root
+        working_dir: /tmp
+      created: '2023-10-20T05:55:54.140126369Z'
+      digest: sha256:e4f54c08f84010d2371c7654a0d45a884cace5e6acc6e7b8ef3907271e2ee2ea
+      graph_driver:
+        data:
+          lower_dir: /home/student/.local/share/containers/storage/overlay/0e7b0ab4cd3a694848c67e7f3c0c0c8881e0c629d8487de52f3712eff0cd12d0/diff:/home/student/.local/share/containers/storage/overlay/4f20565120a8e7b84f6c86eae180ae002798c19039082ef9d368c97bf530a285/diff:/home/student/.local/share/containers/storage/overlay/bdf432693356de8aaaa364098526b53044abb332aef8d2ae7435d75693411435/diff:/home/student/.local/share/containers/storage/overlay/8e8b2bdbfef9acbefa03837333dcf5c93d84f9a5f622d7b6f17db7b26944ec93/diff:/home/student/.local/share/containers/storage/overlay/692d7895a16e9322192e50f44bd42b451a11de5d74d6e0da7cd3245812ce3d3b/diff:/home/student/.local/share/containers/storage/overlay/74c1fd1e1f40726866c5a0dbff8ca4e013f0672bc8d405b901063dea3f9a7554/diff:/home/student/.local/share/containers/storage/overlay/eb3dfcf225d020b4e3dd3f09f99ab23feddee1f83d503f307e08668015de1ca0/diff:/home/student/.local/share/containers/storage/overlay/79a7e22863429b45485a1cad05068057c4f09bcde4d0de74f0a28d5a673403d0/diff:/home/student/.local/share/containers/storage/overlay/72b5dd5587e434752ceda9186f8b2b1e2bc90e008ff3538d9016342f59baf789/diff:/home/student/.local/share/containers/storage/overlay/d42add4494702f0f11e215390b6eabb94e07e37f3caf2bf48601dbf0eeb44f90/diff:/home/student/.local/share/containers/storage/overlay/0001512b6a4d214223f5683d8ee0e91d6c1c4aa2ab994aac07bf22a301e4937a/diff:/home/student/.local/share/containers/storage/overlay/562a47b84ba16c88d68eaad84280311f7224be7110e73c7fdf8da0429ad6b7a9/diff
+          upper_dir: /home/student/.local/share/containers/storage/overlay/f8c461868c0c69e4f76c92d79c2742e1c69d9e1813067c8064a306cc33869fdc/diff
+          work_dir: /home/student/.local/share/containers/storage/overlay/f8c461868c0c69e4f76c92d79c2742e1c69d9e1813067c8064a306cc33869fdc/work
+        name: overlay
+      history:
+      - comment: Created by Image Factory
+        created: '2023-10-06T06:49:29Z'
+      - comment: FROM quay.io/fedora/fedora-minimal:38
+        created: '2023-10-15T02:11:03.659060603Z'
+        created_by: '/bin/sh -c #(nop) LABEL org.opencontainers.image.source https://github.com/ansible/creator-ee/blob/main/base/Containerfile'
+        empty_layer: true
+      - created: '2023-10-15T02:11:03.713526866Z'
+        created_by: '/bin/sh -c #(nop) LABEL org.opencontainers.image.authors "Ansible
+          DevTools"'
+        empty_layer: true
+      - created: '2023-10-15T02:11:03.750425645Z'
+        created_by: '/bin/sh -c #(nop) LABEL org.opencontainers.image.vendor "Red
+          Hat"'
+        empty_layer: true
+      - created: '2023-10-15T02:11:03.791924145Z'
+        created_by: '/bin/sh -c #(nop) LABEL org.opencontainers.image.licenses "GPL-3.0"'
+        empty_layer: true
+      - created: '2023-10-15T02:11:03.852571138Z'
+        created_by: '/bin/sh -c #(nop) USER root'
+        empty_layer: true
+      - created: '2023-10-15T02:11:43.350506201Z'
+        created_by: /bin/sh -c microdnf -y upgrade && microdnf install -y dumb-init
+          git-core podman python3 python3-bcrypt python3-cffi python3-markupsafe python3-pip
+          python3-pynacl python3-pyrsistent python3-pyyaml python3-ruamel-yaml python3-wheel
+          && microdnf clean all
+      - comment: FROM quay.io/ansible/creator-base:latest
+        created: '2023-10-20T05:55:05.825945906Z'
+        created_by: '/bin/sh -c #(nop) ARG CONTAINER_NAME=creator-ee:v0.21.0'
+        empty_layer: true
+      - created: '2023-10-20T05:55:05.893755842Z'
+        created_by: '/bin/sh -c #(nop) ENV CONTAINER_NAME $CONTAINER_NAME'
+        empty_layer: true
+      - created: '2023-10-20T05:55:05.946789474Z'
+        created_by: '/bin/sh -c #(nop) LABEL org.opencontainers.image.source https://github.com/ansible/creator-ee'
+        empty_layer: true
+      - created: '2023-10-20T05:55:06.01098416Z'
+        created_by: '/bin/sh -c #(nop) LABEL org.opencontainers.image.authors "Ansible
+          DevTools"'
+        empty_layer: true
+      - created: '2023-10-20T05:55:06.077173473Z'
+        created_by: '/bin/sh -c #(nop) LABEL org.opencontainers.image.vendor "Red
+          Hat"'
+        empty_layer: true
+      - created: '2023-10-20T05:55:06.142998282Z'
+        created_by: '/bin/sh -c #(nop) LABEL org.opencontainers.image.licenses "GPL-3.0"'
+        empty_layer: true
+      - created: '2023-10-20T05:55:06.20809138Z'
+        created_by: '/bin/sh -c #(nop) LABEL ansible-execution-environment=true'
+        empty_layer: true
+      - created: '2023-10-20T05:55:06.280800184Z'
+        created_by: '/bin/sh -c #(nop) USER root'
+        empty_layer: true
+      - created: '2023-10-20T05:55:06.361548598Z'
+        created_by: '/bin/sh -c #(nop) WORKDIR /tmp'
+        empty_layer: true
+      - created: '2023-10-20T05:55:06.741485041Z'
+        created_by: '/bin/sh -c #(nop) COPY file:14144d7ca9a362fe8c81dc6c3b6461d5454c3e4285223487e54aa4f605e0c2b0
+          in requirements.txt '
+      - created: '2023-10-20T05:55:07.181441513Z'
+        created_by: '/bin/sh -c #(nop) COPY file:76c1e3e21968ca046ce457b2c05869401af254d43ed189a3d132c84e80ac9ca8
+          in requirements.yml '
+      - created: '2023-10-20T05:55:07.621148782Z'
+        created_by: '/bin/sh -c #(nop) COPY file:8b93e4d103bfbe033f2a0fff35e665492955c8d9791edac91b5fb3cc769aef4f
+          in /usr/local/bin/devtools-publish '
+      - created: '2023-10-20T05:55:08.026151271Z'
+        created_by: '/bin/sh -c #(nop) COPY file:7163aef77de941b8be4726ddd45f4e769b701819375650e268e9761b65faaaaf
+          in /etc/shells '
+      - created: '2023-10-20T05:55:08.529414216Z'
+        created_by: '/bin/sh -c #(nop) COPY file:84cf4b21208bf52e3aebf2025218585df44653566c09852896145d8b19c33178
+          in /home/runner/.bashrc '
+      - created: '2023-10-20T05:55:41.291119113Z'
+        created_by: '|1 CONTAINER_NAME=creator-ee:v0.21.0 /bin/sh -c microdnf install
+          --assumeyes ncurses && microdnf clean all && pip3 install --progress-bar=off
+          -r requirements.txt && mkdir -p ~/.ansible/roles /usr/share/ansible/roles
+          /etc/ansible/roles && rm -rf $(pip3 cache dir) && git config --system --add
+          safe.directory / && printf "export CONTAINER_NAME=$CONTAINER_NAME\n" >>
+          /home/runner/.bashrc'
+      - created: '2023-10-20T05:55:45.072640993Z'
+        created_by: '|1 CONTAINER_NAME=creator-ee:v0.21.0 /bin/sh -c for dir in       /home/runner       /home/runner/.ansible       /home/runner/.ansible/tmp       /runner       /home/runner       /runner/env       /runner/inventory       /runner/project       /runner/artifacts
+          ;     do mkdir -m 0775 -p $dir ; chmod -R g+rwx $dir ; chgrp -R root $dir
+          ; done &&     for file in       /home/runner/.ansible/galaxy_token       /etc/passwd       /etc/group
+          ;     do touch $file ; chmod g+rw $file ; chgrp root $file ; done'
+      - created: '2023-10-20T05:55:46.761064508Z'
+        created_by: '/bin/sh -c #(nop) COPY dir:31391cd3da46847f815756dccb05a593a370558f37c1049c7e51fc45106c5447
+          in /usr/share/ansible/collections '
+      - created: '2023-10-20T05:55:53.095852564Z'
+        created_by: '|1 CONTAINER_NAME=creator-ee:v0.21.0 /bin/sh -c set -ex && ansible
+          --version && ansible-lint --version && ansible-runner --version && molecule
+          --version && molecule drivers && podman --version && python3 --version &&
+          git --version && ansible-galaxy role list && ansible-galaxy collection list
+          && rpm -qa && uname -a'
+      - created: '2023-10-20T05:55:53.52324234Z'
+        created_by: '/bin/sh -c #(nop) ADD file:4b6d9f5b0aa082bed0e707a401804b271d21a39395845c836edba2626f3d1634
+          in /bin/entrypoint '
+      - created: '2023-10-20T05:55:53.989732816Z'
+        created_by: '|1 CONTAINER_NAME=creator-ee:v0.21.0 /bin/sh -c chmod +x /bin/entrypoint'
+      - created: '2023-10-20T05:55:54.140739873Z'
+        created_by: '/bin/sh -c #(nop) ENTRYPOINT ["entrypoint"]'
+        empty_layer: true
+      id: 5763a5ad4a70550f4f12d5db6782eb4592a7d460b10c5b26eddee366881b80af
+      labels:
+        ansible-execution-environment: 'true'
+        io.buildah.version: 1.23.1
+        license: MIT
+        name: fedora
+        org.opencontainers.image.authors: Ansible DevTools
+        org.opencontainers.image.licenses: GPL-3.0
+        org.opencontainers.image.source: https://github.com/ansible/creator-ee
+        org.opencontainers.image.vendor: Red Hat
+        vendor: Fedora Project
+        version: '38'
+      manifest_type: application/vnd.oci.image.manifest.v1+json
+      names_history:
+      - ghcr.io/ansible/creator-ee:v0.21.0
+      os: linux
+      parent: ''
+      repo_digests:
+      - ghcr.io/ansible/creator-ee@sha256:c3a495426c5ebee2f5f4280d9d5e0f0047b0f53b373965a0802bb271c50573ff
+      - ghcr.io/ansible/creator-ee@sha256:e4f54c08f84010d2371c7654a0d45a884cace5e6acc6e7b8ef3907271e2ee2ea
+      repo_tags:
+      - ghcr.io/ansible/creator-ee:v0.21.0
+      root_fs:
+        layers:
+        - sha256:562a47b84ba16c88d68eaad84280311f7224be7110e73c7fdf8da0429ad6b7a9
+        - sha256:9eb59b16eb66022e7f6bc4a369d46d44d4d8a50e0d486cc0c5c21d5c35db821d
+        - sha256:f90a37a6f868df9cbc2fbaf3e2f6c5adb88baada18e080e2a58c251bdccce89b
+        - sha256:1c9ab63b125459c20e2deb0a64c67820073e1626aabdb48d3cb8263a3d83d39d
+        - sha256:823cce802fd68678b3ef2ea92e9dc4db9ca8b5d539ea1503e0ebf3bbf37ad6ee
+        - sha256:feb098fb4f32fd67c9b912f93aa852e3b5b9e037708b98e71173b316e59b6fe2
+        - sha256:8b0d62cdd5846c970c031bcb85ceba7a1c2e5eb0ce8609aa78c28a603e739b93
+        - sha256:5293cd997ddf990e33b040c7d2480f31c50fd521a53636a6eea44c494ba8f8c0
+        - sha256:a24f83b372dfdf74c9f0addd673a03b169ac976a19773a49f67bc0b2c8442bb5
+        - sha256:e79d3d33a82210de47327fed7cf48da8497bab03eb03fbdb37958cd5e823e4a4
+        - sha256:08481abf89c2bca2adebeb9b53ba8d58f4e466d00e8367604b6684e744eed4bd
+        - sha256:3a3e1717f49230975facd0f6ac90fbdf01bc2283b96e6be35df23cf6f039d728
+        - sha256:84298448f5931760138acb1cf22085b291f42a60b43b7fb4f2b2ecfb519b27f0
+        type: layers
+      size: 682998156
+      user: root
+      version: ''
+      virtual_size: 682998156
+    errors: ''
+  name: creator-ee
+  name_tag: creator-ee:v0.21.0 (primary)
+  repository: ghcr.io/ansible/creator-ee
+  size: 683 MB
+  tag: v0.21.0
+
+[student@master ansible_examples]$ ansible-navigator run playbook.yaml --syntax-check
+[student@master ansible_examples]$ ansible-navigator run playbook.yaml --syntax-check
+[student@master ansible_examples]$ ansible-navigator run playbook.yaml --syntax-check -m stdout
+playbook: /home/student/ansible_examples/playbook.yaml
+[student@master ansible_examples]$ ansible-lint playbook.yaml
+WARNING  Listing 1 violation(s) that are fatal
+args[module]: value of state must be one of: absent, installed, latest, present, removed, got: prisent (warning)
+playbook.yaml:12 Task/Handler: Install java and git
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+                  Rule Violation Summary                   
+ count tag          profile rule associated tags           
+     1 args[module]         syntax, experimental (warning) 
+
+Passed: 0 failure(s), 1 warning(s) on 1 files. Last profile that met the validation criteria was 'production'. Rating: 5/5 star
+[student@master ansible_examples]$ ansible-navigator run playbook.yaml --syntax-check -m stdout^C
+[student@master ansible_examples]$ 
+[student@master ansible_examples]$ qqq^C
+[student@master ansible_examples]$ 
+[student@master ansible_examples]$ ansible --versionansiansible-nava
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER] [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET] [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE]
+               [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER] [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS] [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS] [--vault-id VAULT_IDS] [-J | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS] [-M MODULE_PATH] [--playbook-dir BASEDIR]
+               [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS] [-m MODULE_NAME]
+               pattern
+ansible: error: the following arguments are required: pattern
+ 
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER] [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET] [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE]
+               [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER] [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS] [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS] [--vault-id VAULT_IDS] [-J | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS] [-M MODULE_PATH] [--playbook-dir BASEDIR]
+               [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS] [-m MODULE_NAME]
+               pattern
+
+Define and run a single task 'playbook' against a set of hosts
+
+positional arguments:
+  pattern               host pattern
+
+options:
+  --become-password-file BECOME_PASSWORD_FILE, --become-pass-file BECOME_PASSWORD_FILE
+                        Become password file
+  --connection-password-file CONNECTION_PASSWORD_FILE, --conn-pass-file CONNECTION_PASSWORD_FILE
+                        Connection password file
+  --list-hosts          outputs a list of matching hosts; does not execute anything else
+  --playbook-dir BASEDIR
+                        Since this tool does not use playbooks, use this as a substitute playbook directory. This sets the relative path for many features including roles/ group_vars/ etc.
+  --task-timeout TASK_TIMEOUT
+                        set task timeout limit in seconds, must be positive integer.
+  --vault-id VAULT_IDS  the vault identity to use. This argument may be specified multiple times.
+  --vault-password-file VAULT_PASSWORD_FILES, --vault-pass-file VAULT_PASSWORD_FILES
+                        vault password file
+  --version             show program's version number, config file location, configured module search path, module location, executable location and exit
+  -B SECONDS, --background SECONDS
+                        run asynchronously, failing after X seconds (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the differences in those files; works great with --check
+  -J, --ask-vault-password, --ask-vault-pass
+                        ask for vault password
+  -K, --ask-become-pass
+                        ask for privilege escalation password
+  -M MODULE_PATH, --module-path MODULE_PATH
+                        prepend colon-separated path(s) to module library (default={{ ANSIBLE_HOME ~ "/plugins/modules:/usr/share/ansible/plugins/modules" }}). This argument may be specified multiple times.
+  -P POLL_INTERVAL, --poll POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  -a MODULE_ARGS, --args MODULE_ARGS
+                        The action's options in space separated k=v format: -a 'opt1=val1 opt2=val2' or a json string: -a '{"opt1": "val1", "opt2": "val2"}'
+  -e EXTRA_VARS, --extra-vars EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if filename prepend with @. This argument may be specified multiple times.
+  -f FORKS, --forks FORKS
+                        specify number of parallel processes to use (default=5)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory INVENTORY, --inventory-file INVENTORY
+                        specify inventory host path or comma separated host list. --inventory-file is deprecated. This argument may be specified multiple times.
+  -k, --ask-pass        ask for connection password
+  -l SUBSET, --limit SUBSET
+                        further limit selected hosts to an additional pattern
+  -m MODULE_NAME, --module-name MODULE_NAME
+                        Name of the action to execute (default=command)
+  -o, --one-line        condense output
+  -t TREE, --tree TREE  log output to this directory
+  -v, --verbose         Causes Ansible to print more debug messages. Adding multiple -v will increase the verbosity, the builtin plugins currently evaluate up to -vvvvvv. A reasonable level to start is -vvv, connection debugging might require -vvvv.
+                        This argument may be specified multiple times.
+
+Privilege Escalation Options:
+  control how and which user you become as on target hosts
+
+  --become-method BECOME_METHOD
+                        privilege escalation method to use (default=sudo), use `ansible-doc -t become -l` to list valid choices.
+  --become-user BECOME_USER
+                        run operations as this user (default=root)
+  -b, --become          run operations with become (does not imply password prompting)
+
+Connection Options:
+  control as whom and how to connect to hosts
+
+  --private-key PRIVATE_KEY_FILE, --key-file PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+  --scp-extra-args SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+  --sftp-extra-args SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f, -l)
+  --ssh-common-args SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+  --ssh-extra-args SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+  -T TIMEOUT, --timeout TIMEOUT
+                        override the connection timeout in seconds (default depends on connection)
+  -c CONNECTION, --connection CONNECTION
+                        connection type to use (default=ssh)
+  -u REMOTE_USER, --user REMOTE_USER
+                        connect as this user (default=student)
+
+Some actions do not make sense in Ad-Hoc (include, meta, etc)
+[student@master ansible_examples]$ ansible --version
+ansible [core 2.16.3]
+  config file = /home/student/ansible_examples/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/student/.local/lib/python3.11/site-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/student/.local/bin/ansible
+  python version = 3.11.5 (main, Jan  9 2024, 00:00:00) [GCC 11.4.1 20231218 (Red Hat 11.4.1-3)] (/usr/bin/python3.11)
+  jinja version = 3.1.3
+  libyaml = True
+[student@master ansible_examples]$ ansible-navigator --version
+ansible-navigator 3.6.0
+[student@master ansible_examples]$ python3.11 -m pip install --upgrade ansible-navigator --user
+Collecting ansible-navigator
+  Using cached ansible_navigator-3.6.0-py3-none-any.whl (297 kB)
+Collecting ansible-builder>=3.0.0
+  Using cached ansible_builder-3.0.0-py3-none-any.whl (41 kB)
+Collecting ansible-runner<3,>=2.3.1
+  Using cached ansible_runner-2.3.4-py3-none-any.whl (81 kB)
+Requirement already satisfied: ansible-lint>=6.19.0 in /home/student/.local/lib/python3.11/site-packages (from ansible-navigator) (6.22.2)
+Requirement already satisfied: jinja2 in /home/student/.local/lib/python3.11/site-packages (from ansible-navigator) (3.1.3)
+Requirement already satisfied: jsonschema in /home/student/.local/lib/python3.11/site-packages (from ansible-navigator) (4.21.1)
+Collecting onigurumacffi<2,>=1.1.0
+  Using cached onigurumacffi-1.3.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (599 kB)
+Requirement already satisfied: pyyaml in /home/student/.local/lib/python3.11/site-packages (from ansible-navigator) (6.0.1)
+Collecting tzdata
+  Using cached tzdata-2023.4-py2.py3-none-any.whl (346 kB)
+Requirement already satisfied: setuptools>=63.1.0 in /usr/lib/python3.11/site-packages (from ansible-navigator) (65.5.1)
+Collecting requirements-parser
+  Using cached requirements_parser-0.5.0-py3-none-any.whl (18 kB)
+Collecting bindep
+  Using cached bindep-2.11.0-py2.py3-none-any.whl (34 kB)
+Requirement already satisfied: ansible-core>=2.12.0 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (2.16.3)
+Requirement already satisfied: ansible-compat>=4.1.11 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (4.1.11)
+Requirement already satisfied: black>=22.8.0 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (24.1.1)
+Requirement already satisfied: filelock>=3.3.0 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (3.13.1)
+Requirement already satisfied: packaging>=21.3 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (23.2)
+Requirement already satisfied: pathspec>=0.10.3 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (0.12.1)
+Requirement already satisfied: rich>=12.0.0 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (13.7.0)
+Requirement already satisfied: ruamel.yaml>=0.18.5 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (0.18.5)
+Requirement already satisfied: subprocess-tee>=0.4.1 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (0.4.1)
+Requirement already satisfied: yamllint>=1.30.0 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (1.33.0)
+Requirement already satisfied: wcmatch>=8.1.2 in /home/student/.local/lib/python3.11/site-packages (from ansible-lint>=6.19.0->ansible-navigator) (8.5)
+Collecting pexpect>=4.5
+  Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.8/63.8 kB 4.4 MB/s eta 0:00:00
+Collecting python-daemon
+  Using cached python_daemon-3.0.1-py3-none-any.whl (31 kB)
+Requirement already satisfied: six in /home/student/.local/lib/python3.11/site-packages (from ansible-runner<3,>=2.3.1->ansible-navigator) (1.16.0)
+Requirement already satisfied: attrs>=22.2.0 in /home/student/.local/lib/python3.11/site-packages (from jsonschema->ansible-navigator) (23.2.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/student/.local/lib/python3.11/site-packages (from jsonschema->ansible-navigator) (2023.12.1)
+Requirement already satisfied: referencing>=0.28.4 in /home/student/.local/lib/python3.11/site-packages (from jsonschema->ansible-navigator) (0.33.0)
+Requirement already satisfied: rpds-py>=0.7.1 in /home/student/.local/lib/python3.11/site-packages (from jsonschema->ansible-navigator) (0.17.1)
+Requirement already satisfied: cffi>=1 in /home/student/.local/lib/python3.11/site-packages (from onigurumacffi<2,>=1.1.0->ansible-navigator) (1.16.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/student/.local/lib/python3.11/site-packages (from jinja2->ansible-navigator) (2.1.4)
+Requirement already satisfied: cryptography in /home/student/.local/lib/python3.11/site-packages (from ansible-core>=2.12.0->ansible-lint>=6.19.0->ansible-navigator) (42.0.2)
+Requirement already satisfied: resolvelib<1.1.0,>=0.5.3 in /home/student/.local/lib/python3.11/site-packages (from ansible-core>=2.12.0->ansible-lint>=6.19.0->ansible-navigator) (1.0.1)
+Requirement already satisfied: click>=8.0.0 in /home/student/.local/lib/python3.11/site-packages (from black>=22.8.0->ansible-lint>=6.19.0->ansible-navigator) (8.1.7)
+Requirement already satisfied: mypy-extensions>=0.4.3 in /home/student/.local/lib/python3.11/site-packages (from black>=22.8.0->ansible-lint>=6.19.0->ansible-navigator) (1.0.0)
+Requirement already satisfied: platformdirs>=2 in /home/student/.local/lib/python3.11/site-packages (from black>=22.8.0->ansible-lint>=6.19.0->ansible-navigator) (4.2.0)
+Requirement already satisfied: pycparser in /home/student/.local/lib/python3.11/site-packages (from cffi>=1->onigurumacffi<2,>=1.1.0->ansible-navigator) (2.21)
+Collecting ptyprocess>=0.5
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /home/student/.local/lib/python3.11/site-packages (from rich>=12.0.0->ansible-lint>=6.19.0->ansible-navigator) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/student/.local/lib/python3.11/site-packages (from rich>=12.0.0->ansible-lint>=6.19.0->ansible-navigator) (2.17.2)
+Requirement already satisfied: ruamel.yaml.clib>=0.2.7 in /home/student/.local/lib/python3.11/site-packages (from ruamel.yaml>=0.18.5->ansible-lint>=6.19.0->ansible-navigator) (0.2.8)
+Requirement already satisfied: bracex>=2.1.1 in /home/student/.local/lib/python3.11/site-packages (from wcmatch>=8.1.2->ansible-lint>=6.19.0->ansible-navigator) (2.4)
+Collecting Parsley
+  Using cached Parsley-1.3-py2.py3-none-any.whl (88 kB)
+Collecting pbr>=2.0.0
+  Using cached pbr-6.0.0-py2.py3-none-any.whl (107 kB)
+Collecting distro>=1.7.0
+  Using cached distro-1.9.0-py3-none-any.whl (20 kB)
+Collecting docutils
+  Using cached docutils-0.20.1-py3-none-any.whl (572 kB)
+Collecting lockfile>=0.10
+  Using cached lockfile-0.12.2-py2.py3-none-any.whl (13 kB)
+Collecting types-setuptools>=57.0.0
+  Using cached types_setuptools-69.0.0.20240125-py3-none-any.whl (51 kB)
+Requirement already satisfied: mdurl~=0.1 in /home/student/.local/lib/python3.11/site-packages (from markdown-it-py>=2.2.0->rich>=12.0.0->ansible-lint>=6.19.0->ansible-navigator) (0.1.2)
+Installing collected packages: ptyprocess, Parsley, lockfile, tzdata, types-setuptools, pexpect, pbr, docutils, distro, requirements-parser, python-daemon, onigurumacffi, bindep, ansible-runner, ansible-builder, ansible-navigator
+Successfully installed Parsley-1.3 ansible-builder-3.0.0 ansible-navigator-3.6.0 ansible-runner-2.3.4 bindep-2.11.0 distro-1.9.0 docutils-0.20.1 lockfile-0.12.2 onigurumacffi-1.3.0 pbr-6.0.0 pexpect-4.9.0 ptyprocess-0.7.0 python-daemon-3.0.1 requirements-parser-0.5.0 types-setuptools-69.0.0.20240125 tzdata-2023.4
+[student@master ansible_examples]$ 
+

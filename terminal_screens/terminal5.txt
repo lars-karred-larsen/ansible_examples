@@ -1,0 +1,262 @@
+[student@master ~]$ vi ip_addresses.txt
+[student@master ~]$ cat ip_addresses.txt
+172.25.232.209 master
+172.25.230.112 node1
+172.25.230.61 node2
+[student@master ~]$ man scp
+[student@master ~]$ scp ip_addresses.txt student@172.25.230.112
+[student@master ~]$ scp ip_addresses.txt student@172.25.230.112:/home/student
+The authenticity of host '172.25.230.112 (172.25.230.112)' can't be established.
+ED25519 key fingerprint is SHA256:p3J7p59n4XZA8ToJndqt0YkkcoV7vaXyTxKTW6R/KPA.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: ys
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added '172.25.230.112' (ED25519) to the list of known hosts.
+student@172.25.230.112's password: 
+ip_addresses.txt                              100%   63   164.1KB/s   00:00    
+[student@master ~]$ scp ip_addresses.txt student@172.25.230.61:/home/student
+The authenticity of host '172.25.230.61 (172.25.230.61)' can't be established.
+ED25519 key fingerprint is SHA256:p3J7p59n4XZA8ToJndqt0YkkcoV7vaXyTxKTW6R/KPA.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:1: 172.25.230.112
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '172.25.230.61' (ED25519) to the list of known hosts.
+student@172.25.230.61's password: 
+ip_addresses.txt                              100%   63   183.6KB/s   00:00    
+[student@master ~]$ ssh-copy-id student@172.25.230.112
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+student@172.25.230.112's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'student@172.25.230.112'"
+and check to make sure that only the key(s) you wanted were added.
+
+[student@master ~]$ ssh student@172.25.230.112
+Last login: Wed Jan 31 12:57:33 2024
+[student@node1 ~]$ 
+logout
+Connection to 172.25.230.112 closed.
+[student@master ~]$ vi
+[student@master ~]$ cd ansible_examples/
+[student@master ansible_examples]$ vi playbookyaml
+[student@master ansible_examples]$ vi playbook.yaml
+[student@master ansible_examples]$ vi playbook.yaml
+[student@master ansible_examples]$ vi playbook.yaml
+[student@master ansible_examples]$ vi playbook.yaml
+[student@master ansible_examples]$ vi playbook.yaml
+[student@master ansible_examples]$ ansible-navigator run playbook.yaml -m stdout
+[WARNING]: Unable to parse /home/student/ansible_examples/inventory ;added for
+training as an inventory source
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring: centos
+
+PLAY [First ansible playbook] **************************************************
+skipping: no hosts matched
+
+PLAY [Install packages] ********************************************************
+skipping: no hosts matched
+
+PLAY RECAP *********************************************************************
+[student@master ansible_examples]$ ls -l
+total 72
+-rw-r--r-- 1 student student 39826 Jan 31 15:22 ansible.cfg
+-rw-r--r-- 1 student student  6193 Feb  1 14:09 ansible-navigator.log
+-rw-r--r-- 1 student student    97 Jan 31 15:00 inventory
+-rw-r--r-- 1 student student  6656 Feb  1 13:38 playbook-artifact-2024-02-01T08:08:14.097950+00:00.json
+-rw-r--r-- 1 student student  8010 Feb  1 14:09 playbook-artifact-2024-02-01T08:39:54.047222+00:00.json
+-rw-r--r-- 1 student student   431 Feb  1 14:07 playbook.yaml
+[student@master ansible_examples]$ cp ansible.cfg ansible.cfg_old
+[student@master ansible_examples]$ vi ansible.cfg
+[student@master ansible_examples]$ vi ansible.cfg
+[student@master ansible_examples]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [First ansible playbook] **************************************************
+
+TASK [Gathering Facts] *********************************************************
+fatal: [node1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: root@node1: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [node2]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: root@node2: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+Please review the log for errors.
+[student@master ansible_examples]$ ssh node1
+Last login: Thu Feb  1 12:45:09 2024 from 172.25.232.209
+[student@node1 ~]$ 
+logout
+Connection to node1 closed.
+[student@master ansible_examples]$ ssh node2
+Last login: Thu Feb  1 12:45:09 2024 from 172.25.232.209
+[student@node2 ~]$ 
+logout
+Connection to node2 closed.
+[student@master ansible_examples]$ cat ansible.cfg
+[defaults]
+inventory=/home/student/ansible_examples/inventory
+[privilege_escalation]
+become_allow_same_user=True
+become_ask_pass=False
+become_method=sudo
+become_user=root
+[student@master ansible_examples]$ cp ansible.cfg ansible.cfg_old^C
+[student@master ansible_examples]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [First ansible playbook] **************************************************
+
+TASK [Gathering Facts] *********************************************************
+fatal: [node1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: root@node1: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [node2]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: root@node2: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+Please review the log for errors.
+[student@master ansible_examples]$ ansible-playbook playbook.yaml
+
+PLAY [First ansible playbook] ********************************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Check if servers in "centos" group are available for ansible] ******************************************************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Reboot all servers in "centos" group] ******************************************************************************************************************
+fatal: [node2]: FAILED! => {"changed": false, "elapsed": 0, "msg": "Reboot command failed. Error was: '\u001b[0;1;38;5;185mFailed to set wall message, ignoring: Interactive authentication required.\u001b[0m\r\n\u001b[0;1;38;5;185mFailed to schedule shutdown: Interactive authentication required.\u001b[0m, Shared connection to node2 closed.'", "rebooted": false, "start": "2024-02-01T09:13:03.347886+00:00"}
+fatal: [node1]: FAILED! => {"changed": false, "elapsed": 0, "msg": "Reboot command failed. Error was: '\u001b[0;1;38;5;185mFailed to set wall message, ignoring: Interactive authentication required.\u001b[0m\r\n\u001b[0;1;38;5;185mFailed to schedule shutdown: Interactive authentication required.\u001b[0m, Shared connection to node1 closed.'", "rebooted": false, "start": "2024-02-01T09:13:03.432552+00:00"}
+
+PLAY RECAP ***************************************************************************************************************************************************
+node1                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+[student@master ansible_examples]$ ansible-playbook playbook.yaml
+
+PLAY [First ansible playbook] ********************************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Check if servers in "centos" group are available for ansible] ******************************************************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Reboot all servers in "centos" group] ******************************************************************************************************************
+fatal: [node1]: FAILED! => {"changed": false, "elapsed": 0, "msg": "Reboot command failed. Error was: '\u001b[0;1;38;5;185mFailed to set wall message, ignoring: Interactive authentication required.\u001b[0m\r\n\u001b[0;1;38;5;185mFailed to schedule shutdown: Interactive authentication required.\u001b[0m, Shared connection to node1 closed.'", "rebooted": false, "start": "2024-02-01T09:15:40.075839+00:00"}
+fatal: [node2]: FAILED! => {"changed": false, "elapsed": 0, "msg": "Reboot command failed. Error was: '\u001b[0;1;38;5;185mFailed to set wall message, ignoring: Interactive authentication required.\u001b[0m\r\n\u001b[0;1;38;5;185mFailed to schedule shutdown: Interactive authentication required.\u001b[0m, Shared connection to node2 closed.'", "rebooted": false, "start": "2024-02-01T09:15:40.076268+00:00"}
+
+PLAY RECAP ***************************************************************************************************************************************************
+node1                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+[student@master ansible_examples]$ ansible-playbook playbook.yaml
+
+PLAY [First ansible playbook] ********************************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Check if servers in "centos" group are available for ansible] ******************************************************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Reboot all servers in "centos" group] ******************************************************************************************************************
+changed: [node2]
+changed: [node1]
+
+PLAY [Install packages] **************************************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Install java and git] **********************************************************************************************************************************
+ok: [node2]
+ok: [node1]
+
+PLAY RECAP ***************************************************************************************************************************************************
+node1                      : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[student@master ansible_examples]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [First ansible playbook] **************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Check if servers in "centos" group are available for ansible] ************
+ok: [node1]
+ok: [node2]
+
+TASK [Reboot all servers in "centos" group] ************************************
+changed: [node1]
+changed: [node2]
+
+PLAY [Install packages] ********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Install java and git] ****************************************************
+ok: [node1]
+ok: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_examples]$ history
+    1  su -
+    2  sudo -i
+    3  history
+    4  su -
+    5  sudp -i
+    6  sudo -i
+    7  vi ip_addresses.txt
+    8  cat ip_addresses.txt
+    9  man scp
+   10  scp ip_addresses.txt student@172.25.230.112
+   11  scp ip_addresses.txt student@172.25.230.112:/home/student
+   12  scp ip_addresses.txt student@172.25.230.61:/home/student
+   13  ssh-copy-id student@172.25.230.112
+   14  ssh student@172.25.230.112
+   15  vi
+   16  cd ansible_examples/
+   17  vi playbookyaml
+   18  vi playbook.yaml
+   19  ansible-navigator run playbook.yaml -m stdout
+   20  ls -l
+   21  cp ansible.cfg ansible.cfg_old
+   22  vi ansible.cfg
+   23  ansible-navigator run playbook.yaml -m stdout
+   24  ssh node1
+   25  ssh node2
+   26  cat ansible.cfg
+   27  ansible-navigator run playbook.yaml -m stdout
+   28  ansible-playbook playbook.yaml
+   29  ansible-navigator run playbook.yaml -m stdout
+   30  history
+[student@master ansible_examples]$ ls -l
+total 188
+drwxr-xr-x 2 student student    63 Feb  2 14:51 ansible_basic
+-rw-r--r-- 1 student student   171 Feb  1 14:14 ansible.cfg_hide
+-rw-r--r-- 1 student student 39826 Feb  1 14:10 ansible.cfg_old
+drwxr-xr-x 4 student student  4096 Feb  2 15:15 ansible_inventory_variables
+-rw-r--r-- 1 student student 79968 Feb  2 15:24 ansible-navigator.log
+-rw-r--r-- 1 student student  1161 Feb  2 15:05 ansible-navigator.yml
+drwxr-xr-x 2 student student  4096 Feb  2 13:48 ansible_variables
+drwxr-xr-x 3 student student  4096 Feb  2 14:33 ansible_variables_from_file
+-rw-r--r-- 1 student student 40173 Feb  1 15:35 temp.cfg
+-rw-r--r-- 1 student student  4557 Feb  1 15:38 temp_navigator.cfg
+[student@master ansible_examples]$ 
+
