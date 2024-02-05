@@ -1,0 +1,413 @@
+{
+    "plays": [
+        {
+            "___progress": "100%",
+            "__changed": 2,
+            "__failed": 2,
+            "__ignored": 0,
+            "__in progress": 0,
+            "__ok": 3,
+            "__percent_complete": 100,
+            "__play_name": "Demonstrate block and rescue",
+            "__progress": "Complete",
+            "__skipped": 0,
+            "__task_count": 5,
+            "__unreachable": 0,
+            "name": "Demonstrate block and rescue",
+            "pattern": "node1",
+            "play": "Demonstrate block and rescue",
+            "play_pattern": "node1",
+            "play_uuid": "baa1fdb1-5c12-b507-7f33-000000000004",
+            "playbook": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml",
+            "playbook_uuid": "0b2abec2-7e6d-4c8a-9fa9-c561554b9a04",
+            "tasks": [
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "node1",
+                    "__number": 0,
+                    "__result": "Ok",
+                    "__task": "Print message",
+                    "__task_action": "ansible.builtin.debug",
+                    "duration": 0.061513,
+                    "end": "2024-02-05T14:09:04.016113",
+                    "event_loop": null,
+                    "host": "node1",
+                    "play": "Demonstrate block and rescue",
+                    "play_pattern": "node1",
+                    "play_uuid": "baa1fdb1-5c12-b507-7f33-000000000004",
+                    "playbook": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml",
+                    "playbook_uuid": "0b2abec2-7e6d-4c8a-9fa9-c561554b9a04",
+                    "remote_addr": "node1",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "I print normally"
+                    },
+                    "resolved_action": "ansible.builtin.debug",
+                    "start": "2024-02-05T14:09:03.954600",
+                    "task": "Print message",
+                    "task_action": "ansible.builtin.debug",
+                    "task_args": "",
+                    "task_path": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml:8",
+                    "task_uuid": "baa1fdb1-5c12-b507-7f33-000000000006",
+                    "uuid": "c2b26682-a3bf-48a6-ab73-2e830a040917"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "1s",
+                    "__host": "node1",
+                    "__number": 1,
+                    "__result": "Failed",
+                    "__task": "Force a failure",
+                    "__task_action": "ansible.builtin.command",
+                    "duration": 1.350643,
+                    "end": "2024-02-05T14:09:05.384763",
+                    "event_loop": null,
+                    "host": "node1",
+                    "ignore_errors": null,
+                    "play": "Demonstrate block and rescue",
+                    "play_pattern": "node1",
+                    "play_uuid": "baa1fdb1-5c12-b507-7f33-000000000004",
+                    "playbook": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml",
+                    "playbook_uuid": "0b2abec2-7e6d-4c8a-9fa9-c561554b9a04",
+                    "remote_addr": "node1",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "discovered_interpreter_python": "/usr/bin/python3"
+                        },
+                        "changed": true,
+                        "cmd": [
+                            "/bin/false"
+                        ],
+                        "delta": "0:00:00.003476",
+                        "end": "2024-02-05 19:39:05.282084",
+                        "invocation": {
+                            "module_args": {
+                                "_raw_params": "/bin/false",
+                                "_uses_shell": false,
+                                "argv": null,
+                                "chdir": null,
+                                "creates": null,
+                                "executable": null,
+                                "removes": null,
+                                "stdin": null,
+                                "stdin_add_newline": true,
+                                "strip_empty_ends": true
+                            }
+                        },
+                        "msg": "non-zero return code",
+                        "rc": 1,
+                        "start": "2024-02-05 19:39:05.278608",
+                        "stderr": "",
+                        "stderr_lines": [],
+                        "stdout": "",
+                        "stdout_lines": []
+                    },
+                    "resolved_action": "ansible.builtin.command",
+                    "start": "2024-02-05T14:09:04.034120",
+                    "task": "Force a failure",
+                    "task_action": "ansible.builtin.command",
+                    "task_args": "",
+                    "task_path": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml:11",
+                    "task_uuid": "baa1fdb1-5c12-b507-7f33-000000000007",
+                    "uuid": "9337121a-0934-4c5e-885d-150fc94b8af0"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "node1",
+                    "__number": 2,
+                    "__result": "Ok",
+                    "__task": "Catch the error",
+                    "__task_action": "ansible.builtin.debug",
+                    "duration": 0.039406,
+                    "end": "2024-02-05T14:09:05.442030",
+                    "event_loop": null,
+                    "host": "node1",
+                    "play": "Demonstrate block and rescue",
+                    "play_pattern": "node1",
+                    "play_uuid": "baa1fdb1-5c12-b507-7f33-000000000004",
+                    "playbook": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml",
+                    "playbook_uuid": "0b2abec2-7e6d-4c8a-9fa9-c561554b9a04",
+                    "remote_addr": "node1",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "I caught the error"
+                    },
+                    "resolved_action": "ansible.builtin.debug",
+                    "start": "2024-02-05T14:09:05.402624",
+                    "task": "Catch the error",
+                    "task_action": "ansible.builtin.debug",
+                    "task_args": "",
+                    "task_path": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml:19",
+                    "task_uuid": "baa1fdb1-5c12-b507-7f33-000000000009",
+                    "uuid": "4ca04828-254c-4906-8fbe-0bfdc6e77a4e"
+                },
+                {
+                    "__changed": true,
+                    "__duration": "1s",
+                    "__host": "node1",
+                    "__number": 3,
+                    "__result": "Failed",
+                    "__task": "Force a failure in rescue",
+                    "__task_action": "ansible.builtin.command",
+                    "duration": 0.973095,
+                    "end": "2024-02-05T14:09:06.428529",
+                    "event_loop": null,
+                    "host": "node1",
+                    "ignore_errors": null,
+                    "play": "Demonstrate block and rescue",
+                    "play_pattern": "node1",
+                    "play_uuid": "baa1fdb1-5c12-b507-7f33-000000000004",
+                    "playbook": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml",
+                    "playbook_uuid": "0b2abec2-7e6d-4c8a-9fa9-c561554b9a04",
+                    "remote_addr": "node1",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "discovered_interpreter_python": "/usr/bin/python3"
+                        },
+                        "changed": true,
+                        "cmd": [
+                            "/bin/false"
+                        ],
+                        "delta": "0:00:00.003461",
+                        "end": "2024-02-05 19:39:06.317191",
+                        "invocation": {
+                            "module_args": {
+                                "_raw_params": "/bin/false",
+                                "_uses_shell": false,
+                                "argv": null,
+                                "chdir": null,
+                                "creates": null,
+                                "executable": null,
+                                "removes": null,
+                                "stdin": null,
+                                "stdin_add_newline": true,
+                                "strip_empty_ends": true
+                            }
+                        },
+                        "msg": "non-zero return code",
+                        "rc": 1,
+                        "start": "2024-02-05 19:39:06.313730",
+                        "stderr": "",
+                        "stderr_lines": [],
+                        "stdout": "",
+                        "stdout_lines": []
+                    },
+                    "resolved_action": "ansible.builtin.command",
+                    "start": "2024-02-05T14:09:05.455434",
+                    "task": "Force a failure in rescue",
+                    "task_action": "ansible.builtin.command",
+                    "task_args": "",
+                    "task_path": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml:22",
+                    "task_uuid": "baa1fdb1-5c12-b507-7f33-00000000000a",
+                    "uuid": "c4c8a6c4-ef4e-4c0a-ac47-bc149aadc14b"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "node1",
+                    "__number": 4,
+                    "__result": "Ok",
+                    "__task": "Always execute this",
+                    "__task_action": "ansible.builtin.debug",
+                    "duration": 0.047935,
+                    "end": "2024-02-05T14:09:06.502314",
+                    "event_loop": null,
+                    "host": "node1",
+                    "play": "Demonstrate block and rescue",
+                    "play_pattern": "node1",
+                    "play_uuid": "baa1fdb1-5c12-b507-7f33-000000000004",
+                    "playbook": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml",
+                    "playbook_uuid": "0b2abec2-7e6d-4c8a-9fa9-c561554b9a04",
+                    "remote_addr": "node1",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "This will always execute"
+                    },
+                    "resolved_action": "ansible.builtin.debug",
+                    "start": "2024-02-05T14:09:06.454379",
+                    "task": "Always execute this",
+                    "task_action": "ansible.builtin.debug",
+                    "task_args": "",
+                    "task_path": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml:30",
+                    "task_uuid": "baa1fdb1-5c12-b507-7f33-00000000000c",
+                    "uuid": "0f3b19c1-d8d7-4f43-bd2e-e9273d53a6c9"
+                }
+            ],
+            "uuid": "baa1fdb1-5c12-b507-7f33-000000000004"
+        }
+    ],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/student/ansible_examples/ansible_facts/inventory"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/student/ansible_examples/ansible_block_rescue/playbook.yaml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/student/ansible_examples/ansible_block_rescue"
+            },
+            "ansible-runner": {
+                "job-events": false
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/student/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "vi +{line_number} {filename}",
+                "console": true
+            },
+            "enable-prompts": false,
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "podman",
+                "enabled": true,
+                "image": "ghcr.io/ansible/creator-ee:v0.21.0",
+                "pull": {
+                    "policy": "tag"
+                }
+            },
+            "format": "yaml",
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/student/ansible_examples/ansible_block_rescue/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "interactive",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "{playbook_dir}/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.job-events": "Defaults",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Not set",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Ansible configuration file",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Previous cli command",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.enable-prompts": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Automatically determined",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Defaults",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Defaults",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Defaults",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.format": "Defaults",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Defaults",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Defaults",
+        "ansible-navigator.playbook-artifact.enable": "Defaults",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Defaults",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "None",
+        "settings_file_source": "None"
+    },
+    "status": "failed",
+    "status_color": 9,
+    "stdout": [
+        "",
+        "PLAY [Demonstrate block and rescue] ********************************************",
+        "",
+        "TASK [Print message] ***********************************************************",
+        "\u001b[0;32mok: [node1] => {\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"I print normally\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "",
+        "TASK [Force a failure] *********************************************************",
+        "\u001b[0;31mfatal: [node1]: FAILED! => {\"ansible_facts\": {\"discovered_interpreter_python\": \"/usr/bin/python3\"}, \"changed\": true, \"cmd\": [\"/bin/false\"], \"delta\": \"0:00:00.003476\", \"end\": \"2024-02-05 19:39:05.282084\", \"msg\": \"non-zero return code\", \"rc\": 1, \"start\": \"2024-02-05 19:39:05.278608\", \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}\u001b[0m",
+        "",
+        "TASK [Catch the error] *********************************************************",
+        "\u001b[0;32mok: [node1] => {\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"I caught the error\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "",
+        "TASK [Force a failure in rescue] ***********************************************",
+        "\u001b[0;31mfatal: [node1]: FAILED! => {\"ansible_facts\": {\"discovered_interpreter_python\": \"/usr/bin/python3\"}, \"changed\": true, \"cmd\": [\"/bin/false\"], \"delta\": \"0:00:00.003461\", \"end\": \"2024-02-05 19:39:06.317191\", \"msg\": \"non-zero return code\", \"rc\": 1, \"start\": \"2024-02-05 19:39:06.313730\", \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}\u001b[0m",
+        "",
+        "TASK [Always execute this] *****************************************************",
+        "\u001b[0;32mok: [node1] => {\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"This will always execute\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "",
+        "PLAY RECAP *********************************************************************",
+        "\u001b[0;31mnode1\u001b[0m                      : \u001b[0;32mok=3   \u001b[0m changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    \u001b[0;32mrescued=1   \u001b[0m ignored=0   "
+    ],
+    "version": "2.0.0"
+}

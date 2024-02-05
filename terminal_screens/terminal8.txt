@@ -1,0 +1,449 @@
+[student@master ~]$ cd ansible_examples/ansible_ignore_errors/
+[student@master ansible_ignore_errors]$ cat playbook.yaml
+---
+- name: Demonstrate ignore_errors in playbool
+  hosts: centos
+  tasks:
+    - name: Print a fact variable
+      ansible.builtin.debug:
+        msg: "{{ testing }}"
+      ignore_errors: true
+    - name: Display a message
+      ansible.builtin.debug:
+        msg: This task ran successfully[student@master ansible_ignore_errors]$ 
+[student@master ansible_ignore_errors]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Demonstrate ignore_errors in playbool] ***********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Print a fact variable] ***************************************************
+fatal: [node1]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'testing' is undefined. 'testing' is undefined\n\nThe error appears to be in '/home/student/ansible_examples/ansible_ignore_errors/playbook.yaml': line 5, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: Print a fact variable\n      ^ here\n"}
+...ignoring
+fatal: [node2]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'testing' is undefined. 'testing' is undefined\n\nThe error appears to be in '/home/student/ansible_examples/ansible_ignore_errors/playbook.yaml': line 5, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: Print a fact variable\n      ^ here\n"}
+...ignoring
+
+TASK [Display a message] *******************************************************
+ok: [node1] => {
+    "msg": "This task ran successfully"
+}
+ok: [node2] => {
+    "msg": "This task ran successfully"
+}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+node2                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+[student@master ansible_ignore_errors]$ cat playbook.yaml
+---
+- name: Demonstrate ignore_errors in playbool
+  hosts: centos
+  tasks:
+    - name: Print a fact variable
+      ansible.builtin.debug:
+        msg: "{{ testing }}"
+      ignore_errors: true
+      register: result
+      failed_when: "'The task includes an option with an undefined variable' in result.msg"
+    - name: Display a message
+      ansible.builtin.debug:
+        msg: This task ran successfully[student@master ansible_ignore_errors]$ 
+[student@master ansible_ignore_errors]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Demonstrate ignore_errors in playbool] ***********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Print a fact variable] ***************************************************
+fatal: [node2]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'testing' is undefined. 'testing' is undefined\n\nThe error appears to be in '/home/student/ansible_examples/ansible_ignore_errors/playbook.yaml': line 5, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: Print a fact variable\n      ^ here\n"}
+...ignoring
+fatal: [node1]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'testing' is undefined. 'testing' is undefined\n\nThe error appears to be in '/home/student/ansible_examples/ansible_ignore_errors/playbook.yaml': line 5, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: Print a fact variable\n      ^ here\n"}
+...ignoring
+
+TASK [Display a message] *******************************************************
+ok: [node2] => {
+    "msg": "This task ran successfully"
+}
+ok: [node1] => {
+    "msg": "This task ran successfully"
+}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+node2                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+[student@master ansible_ignore_errors]$ ansible-lint playbook.yaml
+WARNING  Listing 1 violation(s) that are fatal
+yaml[new-line-at-end-of-file]: No new line character at the end of file
+playbook.yaml:13
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+                      Rule Violation Summary                      
+ count tag                           profile rule associated tags 
+     1 yaml[new-line-at-end-of-file] basic   formatting, yaml     
+
+Failed: 1 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'min'.
+[student@master ansible_ignore_errors]$ ansible-lint playbook.yaml
+WARNING  Listing 2 violation(s) that are fatal
+ignore-errors: Use failed_when and specify error conditions instead of using ignore_errors.
+playbook.yaml:5 Task/Handler: Print a fact variable
+
+yaml[new-line-at-end-of-file]: No new line character at the end of file
+playbook.yaml:13
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+                      Rule Violation Summary                      
+ count tag                           profile rule associated tags 
+     1 yaml[new-line-at-end-of-file] basic   formatting, yaml     
+     1 ignore-errors                 shared  unpredictability     
+
+Failed: 2 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'min'.
+[student@master ansible_ignore_errors]$ cat playbook.yaml
+---
+- name: Demonstrate ignore_errors in playbool
+  hosts: centos
+  tasks:
+    - name: Print a fact variable
+      ansible.builtin.debug:
+        msg: "{{ testing }}"
+      ignore_errors: true
+    - name: Display a message
+      ansible.builtin.debug:
+        msg: This task ran successfully[student@master ansible_ignore_errors]$ 
+[student@master ansible_ignore_errors]$ ansible-lint playbook.yaml
+WARNING  Listing 2 violation(s) that are fatal
+ignore-errors: Use failed_when and specify error conditions instead of using ignore_errors.
+playbook.yaml:5 Task/Handler: Print a fact variable
+
+yaml[new-line-at-end-of-file]: No new line character at the end of file
+playbook.yaml:11
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+                      Rule Violation Summary                      
+ count tag                           profile rule associated tags 
+     1 yaml[new-line-at-end-of-file] basic   formatting, yaml     
+     1 ignore-errors                 shared  unpredictability     
+
+Failed: 2 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'min'.
+[student@master ansible_ignore_errors]$ cat playbook.yaml
+---
+- name: Demonstrate ignore_errors in playbool
+  hosts: centos
+  tasks:
+    - name: Print a fact variable
+      ansible.builtin.debug:
+        msg: "{{ testing }}"
+      ignore_errors: true
+      register: result
+      failed_when: "'The task includes an option with an undefined variable' in result.msg"
+    - name: Display a message
+      ansible.builtin.debug:
+        msg: This task ran successfully[student@master ansible_ignore_errors]$ 
+[student@master ansible_ignore_errors]$ ansible-lint playbook.yaml
+WARNING  Listing 1 violation(s) that are fatal
+yaml[new-line-at-end-of-file]: No new line character at the end of file
+playbook.yaml:13
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+                      Rule Violation Summary                      
+ count tag                           profile rule associated tags 
+     1 yaml[new-line-at-end-of-file] basic   formatting, yaml     
+
+Failed: 1 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'min'.
+[student@master ansible_ignore_errors]$ cat playbook.yaml
+---
+- name: Demonstrate ignore_errors in playbool
+  hosts: centos
+  tasks:
+    - name: Print a fact variable
+      ansible.builtin.debug:
+        msg: "{{ testing }}"
+      ignore_errors: true
+      register: result
+      failed_when: "'The task includes an option with an undefined variable' in result.msg"
+    - name: Display a message
+      ansible.builtin.debug:
+        msg: This task ran successfully
+        [student@master ansible_ignore_errors]$ ansible-lint playbook.yaml
+WARNING  Listing 2 violation(s) that are fatal
+yaml[new-line-at-end-of-file]: No new line character at the end of file
+playbook.yaml:14
+
+yaml[trailing-spaces]: Trailing spaces
+playbook.yaml:14
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+                      Rule Violation Summary                      
+ count tag                           profile rule associated tags 
+     1 yaml[new-line-at-end-of-file] basic   formatting, yaml     
+     1 yaml[trailing-spaces]         basic   formatting, yaml     
+
+Failed: 2 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'min'.
+[student@master ansible_ignore_errors]$ cat playbook.yaml
+---
+- name: Demonstrate ignore_errors in playbool
+  hosts: centos
+  tasks:
+    - name: Print a fact variable
+      ansible.builtin.debug:
+        msg: "{{ testing }}"
+      ignore_errors: true
+      register: result
+      failed_when: "'The task includes an option with an undefined variable' in result.msg"
+    - name: Display a message
+      ansible.builtin.debug:
+        msg: This task ran successfully
+[student@master ansible_ignore_errors]$ ansible-lint playbook.yaml
+
+Passed: 0 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'production'.
+[student@master ansible_ignore_errors]$ cat playbook.yaml
+---
+- name: Demonstrate ignore_errors in playbool
+  hosts: centos
+  tasks:
+    - name: Print a fact variable
+      ansible.builtin.debug:
+        msg: "{{ testing }}"
+      ignore_errors: true
+    - name: Display a message
+      ansible.builtin.debug:
+        msg: This task ran successfully
+[student@master ansible_ignore_errors]$ ansible-lint playbook.yaml
+WARNING  Listing 1 violation(s) that are fatal
+ignore-errors: Use failed_when and specify error conditions instead of using ignore_errors.
+playbook.yaml:5 Task/Handler: Print a fact variable
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+              Rule Violation Summary              
+ count tag           profile rule associated tags 
+     1 ignore-errors shared  unpredictability     
+
+Failed: 1 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'safety'. Rating: 3/5 star
+[student@master ansible_ignore_errors]$ cd ../ansible_block_rescue/
+[student@master ansible_block_rescue]$ cat playbook.yaml
+---
+- name: Demonstrate block and rescue
+  hosts: node1
+  tasks:
+    - name: Attempt aand graceful rollback
+      block:
+        - name: Print message
+          ansible.builtin.debug:
+            msg: "I print normally"
+        - name: Force a failure
+          ansible.builtin.command: /bin/false
+        - name: Never print this
+          ansible.builtin.debug:
+            msg: "This never executes due to above error"
+      rescue:
+        - name: Catch the error
+          ansible.builtin.debug:
+            msg: "I caught the error"
+        - name: Force a failure in rescue
+          ansible.builtin.command: /bin/false
+        - name: This will also be skipped
+          ansible.builtin.debug:
+            msg: "This never executes as well"
+      always:
+        - name: Always execute this
+          ansible.builtin.debug:
+            msg: "This will always execute"
+        - name: Force a failure in always
+          ansible.builtin.command: /bin/false
+        - name: Will this also be skipped?
+          ansible.builtin.debug:
+            msg: "Will this executes?"
+
+[student@master ansible_block_rescue]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Demonstrate block and rescue] ********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+
+TASK [Print message] ***********************************************************
+ok: [node1] => {
+    "msg": "I print normally"
+}
+
+TASK [Force a failure] *********************************************************
+fatal: [node1]: FAILED! => {"changed": true, "cmd": ["/bin/false"], "delta": "0:00:00.011918", "end": "2024-02-05 16:14:15.821959", "msg": "non-zero return code", "rc": 1, "start": "2024-02-05 16:14:15.810041", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [Catch the error] *********************************************************
+ok: [node1] => {
+    "msg": "I caught the error"
+}
+
+TASK [Force a failure in rescue] ***********************************************
+fatal: [node1]: FAILED! => {"changed": true, "cmd": ["/bin/false"], "delta": "0:00:00.003521", "end": "2024-02-05 16:14:16.602637", "msg": "non-zero return code", "rc": 1, "start": "2024-02-05 16:14:16.599116", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [Always execute this] *****************************************************
+ok: [node1] => {
+    "msg": "This will always execute"
+}
+
+TASK [Force a failure in always] ***********************************************
+fatal: [node1]: FAILED! => {"changed": true, "cmd": ["/bin/false"], "delta": "0:00:00.003675", "end": "2024-02-05 16:14:17.373114", "msg": "non-zero return code", "rc": 1, "start": "2024-02-05 16:14:17.369439", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=4    changed=0    unreachable=0    failed=2    skipped=0    rescued=1    ignored=0   
+Please review the log for errors.
+[student@master ansible_block_rescue]$ cat playbook.yaml
+---
+- name: Demonstrate block and rescue
+  hosts: node1
+  tasks:
+    - name: Attempt aand graceful rollback
+      block:
+        - name: Print message
+          ansible.builtin.debug:
+            msg: "I print normally"
+        - name: Force a failure
+          ansible.builtin.command: /bin/false
+        - name: Never print this
+          ansible.builtin.debug:
+            msg: "This never executes due to above error"
+      rescue:
+        - name: Catch the error
+          ansible.builtin.debug:
+            msg: "I caught the error"
+        - name: Force a failure in rescue
+          ansible.builtin.command: /bin/false
+        - name: This will also be skipped
+          ansible.builtin.debug:
+            msg: "This never executes as well"
+      always:
+        - name: Always execute this
+          ansible.builtin.debug:
+            msg: "This will always execute"
+      always:
+        - name: Force a failure in always
+          ansible.builtin.command: /bin/false
+      always:
+        - name: Will this also be skipped?
+          ansible.builtin.debug:
+            msg: "Will this executes?"
+[student@master ansible_block_rescue]$ ansible-navigator run playbook.yaml -m stdout
+[WARNING]: While constructing a mapping from
+/home/student/ansible_examples/ansible_block_rescue/playbook.yaml, line 5,
+column 7, found a duplicate dict key (always). Using last defined value only.
+
+PLAY [Demonstrate block and rescue] ********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+
+TASK [Print message] ***********************************************************
+ok: [node1] => {
+    "msg": "I print normally"
+}
+
+TASK [Force a failure] *********************************************************
+fatal: [node1]: FAILED! => {"changed": true, "cmd": ["/bin/false"], "delta": "0:00:00.003613", "end": "2024-02-05 16:17:06.122949", "msg": "non-zero return code", "rc": 1, "start": "2024-02-05 16:17:06.119336", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [Catch the error] *********************************************************
+ok: [node1] => {
+    "msg": "I caught the error"
+}
+
+TASK [Force a failure in rescue] ***********************************************
+fatal: [node1]: FAILED! => {"changed": true, "cmd": ["/bin/false"], "delta": "0:00:00.003495", "end": "2024-02-05 16:17:06.888168", "msg": "non-zero return code", "rc": 1, "start": "2024-02-05 16:17:06.884673", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [Will this also be skipped?] **********************************************
+ok: [node1] => {
+    "msg": "Will this executes?"
+}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=1    ignored=0   
+Please review the log for errors.
+[student@master ansible_block_rescue]$ cat playbook.yaml
+---
+- name: Demonstrate block and rescue
+  hosts: node1
+  tasks:
+    - name: Attempt aand graceful rollback
+      block:
+        - name: Print message
+          ansible.builtin.debug:
+            msg: "I print normally"
+        - name: Force a failure
+          ansible.builtin.command: /bin/false
+        - name: Never print this
+          ansible.builtin.debug:
+            msg: "This never executes due to above error"
+      rescue:
+        - name: Catch the error
+          ansible.builtin.debug:
+            msg: "I caught the error"
+        - name: Force a failure in rescue
+          ansible.builtin.command: /bin/false
+        - name: This will also be skipped
+          ansible.builtin.debug:
+            msg: "This never executes as well"
+      always:
+        - name: Always execute this
+          ansible.builtin.debug:
+            msg: "This will always execute"
+[student@master ansible_block_rescue]$ ansible-lint playbook.yaml
+WARNING  <unknown>:1: SyntaxWarning: invalid decimal literal
+
+WARNING  Listing 2 violation(s) that are fatal
+no-changed-when: Commands should not change things if nothing needs doing.
+playbook.yaml:10 Task/Handler: Force a failure
+
+no-changed-when: Commands should not change things if nothing needs doing.
+playbook.yaml:19 Task/Handler: Force a failure in rescue
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+                  Rule Violation Summary                  
+ count tag             profile rule associated tags       
+     2 no-changed-when shared  command-shell, idempotency 
+
+Failed: 2 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'safety'. Rating: 3/5 star
+[student@master ansible_block_rescue]$ cat playbook.yaml
+---
+- name: Demonstrate block and rescue
+  hosts: node1
+  tasks:
+    - name: Attempt aand graceful rollback
+      block:
+        - name: Print message
+          ansible.builtin.debug:
+            msg: "I print normally"
+        - name: Force a failure
+          ansible.builtin.command: /bin/false
+          register: my_output
+          changed_when: my_output.rc != 0
+        - name: Never print this
+          ansible.builtin.debug:
+            msg: "This never executes due to above error"
+      rescue:
+        - name: Catch the error
+          ansible.builtin.debug:
+            msg: "I caught the error"
+        - name: Force a failure in rescue
+          ansible.builtin.command: /bin/false
+          register: my_output
+          changed_when: my_output.rc != 0
+        - name: This will also be skipped
+          ansible.builtin.debug:
+            msg: "This never executes as well"
+      always:
+        - name: Always execute this
+          ansible.builtin.debug:
+            msg: "This will always execute"
+[student@master ansible_block_rescue]$ ansible-lint playbook.yaml
+
+Passed: 0 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'production'.
+[student@master ansible_block_rescue]$ 

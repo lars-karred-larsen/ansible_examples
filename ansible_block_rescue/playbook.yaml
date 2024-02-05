@@ -1,6 +1,7 @@
 ---
 - name: Demonstrate block and rescue
   hosts: node1
+  gather_facts: false
   tasks:
     - name: Attempt aand graceful rollback
       block:
