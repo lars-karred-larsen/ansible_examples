@@ -1,0 +1,175 @@
+[student@master ansible_examples]$ mkdir ansible_builder
+[student@master ansible_examples]$ cd ansible_builder/
+[student@master ansible_builder]$ vi execution-environment.yml 
+[student@master ansible_builder]$ cat execution-environment.yml 
+version: 1
+build_arg_defaults: 
+  EE_BASE_IMAGE: ghcr.io/ansible/creator-ee:v0.21.0
+  EE_BUILDER_IMAGE: quay.io/ansible/ansible-runner:latest
+dependencies: 
+galaxy: requirements.yml
+[student@master ansible_builder]$ vi requirements.yml
+[student@master ansible_builder]$ vcat requirements.yml
+bash: vcat: command not found...
+Similar command is: 'cat'
+[student@master ansible_builder]$ cat requirements.yml
+collections:
+  - community.general
+[student@master ansible_builder]$ ansible-builder build -t ee-custom:1.0
+jsonschema.exceptions.ValidationError: Additional properties are not allowed ('galaxy' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'additional_build_steps': {'additionalProperties': False,
+                                               'properties': {'append': {'anyOf': [{'type': 'string'},
+                                                                                   {'items': {'type': 'string'},
+                                                                                    'type': 'array'}]},
+                                                              'prepend': {'anyOf': [{'type': 'string'},
+                                                                                    {'items': {'type': 'string'},
+                                                                                     'type': 'array'}]}},
+                                               'type': 'object'},
+                    'ansible_config': {'type': 'string'},
+                    'build_arg_defaults': {'additionalProperties': False,
+                                           'properties': {'ANSIBLE_GALAXY_CLI_COLLECTION_OPTS': {'type': 'string'},
+                                                          'ANSIBLE_GALAXY_CLI_ROLE_OPTS': {'type': 'string'},
+                                                          'EE_BASE_IMAGE': {'type': 'string'},
+                                                          'EE_BUILDER_IMAGE': {'type': 'string'}},
+                                           'type': 'object'},
+                    'dependencies': {'additionalProperties': False,
+                                     'description': 'The dependency stuff',
+                                     'properties': {'galaxy': {'description': 'The '
+                                                                              'Galaxy '
+                                                                              'dependency '
+                                                                              'file',
+                                                               'type': 'string'},
+                                                    'python': {'description': 'The '
+                                                                              'python '
+                                                                              'dependency '
+                                                                              'file',
+                                                               'type': 'string'},
+                                                    'system': {'description': 'The '
+                                                                              'system '
+                                                                              'dependency '
+                                                                              'file',
+                                                               'type': 'string'}},
+                                     'type': 'object'},
+                    'version': {'description': 'The EE schema version '
+                                               'number',
+                                'type': 'number'}},
+     'type': 'object'}
+
+On instance:
+    {'build_arg_defaults': {'EE_BASE_IMAGE': 'ghcr.io/ansible/creator-ee:v0.21.0',
+                            'EE_BUILDER_IMAGE': 'quay.io/ansible/ansible-runner:latest'},
+     'dependencies': None,
+     'galaxy': 'requirements.yml',
+     'version': 1}
+
+During handling of the above exception, another exception occurred:
+
+ansible_builder.exceptions.DefinitionError: Additional properties are not allowed ('galaxy' was unexpected)
+[student@master ansible_builder]$ ansible-builder build -t ee-custom:1.0^C
+[student@master ansible_builder]$ pwd
+/home/student/ansible_examples/ansible_builder
+[student@master ansible_builder]$ ansible-builder build -t ee-custom:1.0^C
+[student@master ansible_builder]$ ls -l
+total 8
+-rw-r--r-- 1 student student 182 Feb  6 15:44 execution-environment.yml
+-rw-r--r-- 1 student student  35 Feb  6 15:48 requirements.yml
+[student@master ansible_builder]$ vi requirements.yml
+[student@master ansible_builder]$ 
+[student@master ansible_builder]$ vi execution-environment.yml 
+[student@master ansible_builder]$ ansible-builder build -t ee-custom:1.0
+jsonschema.exceptions.ValidationError: Additional properties are not allowed ('galaxy' was unexpected)
+
+Failed validating 'additionalProperties' in schema:
+    {'additionalProperties': False,
+     'properties': {'additional_build_steps': {'additionalProperties': False,
+                                               'properties': {'append': {'anyOf': [{'type': 'string'},
+                                                                                   {'items': {'type': 'string'},
+                                                                                    'type': 'array'}]},
+                                                              'prepend': {'anyOf': [{'type': 'string'},
+                                                                                    {'items': {'type': 'string'},
+                                                                                     'type': 'array'}]}},
+                                               'type': 'object'},
+                    'ansible_config': {'type': 'string'},
+                    'build_arg_defaults': {'additionalProperties': False,
+                                           'properties': {'ANSIBLE_GALAXY_CLI_COLLECTION_OPTS': {'type': 'string'},
+                                                          'ANSIBLE_GALAXY_CLI_ROLE_OPTS': {'type': 'string'},
+                                                          'EE_BASE_IMAGE': {'type': 'string'},
+                                                          'EE_BUILDER_IMAGE': {'type': 'string'}},
+                                           'type': 'object'},
+                    'dependencies': {'additionalProperties': False,
+                                     'description': 'The dependency stuff',
+                                     'properties': {'galaxy': {'description': 'The '
+                                                                              'Galaxy '
+                                                                              'dependency '
+                                                                              'file',
+                                                               'type': 'string'},
+                                                    'python': {'description': 'The '
+                                                                              'python '
+                                                                              'dependency '
+                                                                              'file',
+                                                               'type': 'string'},
+                                                    'system': {'description': 'The '
+                                                                              'system '
+                                                                              'dependency '
+                                                                              'file',
+                                                               'type': 'string'}},
+                                     'type': 'object'},
+                    'version': {'description': 'The EE schema version '
+                                               'number',
+                                'type': 'number'}},
+     'type': 'object'}
+
+On instance:
+    {'build_arg_defaults': {'EE_BASE_IMAGE': 'ghcr.io/ansible/creator-ee:v0.21.0',
+                            'EE_BUILDER_IMAGE': 'quay.io/ansible/ansible-runner:latest'},
+     'dependencies': None,
+     'galaxy': 'requirements.yml',
+     'version': 1}
+
+During handling of the above exception, another exception occurred:
+
+ansible_builder.exceptions.DefinitionError: Additional properties are not allowed ('galaxy' was unexpected)
+[student@master ansible_builder]$ vi execution-environment.yml 
+[student@master ansible_builder]$ ansible-builder build -t ee-custom:1.0
+Running command:
+  podman build -f context/Containerfile -t ee-custom:1.0 context
+Complete! The build context can be found at: /home/student/ansible_examples/ansible_builder/context
+[student@master ansible_builder]$ cat execution-environment.yml 
+version: 1
+build_arg_defaults: 
+  EE_BASE_IMAGE: ghcr.io/ansible/creator-ee:v0.21.0
+  EE_BUILDER_IMAGE: quay.io/ansible/ansible-runner:latest
+dependencies: 
+  galaxy: requirements.yml
+
+[student@master ansible_builder]$ ls -l
+total 8
+drwxr-xr-x 3 student student  41 Feb  6 15:54 context
+-rw-r--r-- 1 student student 185 Feb  6 15:54 execution-environment.yml
+-rw-r--r-- 1 student student  36 Feb  6 15:53 requirements.yml
+[student@master ansible_builder]$ ansible-navigator collection -ee ee-custom:1.0
+Warning: Issues were found while applying the settings.
+   Hint: Command provided: 'collection -ee ee-custom:1.0'
+
+  Error: argument {subcommand} --help: invalid choice: 'collection' (choose from 'builder', 'collections', 'config', 'doc', 'exec',
+         'images', 'inventory', 'lint', 'replay', 'run', 'settings', 'welcome')
+
+   Note: Configuration failed, using default log file location.
+         (/home/student/ansible_examples/ansible_builder/ansible-navigator.log) Log level set to debug
+   Hint: Review the hints and log file to see what went wrong.
+[student@master ansible_builder]$ ansible-navigator collection
+Warning: Issues were found while applying the settings.
+   Hint: Command provided: 'collection'
+
+  Error: argument {subcommand} --help: invalid choice: 'collection' (choose from 'builder', 'collections', 'config', 'doc', 'exec',
+         'images', 'inventory', 'lint', 'replay', 'run', 'settings', 'welcome')
+
+   Note: Configuration failed, using default log file location.
+         (/home/student/ansible_examples/ansible_builder/ansible-navigator.log) Log level set to debug
+   Hint: Review the hints and log file to see what went wrong.
+[student@master ansible_builder]$ ansible-navigator
+[student@master ansible_builder]$ 
+

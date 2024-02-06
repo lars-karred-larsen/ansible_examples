@@ -420,3 +420,267 @@ fatal: Authentication failed for 'https://github.com/lars-karred-larsen/ansible_
 Copied until here: -------------------------------------------------------------------
 [student@master ansible_examples]$ 
 
+[student@master ansible_block_rescue]$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ../ansible_facts/ansible-navigator.log
+	modified:   ../ansible_facts/playbook.yaml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	./
+	../ansible_condition/
+	../ansible_facts/ansible copy.cfg
+	../ansible_facts/inventory copy
+	../ansible_facts/playbook-artifact-2024-02-05T07:32:02.871208+00:00.json
+	../ansible_facts/playbook-artifact-2024-02-05T09:25:52.794480+00:00.json
+	../ansible_facts/playbook-artifact-2024-02-05T09:29:14.897371+00:00.json
+	../ansible_facts/playbook-artifact-2024-02-05T09:29:48.702878+00:00.json
+	../ansible_ignore_errors/
+	../ansible_loops/
+	../terminal_screens/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[student@master ansible_block_rescue]$ git add .
+[student@master ansible_block_rescue]$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   ansible-navigator.log
+	new file:   ansible.cfg
+	new file:   inventory
+	new file:   playbook-artifact-2024-02-05T10:32:39.224973+00:00.json
+	new file:   playbook-artifact-2024-02-05T10:35:20.362245+00:00.json
+	new file:   playbook-artifact-2024-02-05T10:44:17.768539+00:00.json
+	new file:   playbook-artifact-2024-02-05T10:47:07.294393+00:00.json
+	new file:   playbook.yaml
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ../ansible_facts/ansible-navigator.log
+	modified:   ../ansible_facts/playbook.yaml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../ansible_condition/
+	../ansible_facts/ansible copy.cfg
+	../ansible_facts/inventory copy
+	../ansible_facts/playbook-artifact-2024-02-05T07:32:02.871208+00:00.json
+	../ansible_facts/playbook-artifact-2024-02-05T09:25:52.794480+00:00.json
+	../ansible_facts/playbook-artifact-2024-02-05T09:29:14.897371+00:00.json
+	../ansible_facts/playbook-artifact-2024-02-05T09:29:48.702878+00:00.json
+	../ansible_ignore_errors/
+	../ansible_loops/
+	../terminal_screens/
+
+[student@master ansible_block_rescue]$ cd ..
+[student@master ansible_examples]$ git add .
+[student@master ansible_examples]$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   ansible_block_rescue/ansible-navigator.log
+	new file:   ansible_block_rescue/ansible.cfg
+	new file:   ansible_block_rescue/inventory
+	new file:   ansible_block_rescue/playbook-artifact-2024-02-05T10:32:39.224973+00:00.json
+	new file:   ansible_block_rescue/playbook-artifact-2024-02-05T10:35:20.362245+00:00.json
+	new file:   ansible_block_rescue/playbook-artifact-2024-02-05T10:44:17.768539+00:00.json
+	new file:   ansible_block_rescue/playbook-artifact-2024-02-05T10:47:07.294393+00:00.json
+	new file:   ansible_block_rescue/playbook.yaml
+	new file:   ansible_condition/ansible-navigator.log
+	new file:   ansible_condition/ansible.cfg
+	new file:   ansible_condition/inventory
+	new file:   ansible_condition/playbook-artifact-2024-02-05T07:55:42.400859+00:00.json
+	new file:   ansible_condition/playbook-artifact-2024-02-05T07:56:26.614866+00:00.json
+	new file:   ansible_condition/playbook-artifact-2024-02-05T07:56:51.400827+00:00.json
+	new file:   ansible_condition/playbook-artifact-2024-02-05T07:57:33.105128+00:00.json
+	new file:   ansible_condition/playbook-artifact-2024-02-05T07:58:33.629149+00:00.json
+	new file:   ansible_condition/playbook-artifact-2024-02-05T07:58:52.701311+00:00.json
+	new file:   ansible_condition/playbook.svg
+	new file:   ansible_condition/playbook.yaml
+	new file:   ansible_condition/playbook2-artifact-2024-02-05T08:06:22.702238+00:00.json
+	new file:   ansible_condition/playbook2-artifact-2024-02-05T08:06:37.482571+00:00.json
+	new file:   ansible_condition/playbook2-artifact-2024-02-05T08:07:42.075251+00:00.json
+	new file:   ansible_condition/playbook2-artifact-2024-02-05T08:07:54.587796+00:00.json
+	new file:   ansible_condition/playbook2-artifact-2024-02-05T08:08:32.866440+00:00.json
+	new file:   ansible_condition/playbook2.svg
+	new file:   ansible_condition/playbook2.yaml
+	new file:   ansible_facts/ansible copy.cfg
+	modified:   ansible_facts/ansible-navigator.log
+	new file:   ansible_facts/inventory copy
+	new file:   ansible_facts/playbook-artifact-2024-02-05T07:32:02.871208+00:00.json
+	new file:   ansible_facts/playbook-artifact-2024-02-05T09:25:52.794480+00:00.json
+	new file:   ansible_facts/playbook-artifact-2024-02-05T09:29:14.897371+00:00.json
+	new file:   ansible_facts/playbook-artifact-2024-02-05T09:29:48.702878+00:00.json
+	modified:   ansible_facts/playbook.yaml
+	new file:   ansible_ignore_errors/ansible copy.cfg
+	new file:   ansible_ignore_errors/ansible-navigator.log
+	new file:   ansible_ignore_errors/ansible.cfg
+	new file:   ansible_ignore_errors/inventory
+	new file:   ansible_ignore_errors/inventory copy
+	new file:   ansible_ignore_errors/playbook-artifact-2024-02-05T09:45:57.494119+00:00.json
+	new file:   ansible_ignore_errors/playbook-artifact-2024-02-05T09:46:36.495098+00:00.json
+	new file:   ansible_ignore_errors/playbook-artifact-2024-02-05T09:51:12.832586+00:00.json
+	new file:   ansible_ignore_errors/playbook-artifact-2024-02-05T09:52:30.149978+00:00.json
+	new file:   ansible_ignore_errors/playbook-artifact-2024-02-05T09:54:52.790158+00:00.json
+	new file:   ansible_ignore_errors/playbook.svg
+	new file:   ansible_ignore_errors/playbook.yaml
+	new file:   ansible_loops/ansible-navigator.log
+	new file:   ansible_loops/ansible.cfg
+	new file:   ansible_loops/inventory
+	new file:   ansible_loops/playbook-artifact-2024-02-05T08:48:56.730627+00:00.json
+	new file:   ansible_loops/playbook-artifact-2024-02-05T08:49:17.027506+00:00.json
+	new file:   ansible_loops/playbook-artifact-2024-02-05T08:51:36.851787+00:00.json
+	new file:   ansible_loops/playbook-artifact-2024-02-05T09:18:11.108524+00:00.json
+	new file:   ansible_loops/playbook-artifact-2024-02-05T09:19:09.114983+00:00.json
+	new file:   ansible_loops/playbook-artifact-2024-02-05T09:19:47.151267+00:00.json
+	new file:   ansible_loops/playbook-artifact-2024-02-05T09:22:28.629455+00:00.json
+	new file:   ansible_loops/playbook.svg
+	new file:   ansible_loops/playbook.yaml
+	new file:   terminal_screens/teminal1.txt
+	new file:   terminal_screens/terminal2.txt
+	new file:   terminal_screens/terminal3.txt
+	new file:   terminal_screens/terminal4.txt
+	new file:   terminal_screens/terminal5.txt
+	new file:   terminal_screens/terminal6.txt
+	new file:   terminal_screens/terminal7.txt
+
+[student@master ansible_examples]$ git commit -m "Day4 commit of ansible_examples"
+[master 0f141e5] Day4 commit of ansible_examples
+ 65 files changed, 50944 insertions(+), 2 deletions(-)
+ create mode 100644 ansible_block_rescue/ansible-navigator.log
+ create mode 100644 ansible_block_rescue/ansible.cfg
+ create mode 100644 ansible_block_rescue/inventory
+ create mode 100644 ansible_block_rescue/playbook-artifact-2024-02-05T10:32:39.224973+00:00.json
+ create mode 100644 ansible_block_rescue/playbook-artifact-2024-02-05T10:35:20.362245+00:00.json
+ create mode 100644 ansible_block_rescue/playbook-artifact-2024-02-05T10:44:17.768539+00:00.json
+ create mode 100644 ansible_block_rescue/playbook-artifact-2024-02-05T10:47:07.294393+00:00.json
+ create mode 100644 ansible_block_rescue/playbook.yaml
+ create mode 100644 ansible_condition/ansible-navigator.log
+ create mode 100644 ansible_condition/ansible.cfg
+ create mode 100644 ansible_condition/inventory
+ create mode 100644 ansible_condition/playbook-artifact-2024-02-05T07:55:42.400859+00:00.json
+ create mode 100644 ansible_condition/playbook-artifact-2024-02-05T07:56:26.614866+00:00.json
+ create mode 100644 ansible_condition/playbook-artifact-2024-02-05T07:56:51.400827+00:00.json
+ create mode 100644 ansible_condition/playbook-artifact-2024-02-05T07:57:33.105128+00:00.json
+ create mode 100644 ansible_condition/playbook-artifact-2024-02-05T07:58:33.629149+00:00.json
+ create mode 100644 ansible_condition/playbook-artifact-2024-02-05T07:58:52.701311+00:00.json
+ create mode 100644 ansible_condition/playbook.svg
+ create mode 100644 ansible_condition/playbook.yaml
+ create mode 100644 ansible_condition/playbook2-artifact-2024-02-05T08:06:22.702238+00:00.json
+ create mode 100644 ansible_condition/playbook2-artifact-2024-02-05T08:06:37.482571+00:00.json
+ create mode 100644 ansible_condition/playbook2-artifact-2024-02-05T08:07:42.075251+00:00.json
+ create mode 100644 ansible_condition/playbook2-artifact-2024-02-05T08:07:54.587796+00:00.json
+ create mode 100644 ansible_condition/playbook2-artifact-2024-02-05T08:08:32.866440+00:00.json
+ create mode 100644 ansible_condition/playbook2.svg
+ create mode 100644 ansible_condition/playbook2.yaml
+ create mode 100644 ansible_facts/ansible copy.cfg
+ create mode 100644 ansible_facts/inventory copy
+ create mode 100644 ansible_facts/playbook-artifact-2024-02-05T07:32:02.871208+00:00.json
+ create mode 100644 ansible_facts/playbook-artifact-2024-02-05T09:25:52.794480+00:00.json
+ create mode 100644 ansible_facts/playbook-artifact-2024-02-05T09:29:14.897371+00:00.json
+ create mode 100644 ansible_facts/playbook-artifact-2024-02-05T09:29:48.702878+00:00.json
+ create mode 100644 ansible_ignore_errors/ansible copy.cfg
+ create mode 100644 ansible_ignore_errors/ansible-navigator.log
+ create mode 100644 ansible_ignore_errors/ansible.cfg
+ create mode 100644 ansible_ignore_errors/inventory
+ create mode 100644 ansible_ignore_errors/inventory copy
+ create mode 100644 ansible_ignore_errors/playbook-artifact-2024-02-05T09:45:57.494119+00:00.json
+ create mode 100644 ansible_ignore_errors/playbook-artifact-2024-02-05T09:46:36.495098+00:00.json
+ create mode 100644 ansible_ignore_errors/playbook-artifact-2024-02-05T09:51:12.832586+00:00.json
+ create mode 100644 ansible_ignore_errors/playbook-artifact-2024-02-05T09:52:30.149978+00:00.json
+ create mode 100644 ansible_ignore_errors/playbook-artifact-2024-02-05T09:54:52.790158+00:00.json
+ create mode 100644 ansible_ignore_errors/playbook.svg
+ create mode 100644 ansible_ignore_errors/playbook.yaml
+ create mode 100644 ansible_loops/ansible-navigator.log
+ create mode 100644 ansible_loops/ansible.cfg
+ create mode 100644 ansible_loops/inventory
+ create mode 100644 ansible_loops/playbook-artifact-2024-02-05T08:48:56.730627+00:00.json
+ create mode 100644 ansible_loops/playbook-artifact-2024-02-05T08:49:17.027506+00:00.json
+ create mode 100644 ansible_loops/playbook-artifact-2024-02-05T08:51:36.851787+00:00.json
+ create mode 100644 ansible_loops/playbook-artifact-2024-02-05T09:18:11.108524+00:00.json
+ create mode 100644 ansible_loops/playbook-artifact-2024-02-05T09:19:09.114983+00:00.json
+ create mode 100644 ansible_loops/playbook-artifact-2024-02-05T09:19:47.151267+00:00.json
+ create mode 100644 ansible_loops/playbook-artifact-2024-02-05T09:22:28.629455+00:00.json
+ create mode 100644 ansible_loops/playbook.svg
+ create mode 100644 ansible_loops/playbook.yaml
+ create mode 100644 terminal_screens/teminal1.txt
+ create mode 100644 terminal_screens/terminal2.txt
+ create mode 100644 terminal_screens/terminal3.txt
+ create mode 100644 terminal_screens/terminal4.txt
+ create mode 100644 terminal_screens/terminal5.txt
+ create mode 100644 terminal_screens/terminal6.txt
+ create mode 100644 terminal_screens/terminal7.txt
+[student@master ansible_examples]$ git push -u origin master
+f() { sleep 1; ec}; f get: -c: line 2: syntax error: unexpected end of file
+Username for 'https://github.com': lars-karred-larsen
+Password for 'https://lars-karred-larsen@github.com': 
+f() { sleep 1; ec}; f erase: -c: line 2: syntax error: unexpected end of file
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/lars-karred-larsen/ansible_examples.git/'
+[student@master ansible_examples]$ git push -u origin master
+f() { sleep 1; ec}; f get: -c: line 2: syntax error: unexpected end of file
+Username for 'https://github.com': lars-karred-larsen
+Password for 'https://lars-karred-larsen@github.com': 
+f() { sleep 1; ec}; f store: -c: line 2: syntax error: unexpected end of file
+Enumerating objects: 61, done.
+Counting objects: 100% (61/61), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (58/58), done.
+Writing objects: 100% (58/58), 151.11 KiB | 1.36 MiB/s, done.
+Total 58 (delta 36), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (36/36), completed with 2 local objects.
+To https://github.com/lars-karred-larsen/ansible_examples.git
+   6ed714c..0f141e5  master -> master
+branch 'master' set up to track 'origin/master'.
+[student@master ansible_examples]$ git add .
+[student@master ansible_examples]$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   ansible_block_rescue/playbook-artifact-2024-02-05T14:08:02.968902+00:00.json
+	new file:   ansible_block_rescue/playbook-artifact-2024-02-05T14:09:06.976983+00:00.json
+	modified:   ansible_block_rescue/playbook.yaml
+	modified:   ansible_facts/ansible-navigator.log
+	new file:   ansible_facts/playbook-artifact-2024-02-05T14:25:25.530200+00:00.json
+	modified:   ansible_facts/playbook.yaml
+	new file:   terminal_screens/terminal8.txt
+	new file:   terminal_screens/terminal9.txt
+
+[student@master ansible_examples]$ git commit -m "Second day4 commit of ansible_examples"
+[master 169d948] Second day4 commit of ansible_examples
+ 8 files changed, 3068 insertions(+), 3 deletions(-)
+ create mode 100644 ansible_block_rescue/playbook-artifact-2024-02-05T14:08:02.968902+00:00.json
+ create mode 100644 ansible_block_rescue/playbook-artifact-2024-02-05T14:09:06.976983+00:00.json
+ create mode 100644 ansible_facts/playbook-artifact-2024-02-05T14:25:25.530200+00:00.json
+ create mode 100644 terminal_screens/terminal8.txt
+ create mode 100644 terminal_screens/terminal9.txt
+[student@master ansible_examples]$ git push -u origin master
+f() { sleep 1; ec}; f get: -c: line 2: syntax error: unexpected end of file
+Username for 'https://github.com': lars-karred-larsen
+Password for 'https://lars-karred-larsen@github.com': 
+f() { sleep 1; ec}; f store: -c: line 2: syntax error: unexpected end of file
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (13/13), 20.99 KiB | 1.75 MiB/s, done.
+Total 13 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (9/9), completed with 7 local objects.
+To https://github.com/lars-karred-larsen/ansible_examples.git
+   0f141e5..169d948  master -> master
+branch 'master' set up to track 'origin/master'.
+[student@master ansible_examples]$ 
+

@@ -8,6 +8,6 @@
     - name: Display hostname
       ansible.builtin.debug:
         msg: >
-          "The distribution for {{ inventory_hostname }}
-          is {{ ansible_facts['distribution'] }} and
-          python version is {{ ansible_facts['python_version'] }}"
+          The distribution for {{ inventory_hostname }} is
+          {{ ansible_facts['distribution'] }} and
+          python version is {{ ansible_facts['python_version'] }}

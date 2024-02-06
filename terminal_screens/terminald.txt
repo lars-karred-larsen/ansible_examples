@@ -1,0 +1,60 @@
+[student@master ~]$ ansible-navigator collections --eei ee-custom:1.0
+[student@master ~]$ podman image prune
+WARNING! This command removes all dangling images.
+Are you sure you want to continue? [y/N] y
+d04af84740c12e36007ab207bec71f627f209d06013c1427043d2af70bd5db14
+81de193a080126f16a9db1cbbb6fbfc1511b7e95d6363df7ae6cabcc8763c883
+7e11b534962ae6debcf9aa8fedc08fecd6138d8dad02413c6a6563bca57310f1
+e9154f5616e9ad04e3ca07b32591210a09806322bb98d595dfa74d7cb9cb5458
+eda974fbf38967fbb2c5f27d88f44189500b13ca5ebcf5b2a8af3d5dd3cd4072
+0654f651ba40e8d6bad073404d160b7f34ba76515abe5982fa73ba82b983a098
+511a83681f7d8bdabaa91039bdad16fd874ad8acd939d69dfbfe46e576d40762
+c9494799a1ca21ac0b94788696851f28f30b5cecd25452af217db87c219608b4
+36f6e69fb878c1c93c048a4bd461b5de4cdad14d166f8b8d795923c2d131de6c
+1048663594fda479d26e9b83f4f97978e3f67be51f4a36b0ee64ac20e2394118
+4359fb632af66209342250a30c916479e0df3d1121d11f0e25da44d963ced770
+44b80f74e068c4df4e50e53ec17f19a972cd0315ebe6a5809d46087222d01631
+0f5446ace5fe11c2d3acc91a5a359aeaf59395c78fbd382b1ac7b4b30ecfc2f1
+00fd5207b4cf2affc8df4eae6b864f924f048f43aaf1cdb3ecfe5989e070724c
+bc17bf00fc4182d2a311c2e79cd5ee51ff1c3459b9af4da5b58075c101f6de80
+978c011e99dbdd8c29ce9d4db536666e5d644bfd95199c1216aa2e4e76f020e4
+[student@master ~]$ podman image
+Manage images
+
+Description:
+  Manage images
+
+Usage:
+  podman image [command]
+
+Available Commands:
+  build       Build an image using instructions from Containerfiles
+  diff        Inspect changes to the image's file systems
+  exists      Check if an image exists in local storage
+  history     Show history of a specified image
+  import      Import a tarball to create a filesystem image
+  inspect     Display the configuration of an image
+  list        List images in local storage
+  load        Load image(s) from a tar archive
+  mount       Mount an image's root filesystem
+  prune       Remove unused images
+  pull        Pull an image from a registry
+  push        Push an image to a specified destination
+  rm          Remove one or more images from local storage
+  save        Save image(s) to an archive
+  scp         Securely copy images
+  search      Search registry for image
+  sign        Sign an image
+  tag         Add an additional name to a local image
+  tree        Print layer hierarchy of an image in a tree format
+  trust       Manage container image trust policy
+  unmount     Unmount an image's root filesystem
+  untag       Remove a name from a local image
+
+Error: missing command 'podman image COMMAND'
+[student@master ~]$ podman images
+REPOSITORY                  TAG         IMAGE ID      CREATED        SIZE
+localhost/ee-custom         1.0         4ed792c9519f  9 minutes ago  835 MB
+ghcr.io/ansible/creator-ee  v0.21.0     5763a5ad4a70  3 months ago   683 MB
+[student@master ~]$ 
+

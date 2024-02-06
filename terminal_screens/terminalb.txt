@@ -1,0 +1,2346 @@
+[student@master ansible_roles]$ ansible-navigator collections -m stdout
+---
+collections:
+- collection_info:
+    version: 2.15.4
+  hidden_by: []
+  known_as: ansible.builtin
+  name: ansible.builtin
+  path: /usr/local/lib/python3.11/site-packages/ansible
+  plugins:
+    become:
+    - full_name: ansible.builtin.runas
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/become/runas.py
+      short_description: Run As user
+    - full_name: ansible.builtin.su
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/become/su.py
+      short_description: Substitute User
+    - full_name: ansible.builtin.sudo
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/become/sudo.py
+      short_description: Substitute User DO
+    cache:
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/cache/base.py
+    - full_name: ansible.builtin.jsonfile
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/cache/jsonfile.py
+      short_description: JSON formatted files.
+    - full_name: ansible.builtin.memory
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/cache/memory.py
+      short_description: RAM backed, non persistent
+    callback:
+    - full_name: ansible.builtin.default
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/callback/default.py
+      short_description: default Ansible screen output
+    - full_name: ansible.builtin.junit
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/callback/junit.py
+      short_description: write playbook output to a JUnit file.
+    - full_name: ansible.builtin.minimal
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/callback/minimal.py
+      short_description: minimal Ansible screen output
+    - full_name: ansible.builtin.oneline
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/callback/oneline.py
+      short_description: oneline Ansible screen output
+    - full_name: ansible.builtin.tree
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/callback/tree.py
+      short_description: Save host events to files
+    connection:
+    - full_name: ansible.builtin.local
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/connection/local.py
+      short_description: execute on controller
+    - full_name: ansible.builtin.paramiko
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/connection/paramiko_ssh.py
+      short_description: Run tasks via python ssh (paramiko)
+    - full_name: ansible.builtin.psrp
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/connection/psrp.py
+      short_description: Run tasks over Microsoft PowerShell Remoting Protocol
+    - full_name: ansible.builtin.ssh
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/connection/ssh.py
+      short_description: connect via SSH client binary
+    - full_name: ansible.builtin.winrm
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/connection/winrm.py
+      short_description: Run tasks over Microsoft's WinRM
+    filter:
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/core.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/encryption.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/mathstuff.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/urls.py
+    - full_name: ansible.builtin.urlsplit
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/urlsplit.py
+      short_description: get components from URL
+    - full_name: ansible.builtin.b64decode
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/b64decode.yml
+      short_description: Decode a base64 string
+    - full_name: ansible.builtin.b64encode
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/b64encode.yml
+      short_description: Encode a string as base64
+    - full_name: ansible.builtin.basename
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/basename.yml
+      short_description: get a path's base name
+    - full_name: ansible.builtin.bool
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/bool.yml
+      short_description: cast into a boolean
+    - full_name: ansible.builtin.checksum
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/checksum.yml
+      short_description: checksum of input data
+    - full_name: ansible.builtin.combinations
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/combinations.yml
+      short_description: combinations from the elements of a list
+    - full_name: ansible.builtin.combine
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/combine.yml
+      short_description: combine two dictionaries
+    - full_name: ansible.builtin.comment
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/comment.yml
+      short_description: comment out a string
+    - full_name: ansible.builtin.commonpath
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/commonpath.yml
+      short_description: gets the common path
+    - full_name: ansible.builtin.dict2items
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/dict2items.yml
+      short_description: Convert a dictionary into an itemized list of dictionaries
+    - full_name: ansible.builtin.difference
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/difference.yml
+      short_description: the difference of one list from another
+    - full_name: ansible.builtin.dirname
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/dirname.yml
+      short_description: get a path's directory name
+    - full_name: ansible.builtin.basename
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/expanduser.yml
+      short_description: Returns a path with C(~) translation.
+    - full_name: ansible.builtin.expandvars
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/expandvars.yml
+      short_description: expand environment variables
+    - full_name: ansible.builtin.extract
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/extract.yml
+      short_description: extract a value based on an index or key
+    - full_name: ansible.builtin.fileglob
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/fileglob.yml
+      short_description: explode a path glob to matching files
+    - full_name: ansible.builtin.flatten
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/flatten.yml
+      short_description: flatten lists within a list
+    - full_name: ansible.builtin.from_json
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/from_json.yml
+      short_description: Convert JSON string into variable structure
+    - full_name: ansible.builtin.from_yaml
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/from_yaml.yml
+      short_description: Convert YAML string into variable structure
+    - full_name: ansible.builtin.from_yaml_all
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/from_yaml_all.yml
+      short_description: Convert a series of YAML documents into a variable structure
+    - full_name: ansible.builtin.checksum
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/hash.yml
+      short_description: hash of input data
+    - full_name: ansible.builtin.human_redable
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/human_readable.yml
+      short_description: Make bytes/bits human readable
+    - full_name: ansible.builtin.human_to_bytes
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/human_to_bytes.yml
+      short_description: Get bytes from string
+    - full_name: ansible.builtin.intersect
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/intersect.yml
+      short_description: intersection of lists
+    - full_name: ansible.builtin.items2dict
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/items2dict.yml
+      short_description: Consolidate a list of itemized dictionaries into a dictionary
+    - full_name: ansible.builtin.log
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/log.yml
+      short_description: log of (math operation)
+    - full_name: ansible.builtin.mandatory
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/mandatory.yml
+      short_description: make a variable's existance mandatory
+    - full_name: ansible.builtin.md5
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/md5.yml
+      short_description: MD5 hash of input data
+    - full_name: ansible.builtin.normpath
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/normpath.yml
+      short_description: Normalize a pathname
+    - full_name: ansible.builtin.password_hash
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/password_hash.yml
+      short_description: convert input password into password_hash
+    - full_name: ansible.builtin.path_join
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/path_join.yml
+      short_description: Join one or more path components
+    - full_name: ansible.builtin.permutations
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/permutations.yml
+      short_description: permutations from the elements of a list
+    - full_name: ansible.builtin.pow
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/pow.yml
+      short_description: power of (math operation)
+    - full_name: ansible.builtin.product
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/product.yml
+      short_description: cartesian product of lists
+    - full_name: ansible.builtin.quote
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/quote.yml
+      short_description: shell quoting
+    - full_name: ansible.builtin.random
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/random.yml
+      short_description: random number or list item
+    - full_name: ansible.builtin.realpath
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/realpath.yml
+      short_description: Turn path into real path
+    - full_name: ansible.builtin.regex_escape
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/regex_escape.yml
+      short_description: escape regex chars
+    - full_name: ansible.builtin.regex_findall
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/regex_findall.yml
+      short_description: extract all regex matches from string
+    - full_name: ansible.builtin.regex_replace
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/regex_replace.yml
+      short_description: replace a string via regex
+    - full_name: ansible.builtin.regex_search
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/regex_search.yml
+      short_description: extract regex match from string
+    - full_name: ansible.builtin.rekey_on_member
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/rekey_on_member.yml
+      short_description: Rekey a list of dicts into a dict using a member
+    - full_name: ansible.builtin.relpath
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/relpath.yml
+      short_description: Make a path relative
+    - full_name: ansible.builtin.root
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/root.yml
+      short_description: root of (math operation)
+    - full_name: ansible.builtin.sha1
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/sha1.yml
+      short_description: SHA-1 hash of input data
+    - full_name: ansible.builtin.shuffle
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/shuffle.yml
+      short_description: randomize a list
+    - full_name: ansible.builtin.split
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/split.yml
+      short_description: split a string into a list
+    - full_name: ansible.builtin.splitext
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/splitext.yml
+      short_description: split a path into root and file extension
+    - full_name: ansible.builtin.strftime
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/strftime.yml
+      short_description: date formating
+    - full_name: ansible.builtin.subelements
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/subelements.yml
+      short_description: returns a product of a list and its elements
+    - full_name: ansible.builtin.symmetric_difference
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/symmetric_difference.yml
+      short_description: different items from two lists
+    - full_name: ansible.builtin.ternary
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/ternary.yml
+      short_description: Ternary operation filter
+    - full_name: ansible.builtin.to_datetime
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_datetime.yml
+      short_description: Get C(datetime) from string
+    - full_name: ansible.builtin.to_json
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_json.yml
+      short_description: Convert variable to JSON string
+    - full_name: ansible.builtin.to_nice_json
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_nice_json.yml
+      short_description: Convert variable to 'nicely formatted' JSON string
+    - full_name: ansible.builtin.to_yaml
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_nice_yaml.yml
+      short_description: Convert variable to YAML string
+    - full_name: ansible.builtin.to_uuid
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_uuid.yml
+      short_description: namespaced UUID generator
+    - full_name: ansible.builtin.to_yaml
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_yaml.yml
+      short_description: Convert variable to YAML string
+    - full_name: ansible.builtin.type_debug
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/type_debug.yml
+      short_description: show input data type
+    - full_name: ansible.builtin.union
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/union.yml
+      short_description: union of lists
+    - full_name: ansible.builtin.unique
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/unique.yml
+      short_description: set of unique items of a list
+    - full_name: ansible.builtin.unvault
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/unvault.yml
+      short_description: Open an Ansible Vault
+    - full_name: ansible.builtin.urlsplit
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/urldecode.yml
+      short_description: get components from URL
+    - full_name: ansible.builtin.vault
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/vault.yml
+      short_description: vault your secrets
+    - full_name: ansible.builtin.win_basename
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/win_basename.yml
+      short_description: Get a Windows path's base name
+    - full_name: ansible.builtin.win_dirname
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/win_dirname.yml
+      short_description: Get a Windows path's directory
+    - full_name: ansible.builtin.win_splitdrive
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/win_splitdrive.yml
+      short_description: Split a Windows path by the drive letter
+    - full_name: ansible.builtin.zip
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/zip.yml
+      short_description: combine list elements
+    - full_name: ansible.builtin.zip_longest
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/zip_longest.yml
+      short_description: combine list elements, with filler
+    inventory:
+    - full_name: ansible.builtin.advanced_host_list
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/advanced_host_list.py
+      short_description: Parses a 'host list' with ranges
+    - full_name: ansible.builtin.auto
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/auto.py
+      short_description: Loads and executes an inventory plugin specified in a YAML
+        config
+    - full_name: ansible.builtin.constructed
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/constructed.py
+      short_description: Uses Jinja2 to construct vars and groups based on existing
+        inventory.
+    - full_name: ansible.builtin.generator
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/generator.py
+      short_description: Uses Jinja2 to construct hosts and groups from patterns
+    - full_name: ansible.builtin.host_list
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/host_list.py
+      short_description: Parses a 'host list' string
+    - full_name: ansible.builtin.ini
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/ini.py
+      short_description: Uses an Ansible INI file as inventory source.
+    - full_name: ansible.builtin.script
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/script.py
+      short_description: Executes an inventory script that returns JSON
+    - full_name: ansible.builtin.toml
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/toml.py
+      short_description: Uses a specific TOML file as an inventory source.
+    - full_name: ansible.builtin.yaml
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/yaml.py
+      short_description: Uses a specific YAML file as an inventory source.
+    lookup:
+    - full_name: ansible.builtin.config
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/config.py
+      short_description: Lookup current Ansible configuration values
+    - full_name: ansible.builtin.csvfile
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/csvfile.py
+      short_description: read data from a TSV or CSV file
+    - full_name: ansible.builtin.dict
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/dict.py
+      short_description: returns key/value pair items from dictionaries
+    - full_name: ansible.builtin.env
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/env.py
+      short_description: Read the value of environment variables
+    - full_name: ansible.builtin.file
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/file.py
+      short_description: read file contents
+    - full_name: ansible.builtin.fileglob
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/fileglob.py
+      short_description: list files matching a pattern
+    - full_name: ansible.builtin.first_found
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/first_found.py
+      short_description: return first file found from list
+    - full_name: ansible.builtin.indexed_items
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/indexed_items.py
+      short_description: rewrites lists to return 'indexed items'
+    - full_name: ansible.builtin.ini
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/ini.py
+      short_description: read data from an ini file
+    - full_name: ansible.builtin.inventory_hostnames
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/inventory_hostnames.py
+      short_description: list of inventory hosts matching a host pattern
+    - full_name: ansible.builtin.items
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/items.py
+      short_description: list of items
+    - full_name: ansible.builtin.lines
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/lines.py
+      short_description: read lines from command
+    - full_name: ansible.builtin.list
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/list.py
+      short_description: simply returns what it is given.
+    - full_name: ansible.builtin.nested
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/nested.py
+      short_description: composes a list with nested elements of other lists
+    - full_name: ansible.builtin.password
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/password.py
+      short_description: retrieve or generate a random password, stored in a file
+    - full_name: ansible.builtin.pipe
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/pipe.py
+      short_description: read output from a command
+    - full_name: ansible.builtin.random_choice
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/random_choice.py
+      short_description: return random element from list
+    - full_name: ansible.builtin.sequence
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/sequence.py
+      short_description: generate a list based on a number sequence
+    - full_name: ansible.builtin.subelements
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/subelements.py
+      short_description: traverse nested key from a list of dictionaries
+    - full_name: ansible.builtin.template
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/template.py
+      short_description: retrieve contents of file after templating with Jinja2
+    - full_name: ansible.builtin.together
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/together.py
+      short_description: merges lists into synchronized list
+    - full_name: ansible.builtin.unvault
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/unvault.py
+      short_description: read vaulted file(s) contents
+    - full_name: ansible.builtin.url
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/url.py
+      short_description: return contents from URL
+    - full_name: ansible.builtin.varnames
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/varnames.py
+      short_description: Lookup matching variable names
+    - full_name: ansible.builtin.vars
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/vars.py
+      short_description: Lookup templated value of variables
+    module:
+    - full_name: ansible.builtin.include
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/_include.py
+      short_description: Include a task list
+    - full_name: ansible.builtin.add_host
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/add_host.py
+      short_description: Add a host (and alternatively a group) to the ansible-playbook
+        in-memory inventory
+    - full_name: ansible.builtin.apt
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/apt.py
+      short_description: Manages apt-packages
+    - full_name: ansible.builtin.apt_key
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/apt_key.py
+      short_description: Add or remove an apt key
+    - full_name: ansible.builtin.apt_repository
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/apt_repository.py
+      short_description: Add and remove APT repositories
+    - full_name: ansible.builtin.assemble
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/assemble.py
+      short_description: Assemble configuration files from fragments
+    - full_name: ansible.builtin.assert
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/assert.py
+      short_description: Asserts given expressions are true
+    - full_name: ansible.builtin.async_status
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/async_status.py
+      short_description: Obtain status of asynchronous task
+    - path: /usr/local/lib/python3.11/site-packages/ansible/modules/async_wrapper.py
+    - full_name: ansible.builtin.blockinfile
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/blockinfile.py
+      short_description: Insert/update/remove a text block surrounded by marker lines
+    - full_name: ansible.builtin.command
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/command.py
+      short_description: Execute commands on targets
+    - full_name: ansible.builtin.copy
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/copy.py
+      short_description: Copy files to remote locations
+    - full_name: ansible.builtin.cron
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/cron.py
+      short_description: Manage cron.d and crontab entries
+    - full_name: ansible.builtin.deb822_repository
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/deb822_repository.py
+      short_description: Add and remove deb822 formatted repositories
+    - full_name: ansible.builtin.debconf
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/debconf.py
+      short_description: Configure a .deb package
+    - full_name: ansible.builtin.debug
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/debug.py
+      short_description: Print statements during execution
+    - full_name: ansible.builtin.dnf
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/dnf.py
+      short_description: Manages packages with the I(dnf) package manager
+    - full_name: ansible.builtin.dnf5
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/dnf5.py
+      short_description: Manages packages with the I(dnf5) package manager
+    - full_name: ansible.builtin.dpkg_selections
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/dpkg_selections.py
+      short_description: Dpkg package selection selections
+    - full_name: ansible.builtin.expect
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/expect.py
+      short_description: Executes a command and responds to prompts
+    - full_name: ansible.builtin.fail
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/fail.py
+      short_description: Fail with custom message
+    - full_name: ansible.builtin.fetch
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/fetch.py
+      short_description: Fetch files from remote nodes
+    - full_name: ansible.builtin.file
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/file.py
+      short_description: Manage files and file properties
+    - full_name: ansible.builtin.find
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/find.py
+      short_description: Return a list of files based on specific criteria
+    - full_name: ansible.builtin.gather_facts
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/gather_facts.py
+      short_description: Gathers facts about remote hosts
+    - full_name: ansible.builtin.get_url
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/get_url.py
+      short_description: Downloads files from HTTP, HTTPS, or FTP to node
+    - full_name: ansible.builtin.getent
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/getent.py
+      short_description: A wrapper to the unix getent utility
+    - full_name: ansible.builtin.git
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/git.py
+      short_description: Deploy software (or files) from git checkouts
+    - full_name: ansible.builtin.group
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/group.py
+      short_description: Add or remove groups
+    - full_name: ansible.builtin.group_by
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/group_by.py
+      short_description: Create Ansible groups based on facts
+    - full_name: ansible.builtin.hostname
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/hostname.py
+      short_description: Manage hostname
+    - full_name: ansible.builtin.import_playbook
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/import_playbook.py
+      short_description: Import a playbook
+    - full_name: ansible.builtin.import_role
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/import_role.py
+      short_description: Import a role into a play
+    - full_name: ansible.builtin.import_tasks
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/import_tasks.py
+      short_description: Import a task list
+    - full_name: ansible.builtin.include_role
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/include_role.py
+      short_description: Load and execute a role
+    - full_name: ansible.builtin.include_tasks
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/include_tasks.py
+      short_description: Dynamically include a task list
+    - full_name: ansible.builtin.include_vars
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/include_vars.py
+      short_description: Load variables from files, dynamically within a task
+    - full_name: ansible.builtin.iptables
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/iptables.py
+      short_description: Modify iptables rules
+    - full_name: ansible.builtin.known_hosts
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/known_hosts.py
+      short_description: Add or remove a host from the C(known_hosts) file
+    - full_name: ansible.builtin.lineinfile
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/lineinfile.py
+      short_description: Manage lines in text files
+    - full_name: ansible.builtin.meta
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/meta.py
+      short_description: Execute Ansible 'actions'
+    - full_name: ansible.builtin.package
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/package.py
+      short_description: Generic OS package manager
+    - full_name: ansible.builtin.package_facts
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/package_facts.py
+      short_description: Package information as facts
+    - full_name: ansible.builtin.pause
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/pause.py
+      short_description: Pause playbook execution
+    - full_name: ansible.builtin.ping
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/ping.py
+      short_description: Try to connect to host, verify a usable python and return
+        C(pong) on success
+    - full_name: ansible.builtin.pip
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/pip.py
+      short_description: Manages Python library dependencies
+    - full_name: ansible.builtin.raw
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/raw.py
+      short_description: Executes a low-down and dirty command
+    - full_name: ansible.builtin.reboot
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/reboot.py
+      short_description: Reboot a machine
+    - full_name: ansible.builtin.replace
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/replace.py
+      short_description: Replace all instances of a particular string in a file using
+        a back-referenced regular expression
+    - full_name: ansible.builtin.rpm_key
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/rpm_key.py
+      short_description: Adds or removes a gpg key from the rpm db
+    - full_name: ansible.builtin.script
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/script.py
+      short_description: Runs a local script on a remote node after transferring it
+    - full_name: ansible.builtin.service
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/service.py
+      short_description: Manage services
+    - full_name: ansible.builtin.service_facts
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/service_facts.py
+      short_description: Return service state information as fact data
+    - full_name: ansible.builtin.set_fact
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/set_fact.py
+      short_description: Set host variable(s) and fact(s).
+    - full_name: ansible.builtin.set_stats
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/set_stats.py
+      short_description: Define and display stats for the current ansible run
+    - full_name: ansible.builtin.setup
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/setup.py
+      short_description: Gathers facts about remote hosts
+    - full_name: ansible.builtin.shell
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/shell.py
+      short_description: Execute shell commands on targets
+    - full_name: ansible.builtin.slurp
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/slurp.py
+      short_description: Slurps a file from remote nodes
+    - full_name: ansible.builtin.stat
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/stat.py
+      short_description: Retrieve file or file system status
+    - full_name: ansible.builtin.subversion
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/subversion.py
+      short_description: Deploys a subversion repository
+    - full_name: ansible.builtin.systemd_service
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/systemd_service.py
+      short_description: Manage systemd units
+    - full_name: ansible.builtin.sysvinit
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/sysvinit.py
+      short_description: Manage SysV services.
+    - full_name: ansible.builtin.tempfile
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/tempfile.py
+      short_description: Creates temporary files and directories
+    - full_name: ansible.builtin.template
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/template.py
+      short_description: Template a file out to a target host
+    - full_name: ansible.builtin.unarchive
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/unarchive.py
+      short_description: Unpacks an archive after (optionally) copying it from the
+        local machine
+    - full_name: ansible.builtin.uri
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/uri.py
+      short_description: Interacts with webservices
+    - full_name: ansible.builtin.user
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/user.py
+      short_description: Manage user accounts
+    - full_name: ansible.builtin.validate_argument_spec
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/validate_argument_spec.py
+      short_description: Validate role argument specs.
+    - full_name: ansible.builtin.wait_for
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/wait_for.py
+      short_description: Waits for a condition before continuing
+    - full_name: ansible.builtin.wait_for_connection
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/wait_for_connection.py
+      short_description: Waits until remote system is reachable/usable
+    - full_name: ansible.builtin.yum
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/yum.py
+      short_description: Manages packages with the I(yum) package manager
+    - full_name: ansible.builtin.yum_repository
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/yum_repository.py
+      short_description: Add or remove YUM repositories
+    shell:
+    - full_name: ansible.builtin.cmd
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/shell/cmd.py
+      short_description: Windows Command Prompt
+    - full_name: ansible.builtin.powershell
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/shell/powershell.py
+      short_description: Windows PowerShell
+    - full_name: ansible.builtin.sh
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/shell/sh.py
+      short_description: POSIX shell (/bin/sh)
+    strategy:
+    - full_name: ansible.builtin.debug
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/strategy/debug.py
+      short_description: Executes tasks in interactive debug session.
+    - full_name: ansible.builtin.free
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/strategy/free.py
+      short_description: Executes tasks without waiting for all hosts
+    - full_name: ansible.builtin.host_pinned
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/strategy/host_pinned.py
+      short_description: Executes tasks on each host without interruption
+    - full_name: ansible.builtin.linear
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/strategy/linear.py
+      short_description: Executes tasks in a linear fashion
+    test:
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/core.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/files.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/mathstuff.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/uri.py
+    - full_name: ansible.builtin.abs
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/is_abs.yml
+      short_description: is the path absolute
+    - full_name: ansible.builtin.all
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/all.yml
+      short_description: are all conditions in a list true
+    - full_name: ansible.builtin.any
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/any.yml
+      short_description: is any conditions in a list true
+    - full_name: ansible.builtin.changed
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/changed.yml
+      short_description: did the task require changes
+    - full_name: ansible.builtin.contains
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/contains.yml
+      short_description: does the list contain this element
+    - full_name: ansible.builtin.directory
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/is_dir.yml
+      short_description: does the path resolve to an existing directory
+    - full_name: ansible.builtin.exists
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/exists.yml
+      short_description: does the path exist, follow symlinks
+    - full_name: ansible.builtin.failed
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/failure.yml
+      short_description: did the task fail
+    - full_name: ansible.builtin.falsy
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/falsy.yml
+      short_description: Pythonic false
+    - full_name: ansible.builtin.file
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/is_file.yml
+      short_description: does the path resolve to an existing file
+    - full_name: ansible.builtin.finished
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/finished.yml
+      short_description: Did async task finish
+    - full_name: ansible.builtin.link
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/link.yml
+      short_description: does the path reference existing symbolic link
+    - full_name: ansible.builtin.mount
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/mount.yml
+      short_description: does the path resolve to mount point
+    - full_name: ansible.builtin.same_file
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/same_file.yml
+      short_description: compares two paths to see if they resolve to the same filesystem
+        object
+    - full_name: ansible.builtin.nan
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/nan.yml
+      short_description: is this not a number (NaN)
+    - full_name: ansible.builtin.subset
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/subset.yml
+      short_description: is the list a subset of this other list
+    - full_name: ansible.builtin.superset
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/superset.yml
+      short_description: is the list a superset of this other list
+    - full_name: ansible.builtin.link_exists
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/link_exists.yml
+      short_description: does the path exist, no follow
+    - full_name: ansible.builtin.match
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/match.yml
+      short_description: Does string match regular expression from the start
+    - full_name: ansible.builtin.reachable
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/reachable.yml
+      short_description: Task did not end due to unreachable host
+    - full_name: ansible.builtin.regex
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/regex.yml
+      short_description: Does string match regular expression from the start
+    - full_name: ansible.builtin.search
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/search.yml
+      short_description: Does string match a regular expression
+    - full_name: ansible.builtin.skipped
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/skipped.yml
+      short_description: Was task skipped
+    - full_name: ansible.builtin.started
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/started.yml
+      short_description: Was async task started
+    - full_name: ansible.builtin.success
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/successful.yml
+      short_description: check task success
+    - full_name: ansible.builtin.truthy
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/truthy.yml
+      short_description: Pythonic true
+    - full_name: ansible.builtin.unreachable
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/unreachable.yml
+      short_description: Did task end due to the host was unreachable
+    - full_name: ansible.builtin.uri
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/uri.yml
+      short_description: is the string a valid URI
+    - full_name: ansible.builtin.url
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/url.yml
+      short_description: is the string a valid URL
+    - full_name: ansible.builtin.urn
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/urn.yml
+      short_description: is the string a valid URN
+    - full_name: ansible.builtin.truthy
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/vault_encrypted.yml
+      short_description: Is this an encrypted vault
+    - full_name: ansible.builtin.version
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/version_compare.yml
+      short_description: compare version strings
+    vars:
+    - full_name: ansible.builtin.host_group_vars
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/vars/host_group_vars.py
+      short_description: In charge of loading group_vars and host_vars
+  roles: []
+  shadowed: false
+  type: contained
+  version: 2.15.4
+
+[student@master ansible_roles]$ ansible-navigator collections
+[student@master ansible_roles]$ ansible-navigator collections
+[student@master ansible_roles]$ cd roles
+[student@master roles]$ ansible-navigator collections
+[student@master roles]$ ansible-navigator collections -m stdout
+---
+collections:
+- collection_info:
+    version: 2.15.4
+  hidden_by: []
+  known_as: ansible.builtin
+  name: ansible.builtin
+  path: /usr/local/lib/python3.11/site-packages/ansible
+  plugins:
+    become:
+    - full_name: ansible.builtin.runas
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/become/runas.py
+      short_description: Run As user
+    - full_name: ansible.builtin.su
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/become/su.py
+      short_description: Substitute User
+    - full_name: ansible.builtin.sudo
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/become/sudo.py
+      short_description: Substitute User DO
+    cache:
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/cache/base.py
+    - full_name: ansible.builtin.jsonfile
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/cache/jsonfile.py
+      short_description: JSON formatted files.
+    - full_name: ansible.builtin.memory
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/cache/memory.py
+      short_description: RAM backed, non persistent
+    callback:
+    - full_name: ansible.builtin.default
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/callback/default.py
+      short_description: default Ansible screen output
+    - full_name: ansible.builtin.junit
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/callback/junit.py
+      short_description: write playbook output to a JUnit file.
+    - full_name: ansible.builtin.minimal
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/callback/minimal.py
+      short_description: minimal Ansible screen output
+    - full_name: ansible.builtin.oneline
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/callback/oneline.py
+      short_description: oneline Ansible screen output
+    - full_name: ansible.builtin.tree
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/callback/tree.py
+      short_description: Save host events to files
+    connection:
+    - full_name: ansible.builtin.local
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/connection/local.py
+      short_description: execute on controller
+    - full_name: ansible.builtin.paramiko
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/connection/paramiko_ssh.py
+      short_description: Run tasks via python ssh (paramiko)
+    - full_name: ansible.builtin.psrp
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/connection/psrp.py
+      short_description: Run tasks over Microsoft PowerShell Remoting Protocol
+    - full_name: ansible.builtin.ssh
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/connection/ssh.py
+      short_description: connect via SSH client binary
+    - full_name: ansible.builtin.winrm
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/connection/winrm.py
+      short_description: Run tasks over Microsoft's WinRM
+    filter:
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/core.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/encryption.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/mathstuff.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/urls.py
+    - full_name: ansible.builtin.urlsplit
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/urlsplit.py
+      short_description: get components from URL
+    - full_name: ansible.builtin.b64decode
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/b64decode.yml
+      short_description: Decode a base64 string
+    - full_name: ansible.builtin.b64encode
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/b64encode.yml
+      short_description: Encode a string as base64
+    - full_name: ansible.builtin.basename
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/basename.yml
+      short_description: get a path's base name
+    - full_name: ansible.builtin.bool
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/bool.yml
+      short_description: cast into a boolean
+    - full_name: ansible.builtin.checksum
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/checksum.yml
+      short_description: checksum of input data
+    - full_name: ansible.builtin.combinations
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/combinations.yml
+      short_description: combinations from the elements of a list
+    - full_name: ansible.builtin.combine
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/combine.yml
+      short_description: combine two dictionaries
+    - full_name: ansible.builtin.comment
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/comment.yml
+      short_description: comment out a string
+    - full_name: ansible.builtin.commonpath
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/commonpath.yml
+      short_description: gets the common path
+    - full_name: ansible.builtin.dict2items
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/dict2items.yml
+      short_description: Convert a dictionary into an itemized list of dictionaries
+    - full_name: ansible.builtin.difference
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/difference.yml
+      short_description: the difference of one list from another
+    - full_name: ansible.builtin.dirname
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/dirname.yml
+      short_description: get a path's directory name
+    - full_name: ansible.builtin.basename
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/expanduser.yml
+      short_description: Returns a path with C(~) translation.
+    - full_name: ansible.builtin.expandvars
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/expandvars.yml
+      short_description: expand environment variables
+    - full_name: ansible.builtin.extract
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/extract.yml
+      short_description: extract a value based on an index or key
+    - full_name: ansible.builtin.fileglob
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/fileglob.yml
+      short_description: explode a path glob to matching files
+    - full_name: ansible.builtin.flatten
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/flatten.yml
+      short_description: flatten lists within a list
+    - full_name: ansible.builtin.from_json
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/from_json.yml
+      short_description: Convert JSON string into variable structure
+    - full_name: ansible.builtin.from_yaml
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/from_yaml.yml
+      short_description: Convert YAML string into variable structure
+    - full_name: ansible.builtin.from_yaml_all
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/from_yaml_all.yml
+      short_description: Convert a series of YAML documents into a variable structure
+    - full_name: ansible.builtin.checksum
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/hash.yml
+      short_description: hash of input data
+    - full_name: ansible.builtin.human_redable
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/human_readable.yml
+      short_description: Make bytes/bits human readable
+    - full_name: ansible.builtin.human_to_bytes
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/human_to_bytes.yml
+      short_description: Get bytes from string
+    - full_name: ansible.builtin.intersect
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/intersect.yml
+      short_description: intersection of lists
+    - full_name: ansible.builtin.items2dict
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/items2dict.yml
+      short_description: Consolidate a list of itemized dictionaries into a dictionary
+    - full_name: ansible.builtin.log
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/log.yml
+      short_description: log of (math operation)
+    - full_name: ansible.builtin.mandatory
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/mandatory.yml
+      short_description: make a variable's existance mandatory
+    - full_name: ansible.builtin.md5
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/md5.yml
+      short_description: MD5 hash of input data
+    - full_name: ansible.builtin.normpath
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/normpath.yml
+      short_description: Normalize a pathname
+    - full_name: ansible.builtin.password_hash
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/password_hash.yml
+      short_description: convert input password into password_hash
+    - full_name: ansible.builtin.path_join
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/path_join.yml
+      short_description: Join one or more path components
+    - full_name: ansible.builtin.permutations
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/permutations.yml
+      short_description: permutations from the elements of a list
+    - full_name: ansible.builtin.pow
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/pow.yml
+      short_description: power of (math operation)
+    - full_name: ansible.builtin.product
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/product.yml
+      short_description: cartesian product of lists
+    - full_name: ansible.builtin.quote
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/quote.yml
+      short_description: shell quoting
+    - full_name: ansible.builtin.random
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/random.yml
+      short_description: random number or list item
+    - full_name: ansible.builtin.realpath
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/realpath.yml
+      short_description: Turn path into real path
+    - full_name: ansible.builtin.regex_escape
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/regex_escape.yml
+      short_description: escape regex chars
+    - full_name: ansible.builtin.regex_findall
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/regex_findall.yml
+      short_description: extract all regex matches from string
+    - full_name: ansible.builtin.regex_replace
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/regex_replace.yml
+      short_description: replace a string via regex
+    - full_name: ansible.builtin.regex_search
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/regex_search.yml
+      short_description: extract regex match from string
+    - full_name: ansible.builtin.rekey_on_member
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/rekey_on_member.yml
+      short_description: Rekey a list of dicts into a dict using a member
+    - full_name: ansible.builtin.relpath
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/relpath.yml
+      short_description: Make a path relative
+    - full_name: ansible.builtin.root
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/root.yml
+      short_description: root of (math operation)
+    - full_name: ansible.builtin.sha1
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/sha1.yml
+      short_description: SHA-1 hash of input data
+    - full_name: ansible.builtin.shuffle
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/shuffle.yml
+      short_description: randomize a list
+    - full_name: ansible.builtin.split
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/split.yml
+      short_description: split a string into a list
+    - full_name: ansible.builtin.splitext
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/splitext.yml
+      short_description: split a path into root and file extension
+    - full_name: ansible.builtin.strftime
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/strftime.yml
+      short_description: date formating
+    - full_name: ansible.builtin.subelements
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/subelements.yml
+      short_description: returns a product of a list and its elements
+    - full_name: ansible.builtin.symmetric_difference
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/symmetric_difference.yml
+      short_description: different items from two lists
+    - full_name: ansible.builtin.ternary
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/ternary.yml
+      short_description: Ternary operation filter
+    - full_name: ansible.builtin.to_datetime
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_datetime.yml
+      short_description: Get C(datetime) from string
+    - full_name: ansible.builtin.to_json
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_json.yml
+      short_description: Convert variable to JSON string
+    - full_name: ansible.builtin.to_nice_json
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_nice_json.yml
+      short_description: Convert variable to 'nicely formatted' JSON string
+    - full_name: ansible.builtin.to_yaml
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_nice_yaml.yml
+      short_description: Convert variable to YAML string
+    - full_name: ansible.builtin.to_uuid
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_uuid.yml
+      short_description: namespaced UUID generator
+    - full_name: ansible.builtin.to_yaml
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/to_yaml.yml
+      short_description: Convert variable to YAML string
+    - full_name: ansible.builtin.type_debug
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/type_debug.yml
+      short_description: show input data type
+    - full_name: ansible.builtin.union
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/union.yml
+      short_description: union of lists
+    - full_name: ansible.builtin.unique
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/unique.yml
+      short_description: set of unique items of a list
+    - full_name: ansible.builtin.unvault
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/unvault.yml
+      short_description: Open an Ansible Vault
+    - full_name: ansible.builtin.urlsplit
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/urldecode.yml
+      short_description: get components from URL
+    - full_name: ansible.builtin.vault
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/vault.yml
+      short_description: vault your secrets
+    - full_name: ansible.builtin.win_basename
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/win_basename.yml
+      short_description: Get a Windows path's base name
+    - full_name: ansible.builtin.win_dirname
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/win_dirname.yml
+      short_description: Get a Windows path's directory
+    - full_name: ansible.builtin.win_splitdrive
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/win_splitdrive.yml
+      short_description: Split a Windows path by the drive letter
+    - full_name: ansible.builtin.zip
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/zip.yml
+      short_description: combine list elements
+    - full_name: ansible.builtin.zip_longest
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/filter/zip_longest.yml
+      short_description: combine list elements, with filler
+    inventory:
+    - full_name: ansible.builtin.advanced_host_list
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/advanced_host_list.py
+      short_description: Parses a 'host list' with ranges
+    - full_name: ansible.builtin.auto
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/auto.py
+      short_description: Loads and executes an inventory plugin specified in a YAML
+        config
+    - full_name: ansible.builtin.constructed
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/constructed.py
+      short_description: Uses Jinja2 to construct vars and groups based on existing
+        inventory.
+    - full_name: ansible.builtin.generator
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/generator.py
+      short_description: Uses Jinja2 to construct hosts and groups from patterns
+    - full_name: ansible.builtin.host_list
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/host_list.py
+      short_description: Parses a 'host list' string
+    - full_name: ansible.builtin.ini
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/ini.py
+      short_description: Uses an Ansible INI file as inventory source.
+    - full_name: ansible.builtin.script
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/script.py
+      short_description: Executes an inventory script that returns JSON
+    - full_name: ansible.builtin.toml
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/toml.py
+      short_description: Uses a specific TOML file as an inventory source.
+    - full_name: ansible.builtin.yaml
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/inventory/yaml.py
+      short_description: Uses a specific YAML file as an inventory source.
+    lookup:
+    - full_name: ansible.builtin.config
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/config.py
+      short_description: Lookup current Ansible configuration values
+    - full_name: ansible.builtin.csvfile
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/csvfile.py
+      short_description: read data from a TSV or CSV file
+    - full_name: ansible.builtin.dict
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/dict.py
+      short_description: returns key/value pair items from dictionaries
+    - full_name: ansible.builtin.env
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/env.py
+      short_description: Read the value of environment variables
+    - full_name: ansible.builtin.file
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/file.py
+      short_description: read file contents
+    - full_name: ansible.builtin.fileglob
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/fileglob.py
+      short_description: list files matching a pattern
+    - full_name: ansible.builtin.first_found
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/first_found.py
+      short_description: return first file found from list
+    - full_name: ansible.builtin.indexed_items
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/indexed_items.py
+      short_description: rewrites lists to return 'indexed items'
+    - full_name: ansible.builtin.ini
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/ini.py
+      short_description: read data from an ini file
+    - full_name: ansible.builtin.inventory_hostnames
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/inventory_hostnames.py
+      short_description: list of inventory hosts matching a host pattern
+    - full_name: ansible.builtin.items
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/items.py
+      short_description: list of items
+    - full_name: ansible.builtin.lines
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/lines.py
+      short_description: read lines from command
+    - full_name: ansible.builtin.list
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/list.py
+      short_description: simply returns what it is given.
+    - full_name: ansible.builtin.nested
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/nested.py
+      short_description: composes a list with nested elements of other lists
+    - full_name: ansible.builtin.password
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/password.py
+      short_description: retrieve or generate a random password, stored in a file
+    - full_name: ansible.builtin.pipe
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/pipe.py
+      short_description: read output from a command
+    - full_name: ansible.builtin.random_choice
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/random_choice.py
+      short_description: return random element from list
+    - full_name: ansible.builtin.sequence
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/sequence.py
+      short_description: generate a list based on a number sequence
+    - full_name: ansible.builtin.subelements
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/subelements.py
+      short_description: traverse nested key from a list of dictionaries
+    - full_name: ansible.builtin.template
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/template.py
+      short_description: retrieve contents of file after templating with Jinja2
+    - full_name: ansible.builtin.together
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/together.py
+      short_description: merges lists into synchronized list
+    - full_name: ansible.builtin.unvault
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/unvault.py
+      short_description: read vaulted file(s) contents
+    - full_name: ansible.builtin.url
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/url.py
+      short_description: return contents from URL
+    - full_name: ansible.builtin.varnames
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/varnames.py
+      short_description: Lookup matching variable names
+    - full_name: ansible.builtin.vars
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/lookup/vars.py
+      short_description: Lookup templated value of variables
+    module:
+    - full_name: ansible.builtin.include
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/_include.py
+      short_description: Include a task list
+    - full_name: ansible.builtin.add_host
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/add_host.py
+      short_description: Add a host (and alternatively a group) to the ansible-playbook
+        in-memory inventory
+    - full_name: ansible.builtin.apt
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/apt.py
+      short_description: Manages apt-packages
+    - full_name: ansible.builtin.apt_key
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/apt_key.py
+      short_description: Add or remove an apt key
+    - full_name: ansible.builtin.apt_repository
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/apt_repository.py
+      short_description: Add and remove APT repositories
+    - full_name: ansible.builtin.assemble
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/assemble.py
+      short_description: Assemble configuration files from fragments
+    - full_name: ansible.builtin.assert
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/assert.py
+      short_description: Asserts given expressions are true
+    - full_name: ansible.builtin.async_status
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/async_status.py
+      short_description: Obtain status of asynchronous task
+    - path: /usr/local/lib/python3.11/site-packages/ansible/modules/async_wrapper.py
+    - full_name: ansible.builtin.blockinfile
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/blockinfile.py
+      short_description: Insert/update/remove a text block surrounded by marker lines
+    - full_name: ansible.builtin.command
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/command.py
+      short_description: Execute commands on targets
+    - full_name: ansible.builtin.copy
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/copy.py
+      short_description: Copy files to remote locations
+    - full_name: ansible.builtin.cron
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/cron.py
+      short_description: Manage cron.d and crontab entries
+    - full_name: ansible.builtin.deb822_repository
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/deb822_repository.py
+      short_description: Add and remove deb822 formatted repositories
+    - full_name: ansible.builtin.debconf
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/debconf.py
+      short_description: Configure a .deb package
+    - full_name: ansible.builtin.debug
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/debug.py
+      short_description: Print statements during execution
+    - full_name: ansible.builtin.dnf
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/dnf.py
+      short_description: Manages packages with the I(dnf) package manager
+    - full_name: ansible.builtin.dnf5
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/dnf5.py
+      short_description: Manages packages with the I(dnf5) package manager
+    - full_name: ansible.builtin.dpkg_selections
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/dpkg_selections.py
+      short_description: Dpkg package selection selections
+    - full_name: ansible.builtin.expect
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/expect.py
+      short_description: Executes a command and responds to prompts
+    - full_name: ansible.builtin.fail
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/fail.py
+      short_description: Fail with custom message
+    - full_name: ansible.builtin.fetch
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/fetch.py
+      short_description: Fetch files from remote nodes
+    - full_name: ansible.builtin.file
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/file.py
+      short_description: Manage files and file properties
+    - full_name: ansible.builtin.find
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/find.py
+      short_description: Return a list of files based on specific criteria
+    - full_name: ansible.builtin.gather_facts
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/gather_facts.py
+      short_description: Gathers facts about remote hosts
+    - full_name: ansible.builtin.get_url
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/get_url.py
+      short_description: Downloads files from HTTP, HTTPS, or FTP to node
+    - full_name: ansible.builtin.getent
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/getent.py
+      short_description: A wrapper to the unix getent utility
+    - full_name: ansible.builtin.git
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/git.py
+      short_description: Deploy software (or files) from git checkouts
+    - full_name: ansible.builtin.group
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/group.py
+      short_description: Add or remove groups
+    - full_name: ansible.builtin.group_by
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/group_by.py
+      short_description: Create Ansible groups based on facts
+    - full_name: ansible.builtin.hostname
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/hostname.py
+      short_description: Manage hostname
+    - full_name: ansible.builtin.import_playbook
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/import_playbook.py
+      short_description: Import a playbook
+    - full_name: ansible.builtin.import_role
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/import_role.py
+      short_description: Import a role into a play
+    - full_name: ansible.builtin.import_tasks
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/import_tasks.py
+      short_description: Import a task list
+    - full_name: ansible.builtin.include_role
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/include_role.py
+      short_description: Load and execute a role
+    - full_name: ansible.builtin.include_tasks
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/include_tasks.py
+      short_description: Dynamically include a task list
+    - full_name: ansible.builtin.include_vars
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/include_vars.py
+      short_description: Load variables from files, dynamically within a task
+    - full_name: ansible.builtin.iptables
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/iptables.py
+      short_description: Modify iptables rules
+    - full_name: ansible.builtin.known_hosts
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/known_hosts.py
+      short_description: Add or remove a host from the C(known_hosts) file
+    - full_name: ansible.builtin.lineinfile
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/lineinfile.py
+      short_description: Manage lines in text files
+    - full_name: ansible.builtin.meta
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/meta.py
+      short_description: Execute Ansible 'actions'
+    - full_name: ansible.builtin.package
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/package.py
+      short_description: Generic OS package manager
+    - full_name: ansible.builtin.package_facts
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/package_facts.py
+      short_description: Package information as facts
+    - full_name: ansible.builtin.pause
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/pause.py
+      short_description: Pause playbook execution
+    - full_name: ansible.builtin.ping
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/ping.py
+      short_description: Try to connect to host, verify a usable python and return
+        C(pong) on success
+    - full_name: ansible.builtin.pip
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/pip.py
+      short_description: Manages Python library dependencies
+    - full_name: ansible.builtin.raw
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/raw.py
+      short_description: Executes a low-down and dirty command
+    - full_name: ansible.builtin.reboot
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/reboot.py
+      short_description: Reboot a machine
+    - full_name: ansible.builtin.replace
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/replace.py
+      short_description: Replace all instances of a particular string in a file using
+        a back-referenced regular expression
+    - full_name: ansible.builtin.rpm_key
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/rpm_key.py
+      short_description: Adds or removes a gpg key from the rpm db
+    - full_name: ansible.builtin.script
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/script.py
+      short_description: Runs a local script on a remote node after transferring it
+    - full_name: ansible.builtin.service
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/service.py
+      short_description: Manage services
+    - full_name: ansible.builtin.service_facts
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/service_facts.py
+      short_description: Return service state information as fact data
+    - full_name: ansible.builtin.set_fact
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/set_fact.py
+      short_description: Set host variable(s) and fact(s).
+    - full_name: ansible.builtin.set_stats
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/set_stats.py
+      short_description: Define and display stats for the current ansible run
+    - full_name: ansible.builtin.setup
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/setup.py
+      short_description: Gathers facts about remote hosts
+    - full_name: ansible.builtin.shell
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/shell.py
+      short_description: Execute shell commands on targets
+    - full_name: ansible.builtin.slurp
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/slurp.py
+      short_description: Slurps a file from remote nodes
+    - full_name: ansible.builtin.stat
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/stat.py
+      short_description: Retrieve file or file system status
+    - full_name: ansible.builtin.subversion
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/subversion.py
+      short_description: Deploys a subversion repository
+    - full_name: ansible.builtin.systemd_service
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/systemd_service.py
+      short_description: Manage systemd units
+    - full_name: ansible.builtin.sysvinit
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/sysvinit.py
+      short_description: Manage SysV services.
+    - full_name: ansible.builtin.tempfile
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/tempfile.py
+      short_description: Creates temporary files and directories
+    - full_name: ansible.builtin.template
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/template.py
+      short_description: Template a file out to a target host
+    - full_name: ansible.builtin.unarchive
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/unarchive.py
+      short_description: Unpacks an archive after (optionally) copying it from the
+        local machine
+    - full_name: ansible.builtin.uri
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/uri.py
+      short_description: Interacts with webservices
+    - full_name: ansible.builtin.user
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/user.py
+      short_description: Manage user accounts
+    - full_name: ansible.builtin.validate_argument_spec
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/validate_argument_spec.py
+      short_description: Validate role argument specs.
+    - full_name: ansible.builtin.wait_for
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/wait_for.py
+      short_description: Waits for a condition before continuing
+    - full_name: ansible.builtin.wait_for_connection
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/wait_for_connection.py
+      short_description: Waits until remote system is reachable/usable
+    - full_name: ansible.builtin.yum
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/yum.py
+      short_description: Manages packages with the I(yum) package manager
+    - full_name: ansible.builtin.yum_repository
+      path: /usr/local/lib/python3.11/site-packages/ansible/modules/yum_repository.py
+      short_description: Add or remove YUM repositories
+    shell:
+    - full_name: ansible.builtin.cmd
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/shell/cmd.py
+      short_description: Windows Command Prompt
+    - full_name: ansible.builtin.powershell
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/shell/powershell.py
+      short_description: Windows PowerShell
+    - full_name: ansible.builtin.sh
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/shell/sh.py
+      short_description: POSIX shell (/bin/sh)
+    strategy:
+    - full_name: ansible.builtin.debug
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/strategy/debug.py
+      short_description: Executes tasks in interactive debug session.
+    - full_name: ansible.builtin.free
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/strategy/free.py
+      short_description: Executes tasks without waiting for all hosts
+    - full_name: ansible.builtin.host_pinned
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/strategy/host_pinned.py
+      short_description: Executes tasks on each host without interruption
+    - full_name: ansible.builtin.linear
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/strategy/linear.py
+      short_description: Executes tasks in a linear fashion
+    test:
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/core.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/files.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/mathstuff.py
+    - path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/uri.py
+    - full_name: ansible.builtin.abs
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/is_abs.yml
+      short_description: is the path absolute
+    - full_name: ansible.builtin.all
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/all.yml
+      short_description: are all conditions in a list true
+    - full_name: ansible.builtin.any
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/any.yml
+      short_description: is any conditions in a list true
+    - full_name: ansible.builtin.changed
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/changed.yml
+      short_description: did the task require changes
+    - full_name: ansible.builtin.contains
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/contains.yml
+      short_description: does the list contain this element
+    - full_name: ansible.builtin.directory
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/is_dir.yml
+      short_description: does the path resolve to an existing directory
+    - full_name: ansible.builtin.exists
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/exists.yml
+      short_description: does the path exist, follow symlinks
+    - full_name: ansible.builtin.failed
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/failure.yml
+      short_description: did the task fail
+    - full_name: ansible.builtin.falsy
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/falsy.yml
+      short_description: Pythonic false
+    - full_name: ansible.builtin.file
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/is_file.yml
+      short_description: does the path resolve to an existing file
+    - full_name: ansible.builtin.finished
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/finished.yml
+      short_description: Did async task finish
+    - full_name: ansible.builtin.link
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/link.yml
+      short_description: does the path reference existing symbolic link
+    - full_name: ansible.builtin.mount
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/mount.yml
+      short_description: does the path resolve to mount point
+    - full_name: ansible.builtin.same_file
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/same_file.yml
+      short_description: compares two paths to see if they resolve to the same filesystem
+        object
+    - full_name: ansible.builtin.nan
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/nan.yml
+      short_description: is this not a number (NaN)
+    - full_name: ansible.builtin.subset
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/subset.yml
+      short_description: is the list a subset of this other list
+    - full_name: ansible.builtin.superset
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/superset.yml
+      short_description: is the list a superset of this other list
+    - full_name: ansible.builtin.link_exists
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/link_exists.yml
+      short_description: does the path exist, no follow
+    - full_name: ansible.builtin.match
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/match.yml
+      short_description: Does string match regular expression from the start
+    - full_name: ansible.builtin.reachable
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/reachable.yml
+      short_description: Task did not end due to unreachable host
+    - full_name: ansible.builtin.regex
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/regex.yml
+      short_description: Does string match regular expression from the start
+    - full_name: ansible.builtin.search
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/search.yml
+      short_description: Does string match a regular expression
+    - full_name: ansible.builtin.skipped
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/skipped.yml
+      short_description: Was task skipped
+    - full_name: ansible.builtin.started
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/started.yml
+      short_description: Was async task started
+    - full_name: ansible.builtin.success
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/successful.yml
+      short_description: check task success
+    - full_name: ansible.builtin.truthy
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/truthy.yml
+      short_description: Pythonic true
+    - full_name: ansible.builtin.unreachable
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/unreachable.yml
+      short_description: Did task end due to the host was unreachable
+    - full_name: ansible.builtin.uri
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/uri.yml
+      short_description: is the string a valid URI
+    - full_name: ansible.builtin.url
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/url.yml
+      short_description: is the string a valid URL
+    - full_name: ansible.builtin.urn
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/urn.yml
+      short_description: is the string a valid URN
+    - full_name: ansible.builtin.truthy
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/vault_encrypted.yml
+      short_description: Is this an encrypted vault
+    - full_name: ansible.builtin.version
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/test/version_compare.yml
+      short_description: compare version strings
+    vars:
+    - full_name: ansible.builtin.host_group_vars
+      path: /usr/local/lib/python3.11/site-packages/ansible/plugins/vars/host_group_vars.py
+      short_description: In charge of loading group_vars and host_vars
+  roles: []
+  shadowed: false
+  type: contained
+  version: 2.15.4
+- collection_info:
+    authors:
+    - Ansible (github.com/ansible)
+    dependencies: {}
+    description: Ansible Collection targeting POSIX and POSIX-ish platforms.
+    documentation: https://github.com/ansible-collections/ansible.posix/tree/main/docs
+    homepage: https://github.com/ansible-collections/ansible.posix
+    issues: https://github.com/ansible-collections/ansible.posix
+    license: []
+    license_file: COPYING
+    name: posix
+    namespace: ansible
+    readme: README.md
+    repository: https://github.com/ansible-collections/ansible.posix
+    tags:
+    - posix
+    - networking
+    - shell
+    - unix
+    version: 1.5.4
+  hidden_by: []
+  known_as: ansible.posix
+  name: ansible.posix
+  path: /usr/share/ansible/collections/ansible_collections/ansible/posix
+  plugins:
+    callback:
+    - full_name: ansible.posix.cgroup_perf_recap
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/callback/cgroup_perf_recap.py
+      short_description: Profiles system activity of tasks and full execution using
+        cgroups
+    - full_name: ansible.posix.debug
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/callback/debug.py
+      short_description: formatted stdout/stderr display
+    - full_name: ansible.posix.json
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/callback/json.py
+      short_description: Ansible screen output as JSON
+    - full_name: ansible.posix.jsonl
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/callback/jsonl.py
+      short_description: Ansible screen output as JSONL (lines in json format)
+    - full_name: ansible.posix.profile_roles
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/callback/profile_roles.py
+      short_description: adds timing information to roles
+    - full_name: ansible.posix.profile_tasks
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/callback/profile_tasks.py
+      short_description: adds time information to tasks
+    - full_name: ansible.posix.skippy
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/callback/skippy.py
+      short_description: Ansible screen output that ignores skipped status
+    - full_name: ansible.posix.timer
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/callback/timer.py
+      short_description: Adds time to play stats
+    module:
+    - full_name: ansible.posix.acl
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/acl.py
+      short_description: Set and retrieve file ACL information.
+    - full_name: ansible.posix.at
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/at.py
+      short_description: Schedule the execution of a command or script file via the
+        at command
+    - full_name: ansible.posix.authorized_key
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/authorized_key.py
+      short_description: Adds or removes an SSH authorized key
+    - full_name: ansible.posix.firewalld
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/firewalld.py
+      short_description: Manage arbitrary ports/services with firewalld
+    - full_name: ansible.posix.firewalld_info
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/firewalld_info.py
+      short_description: Gather information about firewalld
+    - full_name: ansible.posix.mount
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/mount.py
+      short_description: Control active and configured mount points
+    - full_name: ansible.posix.patch
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/patch.py
+      short_description: Apply patch files using the GNU patch tool
+    - full_name: ansible.posix.rhel_facts
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/rhel_facts.py
+      short_description: Facts module to set or override RHEL specific facts.
+    - full_name: ansible.posix.rhel_rpm_ostree
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/rhel_rpm_ostree.py
+      short_description: Ensure packages exist in a RHEL for Edge rpm-ostree based
+        system
+    - full_name: ansible.posix.rpm_ostree_upgrade
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/rpm_ostree_upgrade.py
+      short_description: Manage rpm-ostree upgrade transactions
+    - full_name: ansible.posix.seboolean
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/seboolean.py
+      short_description: Toggles SELinux booleans
+    - full_name: ansible.posix.selinux
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/selinux.py
+      short_description: Change policy and state of SELinux
+    - full_name: ansible.posix.synchronize
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/synchronize.py
+      short_description: A wrapper around rsync to make common tasks in your playbooks
+        quick and easy
+    - full_name: ansible.posix.sysctl
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/modules/sysctl.py
+      short_description: Manage entries in sysctl.conf.
+    shell:
+    - full_name: ansible.posix.csh
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/shell/csh.py
+      short_description: C shell (/bin/csh)
+    - full_name: ansible.posix.fish
+      path: /usr/share/ansible/collections/ansible_collections/ansible/posix/plugins/shell/fish.py
+      short_description: fish shell (/bin/fish)
+  roles: []
+  shadowed: false
+  type: contained
+  version: 1.5.4
+- collection_info:
+    authors:
+    - Jordan Borean @jborean93
+    - Matt Davis @nitzmahone
+    dependencies: {}
+    description: |-
+      Ansible collection for core Windows plugins.
+    documentation: https://docs.ansible.com/ansible/devel/collections/ansible/windows
+    homepage: https://github.com/ansible-collections/ansible.windows
+    issues: https://github.com/ansible-collections/ansible.windows/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc
+    license: []
+    license_file: COPYING
+    name: windows
+    namespace: ansible
+    readme: README.md
+    repository: https://github.com/ansible-collections/ansible.windows
+    tags:
+    - windows
+    version: 2.1.0
+  hidden_by: []
+  known_as: ansible.windows
+  name: ansible.windows
+  path: /usr/share/ansible/collections/ansible_collections/ansible/windows
+  plugins:
+    filter:
+    - path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/filter/quote.py
+    - full_name: ansible.windows.quote
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/filter/quote.yml
+      short_description: Quotes argument(s) for various Windows shells
+    module:
+    - full_name: ansible.windows.win_acl
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_acl.py
+      short_description: Set file/directory/registry permissions for a system user
+        or group
+    - full_name: ansible.windows.win_acl_inheritance
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_acl_inheritance.py
+      short_description: Change ACL inheritance
+    - full_name: ansible.windows.win_certificate_store
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_certificate_store.py
+      short_description: Manages the certificate store
+    - full_name: ansible.windows.win_command
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_command.py
+      short_description: Executes a command on a remote Windows node
+    - full_name: ansible.windows.win_copy
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_copy.py
+      short_description: Copies files to remote locations on windows hosts
+    - full_name: ansible.windows.win_dns_client
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_dns_client.py
+      short_description: Configures DNS lookup on Windows hosts
+    - full_name: ansible.windows.win_domain
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_domain.py
+      short_description: Ensures the existence of a Windows domain
+    - full_name: ansible.windows.win_domain_controller
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_domain_controller.py
+      short_description: Manage domain controller/member server state for a Windows
+        host
+    - full_name: ansible.windows.win_domain_membership
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_domain_membership.py
+      short_description: Manage domain/workgroup membership for a Windows host
+    - full_name: ansible.windows.win_dsc
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_dsc.py
+      short_description: Invokes a PowerShell DSC configuration
+    - full_name: ansible.windows.win_environment
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_environment.py
+      short_description: Modify environment variables on windows hosts
+    - full_name: ansible.windows.win_feature
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_feature.py
+      short_description: Installs and uninstalls Windows Features on Windows Server
+    - full_name: ansible.windows.win_file
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_file.py
+      short_description: Creates, touches or removes files or directories
+    - full_name: ansible.windows.win_find
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_find.py
+      short_description: Return a list of files based on specific criteria
+    - path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_get_url.py
+    - full_name: ansible.windows.win_group
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_group.py
+      short_description: Add and remove local groups
+    - full_name: ansible.windows.win_group_membership
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_group_membership.py
+      short_description: Manage Windows local group membership
+    - full_name: ansible.windows.win_hostname
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_hostname.py
+      short_description: Manages local Windows computer name
+    - full_name: ansible.windows.win_optional_feature
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_optional_feature.py
+      short_description: Manage optional Windows features
+    - full_name: ansible.windows.win_owner
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_owner.py
+      short_description: Set owner
+    - path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_package.py
+    - full_name: ansible.windows.win_path
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_path.py
+      short_description: Manage Windows path environment variables
+    - full_name: ansible.windows.win_ping
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_ping.py
+      short_description: A windows version of the classic ping module
+    - full_name: ansible.windows.win_powershell
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_powershell.py
+      short_description: Run PowerShell scripts
+    - full_name: ansible.windows.win_reboot
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_reboot.py
+      short_description: Reboot a windows machine
+    - full_name: ansible.windows.win_reg_stat
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_reg_stat.py
+      short_description: Get information about Windows registry keys
+    - full_name: ansible.windows.win_regedit
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_regedit.py
+      short_description: Add, change, or remove registry keys and values
+    - full_name: ansible.windows.win_service
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_service.py
+      short_description: Manage and query Windows services
+    - full_name: ansible.windows.win_service_info
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_service_info.py
+      short_description: Gather information about Windows services
+    - full_name: ansible.windows.win_share
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_share.py
+      short_description: Manage Windows shares
+    - full_name: ansible.windows.win_shell
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_shell.py
+      short_description: Execute shell commands on target hosts
+    - full_name: ansible.windows.win_stat
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_stat.py
+      short_description: Get information about Windows files
+    - full_name: ansible.windows.win_tempfile
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_tempfile.py
+      short_description: Creates temporary files and directories
+    - full_name: ansible.windows.win_template
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_template.py
+      short_description: Template a file out to a remote server
+    - full_name: ansible.windows.win_updates
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_updates.py
+      short_description: Download and install Windows updates
+    - path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_uri.py
+    - full_name: ansible.windows.win_user
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_user.py
+      short_description: Manages local Windows user accounts
+    - full_name: ansible.windows.win_user_right
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_user_right.py
+      short_description: Manage Windows User Rights
+    - full_name: ansible.windows.win_wait_for
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_wait_for.py
+      short_description: Waits for a condition before continuing
+    - full_name: ansible.windows.win_whoami
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/win_whoami.py
+      short_description: Get information about the current user and process
+    - full_name: ansible.windows.async_status
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/async_status.yml
+      short_description: Obtain status of asynchronous task
+    - full_name: ansible.windows.setup
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/setup.yml
+      short_description: Gathers facts about remote hosts
+    - full_name: ansible.windows.slurp
+      path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/modules/slurp.yml
+      short_description: Slurps a file from remote nodes
+    plugin_utils:
+    - path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/plugin_utils/_quote.py
+    - path: /usr/share/ansible/collections/ansible_collections/ansible/windows/plugins/plugin_utils/_reboot.py
+  roles: []
+  shadowed: false
+  type: contained
+  version: 2.1.0
+- collection_info:
+    authors:
+    - AWX Project Contributors <awx-project@googlegroups.com>
+    dependencies: {}
+    description: Ansible content that interacts with the AWX or Automation Platform
+      Controller API.
+    documentation: https://github.com/ansible/awx/blob/devel/awx_collection/README.md
+    homepage: https://www.ansible.com/
+    issues: https://github.com/ansible/awx/issues?q=is%3Aissue+label%3Acomponent%3Aawx_collection
+    license:
+    - GPL-3.0-or-later
+    - BSD-2-Clause
+    license_file: null
+    name: awx
+    namespace: awx
+    readme: README.md
+    repository: https://github.com/ansible/awx
+    tags:
+    - cloud
+    - infrastructure
+    - awx
+    - ansible
+    - automation
+    version: 23.2.0
+  hidden_by: []
+  known_as: awx.awx
+  name: awx.awx
+  path: /usr/share/ansible/collections/ansible_collections/awx/awx
+  plugins:
+    inventory:
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/inventory/controller.py
+    lookup:
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/lookup/controller_api.py
+    - full_name: awx.awx.schedule_rrule
+      path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/lookup/schedule_rrule.py
+      short_description: Generate an rrule string which can be used for Schedules
+    - full_name: awx.awx.schedule_rruleset
+      path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/lookup/schedule_rruleset.py
+      short_description: Generate an rruleset string
+    module:
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/ad_hoc_command.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/ad_hoc_command_cancel.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/ad_hoc_command_wait.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/application.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/bulk_host_create.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/bulk_job_launch.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/controller_meta.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/credential.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/credential_input_source.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/credential_type.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/execution_environment.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/export.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/group.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/host.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/import.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/instance.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/instance_group.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/inventory.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/inventory_source.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/inventory_source_update.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/job_cancel.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/job_launch.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/job_list.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/job_template.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/job_wait.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/label.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/license.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/notification_template.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/organization.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/project.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/project_update.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/role.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/schedule.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/settings.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/subscriptions.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/team.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/token.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/user.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/workflow_approval.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/workflow_job_template.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/workflow_job_template_node.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/workflow_launch.py
+    - path: /usr/share/ansible/collections/ansible_collections/awx/awx/plugins/modules/workflow_node_wait.py
+  roles: []
+  shadowed: false
+  type: contained
+  version: 23.2.0
+- collection_info:
+    authors:
+    - Sagi Shnaidman <sshnaidm@redhat.com>
+    - Ansible team
+    dependencies: {}
+    description: Podman container Ansible modules
+    documentation: https://github.com/containers/ansible-podman-collections
+    homepage: https://github.com/containers/ansible-podman-collections
+    issues: https://github.com/containers/ansible-podman-collections/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc
+    license:
+    - GPL-3.0-or-later
+    license_file: null
+    name: podman
+    namespace: containers
+    readme: README.md
+    repository: https://github.com/containers/ansible-podman-collections.git
+    tags:
+    - containers
+    - podman
+    - libpod
+    version: 1.10.3
+  hidden_by: []
+  known_as: containers.podman
+  name: containers.podman
+  path: /usr/share/ansible/collections/ansible_collections/containers/podman
+  plugins:
+    become:
+    - full_name: containers.podman.podman_unshare
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/become/podman_unshare.py
+      short_description: Run tasks using podman unshare
+    connection:
+    - full_name: containers.podman.buildah
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/connection/buildah.py
+      short_description: Interact with an existing buildah container
+    - full_name: containers.podman.podman
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/connection/podman.py
+      short_description: Interact with an existing podman container
+    module:
+    - full_name: containers.podman.podman_container
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_container.py
+      short_description: Manage podman containers
+    - full_name: containers.podman.podman_container_info
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_container_info.py
+      short_description: Gather facts about containers using podman
+    - full_name: containers.podman.podman_containers
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_containers.py
+      short_description: Manage podman containers in a batch
+    - full_name: containers.podman.podman_export
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_export.py
+      short_description: Export a podman container
+    - full_name: containers.podman.podman_generate_systemd
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_generate_systemd.py
+      short_description: Generate systemd unit from a pod or a container
+    - full_name: containers.podman.podman_image
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_image.py
+      short_description: Pull images for use by podman
+    - full_name: containers.podman.podman_image_info
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_image_info.py
+      short_description: Gather info about images using podman
+    - full_name: containers.podman.podman_import
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_import.py
+      short_description: Import Podman container from a tar file.
+    - full_name: containers.podman.podman_load
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_load.py
+      short_description: Load image from a tar file.
+    - full_name: containers.podman.podman_login
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_login.py
+      short_description: Login to a container registry using podman
+    - full_name: containers.podman.podman_login_info
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_login_info.py
+      short_description: Return the logged-in user if any for a given registry
+    - full_name: containers.podman.podman_logout
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_logout.py
+      short_description: Log out of a container registry using podman
+    - full_name: containers.podman.podman_network
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_network.py
+      short_description: Manage podman networks
+    - full_name: containers.podman.podman_network_info
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_network_info.py
+      short_description: Gather info about podman networks
+    - full_name: containers.podman.podman_play
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_play.py
+      short_description: Play kubernetes YAML file using podman
+    - full_name: containers.podman.podman_pod
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_pod.py
+      short_description: Manage Podman pods
+    - full_name: containers.podman.podman_pod_info
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_pod_info.py
+      short_description: Gather info about podman pods
+    - full_name: containers.podman.podman_prune
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_prune.py
+      short_description: Allows to prune various podman objects
+    - full_name: containers.podman.podman_save
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_save.py
+      short_description: Saves podman image to tar file
+    - full_name: containers.podman.podman_secret
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_secret.py
+      short_description: Manage podman secrets
+    - full_name: containers.podman.podman_tag
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_tag.py
+      short_description: Add an additional name to a local image
+    - full_name: containers.podman.podman_volume
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_volume.py
+      short_description: Manage Podman volumes
+    - full_name: containers.podman.podman_volume_info
+      path: /usr/share/ansible/collections/ansible_collections/containers/podman/plugins/modules/podman_volume_info.py
+      short_description: Gather info about podman volumes
+  roles: []
+  shadowed: false
+  type: contained
+  version: 1.10.3
+- collection_info:
+    authors:
+    - chouseknecht (https://github.com/chouseknecht)
+    - geerlingguy (https://www.jeffgeerling.com/)
+    - maxamillion (https://github.com/maxamillion)
+    - jmontleon (https://github.com/jmontleon)
+    - fabianvf (https://github.com/fabianvf)
+    - willthames (https://github.com/willthames)
+    - mmazur (https://github.com/mmazur)
+    - jamescassell (https://github.com/jamescassell)
+    dependencies: {}
+    description: Kubernetes Collection for Ansible.
+    documentation: ''
+    homepage: ''
+    issues: https://github.com/ansible-collections/kubernetes.core/issues
+    license: []
+    license_file: LICENSE
+    name: core
+    namespace: kubernetes
+    readme: README.md
+    repository: https://github.com/ansible-collections/kubernetes.core
+    tags:
+    - kubernetes
+    - k8s
+    - cloud
+    - infrastructure
+    - openshift
+    - okd
+    - cluster
+    version: 2.4.0
+  hidden_by: []
+  known_as: kubernetes.core
+  name: kubernetes.core
+  path: /usr/share/ansible/collections/ansible_collections/kubernetes/core
+  plugins:
+    connection:
+    - full_name: kubernetes.core.kubectl
+      path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/connection/kubectl.py
+      short_description: Execute tasks in pods running on Kubernetes.
+    filter:
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/filter/k8s.py
+    - full_name: kubernetes.core.k8s_config_resource_name
+      path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/filter/k8s_config_resource_name.yml
+      short_description: Generate resource name for the given resource of type ConfigMap,
+        Secret
+    inventory:
+    - full_name: kubernetes.core.k8s
+      path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/inventory/k8s.py
+      short_description: Kubernetes (K8s) inventory source
+    lookup:
+    - full_name: kubernetes.core.k8s
+      path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/lookup/k8s.py
+      short_description: Query the K8s API
+    - full_name: kubernetes.core.kustomize
+      path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/lookup/kustomize.py
+      short_description: Build a set of kubernetes resources using a 'kustomization.yaml'
+        file.
+    module:
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/helm.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/helm_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/helm_plugin.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/helm_plugin_info.py
+    - full_name: kubernetes.core.helm_pull
+      path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/helm_pull.py
+      short_description: download a chart from a repository and (optionally) unpack
+        it in local directory.
+    - full_name: kubernetes.core.helm_repository
+      path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/helm_repository.py
+      short_description: Manage Helm repositories.
+    - full_name: kubernetes.core.helm_template
+      path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/helm_template.py
+      short_description: Render chart templates
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_cluster_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_cp.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_drain.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_exec.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_json_patch.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_log.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_rollback.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_scale.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_service.py
+    - path: /usr/share/ansible/collections/ansible_collections/kubernetes/core/plugins/modules/k8s_taint.py
+  roles: []
+  shadowed: false
+  type: contained
+  version: 2.4.0
+- collection_info:
+    authors:
+    - Will Tome (@wtome)
+    dependencies: {}
+    description: Ansible Collection for Red Hat insights
+    documentation: null
+    homepage: null
+    issues: null
+    license:
+    - Apache-2.0
+    license_file: null
+    name: insights
+    namespace: redhatinsights
+    readme: README.md
+    repository: https://github.com/RedHatInsights/ansible-collections-insights
+    tags:
+    - linux
+    - monitoring
+    - infrastructure
+    - security
+    - tools
+    version: 1.0.8
+  hidden_by: []
+  known_as: redhatinsights.insights
+  name: redhatinsights.insights
+  path: /usr/share/ansible/collections/ansible_collections/redhatinsights/insights
+  plugins:
+    inventory:
+    - full_name: redhatinsights.insights.insights
+      path: /usr/share/ansible/collections/ansible_collections/redhatinsights/insights/plugins/inventory/insights.py
+      short_description: insights inventory source
+    module:
+    - full_name: redhatinsights.insights.insights_config
+      path: /usr/share/ansible/collections/ansible_collections/redhatinsights/insights/plugins/modules/insights_config.py
+      short_description: This module handles initial configuration of the insights
+        client on install
+    - full_name: redhatinsights.insights.insights_register
+      path: /usr/share/ansible/collections/ansible_collections/redhatinsights/insights/plugins/modules/insights_register.py
+      short_description: This module registers the insights client
+  roles:
+  - argument_specs: {}
+    argument_specs_path: ''
+    defaults: {}
+    defaults_path: ''
+    full_name: redhatinsights.insights.compliance
+    info:
+      galaxy_info:
+        author: Red Hat, Inc
+        categories:
+        - packaging
+        - system
+        company: Red Hat, Inc.
+        dependencies: []
+        description: Install and configure Red Hat Insights Client
+        license: Apache License 2.0
+        min_ansible_version: 1.2
+        platforms:
+        - name: EL
+          versions:
+          - 6
+          - 7
+          - 8
+    info_path: /usr/share/ansible/collections/ansible_collections/redhatinsights/insights/roles/compliance/meta/main.yml
+    readme_path: /usr/share/ansible/collections/ansible_collections/redhatinsights/insights/roles/compliance/README.md
+    short_name: compliance
+  - argument_specs: {}
+    argument_specs_path: ''
+    defaults: {}
+    defaults_path: ''
+    full_name: redhatinsights.insights.insights_client
+    info:
+      galaxy_info:
+        author: Red Hat, Inc
+        categories:
+        - packaging
+        - system
+        company: Red Hat, Inc.
+        dependencies: []
+        description: Install and configure Red Hat Insights Client
+        license: Apache License 2.0
+        min_ansible_version: 1.2
+        platforms:
+        - name: EL
+          versions:
+          - 6
+          - 7
+          - 8
+    info_path: /usr/share/ansible/collections/ansible_collections/redhatinsights/insights/roles/insights_client/meta/main.yml
+    readme_path: /usr/share/ansible/collections/ansible_collections/redhatinsights/insights/roles/insights_client/README.md
+    short_name: insights_client
+  shadowed: false
+  type: contained
+  version: 1.0.8
+- collection_info:
+    authors:
+    - '@lessfoobar <59063885+lessfoobar@users.noreply.github.com>'
+    - Adam Růžička <aruzicka@redhat.com>
+    - Alan.Wong <alawong@redhat.com>
+    - AlanCoding <arominge@redhat.com>
+    - Andrea Perotti <aperotti@redhat.com>
+    - Andrew Kofink <ajkofink@gmail.com>
+    - Anthony Green <green@moxielogic.com>
+    - Anton <nesanton@gmail.com>
+    - Baptiste Agasse <baptiste.agasse@gmail.com>
+    - Bernhard Hopfenmüller <hopfenmueller@atix.de>
+    - Bernhard Suttner <sbernhard@users.noreply.github.com>
+    - Bryan Kearney <bkearney@redhat.com>
+    - Chris Forkner <gen2fish@gmail.com>
+    - Chris Hindman <chindman@chindman.remote.csb>
+    - Chris Snell <chsnell@users.noreply.github.com>
+    - Christoffer Reijer <ephracis@gmail.com>
+    - Dave Thomas <11580510+dthomastx@users.noreply.github.com>
+    - Deric Crago <deric.crago@gmail.com>
+    - Eric D. Helms <ericdhelms@gmail.com>
+    - Eric L <ericzolf@users.noreply.github.com>
+    - Ethan <smithe2413@gmail.com>
+    - Evgeni Golov <evgeni@golov.de>
+    - Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl>
+    - Felix Fontein <felix@fontein.de>
+    - Gerald Vogt <gvde@users.noreply.github.com>
+    - Greg Swift <gregswift@gmail.com>
+    - Griffin Sullivan <gsulliva@redhat.com>
+    - Hideki Saito <saito@fgrep.org>
+    - Ismael Puerto <ismaelpuerto@users.noreply.github.com>
+    - Jameer Pathan <jpathan@redhat.com>
+    - James Jeffers <jjeffers@redhat.com>
+    - James Stuart <james@stuart.name>
+    - Jeffrey van Pelt <jeff@vanpelt.one>
+    - Jeremy Albinet <jalbinet@scaleway.com>
+    - Jeremy Lenz <jlenz@redhat.com>
+    - Jesper Reenberg <jesper.reenberg@gmail.com>
+    - John Berninger <john.berninger@gmail.com>
+    - Josh Swanson <jswanson@redhat.com>
+    - Julien Godin <julien.godin@camptocamp.com>
+    - Kenny Tordeurs <ktordeur@redhat.com>
+    - Kirill Shirinkin <fodojyko@gmail.com>
+    - Leos Stejskal <lstejska@redhat.com>
+    - Lester Cheung <lcheung@threatmetrix.com>
+    - Lester Claudio <claudiol@redhat.com>
+    - Lucas Bickel <hairmare@rabe.ch>
+    - Lukas Magauer <Lukas.Magauer@engel.at>
+    - Lukáš Zapletal <lzap+git@redhat.com>
+    - Manisha Singhal <manisha1595@gmail.com>
+    - Manuel Bonk <githubMB@bonkii.com>
+    - Marcelo Moreira de Mello <tchello.mello@gmail.com>
+    - Marek Czernek <mczernek@redhat.com>
+    - Mark Hlawatschek <hlawatschek@atix.de>
+    - Markus Bucher <bucher@atix.de>
+    - Martin Schlossarek <martin.schlossarek@gmail.com>
+    - Matthias Dellweg <2500@gmx.de>
+    - Miikka Joutsenvirta <miikka.joutsenvirta@dna.fi>
+    - Nikhil Jain <jainnikhil30@gmail.com>
+    - Olivier <oliverf1ca@yahoo.com>
+    - Ondrej Prazak <oprazak@redhat.com>
+    - Ondřej Ezr <oezr@redhat.com>
+    - Ondřej Gajdušek <ogajduse@redhat.com>
+    - Patrick C. F. Ernzer <pcfe@pcfe.net>
+    - Patrick Creech <pcreech@redhat.com>
+    - Paul Armstrong <parmstro@redhat.com>
+    - Paul Belanger <pabelanger@redhat.com>
+    - Paul Gration <pmgration@gmail.com>
+    - Peter Ondrejka <pondrejk@redhat.com>
+    - Philipp <philipp98.joos@gmail.com>
+    - Quirin Pamp <pamp@atix.de>
+    - Richard Stempfl <richielatk@gmail.com>
+    - Richard Waax <40852459+riwael@users.noreply.github.com>
+    - Sam <samcalvert@me.com>
+    - Samir Jha <sjha4@ncsu.edu>
+    - Sean O'Keeffe <seanokeeffe797@gmail.com>
+    - Sorin Sbarnea <sorin.sbarnea@gmail.com>
+    - Steffen Frömer <knumskull@users.noreply.github.com>
+    - Stoned Elipot <stoned.elipot@gmail.com>
+    - Sven Meeus <sven.meeus@scarlet.be>
+    - TTherouanne <thomas@therouanne.com>
+    - Thomas Mueller <thomas@chaschperli.ch>
+    - William Bradford Clark <wclark@redhat.com>
+    - Yifat Makias <ymakias@redhat.com>
+    - achevalet <anthony.chevalet@gmail.com>
+    - alesc <github@alesc.fr>
+    - bob <57952350+TheRedGreek@users.noreply.github.com>
+    - calvingsmith <4283930+calvingsmith@users.noreply.github.com>
+    - divialth <65872926+divialth@users.noreply.github.com>
+    - furhouse <furhouse@users.noreply.github.com>
+    - gardar <gardar@users.noreply.github.com>
+    - igramic <36156377+igramic@users.noreply.github.com>
+    - jerrejkw <43955357+jerrejkw@users.noreply.github.com>
+    - marco <marco.markgraf@transporeon.com>
+    - metalcated <mike.gomon@gmail.com>
+    - russianguppie <46544650+russianguppie@users.noreply.github.com>
+    - willtome <willtome@gmail.com>
+    - yuqo2450 <79540477+yuqo2450@users.noreply.github.com>
+    dependencies: {}
+    description: Ansible Modules to manage Foreman and Katello installations
+    documentation: https://theforeman.org/plugins/foreman-ansible-modules/
+    homepage: https://theforeman.org/
+    issues: https://github.com/theforeman/foreman-ansible-modules/issues
+    license:
+    - GPL-3.0-or-later
+    license_file: null
+    name: foreman
+    namespace: theforeman
+    readme: README.md
+    repository: https://github.com/theforeman/foreman-ansible-modules
+    tags:
+    - foreman
+    - katello
+    - satellite
+    - orcharhino
+    - infrastructure
+    version: 3.14.0
+  hidden_by: []
+  known_as: theforeman.foreman
+  name: theforeman.foreman
+  path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman
+  plugins:
+    callback:
+    - full_name: theforeman.foreman.foreman
+      path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/callback/foreman.py
+      short_description: Sends events to Foreman
+    filter:
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/filter/foreman.py
+    - full_name: theforeman.foreman.cp_label
+      path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/filter/cp_label.yml
+      short_description: Convert strings to Candlepin labels
+    inventory:
+    - full_name: theforeman.foreman.foreman
+      path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/inventory/foreman.py
+      short_description: Foreman inventory source
+    module:
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/activation_key.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/architecture.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/auth_source_ldap.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/bookmark.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/compute_attribute.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/compute_profile.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/compute_resource.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/config_group.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_credential.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_export_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_export_library.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_export_repository.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_export_version.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_upload.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_view.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_view_filter.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_view_filter_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_view_filter_rule.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_view_filter_rule_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_view_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_view_version.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/content_view_version_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/discovery_rule.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/domain.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/domain_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/external_usergroup.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/global_parameter.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/hardware_model.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/host.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/host_collection.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/host_errata_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/host_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/host_power.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/hostgroup.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/hostgroup_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/http_proxy.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/image.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/installation_medium.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/job_invocation.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/job_template.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/lifecycle_environment.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/location.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/operatingsystem.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/organization.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/organization_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/os_default_template.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/partition_table.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/product.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/provisioning_template.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/puppet_environment.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/puppetclasses_import.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/realm.py
+    - full_name: theforeman.foreman.redhat_manifest
+      path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/redhat_manifest.py
+      short_description: Interact with a Red Hat Satellite Subscription Manifest
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/repository.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/repository_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/repository_set.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/repository_set_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/repository_sync.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/resource_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/role.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/scap_content.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/scap_tailoring_file.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/scc_account.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/scc_product.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/setting.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/setting_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/smart_class_parameter.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/smart_class_parameter_override_value.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/smart_proxy.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/snapshot.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/snapshot_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/status_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/subnet.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/subnet_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/subscription_info.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/subscription_manifest.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/sync_plan.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/templates_import.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/user.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/usergroup.py
+    - path: /usr/share/ansible/collections/ansible_collections/theforeman/foreman/plugins/modules/wait_for_task.py
+  roles: []
+  shadowed: false
+  type: contained
+  version: 3.14.0
+
+[student@master roles]$ 
+
