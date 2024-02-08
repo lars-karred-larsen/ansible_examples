@@ -1,0 +1,16 @@
+---
+- name: Demonstrate async
+  hosts: centos
+  tasks:
+    - name: Delete debug file
+      ansible.builtin.shell: rm /tmp/debug_file.txt
+    - name: Print pre-message
+      ansible.builtin.shell: echo "Before date:" >> /tmp/debug_file.txt;date >> /tmp/debug_file.txt
+    - name: Run sleep command
+      ansible.builtin.shell: /bin/sleep 30; echo "After sleep date:" >> /tmp/debug_file.txt;date >> /tmp/debug_file.txt
+      async: 20
+      poll: 0
+    - name: Print message
+      ansible.builtin.shell: echo "Second date:" >> /tmp/debug_file.txt;date >> /tmp/debug_file.txt
+    - name: Print another message
+      ansible.builtin.shell: echo "Third date:" >> /tmp/debug_file.txt;date >> /tmp/debug_file.txt

@@ -1,0 +1,1994 @@
+[student@master ansible_examples]$ cd ansible_role_creation/
+[student@master ansible_role_creation]$ ansible-galaxy role init roles/web
+- Role roles/web was created successfully
+[student@master ansible_role_creation]$ tree
+.
+├── ansible.cfg
+├── inventory
+└── roles
+    └── web
+        ├── defaults
+        │   └── main.yml
+        ├── files
+        ├── handlers
+        │   └── main.yml
+        ├── meta
+        │   └── main.yml
+        ├── README.md
+        ├── tasks
+        │   └── main.yml
+        ├── templates
+        ├── tests
+        │   ├── inventory
+        │   └── test.yml
+        └── vars
+            └── main.yml
+
+10 directories, 10 files
+[student@master ansible_role_creation]$ cat ansible.cfg 
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+;roles_path=./roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_role_creation]$ cat ansible.cfg 
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_role_creation]$ ansible-galaxy role list
+# /home/student/ansible_examples/ansible_role_creation/roles
+- web, (unknown version)
+# /usr/share/ansible/roles
+- rhel-system-roles.podman, (unknown version)
+- linux-system-roles.ad_integration, (unknown version)
+- rhel-system-roles.postfix, (unknown version)
+- linux-system-roles.bootloader, (unknown version)
+- rhel-system-roles.postgresql, (unknown version)
+- linux-system-roles.certificate, (unknown version)
+- linux-system-roles.cockpit, (unknown version)
+- rhel-system-roles.rhc, (unknown version)
+- linux-system-roles.crypto_policies, (unknown version)
+- rhel-system-roles.selinux, (unknown version)
+- linux-system-roles.fapolicyd, (unknown version)
+- linux-system-roles.firewall, (unknown version)
+- rhel-system-roles.snapshot, (unknown version)
+- linux-system-roles.ha_cluster, (unknown version)
+- linux-system-roles.journald, (unknown version)
+- linux-system-roles.kdump, (unknown version)
+- rhel-system-roles.ssh, (unknown version)
+- linux-system-roles.kernel_settings, (unknown version)
+- linux-system-roles.keylime_server, (unknown version)
+- linux-system-roles.logging, (unknown version)
+- linux-system-roles.metrics, (unknown version)
+- linux-system-roles.nbde_client, (unknown version)
+- linux-system-roles.nbde_server, (unknown version)
+- linux-system-roles.network, (unknown version)
+- linux-system-roles.podman, (unknown version)
+- linux-system-roles.postfix, (unknown version)
+- linux-system-roles.postgresql, (unknown version)
+- linux-system-roles.rhc, (unknown version)
+- linux-system-roles.selinux, (unknown version)
+- linux-system-roles.snapshot, (unknown version)
+- linux-system-roles.ssh, (unknown version)
+- linux-system-roles.sshd, (unknown version)
+- linux-system-roles.storage, (unknown version)
+- linux-system-roles.systemd, (unknown version)
+- linux-system-roles.timesync, (unknown version)
+- linux-system-roles.tlog, (unknown version)
+- linux-system-roles.vpn, (unknown version)
+- rhel-system-roles.ad_integration, (unknown version)
+- rhel-system-roles.bootloader, (unknown version)
+- rhel-system-roles.certificate, (unknown version)
+- rhel-system-roles.cockpit, (unknown version)
+- rhel-system-roles.crypto_policies, (unknown version)
+- rhel-system-roles.fapolicyd, (unknown version)
+- rhel-system-roles.firewall, (unknown version)
+- rhel-system-roles.ha_cluster, (unknown version)
+- rhel-system-roles.journald, (unknown version)
+- rhel-system-roles.kdump, (unknown version)
+- rhel-system-roles.kernel_settings, (unknown version)
+- rhel-system-roles.keylime_server, (unknown version)
+- rhel-system-roles.logging, (unknown version)
+- rhel-system-roles.metrics, (unknown version)
+- rhel-system-roles.nbde_client, (unknown version)
+- rhel-system-roles.nbde_server, (unknown version)
+- rhel-system-roles.network, (unknown version)
+- rhel-system-roles.sshd, (unknown version)
+- rhel-system-roles.storage, (unknown version)
+- rhel-system-roles.systemd, (unknown version)
+- rhel-system-roles.timesync, (unknown version)
+- rhel-system-roles.tlog, (unknown version)
+- rhel-system-roles.vpn, (unknown version)
+# /etc/ansible/roles
+[student@master ansible_role_creation]$ cat playbook.yaml
+---
+- name: Calling a role
+  hosts: centos
+  roles:
+    - web[student@master ansible_role_creation]$ cat roles/web/tasks/main.yaml
+cat: roles/web/tasks/main.yaml: No such file or directory
+[student@master ansible_role_creation]$ cat roles/web/tasks/main.yml
+# tasks file for roles/web
+- name: install httpd
+  ansible.builtin.dnf:
+    name: "{{ web_package }}"
+    state: present
+
+- name: Start httpd service
+  ansible.builtin.service:
+    name: "{{ web_service }}"
+    state: started
+    enabled: true
+
+- name: Copy website data
+  ansible.builtin.copy:
+    src: index.html
+    dest: /var/www/html
+  notify:
+    - Restart httpd
+[student@master ansible_role_creation]$ cat roles/web/handlers/main.yml
+---
+# handlers file for roles/web
+- name: Restart httpd
+  ansible.builtin.service:
+    name: "{{ web_service }}"
+    state: restarted[student@master ansible_role_creation]$ cat roles/web/vars/main.yml
+# vars file for roles/web
+web_package: httpd
+web_service: httpd
+[student@master ansible_role_creation]$ ansible-navigator run --syntax-check playbook.yaml -m stdout
+playbook: /home/student/ansible_examples/ansible_role_creation/playbook.yaml
+[student@master ansible_role_creation]$ ansible-navigator run --check playbook.yaml -m stdout
+
+PLAY [Calling a role] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [web : install httpd] *****************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [web : Start httpd service] ***********************************************
+changed: [node1]
+changed: [node2]
+
+TASK [web : Copy website data] *************************************************
+changed: [node2]
+changed: [node1]
+
+RUNNING HANDLER [web : Restart httpd] ******************************************
+changed: [node1]
+changed: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_role_creation]$ ssh node1 ls -l /var/www/html
+total 0
+[student@master ansible_role_creation]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Calling a role] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [web : install httpd] *****************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [web : Start httpd service] ***********************************************
+changed: [node2]
+changed: [node1]
+
+TASK [web : Copy website data] *************************************************
+changed: [node1]
+changed: [node2]
+
+RUNNING HANDLER [web : Restart httpd] ******************************************
+changed: [node2]
+changed: [node1]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_role_creation]$ ssh node1 ls -l /var/www/html
+total 4
+-rw-r--r--. 1 root root 23 Feb  7 14:18 index.html
+[student@master ansible_role_creation]$ cat /var/www/html/index.html
+cat: /var/www/html/index.html: No such file or directory
+[student@master ansible_role_creation]$ ssh node1 cat /var/www/html/index.html
+Welcome to this webpage[student@master ansible_role_creation]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Calling a role] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [web : install httpd] *****************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [web : Start httpd service] ***********************************************
+ok: [node2]
+ok: [node1]
+
+TASK [web : Copy website data] *************************************************
+ok: [node1]
+ok: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_role_creation]$ cat roles/web/files/index.html
+Welcome to this webpage version2
+[student@master ansible_role_creation]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Calling a role] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [web : install httpd] *****************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [web : Start httpd service] ***********************************************
+ok: [node2]
+ok: [node1]
+
+TASK [web : Copy website data] *************************************************
+changed: [node2]
+changed: [node1]
+
+RUNNING HANDLER [web : Restart httpd] ******************************************
+changed: [node1]
+changed: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_role_creation]$ ssh node1 cat /var/www/html/index.html
+Welcome to this webpage version2
+[student@master ansible_role_creation]$ cd ../ansible_va
+ansible_variables/           ansible_variables_from_file/ ansible_vault/               
+[student@master ansible_role_creation]$ cd ../ansible_vault/
+[student@master ansible_vault]$ ansible-vault encrypt roles/files/index.html --vault-password-file=vault_pw.txt
+ERROR! Unable to read source file (/home/student/ansible_examples/ansible_vault/roles/files/index.html): [Errno 2] No such file or directory: '/home/student/ansible_examples/ansible_vault/roles/files/index.html'
+[student@master ansible_vault]$ ansible-vault encrypt roles/web/files/index.html --vault-password-file=vault_pw.txt
+Encryption successful
+[student@master ansible_vault]$ cat roles/web/files/index.html
+$ANSIBLE_VAULT;1.1;AES256
+66333633383862333838666438643532356431613464633530376139323930323639363365623734
+3837633433353834333133383863393666346264383762640a303563653139666631663039366637
+34326261323533623335336261323364666165646233383235383537373336356165346430363033
+3234353230643363660a333637346266623638356335376439633736333432363231393537346334
+65663631643139346433386236383130633237386336386266303661356131646265626365343563
+3335666164353464353631333333343066366561363933333332
+[student@master ansible_vault]$ ansible-vault edit roles/web/files/index.html --vault-password-file=vault_pw.txt
+[student@master ansible_vault]$ ansible-vault view roles/web/files/index.html --vault-password-file=vault_pw.txt
+Welcome to this webpage version3
+[student@master ansible_vault]$ ansible-navigator run playbook.yaml -m stdout --vault-password-file=vault_pw.txt
+
+PLAY [Calling a role] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [web : install httpd] *****************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [web : Start httpd service] ***********************************************
+ok: [node2]
+ok: [node1]
+
+TASK [web : Copy website data] *************************************************
+changed: [node2]
+changed: [node1]
+
+RUNNING HANDLER [web : Restart httpd] ******************************************
+changed: [node2]
+changed: [node1]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_vault]$ ssh node1 cat /var/www/html/index.html
+Welcome to this webpage version3
+[student@master ansible_vault]$ cat ansible.cfg 
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+vault_password=./vault_pw.txt
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_vault]$ ansible-vault view roles/web/files/index.html
+Vault password:  [ERROR]: User interrupted execution
+[student@master ansible_vault]$ ansible-vault view roles/web/files/index.html
+Vault password: 
+[WARNING]: Error in vault password prompt (default): Invalid vault password was provided
+ERROR! Invalid vault password was provided
+[student@master ansible_vault]$ cat ansible.cfg 
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+vault_password_file=./vault_pw.txt
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_vault]$ ansible-vault view roles/web/files/index.html
+Welcome to this webpage version3
+[student@master ansible_vault]$ cat ansible.cfg
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+vault_password_file=./vault_pw.txt
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_vault]$ ansible-vault rekey roles/web/files/index.html --new-vault-password-file=vault_pw2.txt
+Rekey successful
+[student@master ansible_vault]$ ansible-vault view roles/web/files/index.html
+ERROR! Decryption failed (no vault secrets were found that could decrypt) on roles/web/files/index.html for roles/web/files/index.html
+[student@master ansible_vault]$ ansible-vault view roles/web/files/index.html
+Welcome to this webpage version3
+[student@master ansible_vault]$ cat ansible.cfg
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+vault_password_file=./vault_pw2.txt
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_vault]$ ansible-vault rekey roles/web/files/index.html --new-vault-password-file=vault_pw2.txtRekey successful
+[student@master ansible_vault]$ ansible-vault rekey roles/web/files/index.html --new-vault-password-file=vault_pw3.txtRekey successful
+[student@master ansible_vault]$ ansible-vault rekey roles/web/files/index.html --new-vault-password-file=vault_pw2.txt
+ERROR! Decryption failed (no vault secrets were found that could decrypt) for /home/student/ansible_examples/ansible_vault/roles/web/files/index.html
+[student@master ansible_vault]$ cat ansible.cfg
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+vault_password_file=./vault_pw2.txt
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_vault]$ ansible-vault rekey roles/web/files/index.html --new-vault-password-file=vault_pw2.txt --vault-password-file=vault_pw3.txt
+Rekey successful
+[student@master ansible_vault]$ ansible-vault rekey roles/web/files/index.html --new-vault-password-file=vault_pw.txt
+Rekey successful
+[student@master ansible_vault]$ ansible-vault rekey roles/web/files/index.html --new-vault-password-file=vault_pw3.txtERROR! Decryption failed (no vault secrets were found that could decrypt) for /home/student/ansible_examples/ansible_vault/roles/web/files/index.html
+[student@master ansible_vault]$ ansible-vault rekey roles/web/files/index.html --new-vault-password-file=vault_pw.txt --vault-password-file=vault_pw.txt
+Rekey successful
+[student@master ansible_vault]$ cat ansible.cfg
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+vault_password_file=./vault_pw2.txt
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_vault]$ cat ansible.cfg
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+vault_password_file=./vault_pw3.txt
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_vault]$ ansible-vault view roles/web/files/index.html
+ERROR! Decryption failed (no vault secrets were found that could decrypt) on roles/web/files/index.html for roles/web/files/index.html
+[student@master ansible_vault]$ ansible-vault rekey roles/web/files/index.html --new-vault-password-file=vault_pw.txt --vault-password-file=vault_pw3.txt
+ERROR! Decryption failed (no vault secrets were found that could decrypt) for /home/student/ansible_examples/ansible_vault/roles/web/files/index.html
+[student@master ansible_vault]$ ansible-vault rekey roles/web/files/index.html --new-vault-password-file=vault_pw3.txt --vault-password-file=vault_pw.txt
+Rekey successful
+[student@master ansible_vault]$ ansible-vault view roles/web/files/index.html
+Welcome to this webpage version3
+[student@master ansible_vault]$ cat ansible.cfg
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+vault_password_file=./vault_pw3.txt
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_vault]$ cd ../ansible_forks/
+[student@master ansible_forks]$ cat ansible.cfg
+[defaults]
+inventory=/home/student/ansible_examples/ansible_facts/inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+vault_password_file=./vault_pw3.txt
+forks=1
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_forks]$ cat playbook.yaml 
+---
+- name: Demonstrate block and rescue
+  hosts: centos
+  tasks:
+    - name: Run sleep command
+      ansible.builtin.command: /bin/sleep 10
+    - name: Run sleep command
+      ansible.builtin.command: /bin/sleep 10
+    - name: Run sleep command
+      ansible.builtin.command: /bin/sleep 10
+[student@master ansible_forks]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Demonstrate block and rescue] ********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Run sleep command] *******************************************************
+changed: [node1]
+changed: [node2]
+
+TASK [Run sleep command] *******************************************************
+changed: [node1]
+changed: [node2]
+
+TASK [Run sleep command] *******************************************************
+changed: [node1]
+changed: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_forks]$ cd ../ansible_serial/
+[student@master ansible_serial]$ cat ansible.cfg
+[defaults]
+inventory=./inventory
+remote_user=student
+roles_path=./roles:/usr/share/ansible/roles:/etc/ansible/roles
+;collections_path=/usr/share/ansible/collections/ansible_collections
+vault_password_file=./vault_pw3.txt
+forks=1
+
+[privilege_escalation]
+become=True
+become_method=sudo
+become_user=root
+become_ask_pass=False
+[student@master ansible_serial]$ ansible-navigator invetory --graph -m stdout
+Warning: Issues were found while applying the settings.
+   Hint: Command provided: 'invetory --graph -m stdout'
+
+  Error: argument {subcommand} --help: invalid choice: 'invetory' (choose from
+         'builder', 'collections', 'config', 'doc', 'exec', 'images',
+         'inventory', 'lint', 'replay', 'run', 'settings', 'welcome')
+
+   Note: Configuration failed, using default log file location.
+         (/home/student/ansible_examples/ansible_serial/ansible-navigator.log)
+         Log level set to debug
+   Hint: Review the hints and log file to see what went wrong.
+[student@master ansible_serial]$ ansible-navigator inventory --graph -m stdout
+@all:
+  |--@ungrouped:
+  |  |--node3
+  |--@centos:
+  |  |--@europe:
+  |  |  |--node1
+  |  |  |--node2
+  |  |--@asia:
+  |  |  |--node1a
+  |  |  |--node2a
+[student@master ansible_serial]$ cat playbook.yaml 
+---
+- name: Demonstrate serial
+  hosts: centos
+  max_fail_percentage: 50
+  serial: 2
+  tasks:
+    - name: Run sleep command
+      ansible.builtin.command: /bin/sleep 1
+    - name: Fail the task
+      ansible.builtin.command: /bin/false
+      when: ansible_facts['nodename'] == 'node1'
+[student@master ansible_serial]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Demonstrate serial] ******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Run sleep command] *******************************************************
+changed: [node1]
+changed: [node2]
+
+TASK [Fail the task] ***********************************************************
+fatal: [node1]: FAILED! => {"changed": true, "cmd": ["/bin/false"], "delta": "0:00:00.003617", "end": "2024-02-08 13:43:01.708541", "msg": "non-zero return code", "rc": 1, "start": "2024-02-08 13:43:01.704924", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+skipping: [node2]
+
+PLAY [Demonstrate serial] ******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1a]
+ok: [node2a]
+
+TASK [Run sleep command] *******************************************************
+changed: [node1a]
+changed: [node2a]
+
+TASK [Fail the task] ***********************************************************
+fatal: [node1a]: FAILED! => {"changed": true, "cmd": ["/bin/false"], "delta": "0:00:00.003780", "end": "2024-02-08 13:43:09.874899", "msg": "non-zero return code", "rc": 1, "start": "2024-02-08 13:43:09.871119", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+skipping: [node2a]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+node1a                     : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+node2a                     : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+Please review the log for errors.
+[student@master ansible_serial]$ cd ../ansible_async_poll/
+[student@master ansible_async_poll]$ cat playbook.yaml
+---
+- name: Demonstrate async
+  hosts: centos
+  tasks:
+    - name: Delete debug file
+      ansible.builtin.shell: rm /tmp/debug_file.txt
+    - name: Print pre-message
+      ansible.builtin.shell: echo "Before date:" >> /tmp/debug_file.txt;date >> /tmp/debug_file.txt
+    - name: Run sleep command
+      ansible.builtin.shell: /bin/sleep 30; echo "After sleep date:" >> /tmp/debug_file.txt;date >> /tmp/debug_file.txt
+      async: 45
+      poll: 0
+    - name: Print message
+      ansible.builtin.shell: echo "Second date:" >> /tmp/debug_file.txt;date >> /tmp/debug_file.txt
+    - name: Print another message
+      ansible.builtin.shell: echo "Third date:" >> /tmp/debug_file.txt;date >> /tmp/debug_file.txt
+[student@master ansible_async_poll]$ date; ansible-navigator run playbook.yaml -m stdout
+Thu Feb  8 02:24:21 PM IST 2024
+
+PLAY [Demonstrate async] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Delete debug file] *******************************************************
+changed: [node1]
+changed: [node2]
+
+TASK [Print pre-message] *******************************************************
+changed: [node1]
+changed: [node2]
+
+TASK [Run sleep command] *******************************************************
+changed: [node1]
+changed: [node2]
+
+TASK [Print message] ***********************************************************
+changed: [node1]
+changed: [node2]
+
+TASK [Print another message] ***************************************************
+changed: [node1]
+changed: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=6    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=6    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_async_poll]$ sleep 30;date
+Thu Feb  8 02:25:16 PM IST 2024
+[student@master ansible_async_poll]$ 
+[student@master ansible_async_poll]$ ssh node1 cat /tmp/debug_file.txt
+Before date:
+Thu Feb  8 02:24:30 PM IST 2024
+Second date:
+Thu Feb  8 02:24:34 PM IST 2024
+Third date:
+Thu Feb  8 02:24:35 PM IST 2024
+After sleep date:
+Thu Feb  8 02:25:02 PM IST 2024
+[student@master ansible_async_poll]$ ssh node1 echo node1 fetch > /home/student/fetch_file.txt
+[student@master ansible_async_poll]$ ssh node2 echo node2 fetch > /home/student/fetch_file.txt
+[student@master ansible_async_poll]$ cd ..
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_fetch'
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match
+'all'
+[WARNING]: Could not match supplied host pattern, ignoring: centos
+[student@master ansible_examples]$ cp ansible_async_poll/inventory .
+[student@master ansible_examples]$ cp ansible_async_poll/ansible.cfg .
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_fetch'
+node1 | FAILED! => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "msg": "the remote file does not exist, not transferring, ignored"
+}
+node2 | FAILED! => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "msg": "the remote file does not exist, not transferring, ignored"
+}
+[student@master ansible_examples]$ ssh node1 ls -l /home/student/fetch_file.txt
+ls: cannot access '/home/student/fetch_file.txt': No such file or directory
+[student@master ansible_examples]$ ssh node1 ls -l /home/student/fetch_file.txt
+ls: cannot access '/home/student/fetch_file.txt': No such file or directory
+[student@master ansible_examples]$ ssh node1 "echo node1 > /home/student/fetch_file.txt"
+[student@master ansible_examples]$ ssh node1 ls -l /home/student/fetch_file.txt
+-rw-r--r--. 1 student student 6 Feb  8 16:11 /home/student/fetch_file.txt
+[student@master ansible_examples]$ ssh node1 "echo node1 fecth > /home/student/fetch_file.txt"
+[student@master ansible_examples]$ ssh node1 ls -l /home/student/fetch_file.txt
+-rw-r--r--. 1 student student 12 Feb  8 16:11 /home/student/fetch_file.txt
+[student@master ansible_examples]$ ssh node2 "echo node2 fecth > /home/student/fetch_file.txt"
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_fetch'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_fetch/node1/home/student/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_fetch/node2/home/student/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ tree ansible_fetch
+ansible_fetch [error opening dir]
+
+0 directories, 0 files
+[student@master ansible_examples]$ cd ..
+[student@master ~]$ tree ansible_fetch
+ansible_fetch
+├── node1
+│   └── home
+│       └── student
+│           └── fetch_file.txt
+└── node2
+    └── home
+        └── student
+            └── fetch_file.txt
+
+6 directories, 2 files
+(reverse-i-search)`cd ': ^C ../ansible_serial/
+[student@master ~]$ cd ansible_examples/
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node1/home/student/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node2/home/student/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ tree ansible_fetch
+ansible_fetch
+├── node1
+│   └── home
+│       └── student
+│           └── fetch_file.txt
+└── node2
+    └── home
+        └── student
+            └── fetch_file.txt
+
+6 directories, 2 files
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch' --flat
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+ansible: error: unrecognized arguments: --flat
+ 
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+
+Define and run a single task 'playbook' against a set of hosts
+
+positional arguments:
+  pattern               host pattern
+
+options:
+  --ask-vault-password, --ask-vault-pass
+                        ask for vault password
+  --become-password-file BECOME_PASSWORD_FILE, --become-pass-file BECOME_PASSWORD_FILE
+                        Become password file
+  --connection-password-file CONNECTION_PASSWORD_FILE, --conn-pass-file CONNECTION_PASSWORD_FILE
+                        Connection password file
+  --list-hosts          outputs a list of matching hosts; does not execute anything else
+  --playbook-dir BASEDIR
+                        Since this tool does not use playbooks, use this as a substitute playbook directory. This
+                        sets the relative path for many features including roles/ group_vars/ etc.
+  --task-timeout TASK_TIMEOUT
+                        set task timeout limit in seconds, must be positive integer.
+  --vault-id VAULT_IDS  the vault identity to use
+  --vault-password-file VAULT_PASSWORD_FILES, --vault-pass-file VAULT_PASSWORD_FILES
+                        vault password file
+  --version             show program's version number, config file location, configured module search path, module
+                        location, executable location and exit
+  -B SECONDS, --background SECONDS
+                        run asynchronously, failing after X seconds (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the differences in those files; works great
+                        with --check
+  -K, --ask-become-pass
+                        ask for privilege escalation password
+  -M MODULE_PATH, --module-path MODULE_PATH
+                        prepend colon-separated path(s) to module library (default={{ ANSIBLE_HOME ~
+                        "/plugins/modules:/usr/share/ansible/plugins/modules" }})
+  -P POLL_INTERVAL, --poll POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  -a MODULE_ARGS, --args MODULE_ARGS
+                        The action's options in space separated k=v format: -a 'opt1=val1 opt2=val2' or a json
+                        string: -a '{"opt1": "val1", "opt2": "val2"}'
+  -e EXTRA_VARS, --extra-vars EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if filename prepend with @
+  -f FORKS, --forks FORKS
+                        specify number of parallel processes to use (default=1)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory INVENTORY, --inventory-file INVENTORY
+                        specify inventory host path or comma separated host list. --inventory-file is deprecated
+  -k, --ask-pass        ask for connection password
+  -l SUBSET, --limit SUBSET
+                        further limit selected hosts to an additional pattern
+  -m MODULE_NAME, --module-name MODULE_NAME
+                        Name of the action to execute (default=command)
+  -o, --one-line        condense output
+  -t TREE, --tree TREE  log output to this directory
+  -v, --verbose         Causes Ansible to print more debug messages. Adding multiple -v will increase the verbosity,
+                        the builtin plugins currently evaluate up to -vvvvvv. A reasonable level to start is -vvv,
+                        connection debugging might require -vvvv.
+
+Privilege Escalation Options:
+  control how and which user you become as on target hosts
+
+  --become-method BECOME_METHOD
+                        privilege escalation method to use (default=sudo), use `ansible-doc -t become -l` to list
+                        valid choices.
+  --become-user BECOME_USER
+                        run operations as this user (default=root)
+  -b, --become          run operations with become (does not imply password prompting)
+
+Connection Options:
+  control as whom and how to connect to hosts
+
+  --private-key PRIVATE_KEY_FILE, --key-file PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+  --scp-extra-args SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+  --sftp-extra-args SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f, -l)
+  --ssh-common-args SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+  --ssh-extra-args SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+  -T TIMEOUT, --timeout TIMEOUT
+                        override the connection timeout in seconds (default=10)
+  -c CONNECTION, --connection CONNECTION
+                        connection type to use (default=smart)
+  -u REMOTE_USER, --user REMOTE_USER
+                        connect as this user (default=student)
+
+Some actions do not make sense in Ad-Hoc (include, meta, etc)
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch' -flat
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+ansible: error: argument -f/--forks: invalid int value: 'lat'
+ 
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+
+Define and run a single task 'playbook' against a set of hosts
+
+positional arguments:
+  pattern               host pattern
+
+options:
+  --ask-vault-password, --ask-vault-pass
+                        ask for vault password
+  --become-password-file BECOME_PASSWORD_FILE, --become-pass-file BECOME_PASSWORD_FILE
+                        Become password file
+  --connection-password-file CONNECTION_PASSWORD_FILE, --conn-pass-file CONNECTION_PASSWORD_FILE
+                        Connection password file
+  --list-hosts          outputs a list of matching hosts; does not execute anything else
+  --playbook-dir BASEDIR
+                        Since this tool does not use playbooks, use this as a substitute playbook directory. This
+                        sets the relative path for many features including roles/ group_vars/ etc.
+  --task-timeout TASK_TIMEOUT
+                        set task timeout limit in seconds, must be positive integer.
+  --vault-id VAULT_IDS  the vault identity to use
+  --vault-password-file VAULT_PASSWORD_FILES, --vault-pass-file VAULT_PASSWORD_FILES
+                        vault password file
+  --version             show program's version number, config file location, configured module search path, module
+                        location, executable location and exit
+  -B SECONDS, --background SECONDS
+                        run asynchronously, failing after X seconds (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the differences in those files; works great
+                        with --check
+  -K, --ask-become-pass
+                        ask for privilege escalation password
+  -M MODULE_PATH, --module-path MODULE_PATH
+                        prepend colon-separated path(s) to module library (default={{ ANSIBLE_HOME ~
+                        "/plugins/modules:/usr/share/ansible/plugins/modules" }})
+  -P POLL_INTERVAL, --poll POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  -a MODULE_ARGS, --args MODULE_ARGS
+                        The action's options in space separated k=v format: -a 'opt1=val1 opt2=val2' or a json
+                        string: -a '{"opt1": "val1", "opt2": "val2"}'
+  -e EXTRA_VARS, --extra-vars EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if filename prepend with @
+  -f FORKS, --forks FORKS
+                        specify number of parallel processes to use (default=1)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory INVENTORY, --inventory-file INVENTORY
+                        specify inventory host path or comma separated host list. --inventory-file is deprecated
+  -k, --ask-pass        ask for connection password
+  -l SUBSET, --limit SUBSET
+                        further limit selected hosts to an additional pattern
+  -m MODULE_NAME, --module-name MODULE_NAME
+                        Name of the action to execute (default=command)
+  -o, --one-line        condense output
+  -t TREE, --tree TREE  log output to this directory
+  -v, --verbose         Causes Ansible to print more debug messages. Adding multiple -v will increase the verbosity,
+                        the builtin plugins currently evaluate up to -vvvvvv. A reasonable level to start is -vvv,
+                        connection debugging might require -vvvv.
+
+Privilege Escalation Options:
+  control how and which user you become as on target hosts
+
+  --become-method BECOME_METHOD
+                        privilege escalation method to use (default=sudo), use `ansible-doc -t become -l` to list
+                        valid choices.
+  --become-user BECOME_USER
+                        run operations as this user (default=root)
+  -b, --become          run operations with become (does not imply password prompting)
+
+Connection Options:
+  control as whom and how to connect to hosts
+
+  --private-key PRIVATE_KEY_FILE, --key-file PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+  --scp-extra-args SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+  --sftp-extra-args SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f, -l)
+  --ssh-common-args SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+  --ssh-extra-args SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+  -T TIMEOUT, --timeout TIMEOUT
+                        override the connection timeout in seconds (default=10)
+  -c CONNECTION, --connection CONNECTION
+                        connection type to use (default=smart)
+  -u REMOTE_USER, --user REMOTE_USER
+                        connect as this user (default=student)
+
+Some actions do not make sense in Ad-Hoc (include, meta, etc)
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch' --flat
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+ansible: error: unrecognized arguments: --flat
+ 
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+
+Define and run a single task 'playbook' against a set of hosts
+
+positional arguments:
+  pattern               host pattern
+
+options:
+  --ask-vault-password, --ask-vault-pass
+                        ask for vault password
+  --become-password-file BECOME_PASSWORD_FILE, --become-pass-file BECOME_PASSWORD_FILE
+                        Become password file
+  --connection-password-file CONNECTION_PASSWORD_FILE, --conn-pass-file CONNECTION_PASSWORD_FILE
+                        Connection password file
+  --list-hosts          outputs a list of matching hosts; does not execute anything else
+  --playbook-dir BASEDIR
+                        Since this tool does not use playbooks, use this as a substitute playbook directory. This
+                        sets the relative path for many features including roles/ group_vars/ etc.
+  --task-timeout TASK_TIMEOUT
+                        set task timeout limit in seconds, must be positive integer.
+  --vault-id VAULT_IDS  the vault identity to use
+  --vault-password-file VAULT_PASSWORD_FILES, --vault-pass-file VAULT_PASSWORD_FILES
+                        vault password file
+  --version             show program's version number, config file location, configured module search path, module
+                        location, executable location and exit
+  -B SECONDS, --background SECONDS
+                        run asynchronously, failing after X seconds (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the differences in those files; works great
+                        with --check
+  -K, --ask-become-pass
+                        ask for privilege escalation password
+  -M MODULE_PATH, --module-path MODULE_PATH
+                        prepend colon-separated path(s) to module library (default={{ ANSIBLE_HOME ~
+                        "/plugins/modules:/usr/share/ansible/plugins/modules" }})
+  -P POLL_INTERVAL, --poll POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  -a MODULE_ARGS, --args MODULE_ARGS
+                        The action's options in space separated k=v format: -a 'opt1=val1 opt2=val2' or a json
+                        string: -a '{"opt1": "val1", "opt2": "val2"}'
+  -e EXTRA_VARS, --extra-vars EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if filename prepend with @
+  -f FORKS, --forks FORKS
+                        specify number of parallel processes to use (default=1)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory INVENTORY, --inventory-file INVENTORY
+                        specify inventory host path or comma separated host list. --inventory-file is deprecated
+  -k, --ask-pass        ask for connection password
+  -l SUBSET, --limit SUBSET
+                        further limit selected hosts to an additional pattern
+  -m MODULE_NAME, --module-name MODULE_NAME
+                        Name of the action to execute (default=command)
+  -o, --one-line        condense output
+  -t TREE, --tree TREE  log output to this directory
+  -v, --verbose         Causes Ansible to print more debug messages. Adding multiple -v will increase the verbosity,
+                        the builtin plugins currently evaluate up to -vvvvvv. A reasonable level to start is -vvv,
+                        connection debugging might require -vvvv.
+
+Privilege Escalation Options:
+  control how and which user you become as on target hosts
+
+  --become-method BECOME_METHOD
+                        privilege escalation method to use (default=sudo), use `ansible-doc -t become -l` to list
+                        valid choices.
+  --become-user BECOME_USER
+                        run operations as this user (default=root)
+  -b, --become          run operations with become (does not imply password prompting)
+
+Connection Options:
+  control as whom and how to connect to hosts
+
+  --private-key PRIVATE_KEY_FILE, --key-file PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+  --scp-extra-args SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+  --sftp-extra-args SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f, -l)
+  --ssh-common-args SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+  --ssh-extra-args SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+  -T TIMEOUT, --timeout TIMEOUT
+                        override the connection timeout in seconds (default=10)
+  -c CONNECTION, --connection CONNECTION
+                        connection type to use (default=smart)
+  -u REMOTE_USER, --user REMOTE_USER
+                        connect as this user (default=student)
+
+Some actions do not make sense in Ad-Hoc (include, meta, etc)
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch' flat=yes
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+ansible: error: unrecognized arguments: flat=yes
+ 
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+
+Define and run a single task 'playbook' against a set of hosts
+
+positional arguments:
+  pattern               host pattern
+
+options:
+  --ask-vault-password, --ask-vault-pass
+                        ask for vault password
+  --become-password-file BECOME_PASSWORD_FILE, --become-pass-file BECOME_PASSWORD_FILE
+                        Become password file
+  --connection-password-file CONNECTION_PASSWORD_FILE, --conn-pass-file CONNECTION_PASSWORD_FILE
+                        Connection password file
+  --list-hosts          outputs a list of matching hosts; does not execute anything else
+  --playbook-dir BASEDIR
+                        Since this tool does not use playbooks, use this as a substitute playbook directory. This
+                        sets the relative path for many features including roles/ group_vars/ etc.
+  --task-timeout TASK_TIMEOUT
+                        set task timeout limit in seconds, must be positive integer.
+  --vault-id VAULT_IDS  the vault identity to use
+  --vault-password-file VAULT_PASSWORD_FILES, --vault-pass-file VAULT_PASSWORD_FILES
+                        vault password file
+  --version             show program's version number, config file location, configured module search path, module
+                        location, executable location and exit
+  -B SECONDS, --background SECONDS
+                        run asynchronously, failing after X seconds (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the differences in those files; works great
+                        with --check
+  -K, --ask-become-pass
+                        ask for privilege escalation password
+  -M MODULE_PATH, --module-path MODULE_PATH
+                        prepend colon-separated path(s) to module library (default={{ ANSIBLE_HOME ~
+                        "/plugins/modules:/usr/share/ansible/plugins/modules" }})
+  -P POLL_INTERVAL, --poll POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  -a MODULE_ARGS, --args MODULE_ARGS
+                        The action's options in space separated k=v format: -a 'opt1=val1 opt2=val2' or a json
+                        string: -a '{"opt1": "val1", "opt2": "val2"}'
+  -e EXTRA_VARS, --extra-vars EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if filename prepend with @
+  -f FORKS, --forks FORKS
+                        specify number of parallel processes to use (default=1)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory INVENTORY, --inventory-file INVENTORY
+                        specify inventory host path or comma separated host list. --inventory-file is deprecated
+  -k, --ask-pass        ask for connection password
+  -l SUBSET, --limit SUBSET
+                        further limit selected hosts to an additional pattern
+  -m MODULE_NAME, --module-name MODULE_NAME
+                        Name of the action to execute (default=command)
+  -o, --one-line        condense output
+  -t TREE, --tree TREE  log output to this directory
+  -v, --verbose         Causes Ansible to print more debug messages. Adding multiple -v will increase the verbosity,
+                        the builtin plugins currently evaluate up to -vvvvvv. A reasonable level to start is -vvv,
+                        connection debugging might require -vvvv.
+
+Privilege Escalation Options:
+  control how and which user you become as on target hosts
+
+  --become-method BECOME_METHOD
+                        privilege escalation method to use (default=sudo), use `ansible-doc -t become -l` to list
+                        valid choices.
+  --become-user BECOME_USER
+                        run operations as this user (default=root)
+  -b, --become          run operations with become (does not imply password prompting)
+
+Connection Options:
+  control as whom and how to connect to hosts
+
+  --private-key PRIVATE_KEY_FILE, --key-file PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+  --scp-extra-args SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+  --sftp-extra-args SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f, -l)
+  --ssh-common-args SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+  --ssh-extra-args SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+  -T TIMEOUT, --timeout TIMEOUT
+                        override the connection timeout in seconds (default=10)
+  -c CONNECTION, --connection CONNECTION
+                        connection type to use (default=smart)
+  -u REMOTE_USER, --user REMOTE_USER
+                        connect as this user (default=student)
+
+Some actions do not make sense in Ad-Hoc (include, meta, etc)
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch' -flat=yes
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+ansible: error: argument -f/--forks: invalid int value: 'lat=yes'
+ 
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+
+Define and run a single task 'playbook' against a set of hosts
+
+positional arguments:
+  pattern               host pattern
+
+options:
+  --ask-vault-password, --ask-vault-pass
+                        ask for vault password
+  --become-password-file BECOME_PASSWORD_FILE, --become-pass-file BECOME_PASSWORD_FILE
+                        Become password file
+  --connection-password-file CONNECTION_PASSWORD_FILE, --conn-pass-file CONNECTION_PASSWORD_FILE
+                        Connection password file
+  --list-hosts          outputs a list of matching hosts; does not execute anything else
+  --playbook-dir BASEDIR
+                        Since this tool does not use playbooks, use this as a substitute playbook directory. This
+                        sets the relative path for many features including roles/ group_vars/ etc.
+  --task-timeout TASK_TIMEOUT
+                        set task timeout limit in seconds, must be positive integer.
+  --vault-id VAULT_IDS  the vault identity to use
+  --vault-password-file VAULT_PASSWORD_FILES, --vault-pass-file VAULT_PASSWORD_FILES
+                        vault password file
+  --version             show program's version number, config file location, configured module search path, module
+                        location, executable location and exit
+  -B SECONDS, --background SECONDS
+                        run asynchronously, failing after X seconds (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the differences in those files; works great
+                        with --check
+  -K, --ask-become-pass
+                        ask for privilege escalation password
+  -M MODULE_PATH, --module-path MODULE_PATH
+                        prepend colon-separated path(s) to module library (default={{ ANSIBLE_HOME ~
+                        "/plugins/modules:/usr/share/ansible/plugins/modules" }})
+  -P POLL_INTERVAL, --poll POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  -a MODULE_ARGS, --args MODULE_ARGS
+                        The action's options in space separated k=v format: -a 'opt1=val1 opt2=val2' or a json
+                        string: -a '{"opt1": "val1", "opt2": "val2"}'
+  -e EXTRA_VARS, --extra-vars EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if filename prepend with @
+  -f FORKS, --forks FORKS
+                        specify number of parallel processes to use (default=1)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory INVENTORY, --inventory-file INVENTORY
+                        specify inventory host path or comma separated host list. --inventory-file is deprecated
+  -k, --ask-pass        ask for connection password
+  -l SUBSET, --limit SUBSET
+                        further limit selected hosts to an additional pattern
+  -m MODULE_NAME, --module-name MODULE_NAME
+                        Name of the action to execute (default=command)
+  -o, --one-line        condense output
+  -t TREE, --tree TREE  log output to this directory
+  -v, --verbose         Causes Ansible to print more debug messages. Adding multiple -v will increase the verbosity,
+                        the builtin plugins currently evaluate up to -vvvvvv. A reasonable level to start is -vvv,
+                        connection debugging might require -vvvv.
+
+Privilege Escalation Options:
+  control how and which user you become as on target hosts
+
+  --become-method BECOME_METHOD
+                        privilege escalation method to use (default=sudo), use `ansible-doc -t become -l` to list
+                        valid choices.
+  --become-user BECOME_USER
+                        run operations as this user (default=root)
+  -b, --become          run operations with become (does not imply password prompting)
+
+Connection Options:
+  control as whom and how to connect to hosts
+
+  --private-key PRIVATE_KEY_FILE, --key-file PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+  --scp-extra-args SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+  --sftp-extra-args SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f, -l)
+  --ssh-common-args SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+  --ssh-extra-args SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+  -T TIMEOUT, --timeout TIMEOUT
+                        override the connection timeout in seconds (default=10)
+  -c CONNECTION, --connection CONNECTION
+                        connection type to use (default=smart)
+  -u REMOTE_USER, --user REMOTE_USER
+                        connect as this user (default=student)
+
+Some actions do not make sense in Ad-Hoc (include, meta, etc)
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch' _-flat=yes
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+ansible: error: unrecognized arguments: _-flat=yes
+ 
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+
+Define and run a single task 'playbook' against a set of hosts
+
+positional arguments:
+  pattern               host pattern
+
+options:
+  --ask-vault-password, --ask-vault-pass
+                        ask for vault password
+  --become-password-file BECOME_PASSWORD_FILE, --become-pass-file BECOME_PASSWORD_FILE
+                        Become password file
+  --connection-password-file CONNECTION_PASSWORD_FILE, --conn-pass-file CONNECTION_PASSWORD_FILE
+                        Connection password file
+  --list-hosts          outputs a list of matching hosts; does not execute anything else
+  --playbook-dir BASEDIR
+                        Since this tool does not use playbooks, use this as a substitute playbook directory. This
+                        sets the relative path for many features including roles/ group_vars/ etc.
+  --task-timeout TASK_TIMEOUT
+                        set task timeout limit in seconds, must be positive integer.
+  --vault-id VAULT_IDS  the vault identity to use
+  --vault-password-file VAULT_PASSWORD_FILES, --vault-pass-file VAULT_PASSWORD_FILES
+                        vault password file
+  --version             show program's version number, config file location, configured module search path, module
+                        location, executable location and exit
+  -B SECONDS, --background SECONDS
+                        run asynchronously, failing after X seconds (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the differences in those files; works great
+                        with --check
+  -K, --ask-become-pass
+                        ask for privilege escalation password
+  -M MODULE_PATH, --module-path MODULE_PATH
+                        prepend colon-separated path(s) to module library (default={{ ANSIBLE_HOME ~
+                        "/plugins/modules:/usr/share/ansible/plugins/modules" }})
+  -P POLL_INTERVAL, --poll POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  -a MODULE_ARGS, --args MODULE_ARGS
+                        The action's options in space separated k=v format: -a 'opt1=val1 opt2=val2' or a json
+                        string: -a '{"opt1": "val1", "opt2": "val2"}'
+  -e EXTRA_VARS, --extra-vars EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if filename prepend with @
+  -f FORKS, --forks FORKS
+                        specify number of parallel processes to use (default=1)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory INVENTORY, --inventory-file INVENTORY
+                        specify inventory host path or comma separated host list. --inventory-file is deprecated
+  -k, --ask-pass        ask for connection password
+  -l SUBSET, --limit SUBSET
+                        further limit selected hosts to an additional pattern
+  -m MODULE_NAME, --module-name MODULE_NAME
+                        Name of the action to execute (default=command)
+  -o, --one-line        condense output
+  -t TREE, --tree TREE  log output to this directory
+  -v, --verbose         Causes Ansible to print more debug messages. Adding multiple -v will increase the verbosity,
+                        the builtin plugins currently evaluate up to -vvvvvv. A reasonable level to start is -vvv,
+                        connection debugging might require -vvvv.
+
+Privilege Escalation Options:
+  control how and which user you become as on target hosts
+
+  --become-method BECOME_METHOD
+                        privilege escalation method to use (default=sudo), use `ansible-doc -t become -l` to list
+                        valid choices.
+  --become-user BECOME_USER
+                        run operations as this user (default=root)
+  -b, --become          run operations with become (does not imply password prompting)
+
+Connection Options:
+  control as whom and how to connect to hosts
+
+  --private-key PRIVATE_KEY_FILE, --key-file PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+  --scp-extra-args SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+  --sftp-extra-args SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f, -l)
+  --ssh-common-args SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+  --ssh-extra-args SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+  -T TIMEOUT, --timeout TIMEOUT
+                        override the connection timeout in seconds (default=10)
+  -c CONNECTION, --connection CONNECTION
+                        connection type to use (default=smart)
+  -u REMOTE_USER, --user REMOTE_USER
+                        connect as this user (default=student)
+
+Some actions do not make sense in Ad-Hoc (include, meta, etc)
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch' --flat=yes
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+ansible: error: unrecognized arguments: --flat=yes
+ 
+usage: ansible [-h] [--version] [-v] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER]
+               [-K | --become-password-file BECOME_PASSWORD_FILE] [-i INVENTORY] [--list-hosts] [-l SUBSET]
+               [-P POLL_INTERVAL] [-B SECONDS] [-o] [-t TREE] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER]
+               [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS]
+               [--scp-extra-args SCP_EXTRA_ARGS] [--ssh-extra-args SSH_EXTRA_ARGS]
+               [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [-C] [-D] [-e EXTRA_VARS]
+               [--vault-id VAULT_IDS] [--ask-vault-password | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS]
+               [-M MODULE_PATH] [--playbook-dir BASEDIR] [--task-timeout TASK_TIMEOUT] [-a MODULE_ARGS]
+               [-m MODULE_NAME]
+               pattern
+
+Define and run a single task 'playbook' against a set of hosts
+
+positional arguments:
+  pattern               host pattern
+
+options:
+  --ask-vault-password, --ask-vault-pass
+                        ask for vault password
+  --become-password-file BECOME_PASSWORD_FILE, --become-pass-file BECOME_PASSWORD_FILE
+                        Become password file
+  --connection-password-file CONNECTION_PASSWORD_FILE, --conn-pass-file CONNECTION_PASSWORD_FILE
+                        Connection password file
+  --list-hosts          outputs a list of matching hosts; does not execute anything else
+  --playbook-dir BASEDIR
+                        Since this tool does not use playbooks, use this as a substitute playbook directory. This
+                        sets the relative path for many features including roles/ group_vars/ etc.
+  --task-timeout TASK_TIMEOUT
+                        set task timeout limit in seconds, must be positive integer.
+  --vault-id VAULT_IDS  the vault identity to use
+  --vault-password-file VAULT_PASSWORD_FILES, --vault-pass-file VAULT_PASSWORD_FILES
+                        vault password file
+  --version             show program's version number, config file location, configured module search path, module
+                        location, executable location and exit
+  -B SECONDS, --background SECONDS
+                        run asynchronously, failing after X seconds (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the differences in those files; works great
+                        with --check
+  -K, --ask-become-pass
+                        ask for privilege escalation password
+  -M MODULE_PATH, --module-path MODULE_PATH
+                        prepend colon-separated path(s) to module library (default={{ ANSIBLE_HOME ~
+                        "/plugins/modules:/usr/share/ansible/plugins/modules" }})
+  -P POLL_INTERVAL, --poll POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  -a MODULE_ARGS, --args MODULE_ARGS
+                        The action's options in space separated k=v format: -a 'opt1=val1 opt2=val2' or a json
+                        string: -a '{"opt1": "val1", "opt2": "val2"}'
+  -e EXTRA_VARS, --extra-vars EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if filename prepend with @
+  -f FORKS, --forks FORKS
+                        specify number of parallel processes to use (default=1)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory INVENTORY, --inventory-file INVENTORY
+                        specify inventory host path or comma separated host list. --inventory-file is deprecated
+  -k, --ask-pass        ask for connection password
+  -l SUBSET, --limit SUBSET
+                        further limit selected hosts to an additional pattern
+  -m MODULE_NAME, --module-name MODULE_NAME
+                        Name of the action to execute (default=command)
+  -o, --one-line        condense output
+  -t TREE, --tree TREE  log output to this directory
+  -v, --verbose         Causes Ansible to print more debug messages. Adding multiple -v will increase the verbosity,
+                        the builtin plugins currently evaluate up to -vvvvvv. A reasonable level to start is -vvv,
+                        connection debugging might require -vvvv.
+
+Privilege Escalation Options:
+  control how and which user you become as on target hosts
+
+  --become-method BECOME_METHOD
+                        privilege escalation method to use (default=sudo), use `ansible-doc -t become -l` to list
+                        valid choices.
+  --become-user BECOME_USER
+                        run operations as this user (default=root)
+  -b, --become          run operations with become (does not imply password prompting)
+
+Connection Options:
+  control as whom and how to connect to hosts
+
+  --private-key PRIVATE_KEY_FILE, --key-file PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+  --scp-extra-args SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+  --sftp-extra-args SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f, -l)
+  --ssh-common-args SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+  --ssh-extra-args SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+  -T TIMEOUT, --timeout TIMEOUT
+                        override the connection timeout in seconds (default=10)
+  -c CONNECTION, --connection CONNECTION
+                        connection type to use (default=smart)
+  -u REMOTE_USER, --user REMOTE_USER
+                        connect as this user (default=student)
+
+Some actions do not make sense in Ad-Hoc (include, meta, etc)
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch flat=yes'
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: NoneType: None
+node1 | FAILED! => {
+    "changed": false,
+    "msg": "dest is an existing directory, use a trailing slash if you want to fetch src into that directory"
+}
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: NoneType: None
+node2 | FAILED! => {
+    "changed": false,
+    "msg": "dest is an existing directory, use a trailing slash if you want to fetch src into that directory"
+}
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch -flat=yes'
+node1 | SUCCESS => {
+    "changed": false,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node1/home/student/fetch_file.txt",
+    "file": "/home/student/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5"
+}
+node2 | SUCCESS => {
+    "changed": false,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node2/home/student/fetch_file.txt",
+    "file": "/home/student/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f"
+}
+[student@master ansible_examples]$ rm -r ansible_fetch/
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch -flat=yes'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node1/home/student/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node2/home/student/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ tree ansible_fetch
+ansible_fetch
+├── node1
+│   └── home
+│       └── student
+│           └── fetch_file.txt
+└── node2
+    └── home
+        └── student
+            └── fetch_file.txt
+
+6 directories, 2 files
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch -flat=true'
+node1 | SUCCESS => {
+    "changed": false,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node1/home/student/fetch_file.txt",
+    "file": "/home/student/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5"
+}
+node2 | SUCCESS => {
+    "changed": false,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node2/home/student/fetch_file.txt",
+    "file": "/home/student/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f"
+}
+[student@master ansible_examples]$ rm -r ansible_fetch/
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch -flat=true'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node1/home/student/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node2/home/student/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch/ flat=true'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch/ flat=yes'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ rm -r ansible_fetch/
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch/ flat=yes'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch/ flat=yes'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch/'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node1/home/student/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node2/home/student/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch/'
+node1 | SUCCESS => {
+    "changed": false,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node1/home/student/fetch_file.txt",
+    "file": "/home/student/fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5"
+}
+node2 | SUCCESS => {
+    "changed": false,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node2/home/student/fetch_file.txt",
+    "file": "/home/student/fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f"
+}
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/file1.txt dest=/home/student/ansible_baisc/{{ inventory_hostname}}_fetch__file.txt flat=yes'
+node1 | FAILED! => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "msg": "the remote file does not exist, not transferring, ignored"
+}
+node2 | FAILED! => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "msg": "the remote file does not exist, not transferring, ignored"
+}
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/file1.txt dest=/home/student/ansible_baisc/{{ inventory_hostname}} flat=yes'
+node1 | FAILED! => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "msg": "the remote file does not exist, not transferring, ignored"
+}
+node2 | FAILED! => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "msg": "the remote file does not exist, not transferring, ignored"
+}
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_baisc/{{ inventory_hostname}}_fetch_file.txt flat=yes'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_baisc/node1_fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_baisc/node2_fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ ansible centos -m fetch -a 'src=/home/student/fetch_file.txt dest=/home/student/ansible_examples/ansible_fetch/{{ inventory_hostname}}_fetch_file.txt flat=yes'
+node1 | CHANGED => {
+    "changed": true,
+    "checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node1_fetch_file.txt",
+    "md5sum": "912278ce77b5fe810a8d07ef719acbf5",
+    "remote_checksum": "e27b3749c0375e6d84d6beb4f0bcd0f0e6e47992",
+    "remote_md5sum": null
+}
+node2 | CHANGED => {
+    "changed": true,
+    "checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "dest": "/home/student/ansible_examples/ansible_fetch/node2_fetch_file.txt",
+    "md5sum": "b92c93a938bf9c5b74cce55ff8f5513f",
+    "remote_checksum": "67ef88277928d301b6eda746b898621e9eda8b79",
+    "remote_md5sum": null
+}
+[student@master ansible_examples]$ tree ansible_fetch
+ansible_fetch
+├── fetch_file.txt
+├── node1
+│   └── home
+│       └── student
+│           └── fetch_file.txt
+├── node1_fetch_file.txt
+├── node2
+│   └── home
+│       └── student
+│           └── fetch_file.txt
+└── node2_fetch_file.txt
+
+6 directories, 5 files
+[student@master ansible_examples]$ cd ../ansible_tags
+bash: cd: ../ansible_tags: No such file or directory
+[student@master ansible_examples]$ cd ansible_tags
+[student@master ansible_tags]$ cat playbook.yaml 
+---
+- name: Demonstrate async
+  hosts: centos
+  tasks:
+    - name: Only package tag
+      ansible.builtin.debug:
+        msg: "This is package tag" 
+      tags:
+        - package
+    - name: Package and always tag
+      ansible.builtin.debug:
+        msg: "This is package and always tag" 
+      tags:
+        - package
+        - always
+    - name: Package and never tag
+      ansible.builtin.debug:
+        msg: "This is package and never tag" 
+      tags:
+        - package
+        - never
+    - name: No tag
+      ansible.builtin.debug:
+        msg: "This has no tag" 
+    - name: Only ping tag
+      ansible.builtin.debug:
+        msg: "This is ping tag" 
+      tags:
+        - ping
+    - name: Only package tag
+      ansible.builtin.debug:
+        msg: "This is ping and package tag" 
+      tags:
+        - ping
+        - package
+[student@master ansible_tags]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Demonstrate async] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Only package tag] ********************************************************
+ok: [node1] => {
+    "msg": "This is package tag"
+}
+ok: [node2] => {
+    "msg": "This is package tag"
+}
+
+TASK [Package and always tag] **************************************************
+ok: [node1] => {
+    "msg": "This is package and always tag"
+}
+ok: [node2] => {
+    "msg": "This is package and always tag"
+}
+
+TASK [No tag] ******************************************************************
+ok: [node1] => {
+    "msg": "This has no tag"
+}
+ok: [node2] => {
+    "msg": "This has no tag"
+}
+
+TASK [Only ping tag] ***********************************************************
+ok: [node1] => {
+    "msg": "This is ping tag"
+}
+ok: [node2] => {
+    "msg": "This is ping tag"
+}
+
+TASK [Only package tag] ********************************************************
+ok: [node1] => {
+    "msg": "This is ping and package tag"
+}
+ok: [node2] => {
+    "msg": "This is ping and package tag"
+}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_tags]$ ansible-navigator run playbook.yaml -m stdout --tags package
+
+PLAY [Demonstrate async] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Only package tag] ********************************************************
+ok: [node1] => {
+    "msg": "This is package tag"
+}
+ok: [node2] => {
+    "msg": "This is package tag"
+}
+
+TASK [Package and always tag] **************************************************
+ok: [node1] => {
+    "msg": "This is package and always tag"
+}
+ok: [node2] => {
+    "msg": "This is package and always tag"
+}
+
+TASK [Package and never tag] ***************************************************
+ok: [node1] => {
+    "msg": "This is package and never tag"
+}
+ok: [node2] => {
+    "msg": "This is package and never tag"
+}
+
+TASK [Only package tag] ********************************************************
+ok: [node1] => {
+    "msg": "This is ping and package tag"
+}
+ok: [node2] => {
+    "msg": "This is ping and package tag"
+}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_tags]$ ansible-navigator run playbook.yaml -m stdout --tags ping
+
+PLAY [Demonstrate async] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Package and always tag] **************************************************
+ok: [node1] => {
+    "msg": "This is package and always tag"
+}
+ok: [node2] => {
+    "msg": "This is package and always tag"
+}
+
+TASK [Only ping tag] ***********************************************************
+ok: [node1] => {
+    "msg": "This is ping tag"
+}
+ok: [node2] => {
+    "msg": "This is ping tag"
+}
+
+TASK [Only package tag] ********************************************************
+ok: [node1] => {
+    "msg": "This is ping and package tag"
+}
+ok: [node2] => {
+    "msg": "This is ping and package tag"
+}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_tags]$ ansible-navigator run playbook.yaml -m stdout --tags never
+
+PLAY [Demonstrate async] *******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Package and always tag] **************************************************
+ok: [node1] => {
+    "msg": "This is package and always tag"
+}
+ok: [node2] => {
+    "msg": "This is package and always tag"
+}
+
+TASK [Package and never tag] ***************************************************
+ok: [node1] => {
+    "msg": "This is package and never tag"
+}
+ok: [node2] => {
+    "msg": "This is package and never tag"
+}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_tags]$ 
+

@@ -1,0 +1,13 @@
+node3
+
+[europe]
+node1
+node2
+
+[asia]
+node1a
+node2a
+
+[centos:children] #Implementing group of groups
+europe
+asia

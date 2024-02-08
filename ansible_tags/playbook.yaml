@@ -1,0 +1,35 @@
+---
+- name: Demonstrate async
+  hosts: centos
+  tasks:
+    - name: Only package tag
+      ansible.builtin.debug:
+        msg: "This is package tag" 
+      tags:
+        - package
+    - name: Package and always tag
+      ansible.builtin.debug:
+        msg: "This is package and always tag" 
+      tags:
+        - package
+        - always
+    - name: Package and never tag
+      ansible.builtin.debug:
+        msg: "This is package and never tag" 
+      tags:
+        - package
+        - never
+    - name: No tag
+      ansible.builtin.debug:
+        msg: "This has no tag" 
+    - name: Only ping tag
+      ansible.builtin.debug:
+        msg: "This is ping tag" 
+      tags:
+        - ping
+    - name: Only package tag
+      ansible.builtin.debug:
+        msg: "This is ping and package tag" 
+      tags:
+        - ping
+        - package

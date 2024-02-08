@@ -1,0 +1,10 @@
+---
+- name: Demonstrate block and rescue
+  hosts: centos
+  tasks:
+    - name: Run sleep command
+      ansible.builtin.command: /bin/sleep 10
+    - name: Run sleep command
+      ansible.builtin.command: /bin/sleep 10
+    - name: Run sleep command
+      ansible.builtin.command: /bin/sleep 10

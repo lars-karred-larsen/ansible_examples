@@ -1,0 +1,11 @@
+---
+- name: Demonstrate serial
+  hosts: centos
+  max_fail_percentage: 50
+  serial: 2
+  tasks:
+    - name: Run sleep command
+      ansible.builtin.command: /bin/sleep 1
+    - name: Fail the task
+      ansible.builtin.command: /bin/false
+      when: ansible_facts['nodename'] == 'node1'
