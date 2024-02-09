@@ -1,0 +1,12 @@
+---
+- name: Demonstrate module
+  hosts: centos
+  tasks:
+    - name: Call the module
+      demonstrate_module.py:
+        name: 'hello'
+        new: true
+      register: testout
+    - name: dump test output
+      ansible.builtin.debug:
+        msg: '{{ testout }}'

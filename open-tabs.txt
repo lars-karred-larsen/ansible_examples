@@ -1,0 +1,12 @@
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_async.html#avoid-connection-timeouts-poll-0
+https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html
+https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.2/html/creating_and_consuming_execution_environments/assembly-using-builder#assembly-definition-file-breakdown
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html
+https://docs.ansible.com/ansible/latest/inventory_guide/index.html
+https://docs.ansible.com/
+https://docs.ansible.com/ansible/latest/collections/index.html
+https://ansible.readthedocs.io/projects/navigator/installation/#requirements-macos
+https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.4/html/red_hat_ansible_automation_platform_planning_guide/aap_architecture
+https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls
+https://ansible.readthedocs.io/projects/lint/rules/no-changed-when/#correct-code
+https://ansible.readthedocs.io/projects/lint/rules/no-changed-when/

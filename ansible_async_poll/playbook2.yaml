@@ -1,4 +1,6 @@
-- hosts: centos
+---
+- name: Demonstrate async
+  hosts: centos
   tasks:
   - name: Simulate long running op, allow to run for 45 sec, fire and forget
     ansible.builtin.shell: sleep 30

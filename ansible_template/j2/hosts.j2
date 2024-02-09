@@ -1,0 +1,8 @@
+# This new hosts file for {{ ansible_facts['hostname'] }} created at {{ ansible_facts['date_time']['iso8601'] }} UTC
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+{# This is just a comment describing that an entry will be created for
+each host in the centos group #}
+{% for host in groups['centos'] %}
+{{ hostvars[host]['ansible_facts']['default_ipv4']['address'] }} {{ hostvars[host]['ansible_facts']['hostname'] }}
+{% endfor %}

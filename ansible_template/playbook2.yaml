@@ -1,0 +1,8 @@
+---
+- name: Demonstrate template module with loop
+  hosts: centos
+  tasks:
+    - name: Created hosts file
+      ansible.builtin.template:
+        src: j2/hosts.j2
+        dest: /etc/hosts_new

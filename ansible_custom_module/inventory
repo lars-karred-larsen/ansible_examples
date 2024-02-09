@@ -1,0 +1,20 @@
+node3
+
+[europe]
+node1
+
+[asia]
+node2
+
+[america]
+node1a
+node2a
+
+[centos:children] #Implementing group of groups
+europe
+asia
+
+[centos2:children] #Implementing group of groups
+europe
+asia
+america

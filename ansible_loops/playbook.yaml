@@ -25,11 +25,3 @@
         append: true
         groups: "{{ item.group1 }},{{ item.group2 }}"
       loop: "{{ list_of_users }}"
-
-
-
-
-
-
-
-

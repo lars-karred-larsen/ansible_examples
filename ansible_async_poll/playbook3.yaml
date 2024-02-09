@@ -1,0 +1,18 @@
+---
+- name: Demonstrate async with completion check
+  hosts: centos
+  tasks:
+  - name: Simulate long running op, allow to run for 300 sec, fire and forget
+    ansible.builtin.shell: sleep 59
+    changed_when: false
+    async: 300
+    poll: 0 #concurrent task execution
+    register: async_task
+
+  - name: Check on an async task
+    async_status:
+      jid: "{{ async_task.ansible_job_id }}"
+    register: job_result
+    until: job_result.finished
+    retries: 100
+    delay: 10

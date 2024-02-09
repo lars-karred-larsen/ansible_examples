@@ -1,0 +1,614 @@
+[student@master ansible_examples]$ cd ansible_async_poll/
+[student@master ansible_async_poll]$ cat playbook3.yaml
+---
+- name: Demonstrate async with completion check
+  hosts: centos
+  tasks:
+  - name: Simulate long running op, allow to run for 300 sec, fire and forget
+    ansible.builtin.shell: sleep 59
+    changed_when: false
+    async: 300
+    poll: 0 #concurrent task execution
+    register: async_task
+
+  - name: Check on an async task
+    async_status:
+      jid: "{{ async_task.ansible_job_id }}"
+    register: job_result
+    until: job_result.finished
+    retries: 100
+    delay: 10
+[student@master ansible_async_poll]$ ansible-navigator run --syntax-check playbook3.yaml -m stdout
+playbook: /home/student/ansible_examples/ansible_async_poll/playbook3.yaml
+[student@master ansible_async_poll]$ ansible-navigator run --check playbook3.yaml -m stdout
+
+PLAY [Demonstrate async with completion check] *********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Simulate long running op, allow to run for 300 sec, fire and forget] *****
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: NoneType: None
+fatal: [node1]: FAILED! => {"changed": false, "msg": "check mode and async cannot be used on same task."}
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: NoneType: None
+fatal: [node2]: FAILED! => {"changed": false, "msg": "check mode and async cannot be used on same task."}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+node2                      : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+Please review the log for errors.
+[student@master ansible_async_poll]$ ansible-navigator run playbook3.yaml -m stdout
+
+PLAY [Demonstrate async with completion check] *********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Simulate long running op, allow to run for 300 sec, fire and forget] *****
+ok: [node1]
+ok: [node2]
+
+TASK [Check on an async task] **************************************************
+FAILED - RETRYING: [node1]: Check on an async task (100 retries left).
+FAILED - RETRYING: [node1]: Check on an async task (99 retries left).
+FAILED - RETRYING: [node1]: Check on an async task (98 retries left).
+FAILED - RETRYING: [node1]: Check on an async task (97 retries left).
+FAILED - RETRYING: [node1]: Check on an async task (96 retries left).
+FAILED - RETRYING: [node1]: Check on an async task (95 retries left).
+changed: [node1]
+changed: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_async_poll]$ cd ../ansible_custom_module/
+[student@master ansible_custom_module]$ tree
+.
+├── ansible.cfg
+├── inventory
+├── library
+│   └── demonstrate_module.py
+└── playbook.yaml
+
+1 directory, 4 files
+[student@master ansible_custom_module]$ cat library/demonstrate_module.py 
+#!/usr/bin/python
+
+# Copyright: (c) 2018, Terry Jones <terry.jones@example.org>
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
+DOCUMENTATION = r'''
+---
+module: my_test
+
+short_description: This is my test module
+
+# If this is part of a collection, you need to use semantic versioning,
+# i.e. the version is of the form "2.5.0" and not "2.4".
+version_added: "1.0.0"
+
+description: This is my longer description explaining my test module.
+
+options:
+    name:
+        description: This is the message to send to the test module.
+        required: true
+        type: str
+    new:
+        description:
+            - Control to demo if the result of this module is changed or not.
+            - Parameter description can be a list as well.
+        required: false
+        type: bool
+# Specify this value according to your collection
+# in format of namespace.collection.doc_fragment_name
+# extends_documentation_fragment:
+#     - my_namespace.my_collection.my_doc_fragment_name
+
+author:
+    - Your Name (@yourGitHubHandle)
+'''
+
+EXAMPLES = r'''
+# Pass in a message
+- name: Test with a message
+  my_namespace.my_collection.my_test:
+    name: hello world
+
+# pass in a message and have changed true
+- name: Test with a message and changed output
+  my_namespace.my_collection.my_test:
+    name: hello world
+    new: true
+
+# fail the module
+- name: Test failure of the module
+  my_namespace.my_collection.my_test:
+    name: fail me
+'''
+
+RETURN = r'''
+# These are examples of possible return values, and in general should use other names for return values.
+original_message:
+    description: The original name param that was passed in.
+    type: str
+    returned: always
+    sample: 'hello world'
+message:
+    description: The output message that the test module generates.
+    type: str
+    returned: always
+    sample: 'goodbye'
+'''
+
+from ansible.module_utils.basic import AnsibleModule
+
+
+def run_module():
+    # define available arguments/parameters a user can pass to the module
+    module_args = dict(
+        name=dict(type='str', required=True),
+        new=dict(type='bool', required=False, default=False)
+    )
+
+    # seed the result dict in the object
+    # we primarily care about changed and state
+    # changed is if this module effectively modified the target
+    # state will include any data that you want your module to pass back
+    # for consumption, for example, in a subsequent task
+    result = dict(
+        changed=False,
+        original_message='',
+        message=''
+    )
+
+    # the AnsibleModule object will be our abstraction working with Ansible
+    # this includes instantiation, a couple of common attr would be the
+    # args/params passed to the execution, as well as if the module
+    # supports check mode
+    module = AnsibleModule(
+        argument_spec=module_args,
+        supports_check_mode=True
+    )
+
+    # if the user is working with this module in only check mode we do not
+    # want to make any changes to the environment, just return the current
+    # state with no modifications
+    if module.check_mode:
+        module.exit_json(**result)
+
+    # manipulate or modify the state as needed (this is going to be the
+    # part where your module will do what it needs to do)
+    result['original_message'] = module.params['name']
+    result['message'] = 'goodbye'
+
+    # use whatever logic you need to determine whether or not this module
+    # made any modifications to your target
+    if module.params['new']:
+        result['changed'] = True
+
+    # during the execution of the module, if there is an exception or a
+    # conditional state that effectively causes a failure, run
+    # AnsibleModule.fail_json() to pass in the message and the result
+    if module.params['name'] == 'fail me':
+        module.fail_json(msg='You requested this to fail', **result)
+
+    # in the event of a successful module execution, you will want to
+    # simple AnsibleModule.exit_json(), passing the key/value results
+    module.exit_json(**result)
+
+
+def main():
+    run_module()
+
+
+if __name__ == '__main__':
+    main()[student@master ansible_custom_module]$ cat playbook.yaml 
+---
+- name: Demonstrate module
+  hosts: centos
+  tasks:
+    - name: Call the module
+      demonstrate_module.py:
+        name: 'hello'
+        new: true
+      register: testout
+    - name: dump test output
+      ansible.builtin.debug:
+        msg: '{{ testout }}'
+[student@master ansible_custom_module]$ ansible-navigator run --check playbook3.yaml -m stdout
+ERROR! the playbook: playbook3.yaml could not be found
+Please review the log for errors.
+[student@master ansible_custom_module]$ ansible-navigator run --check playbook.yaml -m stdout
+
+PLAY [Demonstrate module] ******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Call the module] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [dump test output] ********************************************************
+ok: [node1] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "message": "",
+        "original_message": ""
+    }
+}
+ok: [node2] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "message": "",
+        "original_message": ""
+    }
+}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_custom_module]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Demonstrate module] ******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Call the module] *********************************************************
+changed: [node1]
+changed: [node2]
+
+TASK [dump test output] ********************************************************
+ok: [node2] => {
+    "msg": {
+        "changed": true,
+        "failed": false,
+        "message": "goodbye",
+        "original_message": "hello"
+    }
+}
+ok: [node1] => {
+    "msg": {
+        "changed": true,
+        "failed": false,
+        "message": "goodbye",
+        "original_message": "hello"
+    }
+}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_custom_module]$ cd ../ansible_template/
+[student@master ansible_template]$ TREE
+bash: TREE: command not found...
+Similar command is: 'tree'
+[student@master ansible_template]$ tree
+.
+├── ansible.cfg
+├── inventory
+├── j2
+│   └── motd.j2
+└── playbook.yaml
+
+1 directory, 4 files
+[student@master ansible_template]$ cat j2/motd.j2 
+Welcome to {{ inventory_hostname }}.
+This machine is managed by ansible[student@master ansible_template]$ echo >> j2/motd.j2 
+[student@master ansible_template]$ cat j2/motd.j2 
+Welcome to {{ inventory_hostname }}.
+This machine is managed by ansible
+[student@master ansible_template]$ cat playbook.yaml 
+---
+- name: Demonstrate template module
+  hosts: centos
+  tasks:
+    - name: Created motd file
+      ansible.builtin.template:
+        src: j2/motd.j2
+        dest: /etc/motd[student@master ansible_template]$ echo >> playbook.yaml 
+[student@master ansible_template]$ cat playbook.yaml 
+---
+- name: Demonstrate template module
+  hosts: centos
+  tasks:
+    - name: Created motd file
+      ansible.builtin.template:
+        src: j2/motd.j2
+        dest: /etc/motd
+[student@master ansible_template]$ ssh node1 cat /etc/motd
+[student@master ansible_template]$ ssh node2 cat /etc/motd
+[student@master ansible_template]$ ssh node1 ls -l /etc/motd
+-rw-r--r--. 1 root root 0 Jun 23  2020 /etc/motd
+[student@master ansible_template]$ ansible-navigator run --syntax-check playbook.yaml -m stdout
+playbook: /home/student/ansible_examples/ansible_template/playbook.yaml
+[student@master ansible_template]$ ansible-navigator run --check playbook.yaml -m stdout
+
+PLAY [Demonstrate template module] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Created motd file] *******************************************************
+changed: [node1]
+changed: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_template]$ ssh node1 cat /etc/motd
+[student@master ansible_template]$ ssh node2 cat /etc/motd
+[student@master ansible_template]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Demonstrate template module] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Created motd file] *******************************************************
+changed: [node2]
+changed: [node1]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_template]$ ssh node1 cat /etc/motd
+Welcome to node1.
+This machine is managed by ansible
+[student@master ansible_template]$ ssh node2 cat /etc/motd
+Welcome to node2.
+This machine is managed by ansible
+[student@master ansible_template]$ cat j2/motd.j2 
+Welcome to {{ inventory_hostname }}.
+This machine is managed by ansible
+python version is {{ ansible_facts['python_version'] }}[student@master ansible_template]$ ansible-navigator run playbook.yaml -m stdout                  echo >> j2/motd.j2 
+[student@master ansible_template]$ cat j2/motd.j2 
+Welcome to {{ inventory_hostname }}.
+This machine is managed by ansible
+python version is {{ ansible_facts['python_version'] }}
+[student@master ansible_template]$ ansible-navigator run playbook.yaml -m stdout
+
+PLAY [Demonstrate template module] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Created motd file] *******************************************************
+changed: [node1]
+changed: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_template]$ ssh node1 cat /etc/motd
+Welcome to node1.
+This machine is managed by ansible
+python version is 3.9.17
+[student@master ansible_template]$ ssh node1 cat /etc/hosts_new
+cat: /etc/hosts_new: No such file or directory
+[student@master ansible_template]$ ssh node2 cat /etc/hosts_new
+cat: /etc/hosts_new: No such file or directory
+[student@master ansible_template]$ tree jjjjjjjjj2
+jjjjjjjjj2 [error opening dir]
+
+0 directories, 0 files
+[student@master ansible_template]$ tree j2
+j2
+├── hosts.j2
+└── motd.j2
+
+0 directories, 2 files
+[student@master ansible_template]$ cat j2/hosts.j2 
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+{# This is just a comment descriping that an entry will be created for
+each host in the centos group #}
+{% for host in groups['centos'] %}
+  {{ hostvars[host]['ansible_facts']['default_ipv4']['address'] }} {{ hostvars[host]['ansible_facts']['hostname'] }}
+{% endfor %}
+[student@master ansible_template]$ cat playbook2.yaml 
+---
+- name: Demonstrate template module with loop
+  hosts: centos
+  tasks:
+    - name: Created hosts file
+      ansible.builtin.template:
+        src: j2/hosts.j2
+        dest: /etc/hosts_new
+[student@master ansible_template]$ ansible-navigator run --syntax-check playbook2.yaml -m stdout
+playbook: /home/student/ansible_examples/ansible_template/playbook2.yaml
+[student@master ansible_template]$ ansible-navigator run --check playbook2.yaml -m stdout
+
+PLAY [Demonstrate template module with loop] ***********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Created hosts file] ******************************************************
+changed: [node2]
+changed: [node1]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_template]$ ansible-navigator run playbook2.yaml -m stdout
+
+PLAY [Demonstrate template module with loop] ***********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Created hosts file] ******************************************************
+changed: [node2]
+changed: [node1]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_template]$ ssh node1 cat /etc/hosts_new
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+  172.25.230.112 node1
+  172.25.230.61 node2
+[student@master ansible_template]$ ssh node2 cat /etc/hosts_new
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+  172.25.230.112 node1
+  172.25.230.61 node2
+[student@master ansible_template]$ ssh node1 ls -l /etc/hosts*
+-rw-r--r--. 1 root root 158 Jun 23  2020 /etc/hosts
+[student@master ansible_template]$ ssh node1 ls -l /etc/hosts_new
+-rw-r--r--. 1 root root 203 Feb  9 15:42 /etc/hosts_new
+[student@master ansible_template]$ ssh node1 diff /etc/hosts /etc/hosts_new
+2a3,4
+>   172.25.230.112 node1
+>   172.25.230.61 node2
+[student@master ansible_template]$ cat j2/hosts.j2 
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+{# This is just a comment describing that an entry will be created for
+each host in the centos group #}
+{% for host in groups['centos'] %}
+This new hosts file for {{ ['ansible_facts']['hostname'] }}
+{{ hostvars[host]['ansible_facts']['default_ipv4']['address'] }} {{ hostvars[host]['ansible_facts']['hostname'] }}
+{% endfor %}
+[student@master ansible_template]$ ansible-navigator run playbook2.yaml -m stdout
+
+PLAY [Demonstrate template module with loop] ***********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Created hosts file] ******************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: ansible.errors.AnsibleUndefinedVariable: 'list object' has no attribute 'hostname'. 'list object' has no attribute 'hostname'
+fatal: [node2]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: 'list object' has no attribute 'hostname'. 'list object' has no attribute 'hostname'"}
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: ansible.errors.AnsibleUndefinedVariable: 'list object' has no attribute 'hostname'. 'list object' has no attribute 'hostname'
+fatal: [node1]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: 'list object' has no attribute 'hostname'. 'list object' has no attribute 'hostname'"}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+node2                      : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+Please review the log for errors.
+[student@master ansible_template]$ cat j2/hosts.j2 
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+{# This is just a comment describing that an entry will be created for
+each host in the centos group #}
+{% for host in groups['centos'] %}
+This new hosts file for {{ ansible_facts['hostname'] }}
+{{ hostvars[host]['ansible_facts']['default_ipv4']['address'] }} {{ hostvars[host]['ansible_facts']['hostname'] }}
+{% endfor %}
+[student@master ansible_template]$ ansible-navigator run playbook2.yaml -m stdout
+
+PLAY [Demonstrate template module with loop] ***********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node2]
+ok: [node1]
+
+TASK [Created hosts file] ******************************************************
+changed: [node1]
+changed: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_template]$ ssh node1 cat /etc/hosts_new
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+This new hosts file for node1
+172.25.230.112 node1
+This new hosts file for node1
+172.25.230.61 node2
+[student@master ansible_template]$ cat j2/hosts.j2 
+# This new hosts file for {{ ansible_facts['hostname'] }}
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+{# This is just a comment describing that an entry will be created for
+each host in the centos group #}
+{% for host in groups['centos'] %}
+{{ hostvars[host]['ansible_facts']['default_ipv4']['address'] }} {{ hostvars[host]['ansible_facts']['hostname'] }}
+{% endfor %}
+[student@master ansible_template]$ ansible-navigator run playbook2.yaml -m stdout
+
+PLAY [Demonstrate template module with loop] ***********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Created hosts file] ******************************************************
+changed: [node1]
+changed: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_template]$ ssh node1 cat /etc/hosts_new
+# This new hosts file for node1
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+172.25.230.112 node1
+172.25.230.61 node2
+[student@master ansible_template]$ ssh node2 cat /etc/hosts_new
+# This new hosts file for node2
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+172.25.230.112 node1
+172.25.230.61 node2
+[student@master ansible_template]$ ssh node1 ls -l /etc/hosts_new
+-rw-r--r--. 1 root root 231 Feb  9 15:54 /etc/hosts_new
+[student@master ansible_template]$ cat j2/hosts.j2 
+# This new hosts file for {{ ansible_facts['hostname'] }} created at {{ ansible_facts['date_time']['iso8601'] }} UTC
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+{# This is just a comment describing that an entry will be created for
+each host in the centos group #}
+{% for host in groups['centos'] %}
+{{ hostvars[host]['ansible_facts']['default_ipv4']['address'] }} {{ hostvars[host]['ansible_facts']['hostname'] }}
+{% endfor %}
+[student@master ansible_template]$ ansible-navigator run playbook2.yaml -m stdout
+
+PLAY [Demonstrate template module with loop] ***********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Created hosts file] ******************************************************
+changed: [node1]
+changed: [node2]
+
+PLAY RECAP *********************************************************************
+node1                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+[student@master ansible_template]$ ssh node1 cat /etc/hosts_new
+# This new hosts file for node1 created at 2024-02-09T10:33:35Z UTC
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+172.25.230.112 node1
+172.25.230.61 node2
+[student@master ansible_template]$ ssh node2 cat /etc/hosts_new
+# This new hosts file for node2 created at 2024-02-09T10:33:35Z UTC
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+172.25.230.112 node1
+172.25.230.61 node2
+[student@master ansible_template]$ 
+
